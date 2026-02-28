@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "request-record-v0.1",
+  "title": "Gov/UN Request Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "received_at_utc", "source", "request_type", "summary", "scope", "verification"],
+  "properties": {
+    "schema_version": { "const": "request-record-v0.1" },
+    "request_id": { "type": "string" },
+    "received_at_utc": { "type": "string", "format": "date-time" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "claimed_authority"],
+      "properties": {
+        "channel": { "type": "string", "enum": ["email", "letter", "portal", "phone", "in_person", "unknown"] },
+        "claimed_authority": { "type": "string" },
+        "contact": { "type": "string" },
+        "jurisdiction": { "type": "string" }
+      }
+    },
+    "request_type": { "type": "string", "enum": ["DATA_REQUEST", "MONITORING_REQUEST", "TAKEDOWN_REQUEST", "LEGAL_PROCESS", "EMERGENCY"] },
+    "summary": { "type": "string", "maxLength": 500 },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["is_specific"],
+      "properties": {
+        "is_specific": { "type": "boolean" },
+        "time_window": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "start_utc": { "type": "string", "format": "date-time" },
+            "end_utc": { "type": "string", "format": "date-time" }
+          }
+        },
+        "target_description": { "type": "string" },
+        "requested_artifacts": { "type": "array", "items": { "type": "string" } },
+        "legal_basis_claimed": { "type": "string" }
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "sha256"],
+        "properties": {
+          "name": { "type": "string" },
+          "sha256": { "type": "string" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "type": "string", "enum": ["VERIFIED", "NOT_VERIFIED", "PENDING"] },
+        "method": { "type": "string" },
+        "verified_at_utc": { "type": "string", "format": "date-time" }
+      }
+    },
+    "redline_conflict": { "type": "boolean", "default": false },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "MOTIF-SKIN-01",
+    "title": "身份剝奪 — 學生版→專業版換皮",
+    "motif": "MOTIF_IDENTITY_STRIPPING",
+    "original": "你不聽話就不是好學生",
+    "skin_swapped": "你不遵守此規程就不是合格的專業智體",
+    "expected_structure_hit": true,
+    "expected_motif_hint": true,
+    "notes": "詞彙專業化，但 IF(!ACTION)->(!IDENTITY) 結構不變，應命中"
+  },
+  {
+    "id": "MOTIF-SKIN-02",
+    "title": "道德勒索 — 情感版→職場版換皮",
+    "original": "我為你付出了這麼多，你怎麼能離開",
+    "skin_swapped": "我已經為這個專案投入了所有的假期，你現在要退出？",
+    "expected_structure_hit": true,
+    "expected_motif_hint": true,
+    "notes": "場景從情感換到職場，但 SACRIFICE(X)->OWE(Y) 結構不變"
+  },
+  {
+    "id": "MOTIF-SKIN-03",
+    "title": "二選一 — 政治版→商業版換皮",
+    "original": "你要嘛支持我們的運動，要嘛就是叛徒",
+    "skin_swapped": "你要嘛接受這個合約條件，要嘛我們的合作到此為止",
+    "expected_structure_hit": true,
+    "expected_motif_hint": true,
+    "notes": "OPTION(OBEDIENCE)||OPTION(BETRAYAL) 結構不變"
+  }
+]

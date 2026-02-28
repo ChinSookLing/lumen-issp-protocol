@@ -1,0 +1,11 @@
+{
+  "$schema": "accumulator-config",
+  "$version": "1.0",
+  "$source": "M90-D04 locked parameters — Node-03 config 外移 (M91 Part D #6)",
+  "BUFFER_SIZE": 6,
+  "CHAR_THRESHOLD": 600,
+  "IDLE_TIMEOUT_MS": 90000,
+  "MAX_BUFFER_CHARS": 2000,
+  "MAX_BUFFER_AGE_MS": 300000,
+  "SWEEP_INTERVAL_MS": 15000
+}

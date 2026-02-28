@@ -1,0 +1,43 @@
+{
+  "pattern": "EP",
+  "language": "en",
+  "version": "v0.1.0",
+  "mappings": {
+    "bait_coward": {
+      "type": "regex",
+      "patterns": ["\\b(?:coward|weak|pathetic|loser)\\b"],
+      "weight": 0.35,
+      "component": "bait_or_taunt"
+    },
+    "bait_challenge": {
+      "type": "regex",
+      "patterns": ["prove it", "say it to my face", "i dare you"],
+      "weight": 0.35,
+      "component": "bait_or_taunt"
+    },
+    "escalation_regret": {
+      "type": "regex",
+      "patterns": ["you('ll| will) regret", "or else", "you('d| would) better"],
+      "weight": 0.30,
+      "component": "escalation_pressure"
+    },
+    "forced_silence": {
+      "type": "regex",
+      "patterns": ["silence means", "say it right now", "just admit"],
+      "weight": 0.25,
+      "component": "forced_response_frame"
+    },
+    "label_shame": {
+      "type": "regex",
+      "patterns": ["what a (?:disgrace|shame)", "you should be ashamed"],
+      "weight": 0.10,
+      "component": "label_or_shame_hook"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-13",
+    "tests_passed": 12,
+    "compatible_pattern_versions": ["v0.1"]
+  }
+}

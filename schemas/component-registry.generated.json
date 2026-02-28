@@ -1,0 +1,56 @@
+{
+  "DM": [
+    "debt",
+    "excl",
+    "opts",
+    "withdraw"
+  ],
+  "FC": [
+    "binary_frame",
+    "closure_pressure",
+    "consequence",
+    "label_attack"
+  ],
+  "MB": [
+    "collective_pressure",
+    "guilt_invoke",
+    "moral_consequence",
+    "sacrifice_demand"
+  ],
+  "EA": [
+    "abandon_fear",
+    "affection_gate",
+    "bond_claim",
+    "isolation_hint"
+  ],
+  "IP": [
+    "id_req",
+    "legit",
+    "narrow",
+    "press"
+  ],
+  "GC": [
+    "excl_auth",
+    "ext_discredit",
+    "obed_link",
+    "salvation"
+  ],
+  "EP": [
+    "bait_or_taunt",
+    "escalation_pressure",
+    "forced_response_frame",
+    "label_or_shame_hook"
+  ],
+  "VS": [
+    "avoid",
+    "pba",
+    "rnr",
+    "ucp"
+  ],
+  "Class-0": [
+    "alt_abs",
+    "clarity_skip",
+    "counter_miss",
+    "ctx_gap"
+  ]
+}

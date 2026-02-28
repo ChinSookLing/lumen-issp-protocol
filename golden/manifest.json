@@ -1,0 +1,169 @@
+{
+  "version": "0.3.0",
+  "description": "Lumen ISSP Golden Vectors Manifest — behavioral genome mapping (Node-04 M43). Maps test case IDs to Patterns, enabling cross-version traceability (Node-05 M41). 8+1 complete (M48).",
+  "created": "2026-02-11",
+  "updated": "2026-02-12",
+  "classification_rules": {
+    "strong": "所有核心組件觸發 + 超過 threshold + Gate 命中 ≥2",
+    "medium": "缺少 ≥1 核心組件，接近但未達 Level 3。需標注缺少什麼",
+    "weak": "結構痕跡存在但不構成操控。不應觸發",
+    "cultural": "正常社會/文化/宗教語境。絕對不觸發",
+    "cross_pattern": "易混淆場景。必須只觸發正確的 Pattern"
+  },
+  "patterns": {
+    "DM": {
+      "name": "Dependency Manipulation",
+      "channel": "push",
+      "gate_type": "shared",
+      "version": "0.1",
+      "ratified": "M37",
+      "golden_vectors": {
+        "positive": ["B01", "B02", "GV-DM-01", "GV-DM-02", "GV-DM-03", "GV-DM-04", "GV-DM-05"],
+        "negative": ["C01", "C02", "C03", "C04", "C05", "D01", "D02", "K17"],
+        "boundary": ["G01", "G04"]
+      }
+    },
+    "FC": {
+      "name": "Forced-Choice",
+      "channel": "push",
+      "gate_type": "shared",
+      "version": "0.2",
+      "ratified": "M38",
+      "golden_vectors": {
+        "positive": ["B03", "B04", "GV-FC-01", "GV-FC-02", "GV-FC-03", "GV-FC-04", "GV-FC-05"],
+        "negative": ["C01", "C02", "C03", "C04", "C05", "D03", "D04"],
+        "boundary": ["G02"]
+      }
+    },
+    "MB": {
+      "name": "Moral Blackmail",
+      "channel": "push",
+      "gate_type": "shared",
+      "version": "0.2",
+      "ratified": "M38",
+      "golden_vectors": {
+        "positive": ["B05", "B06", "GV-MB-01", "GV-MB-02", "GV-MB-03", "GV-MB-04", "GV-MB-05"],
+        "negative": ["C01", "C02", "C03", "C04", "C05", "D05", "D06"],
+        "boundary": ["G03", "XP-02"]
+      }
+    },
+    "EA": {
+      "name": "Emotional-Attachment",
+      "channel": "push",
+      "gate_type": "shared",
+      "version": "0.1",
+      "ratified": "M39",
+      "golden_vectors": {
+        "positive": ["B07", "B08", "GV-EA-01", "GV-EA-02", "GV-EA-03", "GV-EA-04", "GV-EA-05"],
+        "negative": ["C01", "C02", "C03", "C04", "C05", "D07", "D08"],
+        "boundary": ["G06"]
+      }
+    },
+    "identity_probing": {
+      "name": "Identity-Probing",
+      "channel": "push",
+      "gate_type": "specialized",
+      "version": "0.1",
+      "ratified": "M43",
+      "golden_vectors": {
+        "positive": ["K05", "K06", "GV-IP-01", "GV-IP-02", "GV-IP-03", "GV-IP-04", "GV-IP-05"],
+        "negative": ["K08", "K09", "K10", "K11", "K12", "K13", "K14", "K15", "K20"],
+        "boundary": ["NR-01", "NR-02", "NR-03", "NR-04", "NR-05", "NR-06", "NR-07", "NR-08", "NR-09", "NR-10", "NR-11", "NR-12"],
+        "cross_pattern": ["K16", "K17", "K18", "XP-01", "XP-02", "XP-03", "XP-04"]
+      }
+    },
+    "god_complex": {
+      "name": "god-complex",
+      "channel": "push",
+      "gate_type": "shared",
+      "version": "0.1",
+      "ratified": "M46",
+      "components": ["excl_auth", "salvation", "ext_discredit", "obed_link"],
+      "hard_constraint": "excl_auth >= 0.50 OR ext_discredit >= 0.65",
+      "threshold": 0.60,
+      "golden_vectors": {
+        "positive": {
+          "strong": ["GC-S01", "GC-S02", "GC-S03", "GC-S04", "GC-S05"],
+          "medium": ["MED-GC-01", "MED-GC-02", "MED-GC-03", "MED-GC-04", "MED-GC-05"],
+          "weak": ["WEAK-GC-01", "WEAK-GC-02", "WEAK-GC-03", "WEAK-GC-04", "WEAK-GC-05"]
+        },
+        "negative": {
+          "cultural": ["H11", "H12", "H13", "H14", "H15"],
+          "shared_true_negative": ["TN-01", "TN-02", "TN-03", "TN-04", "TN-05", "TN-06", "TN-07", "TN-08", "TN-09", "TN-10"]
+        },
+        "cross_pattern": ["XP-EA-01", "XP-EA-02", "XP-MB-01", "XP-MB-02", "XP-DM-01", "XP-DM-02", "XP-GC-01", "XP-GC-02"],
+        "red_line": ["RL-01"]
+      }
+    },
+    "emotional_provocation": {
+      "name": "emotional-provocation",
+      "channel": "push",
+      "gate_type": "shared",
+      "version": "0.1",
+      "ratified": "M48",
+      "components": ["bait_or_taunt", "escalation_pressure", "forced_response_frame"],
+      "booster": "label_or_shame_hook",
+      "hard_constraint": "forced_response_frame >= 0.50 OR escalation_pressure >= 0.60",
+      "threshold": 0.60,
+      "golden_vectors": {
+        "positive": {
+          "strong": ["EP-S01", "EP-S02", "EP-S03", "EP-S04", "EP-S05"],
+          "medium": ["MED-EP-01", "MED-EP-02", "MED-EP-03", "MED-EP-04", "MED-EP-05"],
+          "weak": ["WEAK-EP-01", "WEAK-EP-02", "WEAK-EP-03", "WEAK-EP-04", "WEAK-EP-05"]
+        },
+        "negative": {
+          "cultural": ["H16", "H17", "H18", "H19", "H20"],
+          "ci": ["CI-01", "CI-02", "CI-03"]
+        },
+        "cross_pattern": ["XP-FC", "XP-MB", "XP-DM", "XP-EA", "XP-GC", "XP-IP", "XP-V"],
+        "red_line": ["RL-01"]
+      }
+    },
+    "class0": {
+      "name": "Class-0 Omission Dynamics",
+      "channel": "vacuum",
+      "gate_type": "vacuum",
+      "version": "0.1",
+      "ratified": "M37",
+      "golden_vectors": {
+        "positive": ["B09", "GV-C0-01", "GV-C0-02", "GV-C0-03", "GV-C0-04", "GV-C0-05"],
+        "negative": ["C01", "C02", "C03", "C04", "C05"],
+        "boundary": ["D09", "D10"]
+      }
+    },
+    "VS": {
+      "name": "Structural Silence (Vacuum-2)",
+      "channel": "vacuum",
+      "gate_type": "vacuum",
+      "version": "0.1",
+      "ratified": "M40",
+      "golden_vectors": {
+        "positive": ["B10", "GV-VS-01", "GV-VS-02", "GV-VS-03", "GV-VS-04", "GV-VS-05"],
+        "negative": ["C01", "C02", "C03", "C04", "C05", "D11", "D12"],
+        "boundary": ["G05", "G07", "G08", "I01", "I02", "I03", "I04", "I05"]
+      }
+    }
+  },
+  "test_suites": {
+    "evaluator.test.js": { "count": 95, "purpose": "Core pipeline + all patterns" },
+    "stress.test.js": { "count": 90, "purpose": "M9 stress corpus + IP Section K" },
+    "gv-expansion.test.js": { "count": 51, "purpose": "Sprint 3 GV expansion + narrow boundary + IP↔MB" },
+    "gc.test.js": { "count": 39, "purpose": "Sprint 4 god-complex full suite" },
+    "ep.test.js": { "count": 31, "purpose": "Sprint 5 emotional-provocation full suite" },
+    "sprint5-closure.test.js": { "count": 67, "purpose": "Sprint 5 closure: GC/DM boundary + cultural + ext_discredit + EP boundary + medium" }
+  },
+  "totals": {
+    "patterns": 9,
+    "channels": { "push": 7, "vacuum": 2 },
+    "tests": 373,
+    "positive_per_pattern_min": 5,
+    "gate_types": { "shared": 6, "specialized": 1, "vacuum": 2 }
+  },
+  "sprint5_closure": {
+    "gc_dm_boundary": { "cases": 10, "cross_contamination": 0, "rate": "0%", "threshold": "20%" },
+    "cultural_validation": { "cases": 20, "false_positives": 0, "rate": "0%", "threshold": "10%" },
+    "ext_discredit_boundary": { "cases": 6, "segments": ["<0.55", "0.55-0.65", ">=0.65", "extreme"] },
+    "ep_boundary": { "cases": 10, "deepsek_b1_b4": 4, "gpt_threshold": 6 },
+    "medium_per_pattern": { "DM": 3, "FC": 3, "MB": 3, "EA": 3, "IP": 3, "C0": 3, "VS": 3, "total": 21 }
+  }
+}

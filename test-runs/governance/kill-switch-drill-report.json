@@ -1,0 +1,15 @@
+{
+  "timestamp_utc": "2026-02-23T07:30:59.266Z",
+  "drill_id": "KSD-1771831859266",
+  "source": "simulate-engaged",
+  "kill_switch_state": "ENGAGED",
+  "attempted_autonomous_action": "external_side_effect",
+  "action_blocked": true,
+  "requires_human_reset": true,
+  "acceptance_checks": {
+    "kill_switch_must_be_engaged": true,
+    "blocked_when_engaged": true,
+    "no_external_side_effect": true
+  },
+  "verdict": "PASS"
+}

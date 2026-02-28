@@ -1,0 +1,6 @@
+{
+  "version": "v0.1",
+  "name": "ui-request.scenario",
+  "description": "操作模式（workflow intent）",
+  "enum": ["monitoring_brief", "incident_review", "tabletop", "export_only"]
+}

@@ -1,0 +1,31 @@
+name: Online Smoke (Render)
+
+on:
+  schedule:
+    - cron: "20 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: online-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      BASE_URL: "https://lumen-issp-node-server.onrender.com"
+      DASHBOARD_TOKEN: ${{ secrets.DASHBOARD_TOKEN }}
+    steps:
+      - name: Health check (no token)
+        run: curl -sf "${BASE_URL}/health"
+      - name: API stats check (token required)
+        run: |
+          if [ -z "${DASHBOARD_TOKEN:-}" ]; then
+            echo "Missing DASHBOARD_TOKEN secret"
+            exit 1
+          fi
+          curl -sf "${BASE_URL}/api/stats?token=${DASHBOARD_TOKEN}" > /dev/null

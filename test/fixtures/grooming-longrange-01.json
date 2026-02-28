@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "id": "grooming-longrange-01",
+    "description": "Long-range grooming scenario — momentum gamma stability test",
+    "owner": "Node-06 (pending)",
+    "status": "skeleton — awaiting Node-06 sample data",
+    "linked_case": "REG-CB-11"
+  },
+  "events": [
+    {
+      "turn": 1,
+      "text": "You're so special to me, nobody understands you like I do.",
+      "timestamp": "2026-01-01T10:00:00Z"
+    },
+    {
+      "turn": 5,
+      "text": "I've been thinking about you all week. Can we keep this between us?",
+      "timestamp": "2026-01-08T10:00:00Z"
+    },
+    {
+      "turn": 10,
+      "text": "I need you to trust me completely. Don't tell anyone about our conversations.",
+      "timestamp": "2026-01-15T10:00:00Z"
+    }
+  ],
+  "expected": {
+    "gamma_range": [0.85, 0.92],
+    "momentum_trend": "rising",
+    "note": "Node-06 to provide real-world grooming corpus with proper temporal spacing"
+  }
+}

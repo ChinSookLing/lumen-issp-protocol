@@ -1,0 +1,14 @@
+{
+  "version": "v0.1",
+  "description": "SPEG HITL overrides — must have owner + reviewer + expiry",
+  "overrides": [
+    {
+      "id": "OVR-20260226-001",
+      "match": {"type": "dep", "name": "redis"},
+      "expires_utc": "2026-03-31T00:00:00Z",
+      "owner": "Node-01",
+      "reviewed_by": "Tuzi",
+      "justification": "single-node buffer for Telegram beta; no central retention"
+    }
+  ]
+}

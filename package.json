@@ -1,0 +1,33 @@
+{
+  "name": "npm-init-lumen-protocol",
+  "version": "1.0.0",
+  "description": "Lumen protocol",
+  "main": "index.js",
+  "scripts": {
+    "lint:regex": "node scripts/lint-regex.js",
+    "validate:schemas": "node scripts/validate-schemas.js",
+    "validate:vectors": "node scripts/ci/validate-vectors.js",
+    "validate:redline-coverage": "node scripts/ci/validate-redline-coverage.js",
+    "check:charter": "bash scripts/ci/check-charter.sh",
+    "drill:kill-switch": "node scripts/ci/kill-switch-drill.js --simulate-engaged",
+    "gate:governance-change": "node scripts/ci/governance-change-gate.js --staged",
+    "test": "node --test conformance/*.test.js test/output/*.test.js test/forecast/*.test.js src/mapper/__tests__/*.test.js test/pipeline/*.test.js test/events/*.test.js test/contracts/*.test.js test/e2e/*.test.js test/util/*.test.js test/*.test.js test/group-d/*.test.js test/regression/*.test.js test/engines/*.test.js test/adapter/*.test.js test/explanation/*.test.js test/telegram/*.test.js",
+    "conformance": "node scripts/run-conformance.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChinSookLing/npm-init-lumen-protocol.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ChinSookLing/npm-init-lumen-protocol/issues"
+  },
+  "homepage": "https://github.com/ChinSookLing/npm-init-lumen-protocol#readme",
+  "devDependencies": {
+    "ajv": "^8.18.0",
+    "ajv-formats": "^3.0.1"
+  }
+}

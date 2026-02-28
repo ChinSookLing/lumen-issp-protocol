@@ -1,0 +1,17 @@
+# CODEOWNERS
+
+# Spec-critical files — Architect must review
+/core/ @ChinSookLing
+/schemas/ @ChinSookLing
+/conformance/ @ChinSookLing
+/REDLINES.md @ChinSookLing
+/RATIFIED.md @ChinSookLing
+
+# Governance files
+/COMPATIBILITY.md @ChinSookLing
+/NAMING.md @ChinSookLing
+/TRADEMARKS.md @ChinSookLing
+/docs/governance/ @ChinSookLing
+
+# Mappings
+/mappings/ @ChinSookLing

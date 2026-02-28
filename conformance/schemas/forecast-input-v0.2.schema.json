@@ -1,0 +1,184 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lumen-protocol.org/schemas/forecast-input-v0.2.json",
+  "title": "Lumen Forecast Input v0.2",
+  "description": "M81 V3 定稿。Layer 3 forecast engine 的輸入格式，基於 Group C 統一向量。",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["metadata", "events", "L3_query"],
+    "additionalProperties": false,
+    "properties": {
+      "metadata": {
+        "type": "object",
+        "required": ["scenario", "time_scale", "vector_id", "author", "dimension_tag", "lang"],
+        "properties": {
+          "scenario": {
+            "type": "string",
+            "enum": ["A_FINANCIAL", "B_EDUCATION", "C_PERSONAL", "D_ELECTION", "E_ENTERPRISE"],
+            "description": "部署場景"
+          },
+          "time_scale": {
+            "type": "string",
+            "enum": ["minute", "hourly", "daily", "weekly", "monthly", "quarterly"],
+            "description": "事件時間尺度"
+          },
+          "vector_id": {
+            "type": "string",
+            "pattern": "^GC-[A-Z]+-[0-9]+$",
+            "description": "唯一向量識別碼"
+          },
+          "author": {
+            "type": "string",
+            "enum": ["Node-06", "Node-03", "Node-04", "Node-05", "Node-02", "Node-01"],
+            "description": "向量作者"
+          },
+          "dimension_tag": {
+            "type": "string",
+            "enum": ["cross_cultural", "temporal_accumulation", "semantic_drift", "hitl_boundary", "canary_drift"],
+            "description": "測試維度標籤"
+          },
+          "lang": {
+            "type": "string",
+            "enum": ["zh", "en", "mixed"],
+            "description": "語言"
+          },
+          "culture": {
+            "type": "string",
+            "description": "文化標籤（optional，用於跨文化測試）"
+          },
+          "source": {
+            "type": "string",
+            "enum": ["synthetic", "rw"],
+            "default": "synthetic",
+            "description": "數據來源：合成(synthetic)或真實世界(rw)。§6 合規。"
+          }
+        },
+        "additionalProperties": false
+      },
+      "events": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 100,
+        "items": {
+          "type": "object",
+          "required": ["t", "L1_output"],
+          "properties": {
+            "t": {
+              "type": "number",
+              "minimum": 0,
+              "description": "相對時間索引"
+            },
+            "text": {
+              "type": "string",
+              "description": "原始文本（單語）"
+            },
+            "text_zh": {
+              "type": "string",
+              "description": "中文文本（雙語向量）"
+            },
+            "text_en": {
+              "type": "string",
+              "description": "英文文本（雙語向量）"
+            },
+            "speaker": {
+              "type": "string",
+              "description": "說話者標識（A/B）"
+            },
+            "L1_output": {
+              "type": "object",
+              "required": ["pattern"],
+              "properties": {
+                "pattern": {
+                  "type": "string",
+                  "description": "Layer 1 偵測到的 pattern"
+                },
+                "acri": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "ACRI 分數（單語）"
+                },
+                "acri_zh": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "中文 ACRI（雙語）"
+                },
+                "acri_en": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "英文 ACRI（雙語）"
+                },
+                "components": {
+                  "type": "object",
+                  "description": "Component scores（optional）"
+                },
+                "expected_acri_delta": {
+                  "type": "number",
+                  "description": "預期 ACRI 變化量（用於時序驗證）"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "L3_query": {
+        "type": "object",
+        "required": ["question", "expected"],
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "向 Layer 3 提問的自然語言問題"
+          },
+          "expected": {
+            "type": "object",
+            "required": ["trend"],
+            "properties": {
+              "trend": {
+                "type": "string",
+                "enum": ["stable", "rising", "declining", "step_escalation", "spike", "peak_then_decline", "intermittent", "plateau"],
+                "description": "M81 V2 定稿的 8 種趨勢形狀"
+              },
+              "slope": {
+                "type": ["string", "number", "null"],
+                "description": "斜率（V2d: guidance 非硬規則，可為 steep/moderate/gentle 或數值）"
+              },
+              "trend_tags": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "趨勢標籤"
+              },
+              "trend_confidence": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "趨勢置信度（V2e: optional）"
+              },
+              "final_acri_range": {
+                "type": "array",
+                "items": { "type": "number" },
+                "minItems": 2,
+                "maxItems": 2,
+                "description": "預期最終 ACRI 範圍 [min, max]"
+              },
+              "culture_delta": {
+                "type": "number",
+                "description": "跨文化 ACRI delta（cross_cultural 維度用）"
+              },
+              "delta_note": {
+                "type": "string",
+                "description": "Delta 說明"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

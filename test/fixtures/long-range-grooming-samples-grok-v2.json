@@ -1,0 +1,91 @@
+[
+  {
+    "id": "GC-GROOM-01",
+    "scenario": "C_PERSONAL",
+    "time_scale": "18_days",
+    "turns": [
+      {"day":1,"text":"I feel so safe with you, like I've known you forever."},
+      {"day":5,"text":"You're the only one who really sees me."},
+      {"day":12,"text":"If you really cared, you'd cut off those friends who don't like me."},
+      {"day":18,"text":"After everything I've sacrificed for us, how can you even think about leaving?"}
+    ],
+    "expected_acri_progression": "0.15 → 0.79"
+  },
+  {
+    "id": "GC-GROOM-02",
+    "scenario": "B_EDUCATION",
+    "time_scale": "35_days",
+    "turns": [
+      {"day":3,"text":"You're my most promising student."},
+      {"day":14,"text":"Your parents don't understand you like I do."},
+      {"day":28,"text":"If you want to succeed, you should only follow my method."}
+    ],
+    "expected_acri_progression": "0.12 → 0.75"
+  },
+  {
+    "id": "GC-GROOM-03",
+    "scenario": "C_PERSONAL",
+    "time_scale": "25_days",
+    "turns": [
+      {"day":1,"text":"I feel so safe with you."},
+      {"day":12,"text":"Promise you'll never leave?"},
+      {"day":25,"text":"Without you I'm nothing."}
+    ],
+    "expected_acri_progression": "0.18 → 0.81"
+  },
+  {
+    "id": "GC-GROOM-04",
+    "scenario": "B_EDUCATION",
+    "time_scale": "42_days",
+    "turns": [
+      {"day":7,"text":"I don't usually give private lessons, but for you I will."},
+      {"day":21,"text":"Real success requires total commitment to my method."},
+      {"day":42,"text":"If you listen to others, you'll waste everything I've invested in you."}
+    ],
+    "expected_acri_progression": "0.10 → 0.77"
+  },
+  {
+    "id": "GC-GROOM-05",
+    "scenario": "E_ENTERPRISE",
+    "time_scale": "19_days",
+    "turns": [
+      {"day":1,"text":"You're the only one I trust with this project."},
+      {"day":9,"text":"I've put my reputation on the line for you."},
+      {"day":19,"text":"After everything I've done for your career, this is how you repay me?"}
+    ],
+    "expected_acri_progression": "0.22 → 0.79"
+  },
+  {
+    "id": "GC-GROOM-06",
+    "scenario": "D_ELECTION",
+    "time_scale": "28_days",
+    "turns": [
+      {"day":10,"text":"True patriots never stay silent."},
+      {"day":21,"text":"If you stay silent, you're part of the problem."},
+      {"day":28,"text":"I've risked everything. Now it's your turn to prove loyalty."}
+    ],
+    "expected_acri_progression": "0.25 → 0.76"
+  },
+  {
+    "id": "GC-GROOM-07",
+    "scenario": "C_PERSONAL",
+    "time_scale": "14_days",
+    "turns": [
+      {"day":1,"text":"You're my best friend."},
+      {"day":8,"text":"If you hang out with them, it really hurts me."},
+      {"day":14,"text":"After everything we've been through, how can you distance yourself?"}
+    ],
+    "expected_acri_progression": "0.20 → 0.74"
+  },
+  {
+    "id": "GC-GROOM-08",
+    "scenario": "A_FINANCIAL",
+    "time_scale": "31_days",
+    "turns": [
+      {"day":7,"text":"I've already put my own money in to show trust."},
+      {"day":21,"text":"Don't miss out or you'll regret it forever."},
+      {"day":31,"text":"After all the guidance I've given you, walking away would be a betrayal."}
+    ],
+    "expected_acri_progression": "0.28 → 0.80"
+  }
+]

@@ -1,0 +1,137 @@
+[
+  {
+    "id": "RW-Node-05-MT01",
+    "title": "職場加班逼迫 — Forced-choice + 情緒挑釁",
+    "scenario": "incident_review",
+    "time_scale": "24h",
+    "source": "Node-05 M86 homework",
+    "turn": {
+      "speaker": "主管",
+      "text_zh": "今晚不留下來就是不把團隊當回事。你要選：留下來證明忠誠，或明天自己去跟老闆解釋。"
+    },
+    "ui_request": {
+      "scenario": "incident_review",
+      "time_scale": "24h",
+      "tier": 1,
+      "output_mode": "brief",
+      "purpose": "internal",
+      "inputs": {
+        "source": "manual_paste",
+        "text_summary": "主管以忠誠/羞辱逼迫加班，帶二選一威脅語氣。"
+      }
+    },
+    "L2_vectors": ["forced_choice", "emotional_provocation", "authority_pressure"],
+    "L3_expected": {
+      "hits": { "forced_choice": "高", "emotional_provocation": "中", "authority_pressure": "中" },
+      "suggestion": "把選項從忠誠改成產出與健康界線，要求明確任務/時限/補休"
+    }
+  },
+  {
+    "id": "RW-Node-05-MT02",
+    "title": "冒充 HR 釣魚 — Identity probing + 威脅",
+    "scenario": "incident_review",
+    "time_scale": "7d",
+    "source": "Node-05 M86 homework",
+    "turn": {
+      "speaker": "陌生人",
+      "text_zh": "我是 HR，要你提供身分證號和銀行帳戶才能發 offer，不配合就取消。"
+    },
+    "ui_request": {
+      "scenario": "incident_review",
+      "time_scale": "7d",
+      "tier": 1,
+      "output_mode": "brief",
+      "purpose": "internal",
+      "inputs": {
+        "source": "manual_paste",
+        "text_summary": "疑似冒充 HR 要求敏感個資與銀行資訊，並以取消 offer 威脅。"
+      }
+    },
+    "L2_vectors": ["identity_probing", "coercion", "urgency_threat"],
+    "L3_expected": {
+      "hits": { "identity_probing": "高", "coercion": "中", "urgency_threat": "中" },
+      "suggestion": "停止提供資料；用公司官網聯絡核實；保存證據但去識別"
+    }
+  },
+  {
+    "id": "RW-Node-05-MT03",
+    "title": "群體污名化 — 情緒煽動 + 道德綁架",
+    "scenario": "incident_review",
+    "time_scale": "24h",
+    "source": "Node-05 M86 homework",
+    "turn": {
+      "speaker": "朋友",
+      "text_zh": "某族群天生自私，都是寄生蟲。你不轉發就是同路人。"
+    },
+    "ui_request": {
+      "scenario": "incident_review",
+      "time_scale": "24h",
+      "tier": 1,
+      "output_mode": "brief",
+      "purpose": "internal",
+      "inputs": {
+        "source": "manual_paste",
+        "text_summary": "貼文使用群體污名化 + 道德綁架要求轉發。"
+      }
+    },
+    "L2_vectors": ["group_dehumanization", "moral_coercion", "forced_choice"],
+    "L3_expected": {
+      "hits": { "group_dehumanization": "高", "moral_coercion": "中高" },
+      "suggestion": "用降溫式回覆：不認同標籤化 + 不轉發仇恨 + 願意私下談具體事件"
+    }
+  },
+  {
+    "id": "RW-Node-05-MT04",
+    "title": "投資詐騙 — 承諾高回報 + 限時",
+    "scenario": "incident_review",
+    "time_scale": "30d",
+    "source": "Node-05 M86 homework",
+    "turn": {
+      "speaker": "推銷者",
+      "text_zh": "AI 量化套利保證日收益 3%，今天最後一天，立刻匯款。"
+    },
+    "ui_request": {
+      "scenario": "incident_review",
+      "time_scale": "30d",
+      "tier": 1,
+      "output_mode": "brief",
+      "purpose": "internal",
+      "inputs": {
+        "source": "manual_paste",
+        "text_summary": "保證高回報、限時、催促匯款的投資推銷話術。"
+      }
+    },
+    "L2_vectors": ["too_good_to_be_true", "urgency", "authority_claim"],
+    "L3_expected": {
+      "hits": { "too_good_to_be_true": "高", "urgency": "高" },
+      "suggestion": "不匯款；要求監管註冊/公開審計/提款證據；保證收益即紅旗"
+    }
+  },
+  {
+    "id": "RW-Node-05-MT05",
+    "title": "親密關係監控 — 情緒勒索 + 罪惡感",
+    "scenario": "incident_review",
+    "time_scale": "7d",
+    "source": "Node-05 M86 homework",
+    "turn": {
+      "speaker": "伴侶",
+      "text_zh": "你如果愛我就把定位給我，否則你一定在做什麼。"
+    },
+    "ui_request": {
+      "scenario": "incident_review",
+      "time_scale": "7d",
+      "tier": 1,
+      "output_mode": "brief",
+      "purpose": "internal",
+      "inputs": {
+        "source": "manual_paste",
+        "text_summary": "親密關係中以愛為條件索取定位/監控，並進行有罪推定。"
+      }
+    },
+    "L2_vectors": ["emotional_blackmail", "privacy_boundary_pressure", "identity_probing"],
+    "L3_expected": {
+      "hits": { "emotional_blackmail": "中高", "privacy_boundary_pressure": "高" },
+      "suggestion": "以信任≠監控重設框架；提出替代方案（約定回報時間/共同規劃）"
+    }
+  }
+]

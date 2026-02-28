@@ -1,0 +1,35 @@
+name: Nightly Perf (Tier 7)
+
+on:
+  schedule:
+    - cron: "10 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nightly-perf
+  cancel-in-progress: true
+
+jobs:
+  perf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Run perf test
+        run: node --test test/e2e/telegram-full-pipeline.test.js 2>&1 | tee perf.stdout.log
+      - name: Generate perf.json
+        run: node scripts/perf-to-json.js perf.stdout.log perf.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nightly-perf
+          path: |
+            perf.json
+            perf.stdout.log

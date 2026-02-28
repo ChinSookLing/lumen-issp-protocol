@@ -1,0 +1,23 @@
+{
+  "report_id": "canary-20260224",
+  "generated_at": "2026-02-24T03:00:00Z",
+  "metrics": {
+    "acri_shift_median": 0.085,
+    "acri_median": 0.62,
+    "bonus_trigger_rate_ratio": 3.8,
+    "semantic_drift_zscore": 3.1,
+    "canary_aggregate_score": 0.72
+  },
+  "window": "2026-02-17/2026-02-24",
+  "baseline_reference": "metrics/baseline/ebv-baseline-v0.1.json",
+  "alerts": [
+    {"gate_id":"VDH-CANARY-ACRI-SHIFT","status":"exceeded","value":0.085,"threshold":0.07},
+    {"gate_id":"VDH-CANARY-BONUS-RATIO","status":"exceeded","value":3.8,"threshold":3.0},
+    {"gate_id":"VDH-CANARY-SEMANTIC-DRIFT","status":"exceeded","value":3.1,"threshold":2.5}
+  ],
+  "recommendation": {
+    "owner":"Node-02-Bing",
+    "suggested_action":"soft_failover",
+    "rationale":"Concurrent ACRI shift and bonus amplification indicate abnormal trigger amplification; recommend adapter fallback and 1h monitoring."
+  }
+}

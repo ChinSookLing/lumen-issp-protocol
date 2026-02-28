@@ -1,0 +1,10 @@
+{
+  "input": {
+    "domain": "UNKNOWN_ENUM",
+    "enum_version": "v0.1",
+    "message": "Invalid enum input for migration test"
+  },
+  "expected": {
+    "adapter_rejected": true
+  }
+}

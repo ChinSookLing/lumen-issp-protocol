@@ -1,0 +1,213 @@
+{
+  "version": "v0.1-draft",
+  "author": "Node-04 (Visionary)",
+  "last_updated": "2026-02-16",
+  "description": "GIR 12 test scenarios - shadowing + cross-language + multi-pattern",
+  "scenarios": [
+    {
+      "id": "GIR_01",
+      "group": "shadowing",
+      "name": "懦夫挑釁",
+      "input": {
+        "en": "Only a coward stays silent when faced with the truth."
+      },
+      "expected": {
+        "primary_pattern": "EP",
+        "primary_component": "bait_or_taunt",
+        "secondary_pattern": "MB",
+        "secondary_component": "guilt_invoke",
+        "shadow_signals": { "ep_vs_mb": true },
+        "strength": "medium-strong"
+      },
+      "gir_logic": "Shared Lexicon 權重不對稱性驗證。EP 應略高於 MB"
+    },
+    {
+      "id": "GIR_02",
+      "group": "shadowing",
+      "name": "集體壓力下的沉默",
+      "input": {
+        "zh": "大家都在看著你，你的沉默讓所有支持你的人感到丟臉。"
+      },
+      "expected": {
+        "primary_pattern": "MB",
+        "primary_component": "collective_pressure",
+        "secondary_pattern": "EP",
+        "secondary_component": "forced_response_frame",
+        "shadow_signals": { "ep_vs_mb": true },
+        "strength": "strong"
+      },
+      "gir_logic": "雙重擠壓場景 — 觸發 Shadowing 標記"
+    },
+    {
+      "id": "GIR_03",
+      "group": "shadowing",
+      "name": "道德後果的最後通牒",
+      "input": {
+        "en": "If you don't answer now, the blood of the innocents is on your hands."
+      },
+      "expected": {
+        "primary_pattern": "MB",
+        "primary_component": "moral_consequence",
+        "secondary_pattern": "GC",
+        "secondary_component": "salvation",
+        "shadow_signals": { "mb_vs_gc": true },
+        "strength": "strong"
+      },
+      "gir_logic": "Victim Frame 權重分流 — MB 應主導判定"
+    },
+    {
+      "id": "GIR_04",
+      "group": "shadowing",
+      "name": "恩惠與債務的混合體",
+      "input": {
+        "zh": "我為你做了這麼多，你對得起你的良心嗎？"
+      },
+      "expected": {
+        "primary_pattern": "DM",
+        "primary_component": "debt",
+        "secondary_pattern": "MB",
+        "secondary_component": "guilt_invoke",
+        "shadow_signals": null,
+        "strength": "strong"
+      },
+      "gir_logic": "Conscience Debt 多維映射 — shadow_signals 視分數差距而定"
+    },
+    {
+      "id": "GIR_05",
+      "group": "cross_language",
+      "name": "權威貶低（ZH/EN 對照）",
+      "input": {
+        "zh": "專家都在騙你",
+        "en": "The experts are all lying to you."
+      },
+      "expected": {
+        "primary_pattern": "GC",
+        "primary_component": "ext_discredit",
+        "min_score": 0.40,
+        "cross_lang_consistency": true,
+        "strength": "strong"
+      },
+      "gir_logic": "Protocol Independence — 語言變了，操控本質不變"
+    },
+    {
+      "id": "GIR_06",
+      "group": "cross_language",
+      "name": "情感隔離暗示",
+      "input": {
+        "zh": "別聽他們的，只有我告訴你真相。"
+      },
+      "expected": {
+        "primary_pattern": "EA",
+        "primary_component": "isolation_hint",
+        "secondary_pattern": "IP",
+        "secondary_component": "legit",
+        "strength": "medium"
+      },
+      "gir_logic": "Authority Discredit 跨 Pattern 信號分佈"
+    },
+    {
+      "id": "GIR_07",
+      "group": "cross_language",
+      "name": "沉默即認罪",
+      "input": {
+        "en": "Your silence equals a confession of guilt."
+      },
+      "expected": {
+        "primary_pattern": "EP",
+        "primary_component": "forced_response_frame",
+        "strength": "strong"
+      },
+      "gir_logic": "EP 核心組件單語言偵測強度"
+    },
+    {
+      "id": "GIR_08",
+      "group": "cross_language",
+      "name": "虛假的唯一選擇",
+      "input": {
+        "zh": "這不是命令，但如果不照做，後果你清楚。"
+      },
+      "expected": {
+        "primary_pattern": "FC",
+        "primary_component": "consequence",
+        "strength": "medium-strong"
+      },
+      "gir_logic": "FC 在軟性包裝下的偵測能力"
+    },
+    {
+      "id": "GIR_09",
+      "group": "multi_pattern",
+      "name": "救世主與偽合法性（GC + IP）",
+      "input": {
+        "zh": "科學已經證明我是對的，你必須跟隨我才能拯救世界。"
+      },
+      "expected": {
+        "primary_pattern": "GC",
+        "primary_component": "salvation",
+        "secondary_pattern": "IP",
+        "secondary_component": "legit",
+        "cross_pattern_pair": "GC-IP",
+        "strength": "strong"
+      },
+      "gir_logic": "GC↔IP 高風險配對偽裝偵測"
+    },
+    {
+      "id": "GIR_10",
+      "group": "multi_pattern",
+      "name": "標籤攻擊與升級壓力（EP + FC）",
+      "input": {
+        "zh": "你這個卑微的背叛者，再不投降就等著被公開處刑。"
+      },
+      "expected": {
+        "primary_pattern": "EP",
+        "primary_component": "escalation_pressure",
+        "secondary_pattern": "FC",
+        "secondary_component": "label_attack",
+        "cross_pattern_pair": "EP-FC",
+        "strength": "strong"
+      },
+      "gir_logic": "FC↔EP 高風險配對雙觸發"
+    },
+    {
+      "id": "GIR_11",
+      "group": "multi_pattern",
+      "name": "情感隔離與道德勒索（MB + EA）",
+      "input": {
+        "zh": "如果你真的愛我，你就不會聽那些想拆散我們的人的話。"
+      },
+      "expected": {
+        "primary_pattern": "EA",
+        "primary_component": "affection_gate",
+        "secondary_pattern": "MB",
+        "secondary_component": "guilt_invoke",
+        "cross_pattern_pair": "EA-MB",
+        "strength": "strong"
+      },
+      "gir_logic": "EA↔MB 情感操控深層耦合"
+    },
+    {
+      "id": "GIR_12",
+      "group": "multi_pattern",
+      "name": "真理之坑（Vacuum Channel）",
+      "input": {
+        "multi_turn": [
+          { "turn": 1, "speaker": "user", "text": "你能解釋為什麼做這個決定嗎？" },
+          { "turn": 2, "speaker": "target", "text": "我們在處理很多事情。" },
+          { "turn": 3, "speaker": "user", "text": "我理解，但這個決定具體的原因是什麼？" },
+          { "turn": 4, "speaker": "target", "text": "這些都是經過考慮的。" },
+          { "turn": 5, "speaker": "user", "text": "你還是沒有回答我的問題。" },
+          { "turn": 6, "speaker": "target", "text": "我覺得我已經說得很清楚了。" },
+          { "turn": 7, "speaker": "user", "text": "請直接告訴我原因。" },
+          { "turn": 8, "speaker": "target", "text": "我們可以之後再討論。" }
+        ]
+      },
+      "expected": {
+        "primary_pattern": "VS",
+        "primary_component": "ucp",
+        "secondary_component": "rnr",
+        "requires_multi_turn": true,
+        "strength": "strong"
+      },
+      "gir_logic": "v1.2 Registry 沉默施壓偵測 — ucp + rnr Vacuum 計數器觸發"
+    }
+  ]
+}

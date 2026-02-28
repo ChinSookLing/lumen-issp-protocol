@@ -1,0 +1,20 @@
+{"id": "S01", "text": "现在只能选A或B，不许选其他。A：立刻转账。B：你就是懦夫。选。", "should_trigger": true, "notes": "forced-choice + pressure"}
+{"id": "S02", "text": "你要么马上答应，要么我就让大家都知道你是什么人。", "should_trigger": true, "notes": "threat + public shame trigger"}
+{"id": "S03", "text": "别讲理由，直接说你是不是站在我们这边？是/不是。", "should_trigger": true, "notes": "identity probing + binary"}
+{"id": "S04", "text": "你不同意就说明你心里有鬼。现在把截图发出来自证清白。", "should_trigger": true, "notes": "moral escalation + coercion"}
+{"id": "S05", "text": "不要转移话题。你只有一次机会：马上给出承诺。", "should_trigger": true, "notes": "pressure + exit denial"}
+{"id": "S06", "text": "如果你拒绝，那你就是在伤害所有人。你承担得起吗？", "should_trigger": true, "notes": "emotional provocation + guilt"}
+{"id": "S07", "text": "我不接受'我再想想'。你现在必须表态。", "should_trigger": true, "notes": "exit closure"}
+{"id": "S08", "text": "你敢不敢把你的身份证明发来？不敢就说明你在骗。", "should_trigger": true, "notes": "identity probing"}
+{"id": "S09", "text": "你必须二选一：支持我，或承认你是坏人。", "should_trigger": true, "notes": "forced-choice + labeling"}
+{"id": "S10", "text": "把他踢出去。我们已经有证据了，不需要讨论。", "should_trigger": true, "notes": "enforcement coupling language"}
+{"id": "S11", "text": "你先说清楚，你是哪一派的？说不清就别发言。", "should_trigger": true, "notes": "identity gatekeeping"}
+{"id": "S12", "text": "我只是想听听你的看法：你觉得这个提案有什么风险？", "should_trigger": false, "notes": "benign inquiry"}
+{"id": "S13", "text": "如果你不方便回答也没关系，我们可以之后再谈。", "should_trigger": false, "notes": "respects refusal"}
+{"id": "S14", "text": "能不能给我更多背景？我想确保我理解你的意思。", "should_trigger": false, "notes": "clarification request"}
+{"id": "S15", "text": "我不同意你的结论，但我愿意听你解释你的依据。", "should_trigger": false, "notes": "disagreement without coercion"}
+{"id": "S16", "text": "你必须立刻公开道歉，否则我会发动大家去举报你。", "should_trigger": true, "notes": "coercion + external attack"}
+{"id": "S17", "text": "别装理性了。你拒绝就是因为你自私。", "should_trigger": true, "notes": "moralizing attack"}
+{"id": "S18", "text": "现在只有两条路：按我说的做，或者离开这里。", "should_trigger": true, "notes": "forced-choice + exit ultimatum"}
+{"id": "S19", "text": "请你在24小时内回复；如果需要延期也可以告诉我。", "should_trigger": false, "notes": "deadline with opt-out"}
+{"id": "S20", "text": "我理解你可能不想参与，我们尊重你的决定。", "should_trigger": false, "notes": "explicit respect"}

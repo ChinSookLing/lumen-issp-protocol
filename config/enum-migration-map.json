@@ -1,0 +1,14 @@
+{
+  "version": "v0.1→v0.2",
+  "description": "REG-CB-12: Enum migration mapping (old → new). Used by adapter.toEvent() for backward compatibility.",
+  "owner": "Node-02 (spec) + Node-01 (integration)",
+  "source": "docs/specs/enum-migration-scope.md",
+  "domain": {
+    "OLD_SCENARIO": "NEW_SCENARIO",
+    "C_PERSONAL": "C_PRIVATE",
+    "A_FINANCIAL": "A_ECONOMIC",
+    "C_PUBLIC": "C_COMMUNITY"
+  },
+  "scenario": {},
+  "notes": "Unmapped enums that exist in v0.2 config pass through unchanged. Unknown enums trigger ADAPTER_REJECT."
+}

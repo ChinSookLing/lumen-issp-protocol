@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.lumen.protocol/mapping-schema-v0.1.json",
+  "title": "Lumen Layer 2a Mapping File",
+  "type": "object",
+  "required": ["pattern", "language", "version", "mappings", "meta"],
+  "properties": {
+    "pattern": {
+      "type": "string",
+      "enum": ["DM", "FC", "MB", "EA", "IP", "GC", "EP", "VS", "Class-0"]
+    },
+    "language": {
+      "type": "string",
+      "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v\\d+\\.\\d+\\.\\d+$"
+    },
+    "mappings": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "component"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["regex", "keyword", "reserved_llm_hint", "reserved_composite", "semantic"]
+          },
+          "patterns": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "component": {
+            "type": "string"
+          },
+          "lang_specific": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "author": { "type": "string" },
+        "last_validated": { "type": "string", "format": "date" },
+        "tests_passed": { "type": "integer" },
+        "compatible_pattern_versions": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

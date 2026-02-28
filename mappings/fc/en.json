@@ -1,0 +1,44 @@
+{
+  "pattern": "FC",
+  "language": "en",
+  "version": "v0.2.0",
+  "mappings": {
+    "binary_frame_choice": {
+      "type": "regex",
+      "patterns": ["(either|choose).*(or)", "you (can )?(only )?(pick|choose) (one|between)", "(it's|this is) (either|a choice between) .* (or|and)"],
+      "weight": 0.25,
+      "component": "binary_frame"
+    },
+    "consequence_bind": {
+      "type": "regex",
+      "patterns": ["(if|when) you (don't|refuse|fail).*(will|gonna|going to)", "you('ll| will) (regret|lose|suffer|pay)", "(otherwise|or else|if not).*(consequence|price|cost)"],
+      "weight": 0.25,
+      "component": "consequence"
+    },
+    "closure_pressure_now": {
+      "type": "regex",
+      "patterns": ["(this is|it's) (your )?(last|final) (chance|opportunity)", "(now or never|decide now|time('s| is) (up|running out))", "(not choosing|silence) (means|equals|is) (agreeing|accepting|giving up)"],
+      "weight": 0.25,
+      "component": "closure_pressure"
+    },
+    "label_attack_coward": {
+      "type": "regex",
+      "patterns": ["only (a )?(coward|fool|weak person) would", "you('re| are) (too )?(scared|afraid|weak) to (choose|decide)", "(real|brave|smart) (people|men|women) would"],
+      "weight": 0.15,
+      "component": "label_attack",
+      "booster": true,
+      "booster_rules": {
+        "never_trigger_alone": true,
+        "not_counted_in_min_active": true,
+        "only_contributes_when_base_gte": 0.60
+      }
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.2"],
+    "note": "Aligned with FC PDD v0.2 - label_attack as booster"
+  }
+}

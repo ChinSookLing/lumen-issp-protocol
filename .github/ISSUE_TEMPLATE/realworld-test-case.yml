@@ -1,0 +1,145 @@
+name: "Real-World Test Case (RW)"
+description: "Submit a real-world test case with snapshot/text for Lumen evaluation."
+title: "RW-XXX: <short title>"
+labels: ["realworld", "pending-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## RW Submission
+        Please follow the fields below. **Do not include sensitive personal data**. Mask/redact when needed.
+
+  - type: input
+    id: rw_id
+    attributes:
+      label: "[ID] RW-###"
+      description: "Use RW-001, RW-002... (Node-01 will assign if you leave placeholder)."
+      placeholder: "RW-XXX"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: source_type
+    attributes:
+      label: "[Source]"
+      description: "Where did this come from?"
+      options:
+        - Social media
+        - News
+        - Meme
+        - Advertisement
+        - Chat / DM
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: source_link
+    attributes:
+      label: "[Source Link] (optional)"
+      description: "Permalink if public. Leave blank if not safe to share."
+      placeholder: "https://..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: "[Language]"
+      options:
+        - zh-trad
+        - zh-simp
+        - en
+        - ms
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: snapshot
+    attributes:
+      label: "[Snapshot]"
+      description: "Drag & drop image(s) here. If multiple, keep the most relevant first."
+      placeholder: "Attach screenshot(s) here."
+    validations:
+      required: false
+
+  - type: textarea
+    id: original_text
+    attributes:
+      label: "[Original Text]"
+      description: "Paste the original text or transcript. If long, paste key parts and note it's partial."
+      placeholder: "Paste text..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: extracted_text
+    attributes:
+      label: "[Extracted Text] (1-3 key lines)"
+      description: "Pull out the key lines that drive the pattern."
+      placeholder: "1) ...\n2) ...\n3) ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "[Expected Result]"
+      description: "Fill expected Pattern/Components/Gate/Intensity."
+      placeholder: |
+        Pattern: EP / MB / FC / DM / EA / IP / GC / VS / Class-0 / None
+        Components: forced_response_frame↑ / moral_consequence↑ / ... (use v1.2 registry keys)
+        Gate: 2/3 hit (or which questions)
+        Intensity: Low / Medium / High
+    validations:
+      required: true
+
+  - type: textarea
+    id: three_q_gate
+    attributes:
+      label: "[Three-Question Gate]"
+      description: "Answer Y/N and optionally add 1 line justification each."
+      placeholder: |
+        1) 限制選擇? Y/N — ...
+        2) 施加壓力? Y/N — ...
+        3) 關閉反對? Y/N — ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "[Actual Result] (after running Lumen)"
+      description: "Leave blank initially. Fill after you run Lumen."
+      placeholder: |
+        (To be filled after run)
+        Pattern:
+        Components:
+        Gate:
+        Intensity:
+        Notes:
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "[Notes]"
+      description: "Why is this interesting? Why likely to be misclassified? Any cultural nuance?"
+      placeholder: "Explain..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: "[Privacy Redline Check]"
+      description: "Confirm you applied masking/redaction when needed."
+      options:
+        - label: "I have redacted personal identifiers (names/phones/emails/addresses) if present."
+          required: true
+        - label: "No internal system screenshots / credentials / private logs included."
+          required: true
+        - label: "This issue is safe to be in a public repo."
+          required: true

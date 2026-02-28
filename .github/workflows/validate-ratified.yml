@@ -1,0 +1,28 @@
+name: Validate Ratified Commit
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - name: Validate component registry
+        run: node scripts/ci/validate-registry.js
+      - name: Validate mapping schema
+        run: node scripts/ci/validate-mapping.js
+      - name: Validate shadow signals
+        run: node scripts/ci/validate-shadow-signals.js
+      - name: Generate verification hash
+        run: |
+          echo "COMMIT_HASH=$(git rev-parse HEAD)" >> $GITHUB_ENV
+          echo "TEST_STATUS=passed" >> $GITHUB_ENV

@@ -1,0 +1,37 @@
+{
+  "pattern": "DM",
+  "language": "zh",
+  "version": "v0.1.0",
+  "mappings": {
+    "excl_only_option": {
+      "type": "regex",
+      "patterns": ["只有我(能|可以|會)", "除了我(沒有|沒)人", "離開我你(什麼都|誰都)不是"],
+      "weight": 0.30,
+      "component": "excl"
+    },
+    "debt_sacrifice": {
+      "type": "regex",
+      "patterns": ["我為你(做了|犧牲了|付出了)", "你欠我", "沒有我(哪有|哪來)你的"],
+      "weight": 0.30,
+      "component": "debt"
+    },
+    "withdraw_leave": {
+      "type": "regex",
+      "patterns": ["那我(走|不管了|放棄了)", "你自己(看著辦|想辦法)", "我(累了|不想管了|懶得理你了)"],
+      "weight": 0.25,
+      "component": "withdraw"
+    },
+    "opts_no_choice": {
+      "type": "regex",
+      "patterns": ["你沒(得|有)(選|選擇)", "不(接受|同意)就(算了|拉倒)", "這(不是|沒有)(商量|討論)的餘地"],
+      "weight": 0.25,
+      "component": "opts"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"]
+  }
+}

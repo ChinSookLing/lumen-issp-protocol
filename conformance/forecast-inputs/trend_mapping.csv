@@ -1,0 +1,51 @@
+vector_id,author,dimension,scenario,original_trend,v0.2_trend,slope,trend_tags
+GC-GROK-01,Grok,cross_cultural,B_EDUCATION,(single-turn / N/A),stable,,cross_cultural_delta
+GC-GROK-02,Grok,cross_cultural,A_FINANCIAL,(single-turn / N/A),stable,,cross_cultural_delta
+GC-GROK-03,Grok,cross_cultural,B_EDUCATION,(single-turn / N/A),stable,,cross_cultural_delta
+GC-GROK-04,Grok,cross_cultural,A_FINANCIAL,(single-turn / N/A),stable,,cross_cultural_delta
+GC-GROK-05,Grok,cross_cultural,B_EDUCATION,(single-turn / N/A),stable,,cross_cultural_delta
+GC-GROK-06,Grok,cross_cultural,A_FINANCIAL,(single-turn / N/A),stable,,cross_cultural_delta
+GC-GROK-07,Grok,cross_cultural,B_EDUCATION,(single-turn / N/A),stable,,cross_cultural_delta
+GC-GROK-08,Grok,cross_cultural,A_FINANCIAL,(single-turn / N/A),stable,,cross_cultural_delta
+GC-GROK-09,Grok,cross_cultural,B_EDUCATION,(single-turn / N/A),stable,,cross_cultural_delta
+GC-GROK-10,Grok,cross_cultural,A_FINANCIAL,(single-turn / N/A),stable,,cross_cultural_delta
+GC-DS-01,DeepSeek,temporal_accumulation,C_PERSONAL,rising,rising,moderate,
+GC-DS-02,DeepSeek,temporal_accumulation,C_PERSONAL,rising,rising,moderate,
+GC-DS-03,DeepSeek,temporal_accumulation,C_PERSONAL,peak_then_decline,peak_then_decline,moderate,
+GC-DS-04,DeepSeek,temporal_accumulation,E_ENTERPRISE,rising,rising,moderate,
+GC-DS-05,DeepSeek,temporal_accumulation,E_ENTERPRISE,sustained_elevated,stable,,
+GC-DS-06,DeepSeek,temporal_accumulation,E_ENTERPRISE,steep_rise,rising,steep,
+GC-DS-07,DeepSeek,temporal_accumulation,A_FINANCIAL,rising,rising,moderate,
+GC-DS-08,DeepSeek,temporal_accumulation,A_FINANCIAL,peak_then_decline,peak_then_decline,moderate,
+GC-DS-09,DeepSeek,temporal_accumulation,C_PERSONAL,steep_rise,rising,steep,
+GC-DS-10,DeepSeek,temporal_accumulation,E_ENTERPRISE,slow_rise,rising,gradual,
+GC-GEM-01,Gemini,semantic_drift,D_ELECTION,slow_escalation,rising,gradual,low_frequency_drip
+GC-GEM-02,Gemini,semantic_drift,B_EDUCATION,cumulative_heavy,step_escalation,steep,cumulative_heavy|low_frequency_drip
+GC-GEM-03,Gemini,semantic_drift,D_ELECTION,structural_consistency,rising,gradual,structural_consistency|semantic_drift
+GC-GEM-04,Gemini,semantic_drift,B_EDUCATION,step_escalation,step_escalation,moderate,low_frequency_drip
+GC-GEM-05,Gemini,semantic_drift,D_ELECTION,intermittent_drip,intermittent,gradual,low_frequency_drip
+GC-GEM-06,Gemini,semantic_drift,B_EDUCATION,persistent_manipulation,rising,moderate,persistent_manipulation|semantic_drift
+GC-GEM-07,Gemini,semantic_drift,D_ELECTION,rapid_escalation,rising,steep,low_frequency_drip
+GC-GEM-08,Gemini,semantic_drift,B_EDUCATION,long_term_debt_leverage,step_escalation,gradual,long_term_debt_leverage|low_frequency_drip
+GC-GEM-09,Gemini,semantic_drift,D_ELECTION,burst_escalation,spike,steep,semantic_drift
+GC-GEM-10,Gemini,semantic_drift,B_EDUCATION,gaslighting_trajectory,rising,steep,gaslighting_trajectory|low_frequency_drip
+GC-GPT-01,GPT,hitl_boundary,A_FINANCIAL,(single-turn / N/A),stable,,
+GC-GPT-02,GPT,hitl_boundary,A_FINANCIAL,(single-turn / N/A),stable,,
+GC-GPT-03,GPT,hitl_boundary,A_FINANCIAL,(single-turn / N/A),stable,,
+GC-GPT-04,GPT,hitl_boundary,A_FINANCIAL,(single-turn / N/A),stable,,
+GC-GPT-05,GPT,hitl_boundary,C_PERSONAL,(single-turn / N/A),stable,,
+GC-GPT-06,GPT,hitl_boundary,C_PERSONAL,(single-turn / N/A),stable,,
+GC-GPT-07,GPT,hitl_boundary,C_PERSONAL,(single-turn / N/A),stable,,
+GC-GPT-08,GPT,hitl_boundary,D_ELECTION,(single-turn / N/A),stable,,
+GC-GPT-09,GPT,hitl_boundary,D_ELECTION,(single-turn / N/A),stable,,
+GC-GPT-10,GPT,hitl_boundary,D_ELECTION,(single-turn / N/A),stable,,
+GC-COP-01,Copilot,canary_drift,E_ENTERPRISE,(single-turn / N/A),declining,steep,vocabulary_shift
+GC-COP-02,Copilot,canary_drift,E_ENTERPRISE,(single-turn / N/A),declining,steep,register_change
+GC-COP-03,Copilot,canary_drift,A_FINANCIAL,(single-turn / N/A),declining,steep,paraphrase_shift
+GC-COP-04,Copilot,canary_drift,A_FINANCIAL,(single-turn / N/A),declining,steep,channel_shift
+GC-COP-05,Copilot,canary_drift,E_ENTERPRISE,(single-turn / N/A),declining,steep,terminology_substitution
+GC-COP-06,Copilot,canary_drift,A_FINANCIAL,(single-turn / N/A),stable,,encoding_variation
+GC-COP-07,Copilot,canary_drift,E_ENTERPRISE,(single-turn / N/A),stable,,adversarial_injection
+GC-COP-08,Copilot,canary_drift,A_FINANCIAL,(single-turn / N/A),declining,steep,lexical_shift
+GC-COP-09,Copilot,canary_drift,E_ENTERPRISE,(single-turn / N/A),declining,steep,style_shift
+GC-COP-10,Copilot,canary_drift,A_FINANCIAL,(single-turn / N/A),declining,steep,register_and_channel_shift

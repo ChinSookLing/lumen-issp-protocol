@@ -1,0 +1,11 @@
+{
+  "input": {
+    "domain": "OLD_SCENARIO",
+    "enum_version": "v0.1",
+    "message": "Legacy enum input for migration test"
+  },
+  "expected": {
+    "mapped_domain": "NEW_SCENARIO",
+    "tier": "TIER_0"
+  }
+}

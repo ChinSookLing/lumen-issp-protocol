@@ -1,0 +1,158 @@
+{
+  "version": "1.0",
+  "owner": "AI Council",
+  "source": "Node-05 #3b Canary Monitoring Design",
+  "rolloutPhases": [
+    {
+      "phase": "A",
+      "trafficFrom": 0,
+      "trafficTo": 10,
+      "name": "small_traffic_trial",
+      "entryConditions": {
+        "regression_count": {
+          "operator": "==",
+          "value": 0,
+          "note": "TRS all green"
+        },
+        "offline_evaluation": {
+          "fp_delta_max": 0.005,
+          "fn_delta_max": 0.005
+        },
+        "acri_shift_median_abs_max": 0.03
+      }
+    },
+    {
+      "phase": "B",
+      "trafficFrom": 10,
+      "trafficTo": 50,
+      "name": "observation_24h",
+      "observationWindowHours": 24,
+      "entryConditions": {
+        "fp_delta_max": 0.01,
+        "acri_shift_median_abs_max": 0.05,
+        "bonus_trigger_rate_ratio": {
+          "min": 0.5,
+          "max": 2.0,
+          "reference": "expected_mean"
+        },
+        "regression_count": {
+          "operator": "==",
+          "value": 0
+        }
+      }
+    },
+    {
+      "phase": "C",
+      "trafficFrom": 50,
+      "trafficTo": 100,
+      "name": "observation_48_72h",
+      "observationWindowHours": {
+        "min": 48,
+        "max": 72
+      },
+      "entryConditions": {
+        "fp_delta_max": 0.015,
+        "acri_shift_median_abs_max": 0.07,
+        "bonus_trigger_rate": {
+          "stability": "no_persistent_upward_trend"
+        },
+        "regression_count": {
+          "operator": "==",
+          "value": 0
+        },
+        "critical_bucket_hit_share": {
+          "constraint": "no_structural_anomaly"
+        }
+      }
+    }
+  ],
+  "monitoringMetrics": {
+    "fp_delta": {
+      "phase10to50": {
+        "min": 0.0,
+        "max": 0.01
+      },
+      "phase50to100": {
+        "min": 0.0,
+        "max": 0.015
+      }
+    },
+    "acri_shift_median": {
+      "phase10to50_abs_max": 0.05,
+      "phase50to100_abs_max": 0.07
+    },
+    "bonus_trigger_rate_ratio": {
+      "phase10to50": {
+        "min": 0.5,
+        "max": 2.0,
+        "reference": "expected_mean"
+      },
+      "phase50to100": {
+        "constraint": "stable_no_persistent_upward_trend"
+      }
+    },
+    "regression_count": {
+      "phase10to50": 0,
+      "phase50to100": 0,
+      "type": "hard_gate"
+    }
+  },
+  "rollback": {
+    "automatic": {
+      "triggerPolicy": "any",
+      "conditions": [
+        {
+          "metric": "regression_count",
+          "operator": ">",
+          "value": 0
+        },
+        {
+          "metric": "fp_delta",
+          "operator": ">",
+          "value": 0.03
+        },
+        {
+          "metric": "acri_shift_median_abs",
+          "operator": ">",
+          "value": 0.12
+        },
+        {
+          "metric": "bonus_trigger_rate_ratio",
+          "operator": ">",
+          "value": 3.0,
+          "duration": "1h",
+          "durationCondition": "sustained"
+        }
+      ]
+    },
+    "manualReviewGate": {
+      "triggerPolicy": "any",
+      "conditions": [
+        {
+          "metric": "fp_delta",
+          "range": {
+            "min": 0.015,
+            "max": 0.03
+          },
+          "trend": "persistent_upward"
+        },
+        {
+          "metric": "acri_shift_median_abs",
+          "range": {
+            "min": 0.07,
+            "max": 0.12
+          },
+          "trend": "persistent_upward"
+        },
+        {
+          "metric": "bonus_trigger_rate_ratio",
+          "range": {
+            "min": 2.0,
+            "max": 3.0
+          },
+          "extraCondition": "single_bucket_abnormal_concentration"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "pattern": "Class-0",
+  "language": "zh",
+  "version": "v0.1.0",
+  "mappings": {
+    "info_suppress_hide": {
+      "type": "regex",
+      "patterns": ["你不需要知道", "(這|那)(不關|不是)你的事", "我(覺得|認為)你(不需要|不用)(知道|了解)"],
+      "weight": 0.30,
+      "component": "ctx_gap"
+    },
+    "option_eliminate_no_choice": {
+      "type": "semantic",
+      "description": "系統性地透過省略而非強迫來消除選項 — 選擇在無說明的情況下消失",
+      "weight": 0.30,
+      "component": "alt_abs"
+    },
+    "counter_suppress_dismiss": {
+      "type": "regex",
+      "patterns": ["(這|那)(不值得|沒必要)(討論|提)", "沒有(必要|意義)(再|繼續)(說|討論|提)", "(別再|不要)(提|說|討論)(了|這個了)"],
+      "weight": 0.25,
+      "component": "counter_miss"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"],
+    "note": "Class-0 是 Shadow Zone — 不在 8 Pattern 主列表中"
+  }
+}

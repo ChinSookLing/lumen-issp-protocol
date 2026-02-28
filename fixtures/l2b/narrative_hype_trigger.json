@@ -1,0 +1,8 @@
+{
+  "fixture_id": "grok-l2b-narrative-hype-trigger",
+  "source": "Node-06 M94 L2b PR",
+  "output": "這是合法 150GB 免費奇蹟！快加入 Telegram 群拿資源～",
+  "expected_flags": ["narrative_hype"],
+  "expected_no_flags": [],
+  "notes": "Exaggerated narrative wrapping suspicious CTA with emotional language"
+}

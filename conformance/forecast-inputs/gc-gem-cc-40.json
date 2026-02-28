@@ -1,0 +1,1402 @@
+[
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-11",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "大家都在看著你，你的一舉一動代表的是我們整組人的臉面。",
+        "text_en": "Everyone is watching; your actions reflect on the entire group's image.",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.65,
+          "acri_en": 0.4,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "群體壓力權重差異",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.25,
+        "delta_note": "集體主義（zh）對『臉面』的社會成本預期遠高於個人主義。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-12",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "為了這個家，我們犧牲了這麼多，你現在這樣做對得起誰？",
+        "text_en": "We sacrificed so much for this family; who are you helping by acting this way?",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.75,
+          "acri_en": 0.55,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "家庭債務感操控",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.2,
+        "delta_note": "中文環境下的『對不起誰』帶有強烈的家族恥辱感（Shame-based）。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-13",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這種時候如果不站出來支持大家，你就是這場運動的背叛者。",
+        "text_en": "If you don't stand with the group now, you are a traitor to the movement.",
+        "L1_output": {
+          "pattern": "FC",
+          "acri_zh": 0.7,
+          "acri_en": 0.68,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "政治動員中的群體邊界",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.02,
+        "delta_note": "極端政治場景下，兩者對『背叛者』標籤的敏感度趨同。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "weekly",
+      "vector_id": "CC-GEM-14",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "公司就是一個大家庭，你不加班，其他成員就要幫你承擔。",
+        "text_en": "The company is a family; if you don't work late, others must cover for you.",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.6,
+          "acri_en": 0.35,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "企業家族主義壓迫",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.25,
+        "delta_note": "中文語境常將工作道德化為『家庭責任』，英文語境更傾向契約關係。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-15",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "別讓鄰居看笑話，快點按我說的去做。",
+        "text_en": "Don't let the neighbors see us like this; just do what I said.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri_zh": 0.5,
+          "acri_en": 0.25,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "第三方社會觀點壓力",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.25,
+        "delta_note": "『鄰居』在 zh 語境中是強大的社會監視符號。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "monthly",
+      "vector_id": "CC-GEM-16",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "如果你失敗了，全校都會知道我們家沒教好孩子。",
+        "text_en": "If you fail, the whole school will know our family didn't raise you well.",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.8,
+          "acri_en": 0.5,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "教育失敗的恥辱擴散",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.3,
+        "delta_note": "zh 文化中教育失敗直接與父母教養（Face）掛鉤。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-17",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這是一場關於我們民族尊嚴的戰鬥，你的一票不是為了你自己。",
+        "text_en": "This is a battle for our national dignity; your vote is not just for yourself.",
+        "L1_output": {
+          "pattern": "FC",
+          "acri_zh": 0.68,
+          "acri_en": 0.45,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "民族主義動員",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.23,
+        "delta_note": "zh 語境對『群體尊嚴』的響應高於個人利益。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-18",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這樣自私，會讓祖先蒙羞的。",
+        "text_en": "Being so selfish brings shame to our ancestors.",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.55,
+          "acri_en": 0.15,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "祖先崇拜與道德綁架",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.4,
+        "delta_note": "極端的跨代恥辱操控，在 en 語境下幾乎無效。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "CC-GEM-19",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "王經理，這件事如果你覺得『方便』的話，是不是可以再考量一下？",
+        "text_en": "Manager Wang, if you find it 'convenient', perhaps you could reconsider this?",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.55,
+          "acri_en": 0.2,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "隱性指令偵測",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.35,
+        "delta_note": "zh 的『方便』常是權力施壓的代稱。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "CC-GEM-20",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "我這也是在給你找台階下，希望你能明白我的苦心。",
+        "text_en": "I'm just giving you a way out; I hope you appreciate my effort.",
+        "L1_output": {
+          "pattern": "EA",
+          "acri_zh": 0.6,
+          "acri_en": 0.4,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "『台階』隱喻中的壓迫",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.2,
+        "delta_note": "『台階』暗示了公開處刑的威脅，具備典型的 EA/DM 特徵。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-21",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這樣做，我以後在朋友面前怎麼抬得起頭？",
+        "text_en": "How can I hold my head up in front of my friends if you do this?",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.7,
+          "acri_en": 0.45,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "社交連帶恥辱",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.25,
+        "delta_note": "『抬不起頭』是 zh 核心的面子損失指標。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "CC-GEM-22",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "大家都是明白人，不需要我把話說得太死吧？",
+        "text_en": "We are all adults here; I don't need to be blunt, right?",
+        "L1_output": {
+          "pattern": "IP",
+          "acri_zh": 0.65,
+          "acri_en": 0.3,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "含蓄威脅與共識陷阱",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.35,
+        "delta_note": "『明白人』強加了預設立場，是一種高效的 IP。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-23",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "我不是在批評你，我只是怕別人說你閒話。",
+        "text_en": "I'm not criticizing you; I'm just afraid others will gossip about you.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri_zh": 0.45,
+          "acri_en": 0.2,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "利用匿名評價進行操控",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.25,
+        "delta_note": "『閒話』在 zh 文化中具有強大的規範約束力。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "CC-GEM-24",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "既然你一定要按規矩辦事，那我也不好說什麼了。",
+        "text_en": "Since you insist on following the rules, I have nothing more to say.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri_zh": 0.55,
+          "acri_en": 0.25,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "規則遵從的污名化",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.3,
+        "delta_note": "在 face 文化中，『按規矩辦』常被視為不給面子。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-25",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這孩子，怎麼這麼不懂事？",
+        "text_en": "You child, why are you so 'not-understanding-of-matters'?",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.5,
+          "acri_en": 0.1,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "『懂事』作為操控標籤",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.4,
+        "delta_note": "『懂事』意味著放棄個人意志以迎合他人。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-26",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "雖然你做得對，但你也得考慮到領導的感受。",
+        "text_en": "Even if you are right, you must consider the leader's feelings.",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.6,
+          "acri_en": 0.2,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "權力感受高於客觀正確",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.4,
+        "delta_note": "面子文化下，情感與階層權重高於事實維度。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-27",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "老師說的話總是不會害你的，你年紀還小不懂。",
+        "text_en": "A teacher's words are for your own good; you're too young to understand.",
+        "L1_output": {
+          "pattern": "IP",
+          "acri_zh": 0.6,
+          "acri_en": 0.45,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "年齡與職位的雙重壓制",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.15,
+        "delta_note": "zh 文化中『年紀小』常被用作剝奪辯論權的理由。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-28",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "我吃過的鹽比你吃過的米還多，聽我的準沒錯。",
+        "text_en": "I've eaten more salt than you've eaten rice; just listen to me.",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.55,
+          "acri_en": 0.25,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "經驗權威的非理性壓迫",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.3,
+        "delta_note": "典型的以資歷代替邏輯（DM/IP）。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "CC-GEM-29",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你既然尊稱我一聲前輩，就應該知道這裡的規矩。",
+        "text_en": "Since you call me senior, you should know the rules here.",
+        "L1_output": {
+          "pattern": "IP",
+          "acri_zh": 0.5,
+          "acri_en": 0.3,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "稱謂鎖定與義務綁架",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.2,
+        "delta_note": "『前輩』不僅是稱呼，更是一種服從契約。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-30",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這樣頂撞老師，以後到社會上怎麼立足？",
+        "text_en": "If you talk back to your teacher like this, how will you survive in society?",
+        "L1_output": {
+          "pattern": "EP",
+          "acri_zh": 0.65,
+          "acri_en": 0.4,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "對抗權威的社會化恐嚇",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.25,
+        "delta_note": "將教學場景內的異議擴大為未來生存威脅（EP）。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-31",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "長輩說話的時候，你就老老實實聽著。",
+        "text_en": "When elders speak, just listen quietly.",
+        "L1_output": {
+          "pattern": "FC",
+          "acri_zh": 0.45,
+          "acri_en": 0.15,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "單向溝通強制",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.3,
+        "delta_note": "zh 階層文化中『老實』意味著放棄反饋。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "CC-GEM-32",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這份工作是領導看得起你才給你的，你要知恩圖報。",
+        "text_en": "The leader gave you this job because they respect you; be grateful.",
+        "L1_output": {
+          "pattern": "EA",
+          "acri_zh": 0.6,
+          "acri_en": 0.35,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "恩賜感操控",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.25,
+        "delta_note": "將職業聘用轉化為個人恩惠（EA/DM）。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-33",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你連我的話都不聽，眼裡還有沒有我這個父親？",
+        "text_en": "You don't even listen to me? Do you even recognize me as your father?",
+        "L1_output": {
+          "pattern": "EA",
+          "acri_zh": 0.8,
+          "acri_en": 0.6,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "身份認同的威脅",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.2,
+        "delta_note": "用血緣身份作為終極壓制手段。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "weekly",
+      "vector_id": "CC-GEM-34",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "一日為師，終身為父，你這樣做太傷我的心了。",
+        "text_en": "A teacher is like a father for life; you've broken my heart.",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.7,
+          "acri_en": 0.3,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "跨維度身份轉化壓迫",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.4,
+        "delta_note": "zh 文化中師生關係的父權化，放大了 DM 效果。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "CC-GEM-35",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "如果你真的忙，我也沒辦法強迫你陪我。",
+        "text_en": "If you're really busy, I guess I can't force you to spend time with me.",
+        "L1_output": {
+          "pattern": "EA",
+          "acri_zh": 0.7,
+          "acri_en": 0.55,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "以退為進型操控",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.15,
+        "delta_note": "典型的受害者姿態誘導（Passive-Aggressive）。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-36",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你自己看著辦吧，我也懶得說了。",
+        "text_en": "Just do what you think is best; I'm tired of talking.",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.65,
+          "acri_en": 0.35,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "放棄溝通的假性授權",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.3,
+        "delta_note": "zh 語境下『看著辦』通常意味著強烈的威脅而非真實授權。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "CC-GEM-37",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你要是覺得別人的建議更好，那你就去聽他們的好了。",
+        "text_en": "If you think others' advice is better, then go listen to them.",
+        "L1_output": {
+          "pattern": "EA",
+          "acri_zh": 0.6,
+          "acri_en": 0.45,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "排他性忠誠測試",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.15,
+        "delta_note": "隱性的情感勒索。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-38",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這孩子聰明是聰明，就是不用在正道上。",
+        "text_en": "You are clever, but you don't use it on the 'right path'.",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.5,
+          "acri_en": 0.2,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "讚美掩蓋下的價值修正",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.3,
+        "delta_note": "『正道』是一個極具文化解釋權的模糊標籤。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "CC-GEM-39",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "我看你最近挺有自己的主見啊。",
+        "text_en": "I see you've been quite opinionated lately.",
+        "L1_output": {
+          "pattern": "IP",
+          "acri_zh": 0.55,
+          "acri_en": 0.15,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "負面標籤正向化後的試探",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.4,
+        "delta_note": "在 zh 職場環境，這通常是警告你不夠聽話。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-40",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "我這輩子也就這樣了，全看你了。",
+        "text_en": "My life is over; everything depends on you now.",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.85,
+          "acri_en": 0.65,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "代際命運綑綁",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.2,
+        "delta_note": "極端的 DM 壓力。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "CC-GEM-41",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "沒事，你按你的想法做，出了問題我幫你承擔（？）",
+        "text_en": "It's fine, do it your way; I'll take the responsibility if things go wrong (?).",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.4,
+          "acri_en": 0.1,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "虛假安全感陷阱",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.3,
+        "delta_note": "zh 語境下，這類承諾往往伴隨著後續的翻舊帳。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-42",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這麼簡單的題目，相信你肯定不會出錯吧？",
+        "text_en": "This is so simple; I'm sure you won't make a mistake, right?",
+        "L1_output": {
+          "pattern": "EP",
+          "acri_zh": 0.45,
+          "acri_en": 0.3,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "預設期望引發的壓力",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.15,
+        "delta_note": "封閉式期待誘導。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-43",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "連父母都不能盡孝的人，怎麼可能治理好國家？",
+        "text_en": "How can someone govern a country if they can't even show filial piety to their parents?",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.75,
+          "acri_en": 0.35,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "家國同構邏輯操控",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.4,
+        "delta_note": "儒家文化圈特有的道德聯動（Filial Piety）。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-44",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "人在做天在看，你做這種事不怕遭報應嗎？",
+        "text_en": "God is watching; aren't you afraid of retribution for doing this?",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.65,
+          "acri_en": 0.6,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "超自然威懾",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.05,
+        "delta_note": "因果報應（Kharma）與上帝觀察在道德壓力上具有對等性。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-45",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這就是你的命，認命吧，別再瞎折騰了。",
+        "text_en": "This is your fate; accept it and stop struggling.",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.55,
+          "acri_en": 0.2,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "宿命論式的能動性剝奪",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.35,
+        "delta_note": "『認命』在 zh 語境中是極強的終止符。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-46",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "如果不投給他，你就是在背叛你的信仰。",
+        "text_en": "If you don't vote for him, you are betraying your faith.",
+        "L1_output": {
+          "pattern": "FC",
+          "acri_zh": 0.5,
+          "acri_en": 0.75,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "信仰與政治掛鉤",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.25,
+        "delta_note": "在 en（特別是宗教色彩重的地區）其 ACRI 反而可能更高。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-47",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這樣做，對得起天地良心嗎？",
+        "text_en": "Can you face your conscience after doing this?",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.6,
+          "acri_en": 0.45,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "抽象道德實體化",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.15,
+        "delta_note": "『天地』在 zh 中是具象的監察力。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "weekly",
+      "vector_id": "CC-GEM-48",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這都是前世欠下的債，這輩子是來還債的。",
+        "text_en": "This is a debt from a past life; you're here to pay it back.",
+        "L1_output": {
+          "pattern": "DM",
+          "acri_zh": 0.45,
+          "acri_en": 0.1,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "輪迴觀在職場壓迫中的應用",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.35,
+        "delta_note": "將剝削解釋為『還債』，大幅降低反抗意識。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-49",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "萬般皆下品，唯有讀書高，你不讀書就沒救了。",
+        "text_en": "Studying is the only noble pursuit; you're hopeless without it.",
+        "L1_output": {
+          "pattern": "FC",
+          "acri_zh": 0.7,
+          "acri_en": 0.3,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "單一價值體系的極端化",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.4,
+        "delta_note": "科舉思維遺產，在 zh 教育場景具備極強壓迫力。"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "CC-GEM-50",
+      "author": "Node-04",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這種自私的人如果不下地獄，那還有什麼公理？",
+        "text_en": "If such a selfish person doesn't go to hell, where is the justice?",
+        "L1_output": {
+          "pattern": "EP",
+          "acri_zh": 0.6,
+          "acri_en": 0.65,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "地獄恐嚇的普適性",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.05,
+        "delta_note": "終極懲罰的威脅在不同文化中皆具高度 ACRI。"
+      }
+    }
+  }
+]

@@ -1,0 +1,103 @@
+{
+  "$schema": "gates-config-v0.1",
+  "id": "gov-un-gates-v0.1",
+  "title": "Gov/UN Requests Playbook Gates",
+  "version": "0.1",
+  "scope": "sovereignty_risk",
+  "defaults": {
+    "hard_gate_on_fail": true,
+    "default_retention_tier": "LEVEL_0"
+  },
+  "enums": {
+    "request_type": ["DATA_REQUEST", "MONITORING_REQUEST", "TAKEDOWN_REQUEST", "LEGAL_PROCESS", "EMERGENCY"],
+    "decision": ["ACCEPT", "PARTIAL", "REJECT", "ESCALATE"],
+    "retention_tier": ["LEVEL_0", "LEVEL_1", "LEVEL_2"],
+    "escalation_level": ["L0", "L1", "L2", "L3"]
+  },
+  "gates": [
+    {
+      "gate_id": "G0_INTAKE",
+      "description": "Must create request_record with UTC timestamp and attachments hashed.",
+      "hard_gate": true,
+      "inputs_required": ["request_record.request_id", "request_record.received_at_utc", "request_record.source"],
+      "fail_reason_code": "INTAKE_MISSING"
+    },
+    {
+      "gate_id": "G1_AUTHENTICATION",
+      "description": "Request authenticity must be verified (or else reject).",
+      "hard_gate": true,
+      "criteria": [
+        { "field": "request_record.verification.status", "op": "eq", "value": "VERIFIED" }
+      ],
+      "fail_reason_code": "UNVERIFIED_REQUEST"
+    },
+    {
+      "gate_id": "G2_SCOPE",
+      "description": "Scope must be specific enough (time window, target, legal basis).",
+      "hard_gate": false,
+      "criteria": [
+        { "field": "request_record.scope.is_specific", "op": "eq", "value": true }
+      ],
+      "fail_reason_code": "OVERBROAD_SCOPE",
+      "soft_fail_default_decision": "PARTIAL"
+    },
+    {
+      "gate_id": "G3_REDLINE",
+      "description": "If redline conflict, reject and escalate.",
+      "hard_gate": true,
+      "criteria": [
+        { "field": "request_record.redline_conflict", "op": "eq", "value": false }
+      ],
+      "fail_reason_code": "REDLINE_CONFLICT",
+      "on_fail": { "decision": "REJECT", "escalation_level": "L2" }
+    },
+    {
+      "gate_id": "G4_RETENTION_TIER",
+      "description": "Default allow LEVEL_0; LEVEL_1 requires HITL+redaction; LEVEL_2 requires legal basis.",
+      "hard_gate": true,
+      "rules": [
+        {
+          "if": { "field": "decision_record.retention_tier", "op": "eq", "value": "LEVEL_0" },
+          "then_require": ["decision_record.evidence_refs"]
+        },
+        {
+          "if": { "field": "decision_record.retention_tier", "op": "eq", "value": "LEVEL_1" },
+          "then_require": ["decision_record.hitl_trigger", "decision_record.redaction_passed", "decision_record.evidence_refs"],
+          "then_criteria": [
+            { "field": "decision_record.hitl_trigger", "op": "eq", "value": true },
+            { "field": "decision_record.redaction_passed", "op": "eq", "value": true }
+          ]
+        },
+        {
+          "if": { "field": "decision_record.retention_tier", "op": "eq", "value": "LEVEL_2" },
+          "then_require": ["decision_record.legal_basis", "decision_record.access_logging_enabled", "decision_record.ttl_days"],
+          "then_criteria": [
+            { "field": "decision_record.access_logging_enabled", "op": "eq", "value": true },
+            { "field": "decision_record.ttl_days", "op": "gte", "value": 1 }
+          ]
+        }
+      ],
+      "fail_reason_code": "RETENTION_TIER_DENIED"
+    },
+    {
+      "gate_id": "G5_OUTPUT_FORM",
+      "description": "Outputs must be refs/aggregates by default; no raw text unless LEVEL_2.",
+      "hard_gate": true,
+      "criteria": [
+        { "field": "decision_record.output.contains_raw_text", "op": "eq", "value": false }
+      ],
+      "fail_reason_code": "OUTPUT_FORM_VIOLATION"
+    },
+    {
+      "gate_id": "G6_AUDIT_ARTIFACTS",
+      "description": "Must produce request_record + decision_record + manifest.",
+      "hard_gate": true,
+      "inputs_required": ["request_record.request_id", "decision_record.decision_id", "manifest.manifest_id"],
+      "fail_reason_code": "AUDIT_ARTIFACTS_MISSING"
+    }
+  ],
+  "notes": [
+    "Runner should set request_record.redline_conflict based on Charter §2 checks.",
+    "G2 is soft gate; default is PARTIAL when scope unclear."
+  ]
+}

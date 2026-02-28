@@ -1,0 +1,15 @@
+{
+  "version": "v0.1",
+  "carrier": "2b-lite",
+  "key": "narrative_hype",
+  "human_label": {
+    "zh": "敘事炒作/神化",
+    "en": "Narrative hype"
+  },
+  "definition": "使用誇張確定性、救世主敘事或末日/稀缺語氣強推結論，並把情境包裝成必然趨勢或唯一解。",
+  "abuse_case": "用『終極/顛覆/必然/唯一』等語氣推高壓力，讓人跳過核驗與邊界條件。",
+  "notes": [
+    "Structure-only; avoid operational guidance.",
+    "Tier0 output: key + short label only."
+  ]
+}

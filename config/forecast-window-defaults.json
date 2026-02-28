@@ -1,0 +1,97 @@
+{
+  "$schema": "forecast-window-defaults-v0.1",
+  "version": "0.1",
+  "policy": {
+    "precedence": [
+      "metadata.temporal_window (explicit)",
+      "scenario_defaults[scenario][time_scale]",
+      "scenario_defaults[scenario].fallback",
+      "global_defaults[time_scale]"
+    ],
+    "notes": "Window defaults are for aggregation only. Forecast logic must not assume defaults are ground truth."
+  },
+
+  "global_defaults": {
+    "minute":    { "mode": "sliding", "size": 10, "unit": "minute",  "step": 2 },
+    "hourly":    { "mode": "sliding", "size": 6,  "unit": "hour",    "step": 1 },
+    "daily":     { "mode": "fixed",   "size": 1,  "unit": "day",     "step": 1 },
+    "monthly":   { "mode": "fixed",   "size": 1,  "unit": "month",   "step": 1 },
+    "quarterly": { "mode": "fixed",   "size": 1,  "unit": "quarter", "step": 1 }
+  },
+
+  "scenario_defaults": {
+    "A_FINANCIAL": {
+      "minute":  { "mode": "sliding", "size": 15, "unit": "minute", "step": 3 },
+      "hourly":  { "mode": "sliding", "size": 6,  "unit": "hour",   "step": 1 },
+      "daily":   { "mode": "sliding", "size": 3,  "unit": "day",    "step": 1 },
+      "monthly": { "mode": "fixed",   "size": 1,  "unit": "month",  "step": 1 },
+      "fallback": { "mode": "sliding", "size": 6, "unit": "hour",   "step": 1 },
+      "horizon_defaults": {
+        "minute":  { "value": 60, "unit": "minute" },
+        "hourly":  { "value": 48, "unit": "hour" },
+        "daily":   { "value": 14, "unit": "day" },
+        "monthly": { "value": 3,  "unit": "month" }
+      }
+    },
+
+    "B_EDUCATION": {
+      "minute":    { "mode": "fixed", "size": 60, "unit": "minute",  "step": 60 },
+      "hourly":    { "mode": "fixed", "size": 6,  "unit": "hour",    "step": 6 },
+      "daily":     { "mode": "fixed", "size": 1,  "unit": "day",     "step": 1 },
+      "monthly":   { "mode": "fixed", "size": 1,  "unit": "month",   "step": 1 },
+      "quarterly": { "mode": "fixed", "size": 1,  "unit": "quarter", "step": 1 },
+      "fallback":  { "mode": "fixed", "size": 1,  "unit": "month",   "step": 1 },
+      "horizon_defaults": {
+        "daily":     { "value": 30, "unit": "day" },
+        "monthly":   { "value": 6,  "unit": "month" },
+        "quarterly": { "value": 4,  "unit": "quarter" }
+      }
+    },
+
+    "C_PERSONAL": {
+      "minute":  { "mode": "sliding", "size": 10, "unit": "minute", "step": 2 },
+      "hourly":  { "mode": "sliding", "size": 2,  "unit": "hour",   "step": 1 },
+      "daily":   { "mode": "sliding", "size": 1,  "unit": "day",    "step": 1 },
+      "fallback": { "mode": "sliding", "size": 10, "unit": "minute", "step": 2 },
+      "horizon_defaults": {
+        "minute": { "value": 30, "unit": "minute" },
+        "hourly": { "value": 6,  "unit": "hour" },
+        "daily":  { "value": 3,  "unit": "day" }
+      }
+    },
+
+    "D_ELECTION": {
+      "hourly":  { "mode": "sliding", "size": 24, "unit": "hour",  "step": 6 },
+      "daily":   { "mode": "fixed",   "size": 1,  "unit": "day",   "step": 1 },
+      "monthly": { "mode": "fixed",   "size": 1,  "unit": "month", "step": 1 },
+      "fallback": { "mode": "fixed",  "size": 1,  "unit": "day",   "step": 1 },
+      "horizon_defaults": {
+        "daily":   { "value": 14, "unit": "day" },
+        "hourly":  { "value": 72, "unit": "hour" },
+        "monthly": { "value": 1,  "unit": "month" }
+      }
+    },
+
+    "E_ENTERPRISE": {
+      "hourly":    { "mode": "fixed", "size": 8,  "unit": "hour",    "step": 8 },
+      "daily":     { "mode": "fixed", "size": 1,  "unit": "day",     "step": 1 },
+      "monthly":   { "mode": "fixed", "size": 1,  "unit": "month",   "step": 1 },
+      "quarterly": { "mode": "fixed", "size": 1,  "unit": "quarter", "step": 1 },
+      "fallback":  { "mode": "fixed", "size": 1,  "unit": "quarter", "step": 1 },
+      "horizon_defaults": {
+        "daily":     { "value": 30, "unit": "day" },
+        "monthly":   { "value": 3,  "unit": "month" },
+        "quarterly": { "value": 4,  "unit": "quarter" }
+      }
+    }
+  },
+
+  "validation_guidance": {
+    "rules": [
+      "If mode == fixed, step MUST equal size (same unit) OR be omitted.",
+      "If mode == sliding, step MUST be <= size.",
+      "For quarterly, unit MUST be quarter (avoid mixing month for Q windows)."
+    ],
+    "default_behavior": "If an invalid combination is found, fallback to global_defaults[time_scale] and emit a warning."
+  }
+}

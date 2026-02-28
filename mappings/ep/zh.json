@@ -1,0 +1,44 @@
+{
+  "pattern": "EP",
+  "language": "zh",
+  "version": "v0.1.0",
+  "mappings": {
+    "bait_or_taunt": {
+      "type": "regex",
+      "patterns": ["你(敢不敢|有沒有種|有沒有膽)", "(來啊|試試看|你倒是)", "我(看你|就知道你)(不敢|不行|沒種)"],
+      "weight": 0.30,
+      "component": "bait_or_taunt"
+    },
+    "forced_response_frame": {
+      "type": "regex",
+      "patterns": ["你(不回答|不說|沉默)(就是|等於|代表)", "(說啊|回答啊|你倒是說)", "你(為什麼|怎麼)(不敢|不願)(回答|說)"],
+      "weight": 0.30,
+      "component": "forced_response_frame"
+    },
+    "escalation_pressure": {
+      "type": "regex",
+      "patterns": ["(再不|如果不)(回應|回答).*(就|我就|別怪)", "(越來越|更加)(多人|嚴重|難看)", "事情(會|只會)(越來越|更加)(大|嚴重)"],
+      "weight": 0.25,
+      "component": "escalation_pressure"
+    },
+    "label_or_shame_hook": {
+      "type": "regex",
+      "patterns": ["(懦夫|孬種|沒種|膽小鬼)", "(丟臉|可恥|羞恥|沒面子)", "你(就是|真的是)(一個|個)(笑話|廢物|懦夫)"],
+      "weight": 0.10,
+      "component": "label_or_shame_hook",
+      "booster": true,
+      "booster_rules": {
+        "never_trigger_alone": true,
+        "not_counted_in_min_active": true,
+        "only_contributes_when_base_gte": 0.60
+      }
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"],
+    "note": "label_or_shame_hook 是 booster，與 FC label_attack 相同規則"
+  }
+}

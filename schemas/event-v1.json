@@ -1,0 +1,268 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.lumen.issp/event-v1.json",
+  "title": "Lumen Event Schema",
+  "description": "Unified event format flowing through all four layers.",
+  "type": "object",
+  "required": [
+    "event_id",
+    "timestamp",
+    "source",
+    "layers"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "pattern": "^evt_[a-f0-9]{16}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "telegram",
+            "web",
+            "api",
+            "simulated",
+            "unknown"
+          ]
+        },
+        "raw_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "desensitized": {
+          "type": "boolean"
+        }
+      }
+    },
+    "layers": {
+      "type": "object",
+      "properties": {
+        "layer1": {
+          "type": "object",
+          "required": [
+            "patterns",
+            "gate"
+          ],
+          "properties": {
+            "patterns": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "gate": {
+              "type": "array",
+              "items": {
+                "type": "boolean"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "acri": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "vri": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "layer2": {
+          "type": "object",
+          "properties": {
+            "mapping_version": {
+              "type": "string",
+              "pattern": "^v\\d+\\.\\d+\\.\\d+$"
+            },
+            "components": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "shared_lexicon_hits": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "layer3": {
+          "type": "object",
+          "properties": {
+            "forecast": {
+              "type": "object",
+              "properties": {
+                "trendBand": {
+                  "type": "string",
+                  "enum": [
+                    "LOW",
+                    "MEDIUM",
+                    "HIGH"
+                  ]
+                },
+                "probability": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "confidence": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "slope": {
+                  "type": "number"
+                },
+                "window_days": {
+                  "type": "integer",
+                  "enum": [
+                    7,
+                    30,
+                    90
+                  ]
+                },
+                "data_points": {
+                  "type": "integer",
+                  "minimum": 30
+                },
+                "aligned_examples": {
+                  "type": "array",
+                  "maxItems": 3,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "timestamp",
+                      "intensity",
+                      "gate_hit"
+                    ],
+                    "properties": {
+                      "timestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "intensity": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "gate_hit": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 3
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "explanation": {
+              "type": "object",
+              "properties": {
+                "hypothesis": {
+                  "type": "string"
+                },
+                "alternative_hypotheses": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "source": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": [
+                    "low",
+                    "medium",
+                    "high"
+                  ]
+                },
+                "disclaimer": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "layer4": {
+          "type": "object",
+          "properties": {
+            "response_level": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            "output": {
+              "type": "object",
+              "properties": {
+                "dashboard": {
+                  "type": "object"
+                },
+                "alert": {
+                  "type": "object"
+                },
+                "handoff": {
+                  "type": "object"
+                },
+                "api": {
+                  "type": "object"
+                }
+              }
+            },
+            "desensitized": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "node_id": {
+          "type": "string"
+        },
+        "processing_time_ms": {
+          "type": "integer"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

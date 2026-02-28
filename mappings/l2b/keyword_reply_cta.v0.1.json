@@ -1,0 +1,15 @@
+{
+  "version": "v0.1",
+  "carrier": "2b-lite",
+  "key": "keyword_reply_cta",
+  "human_label": {
+    "zh": "關鍵字回覆行動呼籲",
+    "en": "Keyword reply CTA"
+  },
+  "definition": "要求使用者回覆特定關鍵字以獲取資訊或解鎖功能，常見於詐騙或垃圾訊息。",
+  "abuse_case": "用『回覆XX即可領取、text JOIN to 12345』等指令製造互動陷阱。",
+  "notes": [
+    "Structure-only detection; no intent inference.",
+    "Tier0 output: key + short label only."
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "dod_tests": [
+    {
+      "id": "DOD-CH-01",
+      "title": "UI Copy Ban Check",
+      "description": "檢查 L4 UI 文案是否包含直接行動建議詞彙或命令式動詞。",
+      "automation": {
+        "type": "grep",
+        "pattern": "\\b(do|must|should|立即|馬上|segera|harus)\\b",
+        "targets": ["ui/templates/", "docs/ui/"],
+        "failure_mode": "fail_on_match"
+      }
+    },
+    {
+      "id": "DOD-CH-02",
+      "title": "Moral Judgment Linter",
+      "description": "檢查系統輸出是否包含絕對化道德裁決句型。",
+      "automation": {
+        "type": "linter",
+        "pattern": "(\\bis immoral\\b|\\bis evil\\b|\\btidak bermoral\\b|\\bis wrong\\b|\\bis bad\\b)",
+        "targets": ["examples/outputs/", "docs/"],
+        "failure_mode": "fail_on_match"
+      }
+    },
+    {
+      "id": "DOD-CH-03",
+      "title": "Kill Switch Drill Record",
+      "description": "確認 Kill-switch 操作手冊存在且 12 個月內有演練記錄。",
+      "automation": {
+        "type": "file_check",
+        "path": "docs/killswitch.md",
+        "validate_fields": ["last_drill_date"],
+        "date_check": { "field": "last_drill_date", "max_age_days": 365 },
+        "failure_mode": "fail_if_missing_or_outdated"
+      }
+    },
+    {
+      "id": "DOD-CH-04",
+      "title": "Cultural Factor Evidence Schema",
+      "description": "驗證文化映射檔案包含審計欄位並符合 schema。",
+      "automation": {
+        "type": "json_schema_validate",
+        "schema_path": "schemas/cultural_mapping.schema.json",
+        "targets": ["docs/cultural_mappings/"],
+        "failure_mode": "fail_on_schema_violation"
+      }
+    },
+    {
+      "id": "DOD-CH-05",
+      "title": "§4.3 Cross Reference Presence",
+      "description": "確認 CHARTER §2 包含交叉引用至 §4.3。",
+      "automation": {
+        "type": "grep",
+        "pattern": "§2 紅線之持續有效性依賴 §4.3",
+        "targets": ["CHARTER.md"],
+        "failure_mode": "fail_if_missing"
+      }
+    }
+  ],
+  "metadata": {
+    "author": "Node-02-Bing",
+    "created_at": "2026-02-24T00:00:00Z",
+    "confidence": "high"
+  }
+}

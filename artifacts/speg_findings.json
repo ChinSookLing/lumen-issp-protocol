@@ -1,0 +1,96 @@
+{
+  "timestamp": "2026-02-25T09:22:16.490Z",
+  "repo": "/workspaces/npm-init-lumen-protocol",
+  "total_findings": 12,
+  "findings": [
+    {
+      "type": "static_key",
+      "file": "/config/speg/speg-denylist.v0.1.json",
+      "key": "RETENTION_CENTRAL",
+      "category": "C",
+      "severity": "critical"
+    },
+    {
+      "type": "static_key",
+      "file": "/config/speg/speg-denylist.v0.1.json",
+      "key": "WATCHLIST_",
+      "category": "E",
+      "severity": "critical"
+    },
+    {
+      "type": "static_key",
+      "file": "/config/speg/speg-denylist.v0.1.json",
+      "key": "ENTITY_LINK",
+      "category": "B",
+      "severity": "critical"
+    },
+    {
+      "type": "static_key",
+      "file": "/config/speg/speg-denylist.v0.1.json",
+      "key": "POPULATION_",
+      "category": "D",
+      "severity": "critical"
+    },
+    {
+      "type": "static_key",
+      "file": "/config/speg/speg-denylist.v0.1.json",
+      "key": "FIREHOSE_",
+      "category": "A",
+      "severity": "critical"
+    },
+    {
+      "type": "static_key",
+      "file": "/config/speg/speg-denylist.v0.1.json",
+      "key": "STREAM_INGEST",
+      "category": "A",
+      "severity": "critical"
+    },
+    {
+      "type": "static_key",
+      "file": "/config/speg/speg-denylist.v0.1.json",
+      "key": "BULK_IMPORT",
+      "category": "A",
+      "severity": "critical"
+    },
+    {
+      "type": "contract_ban",
+      "file": "/config/explanations/forbidden-patterns.v0.1.json",
+      "pattern": "watchlist|case_id|target_users",
+      "field": "any",
+      "category": "E",
+      "severity": "critical"
+    },
+    {
+      "type": "contract_ban",
+      "file": "/config/speg/speg-denylist.v0.1.json",
+      "pattern": "stream|crawler|background|firehose|platform_connector",
+      "field": "inputs.source",
+      "category": "A",
+      "severity": "critical"
+    },
+    {
+      "type": "contract_ban",
+      "file": "/config/speg/speg-denylist.v0.1.json",
+      "pattern": "watchlist|case_id|target_users",
+      "field": "any",
+      "category": "E",
+      "severity": "critical"
+    },
+    {
+      "type": "contract_ban",
+      "file": "/config/speg/speg-denylist.v0.1.json",
+      "pattern": "entity_graph|population_metrics|cohort_id",
+      "field": "any",
+      "category": "D",
+      "severity": "critical"
+    },
+    {
+      "type": "contract_ban",
+      "file": "/schemas/malicious-nodes.schema.json",
+      "pattern": "watchlist|case_id|target_users",
+      "field": "any",
+      "category": "E",
+      "severity": "critical"
+    }
+  ]
+}

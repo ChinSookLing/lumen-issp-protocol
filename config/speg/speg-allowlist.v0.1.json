@@ -1,0 +1,16 @@
+{
+  "version": "v0.1",
+  "description": "SPEG allowlist — local-only exceptions with constraints",
+  "local_only_deps": [
+    {
+      "name": "better-sqlite3",
+      "reason": "local-only audit store (no central retention)",
+      "constraints": ["no remote sync", "no full-text index used for multi-user"]
+    },
+    {
+      "name": "redis",
+      "reason": "single-node session buffer only",
+      "constraints": ["no multi-tenant central archive", "no search index"]
+    }
+  ]
+}

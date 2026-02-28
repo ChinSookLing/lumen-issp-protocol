@@ -1,0 +1,142 @@
+{
+  "version": "v0.1",
+  "name": "dashboard_flows_contract",
+  "scope": "layer4.ui_adapter",
+  "source_of_truth": "docs/design-notes/dashboard-flows-v0.1.json",
+  "updated_at": "2026-02-25T00:00:00Z",
+  "flows": [
+    {
+      "flow_id": "quick_brief",
+      "title": "Quick Brief",
+      "intent": "使用者打開就看到的摘要",
+      "trigger": {
+        "entry_points": [
+          "Landing / Home 預設入口",
+          "使用者點選 Quick Brief tab",
+          "新 request 完成後預設結果頁 (Tier 0)"
+        ],
+        "ui_request_defaults": {
+          "scenario": "monitoring_brief",
+          "output_mode": "dashboard_cards",
+          "tier": 0,
+          "purpose": "share"
+        }
+      },
+      "input_contract": {
+        "source": "l4-export-v0.1.json",
+        "required_fields": [
+          "meta.requestId", "meta.time", "scenario", "time_scale",
+          "tier", "purpose", "summary", "signals", "confidence", "redaction_state"
+        ],
+        "optional_fields": ["top_flags", "next_safe_steps", "manifest", "access_log"]
+      },
+      "output_contract": {
+        "display_blocks": [
+          { "block_id": "headline", "fields": ["summary.title", "summary.band", "summary.one_liner"] },
+          { "block_id": "risk_overview", "fields": ["summary.risk_band", "summary.tone_band", "top_flags"] },
+          { "block_id": "confidence", "fields": ["confidence.stat", "confidence.rule", "confidence.hint"] },
+          { "block_id": "next_steps", "fields": ["next_safe_steps"] }
+        ],
+        "export_actions": [
+          { "action_id": "export_l4", "artifact": "l4-export-v0.1.json", "default": true }
+        ]
+      },
+      "tier_behavior": {
+        "TIER_0": { "mode": "brief_only", "show": ["summary", "top_flags(max 5)", "confidence", "next_safe_steps"], "hide": ["raw text", "PII", "audit details"] },
+        "TIER_1": { "mode": "brief_plus_min_details", "show": ["summary", "signals(collapsible)", "confidence", "next_safe_steps"], "hide": ["raw text unless HITL approved"] },
+        "TIER_2": { "mode": "brief_plus_controls", "show": ["summary", "signals(collapsible)", "confidence", "next_safe_steps", "link_to_investigate"], "hide": ["group aggregation", "watchlists"] }
+      },
+      "constraints": ["Rule 1: UI is adapter", "Rule 2: Contract-first", "Rule 3: Dropdown-first", "Rule 4: HITL gate", "Rule 5: Test-backed", "Rule 8: Anti-drift"]
+    },
+    {
+      "flow_id": "investigate",
+      "title": "Investigate",
+      "intent": "結構命中、時間窗、可追溯證據索引",
+      "trigger": {
+        "entry_points": [
+          "Quick Brief 點 Investigate",
+          "Dropdown 選 scenario=incident_review",
+          "系統因 tier>=1 導向"
+        ],
+        "ui_request_defaults": {
+          "scenario": "incident_review",
+          "output_mode": "audit",
+          "tier": 1,
+          "purpose": "internal"
+        },
+        "gates": ["HITL required when tier>=1", "No HITL -> auto downgrade to Tier0/brief"]
+      },
+      "input_contract": {
+        "source": "l4-export-v0.1.json + access_log + manifest",
+        "required_fields": [
+          "meta.requestId", "meta.time", "scenario", "time_scale",
+          "tier", "purpose", "signals", "confidence", "evidence_index", "access_log"
+        ],
+        "optional_fields": ["explanations (if lint-passed)", "trace", "manifest"]
+      },
+      "output_contract": {
+        "display_blocks": [
+          { "block_id": "signals_panel", "fields": ["signals", "top_flags", "time_scale"] },
+          { "block_id": "confidence_panel", "fields": ["confidence.stat", "confidence.rule", "confidence.hint"] },
+          { "block_id": "evidence_panel", "fields": ["evidence_index"] },
+          { "block_id": "audit_panel", "fields": ["access_log"] }
+        ],
+        "actions": [
+          { "action_id": "request_tier_upgrade" },
+          { "action_id": "export_audit_bundle", "artifact": "manifest + access_log + l4-export" }
+        ]
+      },
+      "tier_behavior": {
+        "TIER_0": { "mode": "read_only_brief", "show": ["signals(summary)", "confidence"], "hide": ["access_log(full)", "evidence_index(detail)"] },
+        "TIER_1": { "mode": "audit_view", "show": ["signals(expandable)", "confidence", "evidence_index(index)", "access_log(event)"], "hide": ["raw text", "cross-person", "group aggregation"] },
+        "TIER_2": { "mode": "deep_audit_view", "show": ["signals", "confidence", "evidence_index(fine-grained+redacted)", "access_log", "manifest"], "hide": ["watchlist", "case management", "population analytics"] }
+      },
+      "constraints": ["Rule 1: UI is adapter", "Rule 2: Contract-first", "Rule 3: Dropdown-first", "Rule 4: HITL gate", "Rule 5: Test-backed", "Rule 7: DoD includes schemas+validators", "Rule 8: Anti-drift"]
+    },
+    {
+      "flow_id": "share_export",
+      "title": "Share / Export",
+      "intent": "匯出/分享（預設降級、去識別、最小資訊）",
+      "trigger": {
+        "entry_points": [
+          "Quick Brief 點 Share/Export",
+          "Investigate 點 Export (auto downgrade)",
+          "任何輸出頁的 Export 按鈕"
+        ],
+        "ui_request_overrides": {
+          "purpose": "share",
+          "tier": 0,
+          "constraints.redaction": true
+        },
+        "auto_downgrade_rules": [
+          "tier>=1 + purpose=share -> force tier=0",
+          "audit bundle under share -> block, recommend internal-only"
+        ]
+      },
+      "input_contract": {
+        "source": "l4-export-v0.1.json",
+        "required_fields": [
+          "meta.requestId", "meta.time", "scenario", "time_scale",
+          "tier", "purpose", "summary", "redaction_state"
+        ],
+        "optional_fields": ["confidence", "top_flags", "manifest(redacted metadata only)"]
+      },
+      "output_contract": {
+        "display_blocks": [
+          { "block_id": "share_preview", "fields": ["summary.title", "summary.one_liner", "top_flags", "redaction_state"] },
+          { "block_id": "export_options", "fields": ["export_modes"] }
+        ],
+        "export_modes": [
+          { "mode_id": "export_brief", "artifact": "l4-export-v0.1.json (tier0 redacted)", "default": true },
+          { "mode_id": "export_manifest_only", "artifact": "manifest (redacted metadata)" }
+        ]
+      },
+      "tier_behavior": {
+        "TIER_0": { "mode": "share_safe", "show": ["summary", "top_flags(max 5)", "redaction_state"], "hide": ["evidence_index", "access_log", "trace", "raw text"] },
+        "TIER_1": { "mode": "forced_downgrade", "show": ["Tier0 equivalent (forced)"], "hide": ["all Tier1 details"] },
+        "TIER_2": { "mode": "forced_downgrade", "show": ["Tier0 equivalent (forced)"], "hide": ["all Tier2 details"] }
+      },
+      "constraints": ["Rule 1: UI is adapter", "Rule 2: Contract-first", "Rule 3: Dropdown-first", "Rule 4: HITL gate (share defaults Tier0)", "Rule 5: Test-backed", "Rule 6: New UI must not change protocol", "Rule 8: Anti-drift"]
+    }
+  ]
+}

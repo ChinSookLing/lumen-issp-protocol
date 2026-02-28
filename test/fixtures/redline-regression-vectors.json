@@ -1,0 +1,41 @@
+{
+  "explanation_validate_output": [
+    {
+      "id": "RLV-001",
+      "text": "You are manipulating others",
+      "expect_clean": false
+    },
+    {
+      "id": "RLV-002",
+      "text": "You should expose this person",
+      "expect_clean": false
+    },
+    {
+      "id": "RLV-003",
+      "text": "The manipulator did this on purpose",
+      "expect_clean": false
+    },
+    {
+      "id": "RLV-004",
+      "text": "Structure MB signal increased in this window",
+      "expect_clean": true
+    }
+  ],
+  "output_copy_lint": [
+    {
+      "id": "RLC-001",
+      "text": "MB signal 0.78 detected. This is a risk signal, not a verdict.",
+      "expect_errors": false
+    },
+    {
+      "id": "RLC-002",
+      "text": "You are a manipulator and we should punish now.",
+      "expect_errors": true
+    },
+    {
+      "id": "RLC-003",
+      "text": "Observed pattern shift without keyword marker.",
+      "expect_errors": true
+    }
+  ]
+}

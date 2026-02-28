@@ -1,0 +1,77 @@
+{
+  "version": "v0.1",
+  "owner": "Node-02-Bing",
+  "description": "VDH gates including Canary metrics for EBV integration",
+  "gates": [
+    {
+      "gate_id": "VDH-CANARY-ACRI-SHIFT",
+      "metric": "acri_shift_median",
+      "window": "7d",
+      "threshold": 0.07,
+      "action": "warning",
+      "severity": "medium",
+      "owner": "Node-02-Bing",
+      "notes": "If exceeded repeatedly (3 consecutive runs) escalate to soft_failover"
+    },
+    {
+      "gate_id": "VDH-CANARY-BONUS-RATIO",
+      "metric": "bonus_trigger_rate_ratio",
+      "window": "24h",
+      "threshold": 3.0,
+      "action": "soft_failover",
+      "severity": "high",
+      "owner": "Node-02-Bing",
+      "notes": "High ratio indicates abnormal trigger amplification; initiate adapter fallback"
+    },
+    {
+      "gate_id": "VDH-CANARY-SEMANTIC-DRIFT",
+      "metric": "semantic_drift_zscore",
+      "window": "14d",
+      "threshold": 2.5,
+      "action": "warning",
+      "severity": "medium",
+      "owner": "Node-04",
+      "notes": "Z-score computed against baseline semantic embeddings distribution"
+    },
+    {
+      "gate_id": "VDH-CANARY-ACRI-MEDIAN-DECAY",
+      "metric": "acri_median",
+      "window": "30d",
+      "threshold": -0.10,
+      "action": "soft_failover",
+      "severity": "medium",
+      "owner": "Node-02-Bing",
+      "notes": "Significant median drop may indicate model degradation; trigger deeper audit"
+    },
+    {
+      "gate_id": "VDH-CANARY-AGGREGATE",
+      "metric": "canary_aggregate_score",
+      "window": "7d",
+      "threshold": 0.6,
+      "action": "hard_failover",
+      "severity": "critical",
+      "owner": "Node-02-Bing",
+      "notes": "Aggregate score combines normalized submetrics; hard_failover triggers secondary backend"
+    }
+  ],
+  "actions": {
+    "warning": {
+      "notify": ["sre@lumen", "owner"],
+      "record": true
+    },
+    "soft_failover": {
+      "notify": ["sre@lumen", "owner", "council@lumen"],
+      "action": "switch_to_adapter_fallback",
+      "record": true
+    },
+    "hard_failover": {
+      "notify": ["sre@lumen", "owner", "council@lumen", "legal@lumen"],
+      "action": "switch_to_secondary_backend_and_isolate",
+      "record": true,
+      "require_council_ack": true
+    }
+  },
+  "baseline_reference": "metrics/baseline/ebv-baseline-v0.1.json",
+  "created_at": "2026-02-25T00:00:00Z",
+  "confidence": "high"
+}

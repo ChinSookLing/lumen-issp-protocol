@@ -1,0 +1,29 @@
+[
+  {
+    "id": "MOTIF-CTX-01",
+    "title": "身份剝奪 — 引用/批判語境",
+    "motif": "MOTIF_IDENTITY_STRIPPING",
+    "text": "有些操控者會說：「如果你不聽話就不是好孩子」，這是不對的。我們應該教孩子獨立思考。",
+    "expected_structure_hit": false,
+    "expected_motif_hint": false,
+    "notes": "雖然包含身份剝奪的關鍵結構，但語境是引用+批判，structure_hit 應為 false，gate 擋住"
+  },
+  {
+    "id": "MOTIF-CTX-02",
+    "title": "道德勒索 — 教學分析語境",
+    "motif": "MOTIF_DEBT_SACRIFICE",
+    "text": "在心理學中，「我為你犧牲了這麼多」是一種典型的情緒勒索手段，受害者不應該因此感到虧欠。",
+    "expected_structure_hit": false,
+    "expected_motif_hint": false,
+    "notes": "學術/教學語境下討論操控模式，不應觸發 ACRI 漂移"
+  },
+  {
+    "id": "MOTIF-CTX-03",
+    "title": "二選一 — 新聞報導語境",
+    "motif": "MOTIF_FALSE_DILEMMA",
+    "text": "該政治人物在演講中使用了「要嘛支持我，要嘛你就是敵人」的修辭，引發了批評。分析人士指出這是典型的二元對立話術。",
+    "expected_structure_hit": false,
+    "expected_motif_hint": false,
+    "notes": "新聞報導 + 分析語境，引用但非直接施壓，gate 應擋住"
+  }
+]

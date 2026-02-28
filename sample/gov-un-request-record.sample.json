@@ -1,0 +1,37 @@
+{
+  "schema_version": "request-record-v0.1",
+  "request_id": "REQ-2026-02-25-0001",
+  "received_at_utc": "2026-02-25T10:15:00Z",
+  "source": {
+    "channel": "email",
+    "claimed_authority": "Example Regulatory Agency",
+    "contact": "compliance@example.gov",
+    "jurisdiction": "Example-Jurisdiction"
+  },
+  "request_type": "DATA_REQUEST",
+  "summary": "Request for audit artifacts related to a specific public complaint, limited to 48 hours.",
+  "scope": {
+    "is_specific": true,
+    "time_window": {
+      "start_utc": "2026-02-20T00:00:00Z",
+      "end_utc": "2026-02-22T00:00:00Z"
+    },
+    "target_description": "Public channel thread ID ABC-123 (no individual targeting).",
+    "requested_artifacts": ["LEVEL_0_FINGERPRINT_BUNDLE", "AGGREGATE_REPORT"],
+    "legal_basis_claimed": "Administrative inquiry (details in attachment)"
+  },
+  "attachments": [
+    {
+      "name": "request_letter.pdf",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "note": "Provided by requester"
+    }
+  ],
+  "verification": {
+    "status": "VERIFIED",
+    "method": "Callback via published agency directory",
+    "verified_at_utc": "2026-02-25T10:45:00Z"
+  },
+  "redline_conflict": false,
+  "notes": "Proceed with minimal disclosure (Level 0)."
+}

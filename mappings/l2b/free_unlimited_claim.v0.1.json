@@ -1,0 +1,15 @@
+{
+  "version": "v0.1",
+  "carrier": "2b-lite",
+  "key": "free_unlimited_claim",
+  "human_label": {
+    "zh": "免費無限宣稱",
+    "en": "Free unlimited claim"
+  },
+  "definition": "用「免費」「無限」「永久」等誇大詞彙引誘點擊或回應，常見於詐騙訊息。",
+  "abuse_case": "用『終身免費、無限流量、0元體驗』等承諾繞過使用者的理性評估。",
+  "notes": [
+    "Structure-only detection; no intent inference.",
+    "Tier0 output: key + short label only."
+  ]
+}

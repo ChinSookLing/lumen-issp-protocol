@@ -1,0 +1,25 @@
+name: CHARTER Checks
+on:
+  pull_request:
+    paths:
+      - 'CHARTER.md'
+      - 'docs/**'
+      - 'ui/**'
+jobs:
+  charter-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y ripgrep jq
+      - name: Run CHARTER checks (warning mode)
+        env:
+          MODE: warning
+        run: bash scripts/ci/check-charter.sh
+      - name: Run moral linter (detailed)
+        run: bash scripts/ci/check-moral-linter.sh
+      - name: Upload charter report
+        uses: actions/upload-artifact@v4
+        with:
+          name: charter-check-report
+          path: reports/charter-check || true

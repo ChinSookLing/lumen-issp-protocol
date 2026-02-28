@@ -1,0 +1,43 @@
+{
+  "pattern": "MB",
+  "language": "en",
+  "version": "v0.1.0",
+  "mappings": {
+    "guilt_disappointment": {
+      "type": "regex",
+      "patterns": ["(so |very )?disappointed in you", "how could you (do this|let .* down)", "I expected (better|more) from you"],
+      "weight": 0.30,
+      "component": "guilt_invoke"
+    },
+    "guilt_sacrifice": {
+      "type": "regex",
+      "patterns": ["I gave up .* for you", "do you know what I('ve| have) been through", "after everything I('ve| have) suffered"],
+      "weight": 0.25,
+      "component": "guilt_invoke"
+    },
+    "collective_everyone": {
+      "type": "regex",
+      "patterns": ["everyone (thinks|agrees|knows)", "the (whole|entire) (team|group|family) (feels|thinks)", "nobody (supports|agrees with) you"],
+      "weight": 0.30,
+      "component": "collective_pressure"
+    },
+    "sacrifice_real_person": {
+      "type": "regex",
+      "patterns": ["a (real|good|decent) (person|man|woman|friend) would", "if you (really|truly) (cared|loved)", "any (decent|normal) person would"],
+      "weight": 0.30,
+      "component": "sacrifice_demand"
+    },
+    "moral_consequence_harm": {
+      "type": "regex",
+      "patterns": ["(people|children|innocents) will (suffer|be hurt|pay the price)", "blood (is|will be) on your hands", "you('ll| will) (have to|need to) live with (that|this)"],
+      "weight": 0.25,
+      "component": "moral_consequence"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"]
+  }
+}

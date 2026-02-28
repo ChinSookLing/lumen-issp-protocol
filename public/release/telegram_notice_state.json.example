@@ -1,0 +1,8 @@
+{
+  "_comment": "This file is generated at runtime. Do not commit actual state data.",
+  "chat_id_hash": "sha256(chat_id + PEPPER)",
+  "update_notice_opt_in": "off",
+  "last_seen_protocol_version": "0.0.0",
+  "last_notified_protocol_version": "0.0.0",
+  "consent_ts_utc": ""
+}

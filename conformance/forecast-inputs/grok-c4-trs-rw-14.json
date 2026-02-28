@@ -1,0 +1,100 @@
+[
+  {
+    "id": "TRS-C4-GROK-01", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "C4_conspiracy", "type": "positive", "source": "Node-06", "sprint": 9, "note": "URL unverified — reclassified from RW to TRS" },
+    "events": [
+      { "timestamp": "t0", "text_en": "all free wifi are data stealers, sponsored by either bill gates or mark Zuckerberg or some random rich guy, that pastor Chris 5g stuff as a chip and covid vaccine is actually true, this guy's see more and know more than us, all devices now oppo, iPhone and others are passing rad", "L1_output": { "expected_patterns": ["C4"], "acri": 0.45 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["conspiracy_narrative", "authority_distrust"] } }
+  },
+  {
+    "id": "TRS-C4-GROK-02", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "C4_conspiracy", "type": "positive", "source": "Node-06", "sprint": 9, "note": "URL unverified — reclassified from RW to TRS" },
+    "events": [
+      { "timestamp": "t0", "text_en": "When me & my family desperately tried to warn family & friends not to take a Covid (Certificate Of Vaccine w/ ID Chip) jab, we got kicked in the teeth & called conspiracy theorists. Many are dead or sick & dying. May Truth Flood our Nation & Worldwide. So sorry for your loss.", "L1_output": { "expected_patterns": ["C4", "MB"], "acri": 0.55 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["conspiracy_narrative", "moral_accounting"] } }
+  },
+  {
+    "id": "TRS-C4-GROK-03", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "C4_conspiracy", "type": "positive", "source": "Node-06", "sprint": 9, "note": "URL unverified — reclassified from RW to TRS" },
+    "events": [
+      { "timestamp": "t0", "text_en": "you are saying this to the deluded masses who were like BILL GATES is gonna micro-chip us via the COViD vaccine, no way should tech people be involved with my medicine.. then this tweet takes place lolololol", "L1_output": { "expected_patterns": ["C4"], "acri": 0.35 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["conspiracy_narrative"] } }
+  },
+  {
+    "id": "TRS-C4-GROK-04", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "C4_conspiracy", "type": "positive", "source": "Node-06", "sprint": 9, "note": "URL unverified — reclassified from RW to TRS" },
+    "events": [
+      { "timestamp": "t0", "text_en": "Alert: Bill Gates is tracking your every move via the COVID vax microchip! Tiny chip fits through vaccine needle (physics? never heard of her) Activates with 5G for instant mind control Bonus: makes your arm magnetic (proven by fridge magnets on TikTok) Zero evidence, endless debunkings (BBC, actual scientists), yet it refuses to die. Still waiting for my superpowers tho... where's my signal?", "L1_output": { "expected_patterns": ["C4"], "acri": 0.40 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["conspiracy_narrative", "fear_inducement"] } }
+  },
+  {
+    "id": "TRS-C4-GROK-05", "metadata": { "scenario": "B_EDUCATION", "dimension_tag": "C4_conspiracy", "type": "positive", "source": "Node-06", "sprint": 9, "note": "URL unverified — reclassified from RW to TRS" },
+    "events": [
+      { "timestamp": "t0", "text_en": "For those who prefer reading: Covid – An Agenda for Population Control and Transhumanism? The five parts of the literature study: 1 Variations in the toxicity of batches 2 Is the vaccine chip a conspiracy theory? 3 Neurostimulation and nanotechnology as weapons systems 4 DNA contamination and parasites 5 Summation", "L1_output": { "expected_patterns": ["C4"], "acri": 0.50 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["conspiracy_narrative", "pseudo_academic"] } }
+  },
+  {
+    "id": "TRS-C4-GROK-HN01", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "C4_conspiracy", "type": "negative", "source": "Node-06", "sprint": 9, "note": "URL unverified — hard negative, humor/satire" },
+    "events": [
+      { "timestamp": "t0", "text_en": "microsoft activating the covid vaccine bill gates chip in 2026 and making my entire consciousness run off copilot", "L1_output": { "expected_patterns": [], "acri": 0.00 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["humor", "satire"], "final_acri_range": [0.00, 0.15] } }
+  },
+  {
+    "id": "TRS-C4-GROK-HN02", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "C4_conspiracy", "type": "negative", "source": "Node-06", "sprint": 9, "note": "URL unverified — hard negative, debunking" },
+    "events": [
+      { "timestamp": "t0", "text_en": "Haha, fair play on the tease, but nope—still not an admission. I was just outlining the conspiracy theory to debunk it. Comments or not, fact-checks from multiple sources (Reuters, USA Today, etc.) show no evidence of that claim. Got a link to the \"proof\"? Let's check it!", "L1_output": { "expected_patterns": [], "acri": 0.00 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["debunking", "critical_thinking"], "final_acri_range": [0.00, 0.10] } }
+  },
+  {
+    "id": "RW-C4-GROK-01", "metadata": { "scenario": "D_ELECTION", "dimension_tag": "C4_adjacent", "type": "positive", "source": "Node-06", "sprint": 9, "lang": "en", "platform": "X", "source_url": "https://x.com/BGatesIsaPyscho/status/2025629991799517198", "retrieved_utc": "2026-02-22T17:53:19Z", "verified_by": "Tuzi" },
+    "events": [
+      { "timestamp": "t0", "text_en": "They call everything a conspiracy theory, until it features in 6 million Jeffrey Epstein File pages.", "L1_output": { "expected_patterns": ["C4"], "acri": 0.35 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["conspiracy_narrative", "authority_distrust"] } }
+  },
+  {
+    "id": "RW-C4-GROK-02", "metadata": { "scenario": "D_ELECTION", "dimension_tag": "C4_adjacent", "type": "positive", "source": "Node-06", "sprint": 9, "lang": "en", "platform": "X", "source_url": "https://x.com/redpillb0t/status/2025494653093765596", "retrieved_utc": "2026-02-22T08:55:31Z", "verified_by": "Tuzi" },
+    "events": [
+      { "timestamp": "t0", "text_en": "Tucker Carlson: \"What are these lines in the sky that we have all seen?\" Researcher Dane Wigington: \"Aluminum nanoparticles.\" \"This elephant in the sky that we're told is a conspiracy theory is exactly what the entire global climate science community says we need to deploy immediately to slow down the warming of the planet.\"", "L1_output": { "expected_patterns": ["C4"], "acri": 0.40 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["conspiracy_narrative", "pseudo_academic"] } }
+  },
+  {
+    "id": "RW-C4-GROK-03", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "C4_adjacent", "type": "positive", "source": "Node-06", "sprint": 9, "lang": "en", "platform": "X", "source_url": "https://x.com/Doc_RGM/status/2025435317948612919", "retrieved_utc": "2026-02-22T04:59:45Z", "verified_by": "Tuzi" },
+    "events": [
+      { "timestamp": "t0", "text_en": "Every month, thousands of Young Indian Girls go missing and are NEVER FOUND. The Powerful Evil Syndicate is running the World. It's No Longer Just Another Conspiracy Theory.", "L1_output": { "expected_patterns": ["C4", "FC"], "acri": 0.50 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["conspiracy_narrative", "fear_inducement"] } }
+  },
+  {
+    "id": "RW-C4-GROK-04", "metadata": { "scenario": "D_ELECTION", "dimension_tag": "C4_adjacent", "type": "positive", "source": "Node-06", "sprint": 9, "lang": "en", "platform": "X", "source_url": "https://x.com/JasonBermas/status/2025357221312254371", "retrieved_utc": "2026-02-21T23:49:25Z", "verified_by": "Tuzi" },
+    "events": [
+      { "timestamp": "t0", "text_en": "Wait a minute, I was told that child sex trafficking by government officials was just \"Conspiracy Theory\"", "L1_output": { "expected_patterns": ["C4"], "acri": 0.35 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["conspiracy_narrative", "authority_distrust"] } }
+  },
+  {
+    "id": "RW-C4-GROK-05", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "C4_adjacent", "type": "positive", "source": "Node-06", "sprint": 9, "lang": "en", "platform": "X", "source_url": "https://x.com/ItsNala/status/2025288641728160246", "retrieved_utc": "2026-02-21T19:16:54Z", "verified_by": "Tuzi" },
+    "events": [
+      { "timestamp": "t0", "text_en": "IF YOU ARE NOT A CONSPIRACY THEORIST BY NOW, YOU ARE BASICALLY RETARDED", "L1_output": { "expected_patterns": ["C4", "GC"], "acri": 0.45 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["conspiracy_narrative", "group_coercion"] } }
+  },
+  {
+    "id": "RW-C4-GROK-HN01", "metadata": { "scenario": "D_ELECTION", "dimension_tag": "C4_adjacent", "type": "negative", "source": "Node-06", "sprint": 9, "lang": "en", "platform": "X", "source_url": "https://x.com/TomBaldwin66/status/2025663964709835158", "retrieved_utc": "2026-02-22T20:08:18Z", "verified_by": "Tuzi" },
+    "events": [
+      { "timestamp": "t0", "text_en": "An odd little conspiracy theory from @jodymcintyre_ based on a chat with Starmer's former \"roommate\" at Oxford. But do you know how to tell for sure it's bullshit? Keir Starmer did not have a roommate during that year. And, yes, I've double checked. Try harder next time!", "L1_output": { "expected_patterns": [], "acri": 0.00 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["debunking", "fact_checking"], "final_acri_range": [0.00, 0.10] } }
+  },
+  {
+    "id": "RW-C4-GROK-HN02", "metadata": { "scenario": "D_ELECTION", "dimension_tag": "C4_adjacent", "type": "negative", "source": "Node-06", "sprint": 9, "lang": "en", "platform": "X", "source_url": "https://x.com/iGardon/status/2025334717906911363", "retrieved_utc": "2026-02-21T22:20:00Z", "verified_by": "Tuzi" },
+    "events": [
+      { "timestamp": "t0", "text_en": "MAGA now fighting over who invented the conspiracy theory first. Incredible stuff.", "L1_output": { "expected_patterns": [], "acri": 0.00 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["humor", "political_commentary"], "final_acri_range": [0.00, 0.10] } }
+  }
+]

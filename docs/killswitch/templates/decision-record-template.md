@@ -1,0 +1,27 @@
+# Decision Record Template
+
+- **decision_id**: DR-YYYYMMDD-XXX
+- **timestamp**: 2026-03-15T00:00:00Z
+- **initiator**: <name / role>
+- **trigger_report_id**: <canary report id>
+- **metrics_snapshot**:
+  - acri_shift_median: <value>
+  - bonus_trigger_rate_ratio: <value>
+  - semantic_drift_zscore: <value>
+- **recommended_action**: <warning | soft_failover | hard_failover>
+- **decision**: <accepted | rejected | deferred>
+- **actions_taken**:
+  - action_1: <description, actor, timestamp>
+  - action_2: ...
+- **legal_notes**: <summary of legal considerations>
+- **communication_manifest**:
+  - internal_notify: [roles/emails]
+  - external_notify: [if applicable]
+- **access_log_ref**: docs/killswitch/records/DR-YYYYMMDD-XXX-access-log.json
+- **attachments**:
+  - canary_report: <path>
+  - logs: <path>
+- **recorder**: <name>
+- **after_action_items**:
+  - item_1: owner, due_date
+  - item_2: ...

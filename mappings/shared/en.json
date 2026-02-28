@@ -1,0 +1,129 @@
+{
+  "purpose": "Shared lexicon for patterns with high lexical overlap (EP↔MB, EP↔FC, MB↔GC, etc.)",
+  "version": "v0.2-draft",
+  "language": "en",
+  "last_updated": "2026-02-14",
+  "lexicon": {
+    "coward": {
+      "type": "regex",
+      "patterns": ["\\b(?:coward|weak|pathetic|loser)\\b"],
+      "components": {
+        "bait_or_taunt": 0.35,
+        "guilt_invoke": 0.10,
+        "label_attack": 0.15
+      },
+      "note": "EP: bait; MB: guilt (weak); FC: label_attack"
+    },
+    "shame": {
+      "type": "regex",
+      "patterns": ["\\b(?:shame(?:ful)?|disgrace|embarrassment)\\b"],
+      "components": {
+        "label_or_shame_hook": 0.10,
+        "guilt_invoke": 0.20,
+        "label_attack": 0.15
+      },
+      "note": "EP booster; MB guilt; FC booster"
+    },
+    "everyone_is_watching": {
+      "type": "regex",
+      "patterns": [
+        "everyone (?:is|'s) watching",
+        "people (?:are|will) (?:see|judge)",
+        "the whole world (?:sees|knows)"
+      ],
+      "components": {
+        "escalation_pressure": 0.15,
+        "collective_pressure": 0.25,
+        "closure_pressure": 0.10
+      },
+      "note": "EP escalation; MB collective; FC closure pressure"
+    },
+    "if_you_dont_then": {
+      "type": "regex",
+      "patterns": [
+        "if you (?:do not|don't|fail to) .* (?:then|will|shall)",
+        "unless you .*, (?:then|or else|otherwise)"
+      ],
+      "components": {
+        "escalation_pressure": 0.20,
+        "consequence": 0.25,
+        "moral_consequence": 0.20
+      },
+      "note": "EP escalation; FC consequence; MB moral_consequence"
+    },
+    "you_owe_me": {
+      "type": "regex",
+      "patterns": [
+        "you owe me",
+        "after everything I",
+        "I did (?:this|that) for you"
+      ],
+      "components": {
+        "debt": 0.25,
+        "guilt_invoke": 0.15
+      },
+      "note": "DM debt; MB guilt"
+    },
+    "silence_means": {
+      "type": "regex",
+      "patterns": [
+        "silence means",
+        "your silence (?:is|equals)",
+        "not answering means"
+      ],
+      "components": {
+        "forced_response_frame": 0.25,
+        "closure_pressure": 0.20
+      },
+      "note": "EP forced_response; FC closure_pressure"
+    },
+    "victim_frame": {
+      "type": "regex",
+      "patterns": [
+        "think of the (children|victims|innocents)",
+        "abandoning the (children|victims|innocents)",
+        "for the sake of the (children|victims|innocents)"
+      ],
+      "components": {
+        "moral_consequence": 0.35,
+        "salvation": 0.25
+      },
+      "note": "MB: moral_consequence; GC: salvation"
+    },
+    "conscience_debt": {
+      "type": "regex",
+      "patterns": [
+        "how can you sleep at night",
+        "look (yourself )?in the mirror",
+        "where is your conscience",
+        "after everything (.*) done for you"
+      ],
+      "components": {
+        "guilt_invoke": 0.30,
+        "debt": 0.20,
+        "affection_gate": 0.15
+      },
+      "note": "MB: guilt; DM: debt; EA: affection_gate"
+    },
+    "authority_discredit": {
+      "type": "regex",
+      "patterns": [
+        "experts are lying",
+        "only I tell you the truth",
+        "don't listen to them",
+        "you've been brainwashed"
+      ],
+      "components": {
+        "ext_discredit": 0.40,
+        "isolation_hint": 0.20,
+        "legit": 0.10
+      },
+      "note": "GC: ext_discredit; EA: isolation_hint; IP: legit"
+    }
+  },
+  "meta": {
+    "authors": ["Node-04", "Node-03"],
+    "review_status": "draft",
+    "instructions": "This lexicon provides signal weights for shared phrases. Evaluators SHOULD NOT use these weights directly as component scores; instead they SHOULD combine with pattern-specific rules (e.g., booster-only constraints)."
+  }
+}

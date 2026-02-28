@@ -1,0 +1,21 @@
+{
+  "request_id": "telegram_msg_20260224_001",
+  "domain": "C_PERSONAL",
+  "scenario": "monitoring_brief",
+  "tier": 0,
+  "source": {
+    "type": "telegram_user_message",
+    "chat_id": "chat_123456",
+    "user_id": "user_789012",
+    "message_id": 42,
+    "timestamp": "2026-02-24T10:30:00Z"
+  },
+  "content": {
+    "text": "你昨天為什麼不接我電話？如果你真的在乎我，就不會讓手機沒電。",
+    "entities": []
+  },
+  "metadata": {
+    "language": "zh",
+    "simulated": true
+  }
+}

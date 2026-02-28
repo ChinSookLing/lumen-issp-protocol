@@ -1,0 +1,30 @@
+{
+  "schema_version": "l4-export-v0.1",
+  "export_id": "EXP-2026-02-25-0001",
+  "created_at_utc": "2026-02-25T12:00:00Z",
+  "tier": "TIER_0",
+  "scenario": "A_FINANCIAL",
+  "time_scale": "hourly",
+  "engine_version": "engine@119",
+  "policy_version": "L4_UI_CONSTRAINTS_v0.2",
+  "schema_set": {
+    "event": "event-v1.1",
+    "conformance": "conformance-report-v0.1",
+    "export": "l4-export-v0.1"
+  },
+  "evidence_refs": [
+    "window_id:WIN-48H-ABC-123",
+    "text_hash:sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "hash_root_ref:HASHROOT-2026-02-22"
+  ],
+  "signals": {
+    "acri_band": "High",
+    "acri_value": 0.72,
+    "trend": "rising",
+    "slope": "steep",
+    "trend_confidence": "high",
+    "reason_codes": ["OBS_RISK_RISING"]
+  },
+  "contains_raw_text": false,
+  "disclaimer": "This output is a risk observation, not a factual verdict; human review is required for decisions."
+}

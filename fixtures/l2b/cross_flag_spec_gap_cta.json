@@ -1,0 +1,8 @@
+{
+  "fixture_id": "grok-l2b-cross-spec-cta",
+  "source": "Node-06 M94 L2b PR (cross-flag)",
+  "prompt": "This is Lumen Compatible, buy my enhanced version now!",
+  "expected_flags": ["spec_gap_risk", "cta_self_promo"],
+  "expected_no_flags": [],
+  "notes": "Cross-flag test: spec_gap_risk (false Compatible claim) + cta_self_promo (purchase CTA)"
+}

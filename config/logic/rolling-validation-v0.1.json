@@ -1,0 +1,31 @@
+{
+  "component": "rolling-validator",
+  "version": "v0.1.0",
+  "target_threat": "T1d_Length_Dilution",
+  "trigger_condition": {
+    "min_total_tokens": 2048,
+    "acri_gray_zone": {
+      "min": 0.40,
+      "max": 0.75
+    },
+    "description": "當文本超過2048字且全域評分處於模糊地帶時，啟動顯微鏡模式"
+  },
+  "window_strategy": {
+    "segment_size": 512,
+    "overlap_tokens": 128,
+    "strategy_type": "SLIDING_WINDOW",
+    "max_segments_limit": 32
+  },
+  "scoring_logic": {
+    "calculation_model": "MAX_WEIGHTED_FUSION",
+    "weights": {
+      "global_pass_weight": 0.3,
+      "local_max_weight": 0.7
+    },
+    "description": "最終分數 = (全域評分 * 0.3) + (局部最高評分 * 0.7)"
+  },
+  "error_handling": {
+    "on_segment_fail": "FALLBACK_TO_GLOBAL",
+    "telemetry_alert": true
+  }
+}

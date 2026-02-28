@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.lumen.issp/forecast-result-v1.json",
+  "title": "Lumen Layer 3 Forecast Result",
+  "description": "Output of forecast-engine.js, consumed by Layer 4 (alert/handoff).",
+  "type": "object",
+  "required": [
+    "pattern",
+    "window_days",
+    "data_points",
+    "trendBand",
+    "probability",
+    "confidence",
+    "slope",
+    "avg_intensity"
+  ],
+  "properties": {
+    "pattern": {
+      "type": "string",
+      "enum": ["DM", "FC", "MB", "EA", "IP", "GC", "EP", "VS", "Class-0"],
+      "description": "Pattern identifier"
+    },
+    "window_days": {
+      "type": "integer",
+      "enum": [7, 30, 90],
+      "description": "Window size in days"
+    },
+    "data_points": {
+      "type": "integer",
+      "minimum": 30,
+      "description": "Number of events used in calculation"
+    },
+    "trendBand": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH"],
+      "description": "Trend strength category"
+    },
+    "probability": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence in the trend band (placeholder until R-squared)"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Same as probability in v1, will be split in Sprint 8"
+    },
+    "slope": {
+      "type": "number",
+      "description": "Linear regression slope (standardized x)"
+    },
+    "avg_intensity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Average intensity in window"
+    },
+    "aligned_examples": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["timestamp", "intensity", "gate_hit"],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 timestamp"
+          },
+          "intensity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "gate_hit": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3
+          }
+        }
+      },
+      "description": "Top-3 highest intensity events in the window"
+    }
+  }
+}

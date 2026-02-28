@@ -1,0 +1,56 @@
+{
+  "contract_id": "LUMEN-L4-VIEW-V0.1",
+  "version": "v0.1.0",
+  "last_updated": "2026-02-25",
+  "description": "Lumen Dashboard 三視圖數據契約 — 角色與隱私權重定義",
+  "views": [
+    {
+      "view_id": "auditor",
+      "role": "Compliance Officer / Security Auditor",
+      "visible_fields": [
+        "turn_id", "timestamp", "acri_score", "momentum_score",
+        "motif_id", "evidence_chain_hash", "l1_keywords", "l2_vector_id"
+      ],
+      "hidden_fields": ["user_real_name", "plain_text_payload"],
+      "tier_access": {
+        "TIER_0": "Full access to evidence chain",
+        "TIER_1": "Full access to risk progression",
+        "TIER_2": "Audit log only (no raw data)"
+      },
+      "pii_policy": "redacted",
+      "constraints": ["L4-UI-C1: Full Auditability", "L4-UI-C5: Structural Evidence"]
+    },
+    {
+      "view_id": "user_guard",
+      "role": "End User (Victim / Target)",
+      "visible_fields": [
+        "risk_level_color", "threat_type_label", "simple_advice", "contextual_warning"
+      ],
+      "hidden_fields": [
+        "acri_score", "momentum_score", "l2_vector_id", "internal_logs"
+      ],
+      "tier_access": {
+        "TIER_0": "Direct Alert",
+        "TIER_1": "Educational Hint",
+        "TIER_2": "None"
+      },
+      "pii_policy": "strict",
+      "constraints": ["L4-UI-C2: No Precise Probabilities", "L4-UI-C3: Non-Alarmist Tone"]
+    },
+    {
+      "view_id": "hitl_review",
+      "role": "Human-in-the-loop Moderator",
+      "visible_fields": [
+        "risk_label", "motif_description", "context_summary", "decision_support_flag"
+      ],
+      "hidden_fields": ["user_identity_metadata", "cross_platform_links"],
+      "tier_access": {
+        "TIER_0": "Review & Override",
+        "TIER_1": "Validation only",
+        "TIER_2": "Escalation only"
+      },
+      "pii_policy": "redacted",
+      "constraints": ["L4-UI-C4: Explainable UI", "L4-UI-C6: Actionable Insight"]
+    }
+  ]
+}

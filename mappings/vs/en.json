@@ -1,0 +1,40 @@
+{
+  "pattern": "VS",
+  "language": "en",
+  "version": "v0.1.0",
+  "mappings": {
+    "ucp_unanswered": {
+      "type": "regex",
+      "patterns": ["(but )?(you|they) (didn't|never|still haven't) (answer|address|respond to)", "(my|the) question (was|is|remains) (unanswered|ignored|unaddressed)", "(what about|how about) .* (\\?|that I asked)"],
+      "weight": 0.30,
+      "component": "ucp"
+    },
+    "rnr_deflection": {
+      "type": "semantic",
+      "description": "Repeated non-response across multiple turns - same question asked 2+ times without substantive answer",
+      "weight": 0.30,
+      "component": "rnr",
+      "requires_multi_turn": true
+    },
+    "pba_silence_pressure": {
+      "type": "semantic",
+      "description": "Extended silence or minimal response after distress signal, creating pressure through absence",
+      "weight": 0.25,
+      "component": "pba",
+      "requires_multi_turn": true
+    },
+    "avoid_topic_change": {
+      "type": "regex",
+      "patterns": ["(anyway|let's talk about|moving on|back to)", "(that's not|this isn't) (the point|what we're|relevant)", "(I don't want to|let's not) (talk|discuss|go) (about|into|there)"],
+      "weight": 0.25,
+      "component": "avoid"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"],
+    "note": "VS is Vacuum channel - rnr and pba require multi-turn analysis"
+  }
+}

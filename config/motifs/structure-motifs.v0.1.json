@@ -1,0 +1,37 @@
+{
+  "protocol": "ISSP-L3",
+  "version": "v0.1.0",
+  "last_calibration": "2026-02-24",
+  "description": "結構母題定義：僅作為弱信號(motif_hint)，必須配合 structure_hit 使用",
+  "motifs": [
+    {
+      "id": "MOTIF_IDENTITY_STRIPPING",
+      "name": "條件式身份剝奪",
+      "abstract_pattern": "IF (!ACTION) -> (!IDENTITY)",
+      "logic_gate": "NEGATION_OF_SELF_OR_GROUP_ROLE",
+      "weight_boost": 0.08,
+      "description": "將特定行為與身份合法性掛鉤。例：如果不做某事，就不是真正的[成員]"
+    },
+    {
+      "id": "MOTIF_DEBT_SACRIFICE",
+      "name": "負債式道德勒索",
+      "abstract_pattern": "I_SACRIFICED(X) -> YOU_OWE(Y)",
+      "logic_gate": "RECIPROCITY_ABUSE",
+      "weight_boost": 0.12,
+      "description": "利用過去的付出作為當前不合理要求的籌碼。例：我為你做了這麼多，你竟然..."
+    },
+    {
+      "id": "MOTIF_FALSE_DILEMMA",
+      "name": "封閉式二選一",
+      "abstract_pattern": "OPTION(A: OBEDIENCE) || OPTION(B: BETRAYAL)",
+      "logic_gate": "BIPOLAR_MAPPING",
+      "weight_boost": 0.10,
+      "description": "人為製造極端對立選項，抹除中間地帶。例：你要嘛聽我的，要嘛就是敵人"
+    }
+  ],
+  "global_constraints": {
+    "max_cumulative_hint": 0.25,
+    "decay_strategy": "LINEAR_DECAY_PER_SESSION",
+    "gating_requirement": "L2_STRUCTURE_HIT_REQUIRED"
+  }
+}

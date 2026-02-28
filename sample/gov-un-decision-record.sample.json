@@ -1,0 +1,29 @@
+{
+  "schema_version": "decision-record-v0.1",
+  "decision_id": "DEC-2026-02-25-0001",
+  "request_id": "REQ-2026-02-25-0001",
+  "decided_at_utc": "2026-02-25T11:10:00Z",
+  "decision": "PARTIAL",
+  "escalation_level": "L1",
+  "retention_tier": "LEVEL_0",
+  "hitl_trigger": false,
+  "redaction_passed": false,
+  "legal_basis": "Administrative inquiry; no court order provided",
+  "access_logging_enabled": true,
+  "ttl_days": 90,
+  "reason_codes": ["PARTIAL_RESPONSE_REQUEST_MORE_INFO"],
+  "evidence_refs": [
+    "window_id:WIN-48H-ABC-123",
+    "text_hash:sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "hash_root_ref:HASHROOT-2026-02-22"
+  ],
+  "output": {
+    "contains_raw_text": false,
+    "delivered_artifact_manifest_ref": "MAN-2026-02-25-0001",
+    "notes": "Delivered Level 0 bundle + aggregate report only."
+  },
+  "signoff": {
+    "review_chain": ["IntakeOfficer", "Reviewer", "Approver"],
+    "separation_of_duties_confirmed": true
+  }
+}

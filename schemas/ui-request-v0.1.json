@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lumen-issp.org/schemas/ui-request-v0.1.json",
+  "title": "ui-request-v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["meta", "scenario", "time_scale", "tier", "output_mode", "purpose", "inputs", "constraints", "toggles"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requestId", "time", "locale", "client", "version"],
+      "properties": {
+        "requestId": { "type": "string", "minLength": 8, "maxLength": 128 },
+        "time": { "type": "string", "format": "date-time" },
+        "locale": { "type": "string", "minLength": 2, "maxLength": 32, "default": "zh-Hant-MY" },
+        "client": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "channel"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1, "maxLength": 64 },
+            "channel": {
+              "type": "string",
+              "enum": ["web", "app", "telegram", "cli", "voice", "other"]
+            },
+            "build": { "type": "string", "minLength": 1, "maxLength": 64 }
+          }
+        },
+        "version": { "type": "string", "enum": ["v0.1"] },
+        "extensions": {
+          "type": "object",
+          "description": "允許 UI/Adapter 以不破壞合約的方式添加非核心欄位（不可用於表示監控原語）",
+          "additionalProperties": true
+        }
+      }
+    },
+
+    "scenario": {
+      "type": "string",
+      "enum": ["monitoring_brief", "incident_review", "tabletop", "export_only"]
+    },
+
+    "time_scale": {
+      "type": "string",
+      "enum": ["5m", "1h", "24h", "7d", "30d"]
+    },
+
+    "tier": {
+      "type": "integer",
+      "enum": [0, 1, 2]
+    },
+
+    "output_mode": {
+      "type": "string",
+      "enum": ["brief", "audit", "json_only", "dashboard_cards"]
+    },
+
+    "purpose": {
+      "type": "string",
+      "enum": ["internal", "share", "research"]
+    },
+
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "只允許使用者明示提供（避免背景抓取/批量接入）",
+          "enum": ["manual_paste", "local_file", "user_provided_log"]
+        },
+        "text_summary": {
+          "type": "string",
+          "maxLength": 240,
+          "description": "自由輸入短摘要（≤240 字），仍需 redaction"
+        },
+        "attachments": {
+          "type": "array",
+          "maxItems": 16,
+          "items": { "$ref": "#/$defs/manifestRef" }
+        }
+      }
+    },
+
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["redaction", "pii_policy"],
+      "properties": {
+        "redaction": { "type": "boolean", "default": true },
+        "pii_policy": {
+          "type": "string",
+          "enum": ["strict", "standard", "off"],
+          "default": "strict"
+        },
+        "latency_budget_ms": {
+          "type": "integer",
+          "minimum": 50,
+          "maximum": 2000,
+          "default": 150
+        }
+      }
+    },
+
+    "toggles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hitl_required", "allow_free_text"],
+      "properties": {
+        "hitl_required": { "type": "boolean", "default": true },
+        "allow_free_text": { "type": "boolean", "default": false }
+      }
+    }
+  },
+
+  "$defs": {
+    "manifestRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "mime", "sha256", "size_bytes"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 128 },
+        "mime": { "type": "string", "minLength": 3, "maxLength": 128 },
+        "sha256": { "type": "string", "pattern": "^[A-Fa-f0-9]{64}$" },
+        "size_bytes": { "type": "integer", "minimum": 1, "maximum": 104857600 },
+        "created_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

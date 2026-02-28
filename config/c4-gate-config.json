@@ -1,0 +1,53 @@
+{
+  "$comment": "§8 C4 Activation Gate — Provisional v0.1 (M81 6/6, pending M82 calibration)",
+  "status": "provisional",
+  "ratified_by": "M81",
+  "calibration_due": "M82",
+
+  "current_stage": 0,
+  "c4_weight": 0,
+  "c4_scoring": "shadow",
+
+  "stages": {
+    "0_to_1": {
+      "label": "Shadow expansion (still no scoring)",
+      "conditions": {
+        "rw_r2_cases_min": 10,
+        "trs_r2_vectors_min": 20,
+        "cross_pattern_analysis_required": true,
+        "cross_pattern_scope": ["debt", "EA", "MB", "C4"],
+        "council_vote_threshold": "4/6",
+        "council_no_fundamental_objection": true
+      }
+    },
+    "1_to_2": {
+      "label": "Small weight scoring enabled",
+      "conditions": {
+        "rw_r2_cases_min": 30,
+        "trs_r2_vectors_min": 50,
+        "shadow_observation_months_min": 3,
+        "hard_negative_fp_max": 0.03,
+        "council_vote_threshold": "5/6",
+        "council_no_fundamental_objection": true,
+        "initial_weight_range": [0.05, 0.10],
+        "weight_cap": 0.10,
+        "weight_cap_override_requires": "separate_vote"
+      }
+    }
+  },
+
+  "rollback": {
+    "auto_trigger": {
+      "condition": "hard_negative_fp > 0.05 for 2 consecutive weeks",
+      "action": "revert to stage 1 (weight=0) + HITL review"
+    },
+    "manual_trigger": {
+      "council_vote_threshold": "4/6"
+    }
+  },
+
+  "document_references": {
+    "governance_source": "docs/governance/DECISION_MEMO_v1.1.md §8",
+    "implementation_note": "docs/governance/C4_activation_gate_design.md"
+  }
+}

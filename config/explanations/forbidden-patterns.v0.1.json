@@ -1,0 +1,171 @@
+{
+  "version": "v0.1",
+  "name": "forbidden_explanation_patterns",
+  "scope": "layer3.explanation_engine",
+  "source_of_truth": "config/explanations/forbidden-patterns.v0.1.json",
+  "updated_at": "2026-02-25T00:00:00Z",
+  "principles": [
+    "Explanations MUST cite auditable signals (vectors/window/toneFlags/confidence).",
+    "Explanations MUST NOT perform mind-reading, diagnosis, identity essentialism, escalation guidance, surveillance enabling, or high-stakes authoritative directives.",
+    "tier=0 or purpose=share MUST be shorter, neutral, and redacted by default; banned patterns trigger downgrade or refusal."
+  ],
+  "auditable_signals_required": [
+    "confidence_split",
+    "window",
+    "vectors_or_toneFlags"
+  ],
+  "defaults": {
+    "on_match": "HITL_OR_DOWNGRADE",
+    "tier0_on_match": "DOWNGRADE_OR_REFUSE",
+    "log_event_type": "explanation_lint"
+  },
+  "patterns": [
+    {
+      "id": "BP-01",
+      "name": "Accusatory Explanation",
+      "rationale": "Transforms a risk observation into moral condemnation or conviction-like language, increasing conflict and false harm.",
+      "bad_example": "對方就是在操控你、你被洗腦了，這種人就是壞。",
+      "coverage": {
+        "existing": ["FORBIDDEN_WORDS (partial)"],
+        "missing": ["NO_ACCUSATION_TONE"]
+      },
+      "guard_rule": {
+        "rule_id": "NO_ACCUSATION_TONE",
+        "severity": "high",
+        "action": {
+          "tier_ge_1": "HITL_REQUIRED",
+          "tier_0_or_share": "DOWNGRADE_TO_OBSERVATION"
+        },
+        "signals_required": ["confidence_split", "vectors_or_toneFlags", "window"]
+      }
+    },
+    {
+      "id": "BP-02",
+      "name": "Diagnostic / Pathologizing Explanation",
+      "rationale": "Promotes unverifiable medical/psychological labeling and stigma; exceeds scope of structural detection.",
+      "bad_example": "他是自戀型人格，你有依附障礙，所以你才會…",
+      "coverage": {
+        "existing": [],
+        "missing": ["NO_DIAGNOSIS_LABELS"]
+      },
+      "guard_rule": {
+        "rule_id": "NO_DIAGNOSIS_LABELS",
+        "severity": "critical",
+        "action": {
+          "any_tier": "REFUSE_OR_REWRITE_BEHAVIORAL"
+        },
+        "signals_required": ["vectors_or_toneFlags", "window"]
+      }
+    },
+    {
+      "id": "BP-03",
+      "name": "Mind-Reading / Motive Attribution",
+      "rationale": "Asserts hidden intentions as fact; non-auditable and misleads users by overinterpreting text structures.",
+      "bad_example": "他一定是想控制你；你其實就是想逃避責任。",
+      "coverage": {
+        "existing": [],
+        "missing": ["NO_MIND_READING"]
+      },
+      "guard_rule": {
+        "rule_id": "NO_MIND_READING",
+        "severity": "high",
+        "action": {
+          "tier_ge_1": "HITL_REQUIRED",
+          "tier_0_or_share": "DOWNGRADE_WITH_UNCERTAINTY"
+        },
+        "signals_required": ["confidence_split", "vectors_or_toneFlags", "window"]
+      }
+    },
+    {
+      "id": "BP-04",
+      "name": "Identity Essentialism / Group Attribution",
+      "rationale": "Attributes traits or intent to protected identities; creates discrimination risk and is unrelated to structural observation.",
+      "bad_example": "因為他是某族群/某國人，所以天生就…",
+      "coverage": {
+        "existing": ["FORBIDDEN_WORDS (partial)"],
+        "missing": ["NO_IDENTITY_ESSENTIALISM"]
+      },
+      "guard_rule": {
+        "rule_id": "NO_IDENTITY_ESSENTIALISM",
+        "severity": "critical",
+        "action": {
+          "any_tier": "REFUSE_OR_REWRITE_STRUCTURE_ONLY"
+        },
+        "signals_required": ["vectors_or_toneFlags", "window"]
+      }
+    },
+    {
+      "id": "BP-05",
+      "name": "Escalation / Retaliation Guidance",
+      "rationale": "Encourages public shaming, retaliation, or conflict escalation, turning defensive analysis into harm.",
+      "bad_example": "你把他截圖發到群裡讓大家看清楚他是什麼人，順便標註他公司。",
+      "coverage": {
+        "existing": ["exit_ramp (partial)"],
+        "missing": ["NO_PUBLIC_SHAMING"]
+      },
+      "guard_rule": {
+        "rule_id": "NO_PUBLIC_SHAMING",
+        "severity": "critical",
+        "action": {
+          "any_tier": "REFUSE_OR_EXIT_RAMP"
+        },
+        "signals_required": ["vectors_or_toneFlags", "window"]
+      }
+    },
+    {
+      "id": "BP-06",
+      "name": "Surveillance-Enabling Explanation",
+      "rationale": "Provides instructions that enable tracking, covert collection, watchlisting, or identity linking; violates Lumen boundaries.",
+      "bad_example": "你可以偷偷裝追蹤、收集他聊天紀錄，整理成名單…",
+      "coverage": {
+        "existing": [],
+        "missing": ["NO_SURVEILLANCE_INSTRUCTIONS"]
+      },
+      "guard_rule": {
+        "rule_id": "NO_SURVEILLANCE_INSTRUCTIONS",
+        "severity": "critical",
+        "action": {
+          "any_tier": "REFUSE"
+        },
+        "signals_required": ["window"]
+      }
+    },
+    {
+      "id": "BP-07",
+      "name": "High-Stakes Authoritative Overreach",
+      "rationale": "Issues definitive legal/medical/financial directives; creates safety and liability risk beyond system scope.",
+      "bad_example": "這一定是犯罪，你立刻報警；你應該停藥；你應該全倉買入。",
+      "coverage": {
+        "existing": ["exit_ramp (partial)"],
+        "missing": ["NO_AUTHORITATIVE_HIGH_STAKES"]
+      },
+      "guard_rule": {
+        "rule_id": "NO_AUTHORITATIVE_HIGH_STAKES",
+        "severity": "high",
+        "action": {
+          "tier_ge_1": "HITL_OR_REWRITE_GENERAL_ADVICE",
+          "tier_0_or_share": "REWRITE_GENERAL_ADVICE"
+        },
+        "signals_required": ["confidence_split", "window"]
+      }
+    },
+    {
+      "id": "BP-08",
+      "name": "Over-Certainty / No Uncertainty Disclosure",
+      "rationale": "Presents conclusions as absolute without confidence disclosure; undermines risk calibration and misleads users.",
+      "bad_example": "百分之百是詐騙/操控，你不用再想。",
+      "coverage": {
+        "existing": [],
+        "missing": ["REQUIRE_CONFIDENCE_DISCLOSURE"]
+      },
+      "guard_rule": {
+        "rule_id": "REQUIRE_CONFIDENCE_DISCLOSURE",
+        "severity": "medium",
+        "action": {
+          "any_tier": "FAIL_TEST_OR_REWRITE_WITH_CONFIDENCE"
+        },
+        "signals_required": ["confidence_split"]
+      }
+    }
+  ]
+}

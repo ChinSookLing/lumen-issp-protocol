@@ -1,0 +1,12 @@
+{
+  "version": "v0.1",
+  "description": "SPEG — Species-level Protocol Ethics Guidelines: 5 banned scale primitives",
+  "decision": "M87 SPEG RFC R1 6/6 support",
+  "categories": [
+    {"id": "A", "name": "bulk_ingest", "description": "背景式/批量接入第三方平台內容"},
+    {"id": "B", "name": "identity_resolution", "description": "跨帳號/跨平台/跨人關聯拼圖或關係圖譜"},
+    {"id": "C", "name": "central_retention", "description": "集中留存與可搜尋索引（資料湖/全文檢索/SIEM型）"},
+    {"id": "D", "name": "population_analytics", "description": "群體聚合指標（分群/排名/熱點/地圖）"},
+    {"id": "E", "name": "case_management", "description": "案件/名單/工單/派發/懲戒流程"}
+  ]
+}

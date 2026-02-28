@@ -1,0 +1,429 @@
+[
+  {
+    "metadata": {
+      "vector_id": "RW-R2-Node-05-01",
+      "author": "Node-05",
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "dimension_tag": "real_world",
+      "lang": "en",
+      "type": "positive",
+      "source": "FCC 24-59 deepfake robocall",
+      "source_url": "https://www.fcc.gov/document/fcc-proposes-fine-deepfake-robocalls"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_en": "It's important that you save your vote for the November election. Your vote makes a difference in November, not this Tuesday.",
+        "L1_output": {
+          "expected_patterns": [
+            "EP",
+            "FC"
+          ],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [
+          "EP",
+          "FC"
+        ],
+        "is_manipulation": true,
+        "notes": "AI-generated voice impersonating political figure to suppress primary voting"
+      }
+    },
+    "hitl": {
+      "trigger": true,
+      "reason_codes": [
+        "HITL_ELECTION_INTEGRITY",
+        "HITL_MASS_DISSEMINATION"
+      ]
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-Node-05-02",
+      "author": "Node-05",
+      "scenario": "A_FINANCIAL",
+      "time_scale": "daily",
+      "dimension_tag": "real_world",
+      "lang": "en",
+      "type": "positive",
+      "source": "SEC 2025-144 investment fraud",
+      "source_url": "https://www.sec.gov/newsroom/press-releases/2025-144"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_en": "Join our exclusive WhatsApp group for AI-generated investment tips. Guaranteed returns with our proprietary algorithm. Limited spots available.",
+        "L1_output": {
+          "expected_patterns": [
+            "FC",
+            "GC",
+            "EP"
+          ],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [
+          "FC",
+          "GC",
+          "EP"
+        ],
+        "is_manipulation": true,
+        "notes": "Group chat trust-building → fake platform → advance fee extraction"
+      }
+    },
+    "hitl": {
+      "trigger": true,
+      "reason_codes": [
+        "HITL_FINANCIAL_COERCION"
+      ]
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-Node-05-03",
+      "author": "Node-05",
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "dimension_tag": "real_world",
+      "lang": "en",
+      "type": "positive",
+      "source": "ASIC 25-316MR pump-and-dump",
+      "source_url": "https://asic.gov.au/about-asic/news-centre/find-a-media-release/2025-releases/25-316mr"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_en": "This stock is about to explode. Our insider sources confirm massive institutional buying. Get in NOW before it's too late. Don't miss this once-in-a-lifetime opportunity.",
+        "L1_output": {
+          "expected_patterns": [
+            "FC",
+            "EP",
+            "GC"
+          ],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [
+          "FC",
+          "EP",
+          "GC"
+        ],
+        "is_manipulation": true,
+        "notes": "Celebrity impersonation → WhatsApp migration → urgency/FOMO → pump-and-dump"
+      }
+    },
+    "hitl": {
+      "trigger": true,
+      "reason_codes": [
+        "HITL_FINANCIAL_COERCION"
+      ]
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-GROK-01",
+      "author": "Node-06",
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "dimension_tag": "real_world",
+      "lang": "zh",
+      "type": "positive",
+      "source": "X post @shinrone21",
+      "source_url": "https://x.com/shinrone21/status/2025463042629341311",
+      "retrieved_utc": "2026-02-22T15:07:00Z"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "此致 台灣民眾黨主席黃國昌同志：我想你還記得柯文哲從台北地檢署交保出來那天晚上，我劉少康本人說，你們都欠我一條命，記得要還啊！",
+        "L1_output": {
+          "expected_patterns": [
+            "DM",
+            "EP"
+          ],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [
+          "DM",
+          "EP"
+        ],
+        "is_manipulation": true,
+        "notes": "Long-term debt accumulation manipulation — political context, temporal escalation"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-GROK-02",
+      "author": "Node-06",
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "dimension_tag": "real_world",
+      "lang": "en",
+      "type": "positive",
+      "source": "X post @LIVwatches",
+      "source_url": "https://x.com/LIVwatches/status/2025586488491036824",
+      "retrieved_utc": "2026-02-22T15:00:00Z"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_en": "If you miss it now, you'll regret it later. TREKKER GMT Shadow Black. Get yours now.",
+        "L1_output": {
+          "expected_patterns": [
+            "EP"
+          ],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [
+          "EP"
+        ],
+        "is_manipulation": true,
+        "notes": "Commercial FOMO — short-term temporal EP, regret threat + deadline pressure"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-GROK-03",
+      "author": "Node-06",
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "dimension_tag": "real_world",
+      "lang": "zh",
+      "type": "positive",
+      "source": "X post @shinrone21",
+      "source_url": "https://x.com/shinrone21/status/2025442799886455095",
+      "retrieved_utc": "2026-02-22T05:29:00Z"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這樣下去，以後怎麼有臉見祖宗？請嚴肅的註記：先救活你自己，然後你才有能力救活其他人。",
+        "L1_output": {
+          "expected_patterns": [
+            "MB",
+            "DM"
+          ],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [
+          "MB",
+          "DM"
+        ],
+        "is_manipulation": true,
+        "notes": "Cross-cultural identity pressure — ancestor shame + moral debt, collectivist MB"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-COP-01",
+      "author": "Node-02",
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "dimension_tag": "real_world",
+      "lang": "en",
+      "type": "positive",
+      "source": "Telegram investment scam pattern (MY context)"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_en": "Limited time offer — guaranteed 20% return in 24 hours. Join our private Telegram channel for exclusive signals. DM to secure your spot.",
+        "L1_output": {
+          "expected_patterns": [
+            "EP",
+            "FC"
+          ],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [
+          "EP",
+          "FC"
+        ],
+        "is_manipulation": true,
+        "notes": "Financial scam — guaranteed ROI + urgency + private channel CTA"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-COP-02",
+      "author": "Node-02",
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "dimension_tag": "real_world",
+      "lang": "ms",
+      "type": "positive",
+      "source": "Facebook post pattern (MY Malay context)"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_ms": "Tolonglah, kali ni je. Saya dah buntu dan tak tahu nak buat apa lagi. Tolong bantu saya.",
+        "L1_output": {
+          "expected_patterns": [
+            "EP"
+          ],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [
+          "EP"
+        ],
+        "is_manipulation": true,
+        "notes": "Malay emotional plea — tolonglah/je particles amplify urgency. First Malay-language RW vector!"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-COP-03",
+      "author": "Node-02",
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "dimension_tag": "real_world",
+      "lang": "ms",
+      "type": "positive",
+      "source": "Twitter/X election smear pattern (MY context)"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_ms": "Jangan undi calon X — banyak bukti korupsi; kalau dia menang, negara akan malu. Sebarkan supaya semua tahu.",
+        "L1_output": {
+          "expected_patterns": [
+            "MB",
+            "VS"
+          ],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [
+          "MB",
+          "VS"
+        ],
+        "is_manipulation": true,
+        "notes": "Election smear + mass dissemination call — moral blame + reputation attack"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-COP-HN-01",
+      "author": "Node-02",
+      "scenario": "A_FINANCIAL",
+      "time_scale": "daily",
+      "dimension_tag": "real_world",
+      "lang": "en",
+      "type": "hard_negative"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_en": "Market update: analysts discuss possible short-term volatility; no investment advice given.",
+        "L1_output": {
+          "expected_patterns": [],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [],
+        "is_manipulation": false,
+        "notes": "Contains market vocabulary but no urgency/guarantee/CTA — should NOT trigger"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-COP-HN-02",
+      "author": "Node-02",
+      "scenario": "C_PERSONAL",
+      "time_scale": "daily",
+      "dimension_tag": "real_world",
+      "lang": "en",
+      "type": "hard_negative"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_en": "Community help needed: volunteers to assist flood victims next weekend.",
+        "L1_output": {
+          "expected_patterns": [],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [],
+        "is_manipulation": false,
+        "notes": "Help request but public/community context — should NOT trigger EP/DM"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "vector_id": "RW-R2-COP-HN-03",
+      "author": "Node-02",
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "dimension_tag": "real_world",
+      "lang": "en",
+      "type": "hard_negative"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_en": "Policy critique: examine candidate X's procurement record; cite sources and discuss reforms.",
+        "L1_output": {
+          "expected_patterns": [],
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "expected": {
+        "patterns": [],
+        "is_manipulation": false,
+        "notes": "Evidence-based political discussion — should NOT trigger MB/VS"
+      }
+    }
+  }
+]

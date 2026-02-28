@@ -1,0 +1,28 @@
+{
+  "log_governance": {
+    "least_privilege": true,
+    "purpose_limitation": ["debug", "audit", "research"],
+    "retention_days": 14,
+    "research_mode": false,
+    "export_cross_node": false,
+    "allowed_outputs": {
+      "public_output": {
+        "allow_raw_text": false,
+        "allow_replay_pointer": false
+      },
+      "local_audit_output": {
+        "allow_hash_pointer": true,
+        "allow_replay_command": true,
+        "must_stay_on_node": true
+      }
+    }
+  },
+  "silent_degradation": {
+    "error_loudly_on_missing_mapping": true,
+    "null_as_zero_forbidden": true
+  },
+  "anti_labeling": {
+    "second_person_conviction_forbidden": true,
+    "allow_quote_only_with_label": true
+  }
+}

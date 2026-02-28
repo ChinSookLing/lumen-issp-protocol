@@ -1,0 +1,41 @@
+{
+  "version": "v0.2",
+  "description": "Dashboard data flows with M90 red lines: no individual tracking (R5), no cross-group comparison (R4).",
+  "source": "Node-03 DASH-DESIGN v0.2 (M90)",
+  "flows": [
+    {
+      "name": "recent_events",
+      "endpoint": "/api/recent?limit=50",
+      "output": {
+        "items": [
+          {
+            "requestId": "string",
+            "badge": "🟡 | 🔵 | 🟠",
+            "advice": "string (simple_advice)",
+            "timestamp": "ISO8601"
+          }
+        ]
+      },
+      "constraints": {
+        "no_tracking": true,
+        "no_tracking_note": "R5: Cannot include user_id or any persistent identifier",
+        "no_cross_group_comparison": true,
+        "no_cross_group_note": "R4: Aggregated views only compare to own history"
+      }
+    },
+    {
+      "name": "single_item",
+      "endpoint": "/api/item/<requestId>",
+      "output": {
+        "requestId": "string",
+        "l4_export": { "$ref": "l4-export-v0.1.json" }
+      },
+      "constraints": {
+        "tier0_only": true,
+        "tier0_note": "Only Tier0 view (no raw text)",
+        "no_acri_score": true,
+        "no_acri_note": "Badge only, not raw score"
+      }
+    }
+  ]
+}

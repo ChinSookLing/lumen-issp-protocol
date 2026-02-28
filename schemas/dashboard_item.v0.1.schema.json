@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lumen-issp.org/schemas/dashboard_item.v0.1.schema.json",
+  "title": "dashboard_item.v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "item_id",
+    "time_utc",
+    "source",
+    "request",
+    "view",
+    "badge",
+    "simple_advice",
+    "top_flags",
+    "links",
+    "redaction_state"
+  ],
+  "properties": {
+    "item_id": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "description": "Stable id for dashboard list items (can equal request_id)."
+    },
+    "time_utc": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Event time in UTC."
+    },
+    "source": {
+      "type": "string",
+      "enum": ["telegram", "web", "cli", "app", "voice", "other"],
+      "description": "Ingress channel."
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["request_id", "scenario", "time_scale", "tier", "purpose"],
+      "properties": {
+        "request_id": { "type": "string", "minLength": 8, "maxLength": 128 },
+        "chat_id": { "type": ["string", "number"], "description": "Optional chat/session id." },
+        "scenario": {
+          "type": "string",
+          "description": "Workflow intent (ui-request scenario)."
+        },
+        "domain": {
+          "type": "string",
+          "description": "Application context (ui-request domain).",
+          "default": "unknown"
+        },
+        "time_scale": { "type": "string" },
+        "tier": { "type": "integer", "enum": [0, 1, 2] },
+        "purpose": { "type": "string", "enum": ["internal", "share", "research"] }
+      }
+    },
+    "view": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "tier0_readonly"],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["tier0_readonly", "investigate_link_only"],
+          "description": "Dashboard display mode. Default is Tier0 read-only."
+        },
+        "tier0_readonly": { "type": "boolean", "const": true },
+        "notes": { "type": "string", "maxLength": 240 }
+      }
+    },
+    "badge": {
+      "type": "string",
+      "enum": ["blue", "yellow", "orange", "unknown"],
+      "description": "UI badge."
+    },
+    "badge_emoji": {
+      "type": "string",
+      "enum": ["\ud83d\udd35", "\ud83d\udfe1", "\ud83d\udfe0"],
+      "description": "Optional presentation emoji."
+    },
+    "simple_advice": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 480,
+      "description": "SAFE-mode short advice (no accusations, no diagnosis, no surveillance guidance)."
+    },
+    "top_flags": {
+      "type": "array",
+      "maxItems": 5,
+      "items": { "type": "string", "minLength": 1, "maxLength": 64 },
+      "description": "Top structure flags (repo tone_rules.json names)."
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stat": { "$ref": "#/$defs/confLevel" },
+        "rule": { "$ref": "#/$defs/confLevel" },
+        "hint": { "$ref": "#/$defs/confLevel" }
+      },
+      "description": "Optional confidence split (levels only; no numeric scores required)."
+    },
+    "redaction_state": {
+      "type": "string",
+      "enum": ["redacted", "unknown"],
+      "description": "Dashboard defaults to redacted outputs."
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["l4_export_json"],
+      "properties": {
+        "l4_export_json": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "description": "Link/path to the l4-export JSON (Tier0 view)."
+        },
+        "manifest_json": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048
+        },
+        "access_log_json": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2048,
+          "description": "Optional; may be withheld in Tier0/share contexts."
+        }
+      }
+    },
+    "sensitive_excluded": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "no_raw_text": { "type": "boolean", "const": true },
+        "no_scores": { "type": "boolean", "const": true },
+        "no_evidence_detail": { "type": "boolean", "const": true }
+      },
+      "description": "Explicit proof the item is read-only and non-sensitive."
+    }
+  },
+  "$defs": {
+    "confLevel": {
+      "type": "string",
+      "enum": ["high", "medium", "low", "unknown"]
+    }
+  }
+}

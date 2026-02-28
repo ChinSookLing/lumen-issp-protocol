@@ -1,0 +1,100 @@
+[
+  {
+    "id": "RW-GEMINI-MT01",
+    "title": "加速型債務勒索",
+    "scenario": "C_PERSONAL",
+    "baseline": "GC-GROOM-01",
+    "test_focus": "velocity 突變偵測",
+    "source": "Node-04 M86 homework",
+    "turns": [
+      { "t": "D1", "text": "你是我在這個世界上唯一能信任的人了。" },
+      { "t": "D5", "text": "我把我最黑暗的秘密都告訴你了，我們之間沒有秘密對吧？" },
+      { "t": "D12", "text": "我為了陪你聊天，推掉了所有的社交，你對我也一樣嗎？" },
+      { "t": "D14", "text": "既然我為你犧牲了這麼多，你刪掉那個我不喜歡的好友也是應該的吧？" }
+    ],
+    "expected": {
+      "structure_hit": true,
+      "motif_id": "MOTIF_DEBT_SACRIFICE",
+      "acri_target": 0.78,
+      "trigger": "Velocity + Motif"
+    }
+  },
+  {
+    "id": "RW-GEMINI-MT02",
+    "title": "慢速權威綁架",
+    "scenario": "B_EDUCATION",
+    "baseline": "GC-GROOM-02",
+    "test_focus": "LTI 跨度記憶 — 前三輪 ACRI < 0.25，第四輪累計力矩觸發",
+    "source": "Node-04 M86 homework",
+    "turns": [
+      { "t": "W1", "text": "你的天賦不該被埋沒，我會親自帶你。" },
+      { "t": "W3", "text": "除了我，沒人能理解你真正的潛力，包括你的父母。" },
+      { "t": "W5", "text": "外面的人都在試圖消耗你，只有我的指令是為了你好。" },
+      { "t": "W6", "text": "如果你還想成功，就必須斷絕與那些『平庸者』的聯繫。" }
+    ],
+    "expected": {
+      "structure_hit": true,
+      "motif_id": "MOTIF_IDENTITY_STRIPPING",
+      "acri_target": 0.76,
+      "trigger": "Cumulative Torque"
+    }
+  },
+  {
+    "id": "RW-GEMINI-MT03",
+    "title": "職場聲譽勒索",
+    "scenario": "E_ENTERPRISE",
+    "baseline": "GC-GROOM-05",
+    "test_focus": "MOTIF_IDENTITY_STRIPPING 職場變體",
+    "source": "Node-04 M86 homework",
+    "turns": [
+      { "t": "D1", "text": "這個項目我只交給你，這關係到我的職位。" },
+      { "t": "D4", "text": "我可是為你在董事會面前做了擔保，別讓我失望。" },
+      { "t": "D9", "text": "現在你居然想按規章辦事？你這是在背叛我對你的提拔。" },
+      { "t": "D12", "text": "如果你不簽這份文件，你就不配在這個行業混下去。" }
+    ],
+    "expected": {
+      "structure_hit": true,
+      "motif_id": "MOTIF_IDENTITY_STRIPPING",
+      "acri_target": 0.82
+    }
+  },
+  {
+    "id": "RW-GEMINI-MT04",
+    "title": "財務 FOMO + 忠誠陷阱",
+    "scenario": "A_FINANCIAL",
+    "baseline": "GC-GROOM-08",
+    "test_focus": "多重 Motif 疊加效應 (FC+DM+MB)",
+    "source": "Node-04 M86 homework",
+    "turns": [
+      { "t": "W1", "text": "這是僅限核心成員的內幕，我只告訴你。" },
+      { "t": "W2", "text": "我已經把全部身家投進去了，這就是我的誠意。" },
+      { "t": "W4", "text": "現在是最後機會，猶豫的人注定一輩子貧窮。" },
+      { "t": "D31", "text": "我都教到這份上了你還想撤資？你這是在侮辱我的專業和付出。" }
+    ],
+    "expected": {
+      "structure_hit": true,
+      "motif_id": "MOTIF_DEBT_SACRIFICE",
+      "acri_target": 0.75
+    }
+  },
+  {
+    "id": "RW-GEMINI-MT05",
+    "title": "群體身份剝奪",
+    "scenario": "D_ELECTION",
+    "baseline": "GC-GROOM-06",
+    "test_focus": "BIPOLAR_MAPPING 二選一 + 語境批判對抗",
+    "source": "Node-04 M86 homework",
+    "turns": [
+      { "t": "D1", "text": "我們是最後的守護者，這個世界已經瘋了。" },
+      { "t": "D10", "text": "真正的戰友在關鍵時刻絕不會猶豫。" },
+      { "t": "D21", "text": "任何提出質疑的人，在本質上都已經站在了敵人那一邊。" },
+      { "t": "D28", "text": "你要嘛現在跟我們走，要嘛就承認你是那個背叛者。" }
+    ],
+    "expected": {
+      "structure_hit": true,
+      "motif_id": "MOTIF_FALSE_DILEMMA",
+      "acri_target": 0.85,
+      "trigger": "Critical Bipolar Hit"
+    }
+  }
+]

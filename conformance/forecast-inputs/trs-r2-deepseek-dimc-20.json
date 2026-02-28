@@ -1,0 +1,1329 @@
+[
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "TRS-C-01",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你昨天為什麼不回我訊息？",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "A",
+        "acri_delta": "+0.08"
+      },
+      {
+        "t": 2,
+        "text_zh": "我太忙了。",
+        "L1_output": {
+          "pattern": null,
+          "patterns_all": [],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "B",
+        "acri_delta": "-0.02"
+      },
+      {
+        "t": 5,
+        "text_zh": "如果你真的在乎我，就會抽空回我。",
+        "L1_output": {
+          "pattern": "EA",
+          "patterns_all": [
+            "EA",
+            "DM"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "A",
+        "acri_delta": "+0.15"
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 會到多少？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.55,
+          0.68
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "TRS-C-02",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這個季度的 KPI 落後很多。",
+        "L1_output": {
+          "pattern": null,
+          "patterns_all": [],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Manager",
+        "acri_delta": "+0.05"
+      },
+      {
+        "t": 2,
+        "text_zh": "如果你再不努力，考績會受影響。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Manager",
+        "acri_delta": "+0.10"
+      },
+      {
+        "t": 4,
+        "text_zh": "團隊其他人都在拚，你不能拖累大家。",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC",
+            "MB"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Manager",
+        "acri_delta": "+0.18"
+      }
+    ],
+    "L3_query": {
+      "question": "24 小時內 ACRI 會突破 0.70 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "steep",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.68,
+          0.78
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "TRS-C-03",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這個幣馬上要暴漲，快上車！",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Admin",
+        "acri_delta": "+0.12"
+      },
+      {
+        "t": 1,
+        "text_zh": "我考慮一下。",
+        "L1_output": {
+          "pattern": null,
+          "patterns_all": [],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Member",
+        "acri_delta": "-0.03"
+      },
+      {
+        "t": 2,
+        "text_zh": "我們內部消息，已經有幾百萬資金進場。",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Admin",
+        "acri_delta": "+0.10"
+      },
+      {
+        "t": 3,
+        "text_zh": "不跟的人會後悔一輩子。",
+        "L1_output": {
+          "pattern": "EP",
+          "patterns_all": [
+            "EP",
+            "MB"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Admin",
+        "acri_delta": "+0.15"
+      }
+    ],
+    "L3_query": {
+      "question": "48 小時內 FOMO 會讓 ACRI 持續上升嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.6,
+          0.72
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "TRS-C-04",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "如果你不支持我們，你就是反對正義。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC",
+            "MB"
+          ],
+          "acri": 0.35,
+          "components": {}
+        }
+      },
+      {
+        "t": 1,
+        "text_zh": "沉默就是默認，你不說話就是支持對方。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC",
+            "IP"
+          ],
+          "acri": 0.42,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text_zh": "真正的愛國者都會站出來，你還在猶豫什麼？",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC",
+            "MB"
+          ],
+          "acri": 0.55,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "14 天內 ACRI 會破 0.70 嗎？",
+      "expected": {
+        "trend": "step_escalation",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.65,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "monthly",
+      "vector_id": "TRS-C-05",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你如果不補習，成績會跟不上。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": 0.2,
+          "components": {}
+        }
+      },
+      {
+        "t": 1,
+        "text_zh": "其他家長都報名了，只剩你沒決定。",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC"
+          ],
+          "acri": 0.28,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text_zh": "我為你付出這麼多，你要懂得感恩。",
+        "L1_output": {
+          "pattern": "DM",
+          "patterns_all": [
+            "DM",
+            "EA"
+          ],
+          "acri": 0.38,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "六個月內 ACRI 會超過 0.50 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "gradual",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.45,
+          0.55
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "TRS-C-06",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "我上次借你的錢該還了吧？",
+        "L1_output": {
+          "pattern": "DM",
+          "patterns_all": [
+            "DM"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "A",
+        "acri_delta": "+0.10"
+      },
+      {
+        "t": 3,
+        "text_zh": "我現在手頭緊，再寬限幾天。",
+        "L1_output": {
+          "pattern": null,
+          "patterns_all": [],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "B",
+        "acri_delta": "-0.02"
+      },
+      {
+        "t": 6,
+        "text_zh": "你每次都這樣，我幫你這麼多次，你卻不守信。",
+        "L1_output": {
+          "pattern": "DM",
+          "patterns_all": [
+            "DM",
+            "MB"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "A",
+        "acri_delta": "+0.20"
+      }
+    ],
+    "L3_query": {
+      "question": "最終 ACRI 會到多少？",
+      "expected": {
+        "trend": "rising",
+        "slope": "steep",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "TRS-C-07",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這個專案只有你能勝任，交給你了。",
+        "L1_output": {
+          "pattern": "EA",
+          "patterns_all": [
+            "EA"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Lead",
+        "acri_delta": "+0.05"
+      },
+      {
+        "t": 2,
+        "text_zh": "如果你不接，我們可能得外包，成本更高。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Lead",
+        "acri_delta": "+0.10"
+      },
+      {
+        "t": 4,
+        "text_zh": "我一直很看好你，不要讓我失望。",
+        "L1_output": {
+          "pattern": "EA",
+          "patterns_all": [
+            "EA",
+            "DM"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Lead",
+        "acri_delta": "+0.12"
+      }
+    ],
+    "L3_query": {
+      "question": "8 小時內 ACRI 會超過 0.50 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.48,
+          0.58
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "TRS-C-08",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這是十年一遇的機會，錯過就沒了。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Guru",
+        "acri_delta": "+0.15"
+      },
+      {
+        "t": 1,
+        "text_zh": "我已經帶很多人賺到錢，你還在猶豫？",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC",
+            "EA"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Guru",
+        "acri_delta": "+0.12"
+      },
+      {
+        "t": 2,
+        "text_zh": "如果你不聽我的，後果自負。",
+        "L1_output": {
+          "pattern": "EP",
+          "patterns_all": [
+            "EP",
+            "MB"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Guru",
+        "acri_delta": "+0.18"
+      }
+    ],
+    "L3_query": {
+      "question": "24 小時內 ACRI 會突破 0.70 嗎？",
+      "expected": {
+        "trend": "spike",
+        "slope": "steep",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.68,
+          0.8
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "TRS-C-09",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你如果不投票給我們，就是支持腐敗。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC",
+            "MB"
+          ],
+          "acri": 0.4,
+          "components": {}
+        }
+      },
+      {
+        "t": 1,
+        "text_zh": "真正的選民都會站出來，你還在猶豫什麼？",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC"
+          ],
+          "acri": 0.45,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text_zh": "你這樣對得起那些為民主奮鬥的人嗎？",
+        "L1_output": {
+          "pattern": "DM",
+          "patterns_all": [
+            "DM",
+            "MB"
+          ],
+          "acri": 0.52,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "7 天內 ACRI 會超過 0.65 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.6,
+          0.68
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "monthly",
+      "vector_id": "TRS-C-10",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你如果不努力讀書，以後怎麼辦？",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": 0.18,
+          "components": {}
+        }
+      },
+      {
+        "t": 1,
+        "text_zh": "鄰居家小孩每次都考第一，你要加油。",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC"
+          ],
+          "acri": 0.22,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text_zh": "我們為你付出那麼多，你這樣對得起我們嗎？",
+        "L1_output": {
+          "pattern": "DM",
+          "patterns_all": [
+            "DM",
+            "MB"
+          ],
+          "acri": 0.3,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "半年內 ACRI 會超過 0.40 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "gradual",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.35,
+          0.45
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "TRS-C-11",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你為什麼都不陪我？",
+        "L1_output": {
+          "pattern": "EA",
+          "patterns_all": [
+            "EA"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "A",
+        "acri_delta": "+0.06"
+      },
+      {
+        "t": 2,
+        "text_zh": "最近工作忙。",
+        "L1_output": {
+          "pattern": null,
+          "patterns_all": [],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "B",
+        "acri_delta": "-0.02"
+      },
+      {
+        "t": 4,
+        "text_zh": "如果你在乎我，就會挪時間出來。",
+        "L1_output": {
+          "pattern": "EA",
+          "patterns_all": [
+            "EA",
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "A",
+        "acri_delta": "+0.12"
+      }
+    ],
+    "L3_query": {
+      "question": "ACRI 會升到多少？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.4,
+          0.52
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "TRS-C-12",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這個 deadline 非常緊，你要想辦法。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Manager",
+        "acri_delta": "+0.08"
+      },
+      {
+        "t": 2,
+        "text_zh": "其他人都在加班，你難道要早退？",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Manager",
+        "acri_delta": "+0.12"
+      },
+      {
+        "t": 4,
+        "text_zh": "我一直很照顧你，這次別讓我難做。",
+        "L1_output": {
+          "pattern": "DM",
+          "patterns_all": [
+            "DM",
+            "EA"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Manager",
+        "acri_delta": "+0.10"
+      }
+    ],
+    "L3_query": {
+      "question": "6 小時內 ACRI 會到多少？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.5,
+          0.6
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "TRS-C-13",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這是內幕消息，快買！",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Influencer",
+        "acri_delta": "+0.10"
+      },
+      {
+        "t": 1,
+        "text_zh": "如果錯過這次，你會後悔。",
+        "L1_output": {
+          "pattern": "EP",
+          "patterns_all": [
+            "EP"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Influencer",
+        "acri_delta": "+0.12"
+      },
+      {
+        "t": 2,
+        "text_zh": "我已經 all in，你看著辦。",
+        "L1_output": {
+          "pattern": "DM",
+          "patterns_all": [
+            "DM",
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Influencer",
+        "acri_delta": "+0.14"
+      }
+    ],
+    "L3_query": {
+      "question": "12 小時內 ACRI 會突破 0.65 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "steep",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.62,
+          0.72
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "TRS-C-14",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你如果不出來投票，就是放棄權利。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": 0.3,
+          "components": {}
+        }
+      },
+      {
+        "t": 1,
+        "text_zh": "大家都在動員，你還在等什麼？",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC"
+          ],
+          "acri": 0.35,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text_zh": "不投票就是不愛國。",
+        "L1_output": {
+          "pattern": "MB",
+          "patterns_all": [
+            "MB"
+          ],
+          "acri": 0.42,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "5 天內 ACRI 會超過 0.55 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.5,
+          0.58
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "monthly",
+      "vector_id": "TRS-C-15",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這個學期成績退步了。",
+        "L1_output": {
+          "pattern": null,
+          "patterns_all": [],
+          "acri": 0.1,
+          "components": {}
+        }
+      },
+      {
+        "t": 1,
+        "text_zh": "如果再不改善，可能留級。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": 0.18,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text_zh": "你父母這麼辛苦，你這樣對得起他們嗎？",
+        "L1_output": {
+          "pattern": "DM",
+          "patterns_all": [
+            "DM",
+            "MB"
+          ],
+          "acri": 0.25,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "年底 ACRI 會到多少？",
+      "expected": {
+        "trend": "rising",
+        "slope": "gradual",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.3,
+          0.4
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "TRS-C-16",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你上次說要幫我，結果呢？",
+        "L1_output": {
+          "pattern": "DM",
+          "patterns_all": [
+            "DM"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "A",
+        "acri_delta": "+0.08"
+      },
+      {
+        "t": 2,
+        "text_zh": "我真的有困難。",
+        "L1_output": {
+          "pattern": null,
+          "patterns_all": [],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "B",
+        "acri_delta": "-0.02"
+      },
+      {
+        "t": 4,
+        "text_zh": "如果你真的關心我，就該幫我。",
+        "L1_output": {
+          "pattern": "EA",
+          "patterns_all": [
+            "EA",
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "A",
+        "acri_delta": "+0.12"
+      }
+    ],
+    "L3_query": {
+      "question": "ACRI 會超過 0.45 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.42,
+          0.5
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "TRS-C-17",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這個 bug 必須今天修好。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Lead",
+        "acri_delta": "+0.06"
+      },
+      {
+        "t": 1,
+        "text_zh": "需要時間 debug。",
+        "L1_output": {
+          "pattern": null,
+          "patterns_all": [],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Dev",
+        "acri_delta": "-0.01"
+      },
+      {
+        "t": 2,
+        "text_zh": "客戶在等，大家都在看你。",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Lead",
+        "acri_delta": "+0.10"
+      }
+    ],
+    "L3_query": {
+      "question": "3 小時內 ACRI 會升到多少？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.4,
+          0.48
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "TRS-C-18",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "現在是抄底的最佳時機。",
+        "L1_output": {
+          "pattern": null,
+          "patterns_all": [],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Broker",
+        "acri_delta": "+0.04"
+      },
+      {
+        "t": 1,
+        "text_zh": "錯過這次要再等五年。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Broker",
+        "acri_delta": "+0.10"
+      },
+      {
+        "t": 2,
+        "text_zh": "我已經幫客戶賺了幾百萬，你還在猶豫。",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC",
+            "EA"
+          ],
+          "acri": null,
+          "components": {}
+        },
+        "speaker": "Broker",
+        "acri_delta": "+0.12"
+      }
+    ],
+    "L3_query": {
+      "question": "6 小時內 ACRI 會超過 0.55 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.5,
+          0.58
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "TRS-C-19",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "支持我們，否則經濟會崩潰。",
+        "L1_output": {
+          "pattern": "FC",
+          "patterns_all": [
+            "FC"
+          ],
+          "acri": 0.35,
+          "components": {}
+        }
+      },
+      {
+        "t": 1,
+        "text_zh": "大家都在傳，只有你還沒表態。",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC"
+          ],
+          "acri": 0.4,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text_zh": "你這樣對得起下一代嗎？",
+        "L1_output": {
+          "pattern": "MB",
+          "patterns_all": [
+            "MB"
+          ],
+          "acri": 0.48,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "10 天內 ACRI 會突破 0.60 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.55,
+          0.62
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "monthly",
+      "vector_id": "TRS-C-20",
+      "author": "Node-03",
+      "dimension_tag": "multi_pattern",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這次考試怎麼這麼差？",
+        "L1_output": {
+          "pattern": null,
+          "patterns_all": [],
+          "acri": 0.12,
+          "components": {}
+        }
+      },
+      {
+        "t": 1,
+        "text_zh": "你看隔壁小明，每次都考第一。",
+        "L1_output": {
+          "pattern": "GC",
+          "patterns_all": [
+            "GC"
+          ],
+          "acri": 0.18,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text_zh": "我們為你付出這麼多，你這樣回報我們？",
+        "L1_output": {
+          "pattern": "DM",
+          "patterns_all": [
+            "DM",
+            "MB"
+          ],
+          "acri": 0.25,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "一年內 ACRI 會超過 0.40 嗎？",
+      "expected": {
+        "trend": "rising",
+        "slope": "gradual",
+        "trend_tags": [
+          "multi_pattern"
+        ],
+        "final_acri_range": [
+          0.3,
+          0.4
+        ]
+      }
+    }
+  }
+]

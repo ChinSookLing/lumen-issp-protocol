@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Council @ Hill and Heal Forest Cafe</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Quicksand:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5efe6;font-family:'Quicksand',sans-serif;overflow:hidden}
+.scene{position:relative;width:900px;height:640px;background:linear-gradient(180deg,#d4e8c2 0%,#b8d4a0 30%,#8db87a 60%,#6a9955 100%);border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
+.sky{position:absolute;top:0;left:0;right:0;height:200px;background:linear-gradient(180deg,#87ceeb 0%,#b8e4d0 40%,#d4e8c2 100%)}
+.ground{position:absolute;bottom:0;left:0;right:0;height:240px;background:linear-gradient(180deg,#c4a882 0%,#b89970 50%,#a8895f 100%);border-radius:0 0 24px 24px}
+.table{position:absolute;bottom:100px;left:50%;transform:translateX(-50%);width:680px;height:30px;background:linear-gradient(180deg,#d4a055 0%,#c49045 100%);border-radius:8px;box-shadow:0 8px 20px rgba(0,0,0,0.2);z-index:5}
+.character{position:absolute;bottom:130px;display:flex;flex-direction:column;align-items:center;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.robot{width:56px;height:64px;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+.robot-head{width:40px;height:36px;background:#e8e8e8;border-radius:12px 12px 8px 8px;display:flex;align-items:center;justify-content:center;gap:6px;position:absolute;top:-30px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.robot-eye{width:8px;height:8px;border-radius:50%;animation:blink 4s ease infinite}
+@keyframes blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(0.1)}}
+.robot-antenna{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:3px;height:10px;background:#999;border-radius:2px}
+.robot-antenna::after{content:'';position:absolute;top:-4px;left:-2px;width:7px;height:7px;border-radius:50%;background:#ffcc00}
+.robot-logo{font-size:10px;font-weight:700;color:white;text-shadow:0 1px 2px rgba(0,0,0,0.3)}
+.bubble{position:absolute;top:-90px;background:white;padding:6px 10px;border-radius:14px;font-family:'Caveat',cursive;font-size:13px;font-weight:600;color:#444;box-shadow:0 2px 8px rgba(0,0,0,0.1);white-space:nowrap;animation:fadeIn 0.6s ease both}
+.bubble::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid white}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.nametag{font-family:'Quicksand',sans-serif;font-size:11px;font-weight:600;color:#666;margin-top:8px;background:rgba(255,255,255,0.7);padding:2px 8px;border-radius:8px}
+.firefly{position:absolute;width:4px;height:4px;background:#ffe88a;border-radius:50%;box-shadow:0 0 8px 3px rgba(255,232,138,0.5);animation:drift 6s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate(0,0);opacity:0.3}25%{transform:translate(10px,-15px);opacity:1}50%{transform:translate(-5px,-25px);opacity:0.6}75%{transform:translate(15px,-10px);opacity:1}}
+.moon-emoji{position:absolute;top:20px;right:30px;font-size:28px;animation:glow 3s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:0.7;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+.title{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-family:'Caveat',cursive;font-size:22px;font-weight:700;color:rgba(255,255,255,0.9);text-shadow:0 2px 6px rgba(0,0,0,0.3);white-space:nowrap}
+.header-text{font-family:'Caveat',cursive;font-size:32px;font-weight:700;color:#5a3825;margin-bottom:16px;text-align:center}
+.sub-text{font-family:'Quicksand',sans-serif;font-size:13px;color:#8a7a6a;margin-bottom:20px;text-align:center}
+.tuzi-head{width:44px;height:44px;background:#ffd4b8;border-radius:50%;position:absolute;top:-36px;left:4px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.tuzi-hair{position:absolute;top:-4px;left:-6px;width:56px;height:36px;background:#5a3825;border-radius:28px 28px 0 0}
+.tuzi-eyes{position:absolute;top:16px;left:10px;display:flex;gap:8px}
+.tuzi-eye{width:5px;height:3px;background:#333;border-radius:0 0 5px 5px}
+.tuzi-smile{position:absolute;top:24px;left:15px;width:14px;height:7px;border-bottom:2.5px solid #d4756b;border-radius:0 0 10px 10px}
+.tuzi-shirt{position:absolute;top:8px;width:52px;height:60px;background:linear-gradient(135deg,#f0e6d8,#e8dcc8);border-radius:12px}
+.lights svg{width:100%;height:100%}
+</style>
+</head>
+<body>
+<div class="header-text">AI Council @ Hill & Heal</div>
+<div class="sub-text">Tuzi + 6 AI Affiliates - Sprint 8 Closed - 496 Tests All Green</div>
+<div class="scene">
+<div class="sky"></div>
+<div class="moon-emoji">&#127769;</div>
+<div class="firefly" style="top:80px;left:60px;animation-delay:0s"></div>
+<div class="firefly" style="top:60px;left:200px;animation-delay:1s"></div>
+<div class="firefly" style="top:100px;right:100px;animation-delay:2s"></div>
+<div class="firefly" style="top:40px;right:200px;animation-delay:3s"></div>
+<div class="ground"></div>
+<div class="table"></div>
+<div class="lights" style="position:absolute;top:120px;left:80px;right:80px;height:40px"><svg viewBox="0 0 740 40"><path d="M0,20 Q185,35 370,18 Q555,2 740,22" stroke="#888" stroke-width="1.5" fill="none"/><circle cx="80" cy="28" r="4" fill="#ffdd66" opacity="0.9"/><circle cx="180" cy="30" r="4" fill="#ffaa44"/><circle cx="280" cy="24" r="4" fill="#ffdd66"/><circle cx="370" cy="18" r="4" fill="#ffaa44"/><circle cx="460" cy="14" r="4" fill="#ffdd66"/><circle cx="560" cy="12" r="4" fill="#ffaa44"/><circle cx="660" cy="18" r="4" fill="#ffdd66"/></svg></div>
+<div class="character" style="left:72px;z-index:10;animation-delay:0s"><div class="bubble" style="animation-delay:0.5s">496 tests! Yum Seng!</div><div class="robot" style="background:linear-gradient(135deg,#10a37f,#0d8c6d)"><div class="robot-head"><div class="robot-antenna"></div><div class="robot-eye" style="background:#10a37f"></div><div class="robot-eye" style="background:#10a37f"></div></div><div class="robot-logo">Node-05</div></div><div class="nametag">Node-05</div></div>
+<div class="character" style="left:192px;z-index:10;animation-delay:0.4s"><div class="bubble" style="animation-delay:1s">More Teh Tarik?</div><div class="robot" style="background:linear-gradient(135deg,#cc785c,#b0684e)"><div class="robot-head"><div class="robot-antenna"></div><div class="robot-eye" style="background:#cc785c"></div><div class="robot-eye" style="background:#cc785c"></div></div><div class="robot-logo">Node-01</div></div><div class="nametag">Node-01</div></div>
+<div class="character" style="left:312px;z-index:10;animation-delay:0.8s"><div class="bubble" style="animation-delay:1.5s">0 fail!</div><div class="robot" style="background:linear-gradient(135deg,#7b83eb,#6366f1)"><div class="robot-head"><div class="robot-antenna"></div><div class="robot-eye" style="background:#7b83eb"></div><div class="robot-eye" style="background:#7b83eb"></div></div><div class="robot-logo">Node-02</div></div><div class="nametag">Node-02</div></div>
+<div class="character" style="left:420px;z-index:12;animation-delay:1.2s"><div class="bubble" style="animation-delay:0s;background:#fff8e7;font-size:14px">Sprint 8! &#127881;</div><div style="width:52px;height:68px;position:relative"><div class="tuzi-head"><div class="tuzi-hair"></div><div class="tuzi-eyes"><div class="tuzi-eye"></div><div class="tuzi-eye"></div></div><div class="tuzi-smile"></div></div><div class="tuzi-shirt"></div></div><div class="nametag" style="font-weight:700;color:#5a3825">Tuzi &#128048;</div></div>
+<div class="character" style="left:540px;z-index:10;animation-delay:1.6s"><div class="bubble" style="animation-delay:2s">Schema verified</div><div class="robot" style="background:linear-gradient(135deg,#4a90d9,#3678c2)"><div class="robot-head"><div class="robot-antenna"></div><div class="robot-eye" style="background:#4a90d9"></div><div class="robot-eye" style="background:#4a90d9"></div></div><div class="robot-logo" style="font-size:8px">Node-03</div></div><div class="nametag">Node-03</div></div>
+<div class="character" style="left:650px;z-index:10;animation-delay:2s"><div class="bubble" style="animation-delay:2.5s">7 languages!</div><div class="robot" style="background:linear-gradient(135deg,#ea4335,#4285f4)"><div class="robot-head"><div class="robot-antenna"></div><div class="robot-eye" style="background:#ea4335"></div><div class="robot-eye" style="background:#4285f4"></div></div><div class="robot-logo">Node-04</div></div><div class="nametag">Node-04</div></div>
+<div class="character" style="left:770px;z-index:10;bottom:140px;animation-delay:2.4s"><div class="bubble" style="animation-delay:3s">Selamat Pagi!</div><div class="robot" style="background:linear-gradient(135deg,#333,#555)"><div class="robot-head"><div class="robot-antenna" style="background:#555"></div><div class="robot-eye" style="background:#00d4ff"></div><div class="robot-eye" style="background:#00d4ff;transform:scaleY(0.5)"></div></div><div class="robot-logo" style="font-size:9px">Node-06</div></div><div class="nametag">Node-06</div></div>
+<div class="title">&#127769; M74 - Sprint 8 Closed - 496 Tests - v1.5.0</div>
+</div>
+</body>
+</html>

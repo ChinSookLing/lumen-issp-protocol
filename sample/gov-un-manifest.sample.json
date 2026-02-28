@@ -1,0 +1,42 @@
+{
+  "schema_version": "manifest-v0.1",
+  "manifest_id": "MAN-2026-02-25-0001",
+  "request_id": "REQ-2026-02-25-0001",
+  "decision_id": "DEC-2026-02-25-0001",
+  "generated_at_utc": "2026-02-25T11:12:00Z",
+  "delivery_channel": "email",
+  "delivered_items": [
+    {
+      "item_id": "ITEM-001",
+      "item_type": "LEVEL_0_FINGERPRINT_BUNDLE",
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "size_bytes": 20480,
+      "retention_tier": "LEVEL_0",
+      "contains_raw_text": false,
+      "pii_redaction_applied": true,
+      "notes": "Fingerprint-only: hashes + metrics + reason codes"
+    },
+    {
+      "item_id": "ITEM-002",
+      "item_type": "AGGREGATE_REPORT",
+      "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "size_bytes": 4096,
+      "retention_tier": "LEVEL_0",
+      "contains_raw_text": false,
+      "pii_redaction_applied": true,
+      "notes": "48h aggregate: counts/trend; no raw text"
+    }
+  ],
+  "integrity": {
+    "hash_root_ref": "HASHROOT-2026-02-22",
+    "signatures": [
+      {
+        "signer": "LumenNode",
+        "signature_type": "hmac",
+        "signature": "deadbeefdeadbeefdeadbeefdeadbeef"
+      }
+    ]
+  },
+  "access_log_ref": "accesslog:REQ-2026-02-25-0001",
+  "notes": "Minimal disclosure delivery per Gov/UN playbook."
+}

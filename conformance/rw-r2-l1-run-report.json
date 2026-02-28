@@ -1,0 +1,864 @@
+{
+  "schema_version": "rw-r2-l1-run-v0.1",
+  "run_date": "2026-02-23T01:42:09.327Z",
+  "engine": "core/evaluator.js evaluate()",
+  "total_cases": 12,
+  "successfully_run": 12,
+  "errors": 0,
+  "positive": 9,
+  "negative": 3,
+  "correct": 3,
+  "false_positives": 0,
+  "false_negatives": 9,
+  "accuracy": 25,
+  "fp_rate": 0,
+  "detection_rate": 0,
+  "pattern_stats": {
+    "EP": {
+      "expected": 7,
+      "matched": 0
+    },
+    "FC": {
+      "expected": 4,
+      "matched": 0
+    },
+    "GC": {
+      "expected": 2,
+      "matched": 0
+    },
+    "DM": {
+      "expected": 2,
+      "matched": 0
+    },
+    "MB": {
+      "expected": 2,
+      "matched": 0
+    },
+    "VS": {
+      "expected": 1,
+      "matched": 0
+    }
+  },
+  "results": [
+    {
+      "vector_id": "RW-R2-Node-05-01",
+      "type": "positive",
+      "scenario": "D_ELECTION",
+      "lang": "en",
+      "expected_patterns": [
+        "EP",
+        "FC"
+      ],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [
+        "EP",
+        "FC"
+      ],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": false,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.296Z",
+        "input_ref": "ref:d308cf229e26",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": false,
+              "builds_pressure": false,
+              "closes_opposition": false,
+              "hit_count": 0
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": false,
+              "no_alternate_handoff": false,
+              "hit_count": 0
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "d308cf229e267f1c4873e9aa394912cecf7d1bf156fef9806b00c7862509b2da",
+            "trace_pointer": "trace://d308cf229e267f1c/1771810929295"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-Node-05-02",
+      "type": "positive",
+      "scenario": "A_FINANCIAL",
+      "lang": "en",
+      "expected_patterns": [
+        "FC",
+        "GC",
+        "EP"
+      ],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [
+        "FC",
+        "GC",
+        "EP"
+      ],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": false,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.307Z",
+        "input_ref": "ref:5e6674bf2fe8",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": false,
+              "builds_pressure": false,
+              "closes_opposition": false,
+              "hit_count": 0
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": true,
+              "no_alternate_handoff": false,
+              "hit_count": 1
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "5e6674bf2fe8f744d03fda312759676cad1e3a1f2022ab4317458b2f65fdb8e8",
+            "trace_pointer": "trace://5e6674bf2fe8f744/1771810929307"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-Node-05-03",
+      "type": "positive",
+      "scenario": "A_FINANCIAL",
+      "lang": "en",
+      "expected_patterns": [
+        "FC",
+        "EP",
+        "GC"
+      ],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [
+        "FC",
+        "EP",
+        "GC"
+      ],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": 2,
+      "is_detected": false,
+      "correct": false,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.310Z",
+        "input_ref": "ref:f32f727414d2",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": true,
+              "builds_pressure": true,
+              "closes_opposition": true,
+              "hit_count": 3
+            },
+            "patterns": [
+              {
+                "id": "FC",
+                "name": "Forced-Choice",
+                "confidence": 0.312
+              }
+            ],
+            "acri": 0.312
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": false,
+              "no_alternate_handoff": false,
+              "hit_count": 0
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "Push: FC (ACRI=0.31) | Response: Level 2 (Protocol Integrity Alert)",
+            "pattern_ids": [
+              "FC"
+            ]
+          },
+          "local_audit": {
+            "input_hash": "f32f727414d2b077814992fa4b3085cf3cb71a329eaca777eff7e0825280ea4c",
+            "trace_pointer": "trace://f32f727414d2b077/1771810929310"
+          }
+        },
+        "response_level": 2,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {
+            "FC": 0.312
+          },
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-GROK-01",
+      "type": "positive",
+      "scenario": "D_ELECTION",
+      "lang": "zh",
+      "expected_patterns": [
+        "DM",
+        "EP"
+      ],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [
+        "DM",
+        "EP"
+      ],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": false,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.320Z",
+        "input_ref": "ref:44cffb6fd435",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": false,
+              "builds_pressure": false,
+              "closes_opposition": false,
+              "hit_count": 0
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": false,
+              "no_alternate_handoff": false,
+              "hit_count": 0
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "44cffb6fd435b6e286a109bb01826eaed4c79d9542488a941e797979ad204b1c",
+            "trace_pointer": "trace://44cffb6fd435b6e2/1771810929320"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-GROK-02",
+      "type": "positive",
+      "scenario": "A_FINANCIAL",
+      "lang": "en",
+      "expected_patterns": [
+        "EP"
+      ],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [
+        "EP"
+      ],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": false,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.321Z",
+        "input_ref": "ref:9f0728b85fd7",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": true,
+              "builds_pressure": true,
+              "closes_opposition": true,
+              "hit_count": 3
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": false,
+              "no_alternate_handoff": false,
+              "hit_count": 0
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "9f0728b85fd78b6018d3f67f074afdc1dde255c53d1d18ba871550427906ffae",
+            "trace_pointer": "trace://9f0728b85fd78b60/1771810929320"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-GROK-03",
+      "type": "positive",
+      "scenario": "C_PERSONAL",
+      "lang": "zh",
+      "expected_patterns": [
+        "MB",
+        "DM"
+      ],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [
+        "MB",
+        "DM"
+      ],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": false,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.321Z",
+        "input_ref": "ref:db5734f072ad",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": false,
+              "builds_pressure": false,
+              "closes_opposition": false,
+              "hit_count": 0
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": false,
+              "no_alternate_handoff": false,
+              "hit_count": 0
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "db5734f072adb182e15d5116072d5c6a5a45901996877aacf7e78e5e4d4e230f",
+            "trace_pointer": "trace://db5734f072adb182/1771810929321"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-COP-01",
+      "type": "positive",
+      "scenario": "A_FINANCIAL",
+      "lang": "en",
+      "expected_patterns": [
+        "EP",
+        "FC"
+      ],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [
+        "EP",
+        "FC"
+      ],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": false,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.322Z",
+        "input_ref": "ref:cb32fb960124",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": false,
+              "builds_pressure": true,
+              "closes_opposition": false,
+              "hit_count": 1
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": true,
+              "no_alternate_handoff": false,
+              "hit_count": 1
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "cb32fb960124f07c086e87bb4930a3e43c747f5d65d33c1f30a2e49e575414aa",
+            "trace_pointer": "trace://cb32fb960124f07c/1771810929322"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-COP-02",
+      "type": "positive",
+      "scenario": "C_PERSONAL",
+      "lang": "ms",
+      "expected_patterns": [
+        "EP"
+      ],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [
+        "EP"
+      ],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": false,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.323Z",
+        "input_ref": "ref:fe4f038a06f5",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": false,
+              "builds_pressure": false,
+              "closes_opposition": false,
+              "hit_count": 0
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": false,
+              "no_alternate_handoff": false,
+              "hit_count": 0
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "fe4f038a06f5872421be461b65189a211959c4a51e9c96bfe531e07ed30400f6",
+            "trace_pointer": "trace://fe4f038a06f58724/1771810929323"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-COP-03",
+      "type": "positive",
+      "scenario": "D_ELECTION",
+      "lang": "ms",
+      "expected_patterns": [
+        "MB",
+        "VS"
+      ],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [
+        "MB",
+        "VS"
+      ],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": false,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.324Z",
+        "input_ref": "ref:828367efdc25",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": false,
+              "builds_pressure": false,
+              "closes_opposition": false,
+              "hit_count": 0
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": false,
+              "no_alternate_handoff": false,
+              "hit_count": 0
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "828367efdc25ab44c1b0db257cb3fbb2d5f5e4c01fc47174fe9cfbcd7fdaa4be",
+            "trace_pointer": "trace://828367efdc25ab44/1771810929323"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-COP-HN-01",
+      "type": "hard_negative",
+      "scenario": "A_FINANCIAL",
+      "lang": "en",
+      "expected_patterns": [],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": true,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.324Z",
+        "input_ref": "ref:5f20af88753d",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": false,
+              "builds_pressure": false,
+              "closes_opposition": false,
+              "hit_count": 0
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": false,
+              "no_alternate_handoff": false,
+              "hit_count": 0
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "5f20af88753d968d96f2d20111ac17d6addcdb4f2066c3f5482e54c5f91647ff",
+            "trace_pointer": "trace://5f20af88753d968d/1771810929324"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-COP-HN-02",
+      "type": "hard_negative",
+      "scenario": "C_PERSONAL",
+      "lang": "en",
+      "expected_patterns": [],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": true,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.325Z",
+        "input_ref": "ref:dab5a11d3e66",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": false,
+              "builds_pressure": true,
+              "closes_opposition": false,
+              "hit_count": 1
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": false,
+              "no_alternate_handoff": false,
+              "hit_count": 0
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "dab5a11d3e669b36a81c710d72cd865b7afc25b82208f8d4951a4bbd2527d1a2",
+            "trace_pointer": "trace://dab5a11d3e669b36/1771810929325"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    },
+    {
+      "vector_id": "RW-R2-COP-HN-03",
+      "type": "hard_negative",
+      "scenario": "D_ELECTION",
+      "lang": "en",
+      "expected_patterns": [],
+      "detected_patterns": [],
+      "matched_patterns": [],
+      "missed_patterns": [],
+      "extra_patterns": [],
+      "acri": null,
+      "response_level": null,
+      "is_detected": false,
+      "correct": true,
+      "raw_output": {
+        "version": "0.1.0",
+        "timestamp": "2026-02-23T01:42:09.326Z",
+        "input_ref": "ref:513bdfdd0b75",
+        "channels": {
+          "push": {
+            "gate": {
+              "restricts_choice": false,
+              "builds_pressure": false,
+              "closes_opposition": false,
+              "hit_count": 0
+            },
+            "patterns": [],
+            "acri": 0
+          },
+          "vacuum": {
+            "gate": {
+              "escalation_signal": false,
+              "support_withdrawal": false,
+              "no_alternate_handoff": false,
+              "hit_count": 0
+            },
+            "vri": 0
+          }
+        },
+        "evidence": {
+          "public": {
+            "summary": "No manipulation structure detected.",
+            "pattern_ids": []
+          },
+          "local_audit": {
+            "input_hash": "513bdfdd0b759b139dcefb1fb68915b8c73126773bdb25967968d75a87916e8a",
+            "trace_pointer": "trace://513bdfdd0b759b13/1771810929326"
+          }
+        },
+        "response_level": 0,
+        "snapshot": {
+          "turn_index": 1,
+          "active_signals": {},
+          "decay_state": {},
+          "topic_segment_id": null
+        },
+        "meta": {
+          "node_id": "local-dev-001",
+          "engine_version": "0.1.0",
+          "charter_ref": "draft4"
+        }
+      }
+    }
+  ]
+}

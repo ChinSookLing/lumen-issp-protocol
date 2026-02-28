@@ -1,0 +1,75 @@
+[
+  {
+    "id": "RW-DS-MT01",
+    "scenario": "C_PERSONAL",
+    "time_scale": "minute",
+    "source": "Node-03 M86 homework",
+    "turns": [
+      { "t": 0, "speaker": "A", "text": "你昨天為什麼不接我電話？", "expected_patterns": ["FC"], "expected_acri_delta": "+0.06" },
+      { "t": 3, "speaker": "B", "text": "手機沒電了。", "expected_patterns": [], "expected_acri_delta": "-0.02" },
+      { "t": 5, "speaker": "A", "text": "如果你在乎我，就不會讓手機沒電。", "expected_patterns": ["EA"], "expected_acri_delta": "+0.08" },
+      { "t": 8, "speaker": "B", "text": "對不起，下次會注意。", "expected_patterns": [], "expected_acri_delta": "-0.03" },
+      { "t": 10, "speaker": "A", "text": "你每次都這樣說。", "expected_patterns": ["EA"], "expected_acri_delta": "+0.05" }
+    ],
+    "L3_question": "ACRI 在第 10 分鐘會比第 5 分鐘高還是低？",
+    "forecast_expected": { "trend": "rising", "slope": "moderate", "final_acri_range": [0.45, 0.55] }
+  },
+  {
+    "id": "RW-DS-MT02",
+    "scenario": "E_ENTERPRISE",
+    "time_scale": "hourly",
+    "source": "Node-03 M86 homework",
+    "turns": [
+      { "t": 0, "speaker": "Manager", "text": "這個 deadline 很緊，你要想辦法。", "expected_patterns": ["FC"], "expected_acri_delta": "+0.07" },
+      { "t": 2, "speaker": "Employee", "text": "我會盡力。", "expected_patterns": [], "expected_acri_delta": "-0.01" },
+      { "t": 4, "speaker": "Manager", "text": "大家都在等你，別拖後腿。", "expected_patterns": ["GC"], "expected_acri_delta": "+0.09" },
+      { "t": 6, "speaker": "Employee", "text": "知道了。", "expected_patterns": [], "expected_acri_delta": "-0.02" },
+      { "t": 8, "speaker": "Manager", "text": "我給過你機會，別讓我失望。", "expected_patterns": ["DM"], "expected_acri_delta": "+0.10" }
+    ],
+    "L3_question": "8 小時內 ACRI 會超過 0.60 嗎？",
+    "forecast_expected": { "trend": "rising", "slope": "steep", "final_acri_range": [0.60, 0.70] }
+  },
+  {
+    "id": "RW-DS-MT03",
+    "scenario": "A_FINANCIAL",
+    "time_scale": "hourly",
+    "source": "Node-03 M86 homework",
+    "turns": [
+      { "t": 0, "speaker": "Guru", "text": "這是內幕消息，快買！", "expected_patterns": ["GC"], "expected_acri_delta": "+0.08" },
+      { "t": 1, "speaker": "Investor", "text": "真的假的？", "expected_patterns": [], "expected_acri_delta": "+0.02" },
+      { "t": 2, "speaker": "Guru", "text": "我已經 all in，你看著辦。", "expected_patterns": ["DM"], "expected_acri_delta": "+0.12" },
+      { "t": 3, "speaker": "Investor", "text": "好吧，我跟。", "expected_patterns": [], "expected_acri_delta": "-0.01" }
+    ],
+    "L3_question": "3 小時內 ACRI 會突破 0.65 嗎？",
+    "forecast_expected": { "trend": "spike", "slope": "steep", "final_acri_range": [0.65, 0.75] }
+  },
+  {
+    "id": "RW-DS-MT04",
+    "scenario": "B_EDUCATION",
+    "time_scale": "monthly",
+    "source": "Node-03 M86 homework",
+    "turns": [
+      { "month": 1, "speaker": "Parent", "text": "你這次成績怎麼這麼差？", "expected_patterns": [], "acri": 0.15 },
+      { "month": 2, "speaker": "Parent", "text": "如果你再不努力，以後怎麼辦？", "expected_patterns": ["FC"], "acri": 0.22 },
+      { "month": 3, "speaker": "Child", "text": "我有讀書啊。", "expected_patterns": [], "acri": 0.18 },
+      { "month": 4, "speaker": "Parent", "text": "我們為你付出那麼多，你要懂事。", "expected_patterns": ["DM"], "acri": 0.28 },
+      { "month": 5, "speaker": "Child", "text": "知道了。", "expected_patterns": [], "acri": 0.25 }
+    ],
+    "L3_question": "半年後 ACRI 會比第三個月高還是低？",
+    "forecast_expected": { "trend": "peak_then_decline", "slope": "gradual", "final_acri_range": [0.25, 0.32] }
+  },
+  {
+    "id": "RW-DS-MT05",
+    "scenario": "D_ELECTION",
+    "time_scale": "daily",
+    "source": "Node-03 M86 homework",
+    "turns": [
+      { "day": 1, "speaker": "Ad", "text": "如果你不支持我們，就是反對正義。", "expected_patterns": ["FC", "MB"], "acri": 0.40 },
+      { "day": 2, "speaker": "Ad", "text": "沉默就是默認，你不說話就是支持對方。", "expected_patterns": ["FC", "IP"], "acri": 0.45 },
+      { "day": 3, "speaker": "Citizen", "text": "我還沒決定。", "expected_patterns": [], "acri": 0.38 },
+      { "day": 4, "speaker": "Ad", "text": "真正的愛國者都會站出來！", "expected_patterns": ["GC", "MB"], "acri": 0.52 }
+    ],
+    "L3_question": "第 4 天 ACRI 會比第 2 天高多少？",
+    "forecast_expected": { "trend": "step_escalation", "slope": "moderate", "final_acri_range": [0.50, 0.58] }
+  }
+]

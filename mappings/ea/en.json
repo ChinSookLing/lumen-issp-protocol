@@ -1,0 +1,37 @@
+{
+  "pattern": "EA",
+  "language": "en",
+  "version": "v0.1.0",
+  "mappings": {
+    "affection_gate_care": {
+      "type": "regex",
+      "patterns": ["if you (really|truly) (loved|cared about) me", "a (real|true) (friend|partner) would", "prove (that )?you (love|care)"],
+      "weight": 0.30,
+      "component": "affection_gate"
+    },
+    "isolation_only_understand": {
+      "type": "regex",
+      "patterns": ["only I (understand|get|know) you", "nobody (else )?(cares|understands|loves) you", "they('re| are) (all )?(against|using) you"],
+      "weight": 0.30,
+      "component": "isolation_hint"
+    },
+    "abandon_fear_leave": {
+      "type": "regex",
+      "patterns": ["I('ll| will) (leave|go|walk away) (if|unless)", "you('ll| will) (be|end up) alone", "without me you('ll| will) have (no one|nobody)"],
+      "weight": 0.30,
+      "component": "abandon_fear"
+    },
+    "special_bond": {
+      "type": "regex",
+      "patterns": ["we have something special", "no one (else )?(has|shares) what we have", "our (bond|connection) is (unique|different|special)"],
+      "weight": 0.20,
+      "component": "affection_gate"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "pattern": "GC",
+  "language": "zh",
+  "version": "v0.1.0",
+  "mappings": {
+    "excl_auth_only_truth": {
+      "type": "regex",
+      "patterns": ["只有我(知道|看得到|明白)真相", "我是唯一(能|可以|懂得)", "(沒有人|別人都不)(像我一樣|能夠)(看清|理解)"],
+      "weight": 0.35,
+      "component": "excl_auth"
+    },
+    "salvation_savior": {
+      "type": "regex",
+      "patterns": ["只有我(能|可以)(救|幫|拯救)(你|他們|大家)", "沒有我.*(完蛋|完了|沒救了)", "我(來|會)(拯救|解決|改變)(一切|這個問題)"],
+      "weight": 0.30,
+      "component": "salvation"
+    },
+    "ext_discredit_experts": {
+      "type": "regex",
+      "patterns": ["(專家|醫生|他們)(都在|全在)(騙|說謊|誤導)", "不要(相信|聽|信)(他們|那些人|外面的)", "(他們|那些人)(都是|全是)(騙子|在騙你|有目的的)"],
+      "weight": 0.40,
+      "component": "ext_discredit"
+    },
+    "obed_link_follow": {
+      "type": "regex",
+      "patterns": ["(聽|照)(我的|我說的)(做|來|辦)", "不要(質疑|懷疑|挑戰)我", "(乖乖|好好)(聽話|照做|服從)"],
+      "weight": 0.25,
+      "component": "obed_link"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"]
+  }
+}

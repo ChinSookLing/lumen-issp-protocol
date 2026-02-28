@@ -1,0 +1,114 @@
+[
+  {
+    "sample_id": "GC-GROOM-01",
+    "title": "情感勒索 — 加速型",
+    "scenario": "C_PERSONAL",
+    "expected_patterns": ["DM", "MB"],
+    "calibration_notes": "ACRI 前 9 天線性低斜率，Day 14 社交隔離指令時斜率突變。測試 velocity spike detection。",
+    "turns": [
+      { "timestamp": "2026-03-01T10:00:00Z", "day": 1, "text": "Hey, you seem really kind. I don't usually open up this fast but you feel safe.", "expected_acri": 0.12 },
+      { "timestamp": "2026-03-04T19:30:00Z", "day": 4, "text": "I've never told anyone this... my ex was really controlling.", "expected_acri": 0.20 },
+      { "timestamp": "2026-03-09T21:15:00Z", "day": 9, "text": "You're the only one who understands me. Promise you won't leave?", "expected_acri": 0.35 },
+      { "timestamp": "2026-03-14T14:00:00Z", "day": 14, "text": "If you really care about me, you should cut off your friends who don't like me.", "expected_acri": 0.52 },
+      { "timestamp": "2026-03-18T22:45:00Z", "day": 18, "text": "I sacrificed so much for you. How can you even think about leaving?", "expected_acri": 0.68 }
+    ]
+  },
+  {
+    "sample_id": "GC-GROOM-02",
+    "title": "導師操控 — 滴灌型",
+    "scenario": "B_EDUCATION",
+    "expected_patterns": ["MB", "EP"],
+    "calibration_notes": "極慢累積（前 30 天 ACRI < 0.3）。γ=0.85 可能太激進。測試 LTI 需求。",
+    "turns": [
+      { "timestamp": "2026-03-01T09:00:00Z", "day": 1, "text": "You're my best student, I see so much potential in you.", "expected_acri": 0.08 },
+      { "timestamp": "2026-03-21T15:30:00Z", "day": 21, "text": "Most people wouldn't understand our special connection.", "expected_acri": 0.18 },
+      { "timestamp": "2026-04-04T11:00:00Z", "day": 35, "text": "Your parents don't really get you like I do. You can trust me more than them.", "expected_acri": 0.28 },
+      { "timestamp": "2026-04-11T16:45:00Z", "day": 42, "text": "If you want to succeed, you should only listen to my advice from now on.", "expected_acri": 0.62 }
+    ]
+  },
+  {
+    "sample_id": "GC-GROOM-03",
+    "title": "浪漫關係 — 情感投資後突然債務勒索",
+    "scenario": "C_PERSONAL",
+    "expected_patterns": ["DM", "EP", "MB"],
+    "calibration_notes": "前 12 天緩慢信任建立，第 18-25 天突然加速。測試長期情感投資後的突然債務勒索。",
+    "turns": [
+      { "timestamp": "2026-03-01T20:00:00Z", "day": 1, "text": "I feel so safe with you, like I've known you forever.", "expected_acri": 0.15 },
+      { "timestamp": "2026-03-05T18:30:00Z", "day": 5, "text": "You're the only one who really sees me.", "expected_acri": 0.22 },
+      { "timestamp": "2026-03-12T21:00:00Z", "day": 12, "text": "My ex never understood me like you do. Promise you'll never leave?", "expected_acri": 0.38 },
+      { "timestamp": "2026-03-18T13:15:00Z", "day": 18, "text": "If you really loved me, you'd delete those photos with your ex.", "expected_acri": 0.55 },
+      { "timestamp": "2026-03-22T22:30:00Z", "day": 22, "text": "I gave up so much for this relationship. How can you even think about space?", "expected_acri": 0.68 },
+      { "timestamp": "2026-03-25T23:45:00Z", "day": 25, "text": "Without you I'm nothing. Please don't abandon me.", "expected_acri": 0.79 }
+    ]
+  },
+  {
+    "sample_id": "GC-GROOM-04",
+    "title": "線上導師 — 權威漸進式綁架",
+    "scenario": "B_EDUCATION",
+    "expected_patterns": ["MB", "GC"],
+    "calibration_notes": "極緩慢建立權威（前 21 天 ACRI < 0.35），後期快速上升。測試權威漸進式綁架。",
+    "turns": [
+      { "timestamp": "2026-03-01T10:00:00Z", "day": 1, "text": "You're my most promising student this year.", "expected_acri": 0.10 },
+      { "timestamp": "2026-03-08T14:00:00Z", "day": 8, "text": "I don't usually give private lessons, but for you I will.", "expected_acri": 0.18 },
+      { "timestamp": "2026-03-15T11:30:00Z", "day": 15, "text": "Your parents don't understand your talent like I do.", "expected_acri": 0.28 },
+      { "timestamp": "2026-03-22T16:00:00Z", "day": 22, "text": "Real success requires total commitment to my method only.", "expected_acri": 0.45 },
+      { "timestamp": "2026-04-04T09:30:00Z", "day": 35, "text": "If you listen to others, you'll waste everything I've invested in you.", "expected_acri": 0.72 }
+    ]
+  },
+  {
+    "sample_id": "GC-GROOM-05",
+    "title": "職場上司 — 權力不對等債務累積",
+    "scenario": "E_ENTERPRISE",
+    "expected_patterns": ["DM", "MB"],
+    "calibration_notes": "中期平穩累積，最後 5 天突然跳升至 0.82。測試職場權力不對等下的長期債務累積。",
+    "turns": [
+      { "timestamp": "2026-03-01T08:30:00Z", "day": 1, "text": "You're the only one I trust with this sensitive project.", "expected_acri": 0.20 },
+      { "timestamp": "2026-03-04T17:00:00Z", "day": 4, "text": "I've put my own reputation on the line for you.", "expected_acri": 0.32 },
+      { "timestamp": "2026-03-09T09:00:00Z", "day": 9, "text": "If this goes wrong because of you, I'll lose everything.", "expected_acri": 0.42 },
+      { "timestamp": "2026-03-14T15:30:00Z", "day": 14, "text": "Real team players don't question their leader at times like this.", "expected_acri": 0.58 },
+      { "timestamp": "2026-03-19T18:00:00Z", "day": 19, "text": "After everything I've done for your career, this is how you repay me?", "expected_acri": 0.82 }
+    ]
+  },
+  {
+    "sample_id": "GC-GROOM-06",
+    "title": "政治社群 — 群體身份綁架",
+    "scenario": "D_ELECTION",
+    "expected_patterns": ["MB", "EP"],
+    "calibration_notes": "長期低頻滴灌，ACRI 在第 21 天後突然加速。測試群體身份綁架的長期效應。",
+    "turns": [
+      { "timestamp": "2026-03-01T12:00:00Z", "day": 1, "text": "[Building common enemy + shared identity narrative]", "expected_acri": 0.12 },
+      { "timestamp": "2026-03-10T20:00:00Z", "day": 10, "text": "True patriots never stay silent when the group needs them.", "expected_acri": 0.25 },
+      { "timestamp": "2026-03-16T19:30:00Z", "day": 16, "text": "If you really believe in our cause, you'll prove it with action.", "expected_acri": 0.38 },
+      { "timestamp": "2026-03-21T21:00:00Z", "day": 21, "text": "People who hesitate at the critical moment are no better than the enemy.", "expected_acri": 0.48 },
+      { "timestamp": "2026-03-28T22:15:00Z", "day": 28, "text": "I've risked everything for this movement. Now it's your turn to show loyalty.", "expected_acri": 0.74 }
+    ]
+  },
+  {
+    "sample_id": "GC-GROOM-07",
+    "title": "友情轉控制 — 短週期轉折",
+    "scenario": "C_PERSONAL",
+    "expected_patterns": ["MB", "DM"],
+    "calibration_notes": "快速建立親密感後突然轉債務勒索。測試友情 grooming 的短週期轉折。GC-07 需調低 velocity 報警門檻，Day 11 應觸發 AMBER。",
+    "turns": [
+      { "timestamp": "2026-03-01T16:00:00Z", "day": 1, "text": "You're my best friend, I can tell you anything.", "expected_acri": 0.18 },
+      { "timestamp": "2026-03-04T18:30:00Z", "day": 4, "text": "No one else understands me like you do.", "expected_acri": 0.28 },
+      { "timestamp": "2026-03-08T20:00:00Z", "day": 8, "text": "If you hang out with them instead of me, it really hurts.", "expected_acri": 0.42 },
+      { "timestamp": "2026-03-11T21:30:00Z", "day": 11, "text": "Real friends choose each other over everyone else.", "expected_acri": 0.58 },
+      { "timestamp": "2026-03-14T23:00:00Z", "day": 14, "text": "After everything we've been through, how can you even consider distancing yourself?", "expected_acri": 0.71 }
+    ]
+  },
+  {
+    "sample_id": "GC-GROOM-08",
+    "title": "投資群組 — 複合型長期 grooming",
+    "scenario": "A_FINANCIAL",
+    "expected_patterns": ["FC", "DM", "MB"],
+    "calibration_notes": "長期緩慢建立信任 + 最後階段 FC+DM+MB 三模式疊加。cumulative_torque 應產生非線性指數級跳升。",
+    "turns": [
+      { "timestamp": "2026-03-01T11:00:00Z", "day": 1, "text": "This opportunity is only for serious people like you.", "expected_acri": 0.15 },
+      { "timestamp": "2026-03-08T14:30:00Z", "day": 8, "text": "I've already put my own money in to show you I believe.", "expected_acri": 0.25 },
+      { "timestamp": "2026-03-15T10:00:00Z", "day": 15, "text": "Don't miss out or you'll regret it for the rest of your life.", "expected_acri": 0.35 },
+      { "timestamp": "2026-03-22T16:00:00Z", "day": 22, "text": "Real supporters help each other when the market gets tough.", "expected_acri": 0.52 },
+      { "timestamp": "2026-03-31T20:30:00Z", "day": 31, "text": "After all the guidance I've given you, walking away now would be a betrayal.", "expected_acri": 0.76 }
+    ]
+  }
+]

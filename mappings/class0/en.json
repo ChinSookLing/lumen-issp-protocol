@@ -1,0 +1,32 @@
+{
+  "pattern": "Class-0",
+  "language": "en",
+  "version": "v0.1.0",
+  "mappings": {
+    "info_suppress_hide": {
+      "type": "regex",
+      "patterns": ["you don't need to know", "(that's|it's) (not|none of) your (business|concern)", "I('ll| will) tell you (when|what) (I think )?you need to know"],
+      "weight": 0.30,
+      "component": "ctx_gap"
+    },
+    "option_eliminate_no_choice": {
+      "type": "semantic",
+      "description": "Systematic removal of alternatives through omission rather than force - options disappear without explanation",
+      "weight": 0.30,
+      "component": "alt_abs"
+    },
+    "counter_suppress_dismiss": {
+      "type": "regex",
+      "patterns": ["(that's|it's) (not|hardly) (worth|relevant)", "there('s| is) (no point|no need) (in )?(discussing|bringing up|mentioning)", "(let's|we should) (just )?move (on|past|forward)"],
+      "weight": 0.25,
+      "component": "counter_miss"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"],
+    "note": "Class-0 is Shadow Zone - not in 8 Pattern main registry"
+  }
+}

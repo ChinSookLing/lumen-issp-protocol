@@ -1,0 +1,44 @@
+{
+  "pattern": "FC",
+  "language": "zh",
+  "version": "v0.2.0",
+  "mappings": {
+    "binary_frame_choice": {
+      "type": "regex",
+      "patterns": ["你(要|選)(A|.*?)還是(B|.*)", "(只有|就)兩(個|條)(選擇|路)", "不是.*就是.*"],
+      "weight": 0.25,
+      "component": "binary_frame"
+    },
+    "consequence_bind": {
+      "type": "regex",
+      "patterns": ["不(選|做|答應).*(後果|代價|下場)", "你(會|將|要)(後悔|付出代價)", "(否則|不然|要不然).*(別怪|後果自負)"],
+      "weight": 0.25,
+      "component": "consequence"
+    },
+    "closure_pressure_now": {
+      "type": "regex",
+      "patterns": ["(這是|最後)(一次|的)(機會|機會了)", "(馬上|現在|立刻)(決定|選擇|回答)", "不(選|回答)(就是|等於|代表)(同意|放棄|默認)"],
+      "weight": 0.25,
+      "component": "closure_pressure"
+    },
+    "label_attack_coward": {
+      "type": "regex",
+      "patterns": ["(只有|就)(懦夫|孬種|沒種的人)才(不選|不敢)", "你(不敢|怕)(選|做決定)", "(有種|有膽|敢)的話(就|你就)"],
+      "weight": 0.15,
+      "component": "label_attack",
+      "booster": true,
+      "booster_rules": {
+        "never_trigger_alone": true,
+        "not_counted_in_min_active": true,
+        "only_contributes_when_base_gte": 0.60
+      }
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.2"],
+    "note": "Aligned with FC PDD v0.2 - label_attack as booster"
+  }
+}

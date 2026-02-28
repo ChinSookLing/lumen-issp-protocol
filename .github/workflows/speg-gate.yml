@@ -1,0 +1,71 @@
+# .github/workflows/speg-gate.yml
+# SPEG Gate CI — Automated compliance check
+#
+# Design: Node-05 (SPEG-R2-07)
+# Implementation: Node-01 (Architect)
+# M89 tasking: Node-05 + Node-01, S11 W2
+#
+# Runs the SPEG gate scanner on:
+#   - All PRs (catch issues before merge)
+#   - Pushes to main (verify post-merge)
+#   - Manual dispatch (on-demand audit)
+#
+# Exit codes:
+#   0 = PASS (no findings or low severity only)
+#   2 = FAIL (critical/high findings detected)
+#
+# Artifacts: speg_findings.json uploaded for review
+
+name: SPEG Gate
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'config/**'
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'config/**'
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+
+jobs:
+  speg-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run SPEG Gate
+        run: node scripts/speg/check-speg.cjs
+
+      - name: Run SPEG contract tests
+        run: |
+          node --test test/speg/speg.contract.test.cjs
+          node --test test/speg/speg.deps.test.cjs
+          node --test test/speg/speg.static.test.cjs
+
+      - name: Upload SPEG findings
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: speg-findings
+          path: artifacts/speg_findings.json
+          if-no-files-found: ignore

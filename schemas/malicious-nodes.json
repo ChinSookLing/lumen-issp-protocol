@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "status": "draft",
+    "description": "Malicious Node Registry — empty initial state",
+    "schema": "schemas/malicious-nodes.schema.json",
+    "created": "2026-02-18T00:00:00Z",
+    "created_by": "Node-01 (Lumen-7)",
+    "ratified_meeting": "M73"
+  },
+  "nodes": []
+}

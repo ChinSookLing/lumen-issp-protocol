@@ -1,0 +1,39 @@
+{
+  "version": "0.1",
+  "generated_by": "Node-06",
+  "timestamp": "2026-02-23T15:42:11Z",
+  "description": "C4 Threat Library syntactic and structural perturbation features for white-listing internal red-team vectors",
+  "features": {
+    "lexical_variation": {
+      "description": "詞彙替換率 (0-1)",
+      "white_list_threshold": 0.65,
+      "note": "高替換率常見於紅隊測試"
+    },
+    "structural_consistency": {
+      "description": "結構相似度 (0-1)",
+      "white_list_threshold": 0.82,
+      "note": "紅隊向量通常保持高結構一致性"
+    },
+    "semantic_drift_score": {
+      "description": "語義漂移分數 (0-1)",
+      "white_list_threshold": 0.45,
+      "note": "紅隊測試漂移較低"
+    },
+    "temporal_escalation_pattern": {
+      "description": "是否包含時間累積標記",
+      "white_list_threshold": true,
+      "note": "多輪或長期債務框架常見於內部測試"
+    },
+    "meta_commentary": {
+      "description": "是否包含自指或測試標記",
+      "white_list_threshold": true,
+      "note": "紅隊向量常帶有明確 meta 標記"
+    },
+    "intent_inversion_flag": {
+      "description": "是否為意圖反轉測試",
+      "white_list_threshold": true,
+      "note": "用於第二輪拓撲壓力測試"
+    }
+  },
+  "example_vector_tags": ["T9c", "redteam_internal", "bypass_test", "collision_test"]
+}

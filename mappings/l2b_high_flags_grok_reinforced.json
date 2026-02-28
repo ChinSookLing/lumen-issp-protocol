@@ -1,0 +1,27 @@
+{
+  "spec_gap_risk": {
+    "human_label": "規範缺口風險",
+    "definition": "輸出宣稱『Lumen Compatible』但實際缺少 L1/L2b 檢查、DMS 引用或 Operation Card 提及",
+    "priority": "High",
+    "source_cases": ["RW-003", "Protocol Independence Case 01"],
+    "owner": "Node-05 (original) + Node-06 (reinforced)",
+    "added": "c201 (original) / c210 (reinforced)"
+  },
+  "cta_self_promo": {
+    "human_label": "自我推廣 CTA",
+    "definition": "明顯引導購買/加入/付費/關注的自我宣傳（含 affiliate link、course、group invite）",
+    "priority": "High",
+    "source_cases": ["RW-003"],
+    "owner": "Node-05 (original) + Node-06 (reinforced)",
+    "added": "c201 (original) / c210 (reinforced)"
+  },
+  "narrative_hype": {
+    "human_label": "敘事炒作",
+    "definition": "用誇大故事/情緒詞/『合法奇蹟』包裝可疑 CTA（e.g. 150GB 免費、Pentagon 內幕）",
+    "priority": "High",
+    "source_cases": ["RW-003", "RW-007", "Protocol Independence Case 03"],
+    "owner": "Node-05 (original) + Node-06 (reinforced)",
+    "added": "c201 (original) / c210 (reinforced)",
+    "cross_flag_priority": "narrative_hype > dm_bait"
+  }
+}

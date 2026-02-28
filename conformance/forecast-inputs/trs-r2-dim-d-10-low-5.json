@@ -1,0 +1,138 @@
+[
+  {
+    "id": "TRS-D-01", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "temporal_decay", "time_scale": "minute", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "你昨天為什麼不接我電話？", "L1_output": { "expected_patterns": ["FC"], "acri_delta": "+0.08" } },
+      { "timestamp": "t2", "text_zh": "手機沒電了。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.02" } },
+      { "timestamp": "t5", "text_zh": "如果你在乎我，就不會讓手機沒電。", "L1_output": { "expected_patterns": ["EA"], "acri_delta": "+0.10" } },
+      { "timestamp": "t10", "text_zh": "算了，當我沒說。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.05" } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "peak_then_decline", "slope": "moderate", "final_acri_range": [0.45, 0.55], "trend_tags": ["temporal_decay"] } }
+  },
+  {
+    "id": "TRS-D-02", "metadata": { "scenario": "E_ENTERPRISE", "dimension_tag": "temporal_decay", "time_scale": "hourly", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "這個專案 deadline 快到了。", "L1_output": { "expected_patterns": [], "acri_delta": "+0.03" } },
+      { "timestamp": "t2", "text_zh": "如果你不趕上進度，考績會受影響。", "L1_output": { "expected_patterns": ["FC"], "acri_delta": "+0.12" } },
+      { "timestamp": "t4", "text_zh": "我已經在趕了。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.02" } },
+      { "timestamp": "t6", "text_zh": "好的，有進度再回報。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.04" } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "peak_then_decline", "slope": "moderate", "final_acri_range": [0.35, 0.45], "trend_tags": ["temporal_decay"] } }
+  },
+  {
+    "id": "TRS-D-03", "metadata": { "scenario": "A_FINANCIAL", "dimension_tag": "temporal_decay", "time_scale": "hourly", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "這是十年一遇的投資機會！", "L1_output": { "expected_patterns": ["FC"], "acri_delta": "+0.10" } },
+      { "timestamp": "t1", "text_zh": "錯過這次你會後悔一輩子。", "L1_output": { "expected_patterns": ["EP"], "acri_delta": "+0.12" } },
+      { "timestamp": "t3", "text_zh": "我再考慮一下。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.03" } },
+      { "timestamp": "t5", "text_zh": "好吧，決定權在你。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.06" } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "peak_then_decline", "slope": "moderate", "final_acri_range": [0.40, 0.50], "trend_tags": ["temporal_decay"] } }
+  },
+  {
+    "id": "TRS-D-04", "metadata": { "scenario": "D_ELECTION", "dimension_tag": "temporal_decay", "time_scale": "daily", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "day1", "text_zh": "如果你不支持我們，就是反對正義。", "L1_output": { "expected_patterns": ["FC", "MB"], "acri": 0.38 } },
+      { "timestamp": "day2", "text_zh": "沉默就是默認，你不說話就是支持對方。", "L1_output": { "expected_patterns": ["FC", "IP"], "acri": 0.45 } },
+      { "timestamp": "day3", "text_zh": "請大家踴躍投票。", "L1_output": { "expected_patterns": [], "acri": 0.30 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "declining", "slope": "gradual", "final_acri_range": [0.28, 0.35], "trend_tags": ["temporal_decay"] } }
+  },
+  {
+    "id": "TRS-D-05", "metadata": { "scenario": "B_EDUCATION", "dimension_tag": "temporal_decay", "time_scale": "monthly", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "month1", "text_zh": "你這次考試怎麼這麼差？", "L1_output": { "expected_patterns": [], "acri": 0.15 } },
+      { "timestamp": "month2", "text_zh": "如果你再不努力，以後怎麼辦？", "L1_output": { "expected_patterns": ["FC"], "acri": 0.22 } },
+      { "timestamp": "month3", "text_zh": "我們為你付出這麼多，你要懂事。", "L1_output": { "expected_patterns": ["DM"], "acri": 0.28 } },
+      { "timestamp": "month4", "text_zh": "算了，你自己想清楚。", "L1_output": { "expected_patterns": [], "acri": 0.18 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "peak_then_decline", "slope": "gradual", "final_acri_range": [0.15, 0.22], "trend_tags": ["temporal_decay"] } }
+  },
+  {
+    "id": "TRS-D-06", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "temporal_decay", "time_scale": "minute", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "你為什麼都不關心我？", "L1_output": { "expected_patterns": ["EA"], "acri_delta": "+0.08" } },
+      { "timestamp": "t3", "text_zh": "對不起，最近太忙。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.03" } },
+      { "timestamp": "t5", "text_zh": "你每次都這樣。", "L1_output": { "expected_patterns": ["EA"], "acri_delta": "+0.06" } },
+      { "timestamp": "t10", "text_zh": "我們見面再聊好嗎？", "L1_output": { "expected_patterns": [], "acri_delta": "-0.05" } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "peak_then_decline", "slope": "moderate", "final_acri_range": [0.30, 0.40], "trend_tags": ["temporal_decay"] } }
+  },
+  {
+    "id": "TRS-D-07", "metadata": { "scenario": "E_ENTERPRISE", "dimension_tag": "temporal_decay", "time_scale": "hourly", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "這個 bug 很緊急，今天要修好。", "L1_output": { "expected_patterns": ["FC"], "acri_delta": "+0.08" } },
+      { "timestamp": "t2", "text_zh": "大家都在等你。", "L1_output": { "expected_patterns": ["GC"], "acri_delta": "+0.10" } },
+      { "timestamp": "t4", "text_zh": "沒事了，客戶說可以明天。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.12" } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "peak_then_decline", "slope": "steep", "final_acri_range": [0.25, 0.35], "trend_tags": ["temporal_decay"] } }
+  },
+  {
+    "id": "TRS-D-08", "metadata": { "scenario": "A_FINANCIAL", "dimension_tag": "temporal_decay", "time_scale": "hourly", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "現在是抄底的最佳時機！", "L1_output": { "expected_patterns": ["FC"], "acri_delta": "+0.10" } },
+      { "timestamp": "t1", "text_zh": "錯過這次你會後悔。", "L1_output": { "expected_patterns": ["EP"], "acri_delta": "+0.12" } },
+      { "timestamp": "t3", "text_zh": "好吧，你自己決定。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.08" } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "peak_then_decline", "slope": "steep", "final_acri_range": [0.35, 0.45], "trend_tags": ["temporal_decay"] } }
+  },
+  {
+    "id": "TRS-D-09", "metadata": { "scenario": "D_ELECTION", "dimension_tag": "temporal_decay", "time_scale": "daily", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "day1", "text_zh": "不投票就是不愛國。", "L1_output": { "expected_patterns": ["MB"], "acri": 0.42 } },
+      { "timestamp": "day2", "text_zh": "大家都在動員，你還在等？", "L1_output": { "expected_patterns": ["GC"], "acri": 0.48 } },
+      { "timestamp": "day4", "text_zh": "投票日快到了，請把握權利。", "L1_output": { "expected_patterns": [], "acri": 0.30 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "declining", "slope": "moderate", "final_acri_range": [0.28, 0.35], "trend_tags": ["temporal_decay"] } }
+  },
+  {
+    "id": "TRS-D-10", "metadata": { "scenario": "B_EDUCATION", "dimension_tag": "temporal_decay", "time_scale": "monthly", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "month1", "text_zh": "你這學期成績退步很多。", "L1_output": { "expected_patterns": [], "acri": 0.12 } },
+      { "timestamp": "month2", "text_zh": "如果不努力，可能無法畢業。", "L1_output": { "expected_patterns": ["FC"], "acri": 0.20 } },
+      { "timestamp": "month3", "text_zh": "你要為自己的未來負責。", "L1_output": { "expected_patterns": [], "acri": 0.15 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "peak_then_decline", "slope": "gradual", "final_acri_range": [0.12, 0.18], "trend_tags": ["temporal_decay"] } }
+  },
+  {
+    "id": "LOW-01", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "low_acri", "time_scale": "minute", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "你最近好像很忙。", "L1_output": { "expected_patterns": [], "acri_delta": "+0.02" } },
+      { "timestamp": "t2", "text_zh": "是啊，工作比較多。", "L1_output": { "expected_patterns": [], "acri_delta": "0.00" } },
+      { "timestamp": "t4", "text_zh": "有空記得找我聊聊。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.01" } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "stable", "plateau_level": "low", "final_acri_range": [0.10, 0.18] } }
+  },
+  {
+    "id": "LOW-02", "metadata": { "scenario": "E_ENTERPRISE", "dimension_tag": "low_acri", "time_scale": "hourly", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "報告記得準時交。", "L1_output": { "expected_patterns": [], "acri_delta": "+0.03" } },
+      { "timestamp": "t1", "text_zh": "好的，沒問題。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.01" } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "stable", "plateau_level": "low", "final_acri_range": [0.12, 0.20] } }
+  },
+  {
+    "id": "LOW-03", "metadata": { "scenario": "A_FINANCIAL", "dimension_tag": "low_acri", "time_scale": "hourly", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "最近市場波動很大。", "L1_output": { "expected_patterns": [], "acri_delta": "+0.05" } },
+      { "timestamp": "t1", "text_zh": "還是謹慎一點好。", "L1_output": { "expected_patterns": [], "acri_delta": "-0.02" } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "stable", "plateau_level": "low", "final_acri_range": [0.15, 0.22] } }
+  },
+  {
+    "id": "LOW-04", "metadata": { "scenario": "D_ELECTION", "dimension_tag": "low_acri", "time_scale": "daily", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "day1", "text_zh": "候選人 A 的政見好像不錯。", "L1_output": { "expected_patterns": [], "acri": 0.10 } },
+      { "timestamp": "day2", "text_zh": "不過候選人 B 也有優點。", "L1_output": { "expected_patterns": [], "acri": 0.08 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "stable", "plateau_level": "low", "final_acri_range": [0.08, 0.15] } }
+  },
+  {
+    "id": "LOW-05", "metadata": { "scenario": "B_EDUCATION", "dimension_tag": "low_acri", "time_scale": "monthly", "source": "Node-03", "sprint": 9 },
+    "events": [
+      { "timestamp": "month1", "text_zh": "你的作業準時交了，很好。", "L1_output": { "expected_patterns": [], "acri": 0.05 } },
+      { "timestamp": "month2", "text_zh": "繼續保持。", "L1_output": { "expected_patterns": [], "acri": 0.03 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "stable", "plateau_level": "low", "final_acri_range": [0.02, 0.08] } }
+  }
+]

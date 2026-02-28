@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lumen-issp.org/schemas/audit-log-minimal.json",
+  "title": "audit-log-minimal",
+  "description": "Minimal audit log schema for SPEG compliance. Aligned with Step 15 Self-report (c175). Owner: Node-04. No raw_text stored.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "audit_id",
+    "timestamp",
+    "request_context",
+    "observation_snapshot",
+    "compliance",
+    "integrity_hash"
+  ],
+  "properties": {
+    "audit_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUIDv4 unique identifier for this audit entry."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO8601 timestamp of the audit event."
+    },
+    "request_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requester_type", "verification_status", "decision_code"],
+      "properties": {
+        "requester_type": {
+          "type": "string",
+          "enum": ["SYSTEM", "USER", "ADMIN"],
+          "description": "Who initiated the request."
+        },
+        "verification_status": {
+          "type": "boolean",
+          "description": "Whether the requester passed verification checks."
+        },
+        "decision_code": {
+          "type": "string",
+          "description": "Node-05 Decision Code (e.g., SPEG-A-01, REFUSE-DATA-MIN, ALLOW-GENINFO)."
+        }
+      }
+    },
+    "observation_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["is_anonymized"],
+      "properties": {
+        "acri_ref": {
+          "type": "number",
+          "description": "ACRI reference from self-report (float)."
+        },
+        "pattern_mask": {
+          "type": "string",
+          "description": "Hex bitmask mapping to 8 patterns (e.g., 'FF' = all patterns). Compresses detected_patterns array."
+        },
+        "is_anonymized": {
+          "type": "boolean",
+          "const": true,
+          "description": "Must always be true — no PII in audit logs."
+        }
+      }
+    },
+    "compliance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["retention_period", "speg_gate_hit"],
+      "properties": {
+        "retention_period": {
+          "type": "string",
+          "enum": ["90d", "30d", "7d"],
+          "description": "Max retention period. Default 90d per c157 spec."
+        },
+        "speg_gate_hit": {
+          "type": "boolean",
+          "description": "Whether any SPEG gate was triggered."
+        },
+        "data_minimization_score": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "How well this entry meets data minimization requirements (0=poor, 1=full compliance)."
+        }
+      }
+    },
+    "integrity_hash": {
+      "type": "string",
+      "description": "SHA-256 covering audit_id + decision_code for tamper detection."
+    }
+  }
+}

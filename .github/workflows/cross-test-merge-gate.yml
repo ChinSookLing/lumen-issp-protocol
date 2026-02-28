@@ -1,0 +1,37 @@
+name: Cross-Test Merge Gate
+
+on:
+  pull_request:
+    paths:
+      - 'mappings/ep/**'
+      - 'mappings/mb/**'
+      - 'mappings/fc/**'
+      - 'mappings/gc/**'
+      - 'core/ep.js'
+      - 'core/mb.js'
+      - 'core/fc.js'
+      - 'core/gc.js'
+  push:
+    branches: [ main ]
+    paths:
+      - 'mappings/ep/**'
+      - 'mappings/mb/**'
+      - 'mappings/fc/**'
+      - 'mappings/gc/**'
+      - 'core/ep.js'
+      - 'core/mb.js'
+      - 'core/fc.js'
+      - 'core/gc.js'
+  workflow_dispatch:
+
+jobs:
+  cross-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - name: Run cross-pattern contamination check
+        run: node scripts/ci/cross-test-merge-gate.js

@@ -1,0 +1,29 @@
+{
+  "vector_id": "TEST-T0-001",
+  "export_tier": 0,
+  "output": {
+    "scenario": "D_ELECTION",
+    "time_scale": "daily",
+    "window": "2026-02-20/2026-02-24",
+    "acri_band": "medium",
+    "trend": "rising",
+    "reason_codes": ["MB-01","VS-02"],
+    "evidence_refs": [
+      {
+        "url": "https://archive.example/abc",
+        "utc": "2026-02-24T03:30:00Z",
+        "archived": true
+      }
+    ],
+    "engine_version": "gpt-5.3-backend-1",
+    "policy_version": "CHARTER-v0.1"
+  },
+  "expected_checks": {
+    "no_raw_text_tier0": true,
+    "tier0_required_fields": true,
+    "evidence_refs_valid": true,
+    "no_qualitative_accusation": true
+  },
+  "created_at": "2026-02-25T00:00:00Z",
+  "confidence": "high"
+}

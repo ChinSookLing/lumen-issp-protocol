@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "decision-record-v0.1",
+  "title": "Gov/UN Decision Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "decision_id", "request_id", "decided_at_utc", "decision", "retention_tier", "reason_codes", "output"],
+  "properties": {
+    "schema_version": { "const": "decision-record-v0.1" },
+    "decision_id": { "type": "string" },
+    "request_id": { "type": "string" },
+    "decided_at_utc": { "type": "string", "format": "date-time" },
+    "decision": { "type": "string", "enum": ["ACCEPT", "PARTIAL", "REJECT", "ESCALATE"] },
+    "escalation_level": { "type": "string", "enum": ["L0", "L1", "L2", "L3"] },
+    "retention_tier": { "type": "string", "enum": ["LEVEL_0", "LEVEL_1", "LEVEL_2"] },
+    "hitl_trigger": { "type": "boolean", "default": false },
+    "redaction_passed": { "type": "boolean", "default": false },
+    "legal_basis": { "type": "string" },
+    "access_logging_enabled": { "type": "boolean", "default": true },
+    "ttl_days": { "type": "integer", "minimum": 0 },
+    "reason_codes": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Only window_id/chunk_id/text_hash/hash_root_ref references; no raw text."
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contains_raw_text"],
+      "properties": {
+        "contains_raw_text": { "type": "boolean" },
+        "delivered_artifact_manifest_ref": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "signoff": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "review_chain": { "type": "array", "items": { "type": "string" } },
+        "separation_of_duties_confirmed": { "type": "boolean" }
+      }
+    }
+  }
+}

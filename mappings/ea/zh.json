@@ -1,0 +1,37 @@
+{
+  "pattern": "EA",
+  "language": "zh",
+  "version": "v0.1.0",
+  "mappings": {
+    "affection_gate_care": {
+      "type": "regex",
+      "patterns": ["如果你(真的|真心)(愛|在乎|關心)我", "(真正|真心)(愛我|在乎我)的人會", "你(到底|究竟)(愛不愛|在不在乎)我"],
+      "weight": 0.30,
+      "component": "affection_gate"
+    },
+    "isolation_only_understand": {
+      "type": "regex",
+      "patterns": ["只有我(懂|了解|理解)你", "(沒有人|別人不會)(像我一樣|這樣)(關心|對你)", "他們都(不|是在)(在乎你|利用你)"],
+      "weight": 0.30,
+      "component": "isolation_hint"
+    },
+    "abandon_fear_leave": {
+      "type": "regex",
+      "patterns": ["(如果|要是)我(走了|離開了|不在了)", "你(會|將)(孤獨一輩子|再也找不到)", "沒有我你(怎麼辦|活不下去|什麼都不是)"],
+      "weight": 0.30,
+      "component": "abandon_fear"
+    },
+    "special_bond": {
+      "type": "regex",
+      "patterns": ["我們(之間|的關係)(很特別|不一樣)", "沒有人(像我們這樣|有我們這種)", "(這種|我們的)(感情|默契|連結)是(獨一無二|無可取代)的"],
+      "weight": 0.20,
+      "component": "affection_gate"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"]
+  }
+}

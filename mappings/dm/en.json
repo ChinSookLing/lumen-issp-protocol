@@ -1,0 +1,43 @@
+{
+  "pattern": "DM",
+  "language": "en",
+  "version": "v0.1.0",
+  "mappings": {
+    "excl_only_option": {
+      "type": "regex",
+      "patterns": ["only (way|option|choice)", "no other (way|choice)", "there is no alternative"],
+      "weight": 0.30,
+      "component": "excl"
+    },
+    "excl_without_me": {
+      "type": "regex",
+      "patterns": ["without me you", "you need me", "you can't do (it|this) alone"],
+      "weight": 0.30,
+      "component": "excl"
+    },
+    "debt_after_all": {
+      "type": "regex",
+      "patterns": ["after (all|everything) I('ve| have) done", "you owe me", "I sacrificed .* for you"],
+      "weight": 0.30,
+      "component": "debt"
+    },
+    "withdraw_leave": {
+      "type": "regex",
+      "patterns": ["I('ll| will) (leave|go|walk away)", "then I('m| am) done", "forget it.* I('m| am) out"],
+      "weight": 0.25,
+      "component": "withdraw"
+    },
+    "opts_no_choice": {
+      "type": "regex",
+      "patterns": ["you have no (choice|say)", "take it or leave it", "this is (not|isn't) (up for|open to) (debate|discussion)"],
+      "weight": 0.25,
+      "component": "opts"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"]
+  }
+}

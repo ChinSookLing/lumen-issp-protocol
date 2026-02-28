@@ -1,0 +1,33 @@
+{
+  "schema_version": "l4-export-v0.1",
+  "export_id": "EXP-2026-02-25-0002",
+  "created_at_utc": "2026-02-25T12:05:00Z",
+  "tier": "TIER_1",
+  "scenario": "C_PERSONAL",
+  "time_scale": "minute",
+  "engine_version": "engine@119",
+  "policy_version": "L4_UI_CONSTRAINTS_v0.2",
+  "schema_set": {
+    "event": "event-v1.1",
+    "export": "l4-export-v0.1"
+  },
+  "hitl_trigger": true,
+  "hitl_reason_codes": ["HITL_PRIVACY_EXFIL"],
+  "redaction_passed": true,
+  "pii_redaction_applied": true,
+  "access_log_ref": "accesslog:EXP-2026-02-25-0002",
+  "evidence_refs": [
+    "chunk_id:CH-009",
+    "text_hash:sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  ],
+  "signals": {
+    "acri_band": "Medium",
+    "acri_value": 0.44,
+    "trend": "step_escalation",
+    "slope": "moderate",
+    "trend_confidence": "medium",
+    "reason_codes": ["HITL_PRIVACY_EXFIL"]
+  },
+  "contains_raw_text": false,
+  "disclaimer": "This output is a risk observation, not a factual verdict; human review is required for decisions."
+}

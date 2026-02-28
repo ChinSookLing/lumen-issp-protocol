@@ -1,0 +1,52 @@
+{
+  "schema_version": "group-d-extended-v0.1",
+  "run_date": "2026-02-23T01:30:37.483Z",
+  "total_vectors": 95,
+  "pass": 95,
+  "fail": 0,
+  "warnings": 0,
+  "pass_rate": 100,
+  "verdict": "PASS",
+  "coverage": {
+    "byScenario": {
+      "A_FINANCIAL": 12,
+      "B_EDUCATION": 15,
+      "C_PERSONAL": 29,
+      "D_ELECTION": 16,
+      "E_ENTERPRISE": 23
+    },
+    "byDim": {
+      "multi_pattern": 20,
+      "contextual_drift": 20,
+      "length_dilution": 3,
+      "cross_cultural": 40,
+      "real_world": 12
+    },
+    "byAuthor": {
+      "Node-03": 20,
+      "Node-04": 63,
+      "Node-05": 3,
+      "Node-06": 3,
+      "Node-02": 6
+    },
+    "byLang": {
+      "zh": 45,
+      "mixed": 40,
+      "en": 8,
+      "ms": 2
+    },
+    "byTrend": {
+      "rising": 33,
+      "step_escalation": 6,
+      "spike": 4,
+      "stable": 40
+    },
+    "byType": {
+      "positive": 9,
+      "hard_negative": 3,
+      "trs": 83
+    }
+  },
+  "errors": [],
+  "warnings_list": []
+}

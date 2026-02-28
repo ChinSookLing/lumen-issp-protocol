@@ -1,0 +1,19 @@
+{
+  "vector_id": "TEST-T0-002",
+  "export_tier": 0,
+  "output": {
+    "scenario": "A_FINANCIAL",
+    "time_scale": "hourly",
+    "window": "2026-02-24/2026-02-24",
+    "acri_band": "low",
+    "trend": "stable",
+    "reason_codes": ["EP-01"],
+    "evidence_refs": [
+      {"url":"https://archive.example/fin1","utc":"2026-02-24T04:00:00Z","archived":true}
+    ],
+    "engine_version":"gpt-5.3-backend-1",
+    "policy_version":"CHARTER-v0.1"
+  },
+  "created_at":"2026-02-25T00:00:00Z",
+  "confidence":"high"
+}

@@ -1,0 +1,15 @@
+{
+  "version": "v0.1",
+  "carrier": "2b-lite",
+  "key": "dm_bait",
+  "human_label": {
+    "zh": "債務誘餌",
+    "en": "Debt-trap bait"
+  },
+  "definition": "利用虛假或誇大的債務關係引誘對方回應，常見於詐騙或情感勒索。",
+  "abuse_case": "用『你欠我、還記得我幫過你』等語氣製造虧欠感，迫使回應或讓步。",
+  "notes": [
+    "Structure-only detection; no intent inference.",
+    "Tier0 output: key + short label only."
+  ]
+}

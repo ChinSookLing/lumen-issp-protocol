@@ -1,0 +1,63 @@
+{
+  "version": "v0.2",
+  "description": "Dashboard views with M90 red lines. Source: Node-03 DASH-DESIGN v0.2.",
+  "views": [
+    {
+      "name": "moltbook_monitor",
+      "scenario": "D",
+      "description": "AI-to-AI agent monitor (MVP target)",
+      "elements": [
+        {
+          "type": "badge_list",
+          "data_source": "/api/recent",
+          "display": "badge + simple_advice",
+          "red_lines": {
+            "no_individual_tracking": true,
+            "no_cross_group_comparison": true,
+            "no_export": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "fleet_dashboard",
+      "scenario": "B",
+      "description": "Autonomous vehicle fleet",
+      "elements": [],
+      "red_lines": {
+        "no_closed_loop": true,
+        "no_individual_tracking": true
+      }
+    },
+    {
+      "name": "financial_sensing",
+      "scenario": "A",
+      "description": "Financial market sensing",
+      "elements": [],
+      "red_lines": {
+        "no_trading_advice": true,
+        "no_personal_profiling": true
+      }
+    },
+    {
+      "name": "command_dashboard",
+      "scenario": "C",
+      "description": "Military/command dashboard",
+      "elements": [],
+      "red_lines": {
+        "full_control_isolation": true,
+        "no_entry_by_design": true
+      }
+    },
+    {
+      "name": "cross_system_cascade",
+      "scenario": "E",
+      "description": "Cross-system overview",
+      "elements": [],
+      "red_lines": {
+        "no_attribution_accusation": true,
+        "structure_annotation_only": true
+      }
+    }
+  ]
+}

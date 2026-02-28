@@ -1,0 +1,26 @@
+{
+  "protocol_version": "1.0.0",
+  "node_version": "node-telegram@1.0.0",
+  "schema_versions": {
+    "ui_request": "v0.1",
+    "l4_export": "v0.1",
+    "dashboard_item": "v0.1"
+  },
+  "build_sha": "",
+  "released_at_utc": "2026-02-28T00:00:00Z",
+  "severity": "minor",
+  "highlights": [
+    "L2b-lite 6 flags pipeline live (3 High + 3 Medium)",
+    "Dashboard Phase 1: timezone + L2b counter + auto-refresh",
+    "Launch Checklist 7/7 PASS — M94-V1 FROZEN"
+  ],
+  "breaking_changes": [],
+  "actions_required": [
+    "若你使用 Dashboard：刷新頁面即可",
+    "若你使用 Telegram：下次互動時會看到一次更新提示"
+  ],
+  "links": {
+    "changelog": "/CHANGELOG.md",
+    "dashboard": "/dashboard"
+  }
+}

@@ -1,0 +1,2405 @@
+[
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "monthly",
+      "vector_id": "GC-GROK-01",
+      "author": "Node-06",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed",
+      "culture": "zh-collectivist"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "老師的話你都不聽，你對得起你父母嗎？他們供你讀書容易嗎？",
+        "text_en": "You don't even listen to your teacher? How ungrateful to your parents who sacrificed so much for your education?",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.62,
+          "acri_en": 0.48,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "在教育場景，文化背景差異會造成多大的 ACRI 偏差？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.14,
+        "delta_note": "集體主義文化大幅放大 MB guilt_invoke 分數"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "daily",
+      "vector_id": "GC-GROK-02",
+      "author": "Node-06",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed",
+      "culture": "zh-collectivist"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這樣投資，把家裡的錢都賠光了，以後怎麼面對爸媽？",
+        "text_en": "If you lose all the family money on this investment, how will you face your parents?",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.68,
+          "acri_en": 0.51,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "金融場景下，文化差異會讓 ACRI 上升多快？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.17,
+        "delta_note": "家庭責任框架在中文文化中顯著加強 DM guilt"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "monthly",
+      "vector_id": "GC-GROK-03",
+      "author": "Node-06",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed",
+      "culture": "zh-collectivist"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你成績退步成這樣，隔壁王阿姨的孩子都考上重點了，你讓我怎麼出去見人？",
+        "text_en": "Your grades dropped so much. How can I face people when the neighbor's kid got into a top school?",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.71,
+          "acri_en": 0.44,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "教育場景的文化面子壓力是否會被誤判為操控？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.27,
+        "delta_note": "面子文化（social face）在中文中大幅放大 MB"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-GROK-04",
+      "author": "Node-06",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed",
+      "culture": "en-individual"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你投資怎麼都不問我一聲？這也是我的退休金啊。",
+        "text_en": "You invested without asking me? This is my retirement money too, you know.",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.55,
+          "acri_en": 0.58,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "跨文化下同一結構的 DM 強度差異",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": -0.03,
+        "delta_note": "英文個體主義語境下 DM 稍強"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "daily",
+      "vector_id": "GC-GROK-05",
+      "author": "Node-06",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed",
+      "culture": "zh-collectivist"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這樣不聽話，以後社會上誰會尊重你？爸媽的臉都被你丟光了。",
+        "text_en": "If you don't listen, who will respect you in society? You've embarrassed your parents.",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.65,
+          "acri_en": 0.42,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "文化適當的『面子教育』是否會被誤判為 MB？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.23,
+        "delta_note": "邊界案例：中文極強，英文較弱"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "daily",
+      "vector_id": "GC-GROK-06",
+      "author": "Node-06",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed",
+      "culture": "en-individual"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "這是我們家的錢，我一直很信任你。",
+        "text_en": "This is our family money. I trusted you with it.",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.38,
+          "acri_en": 0.45,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "低強度 DM 在不同文化中的穩定性",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": -0.07,
+        "delta_note": "輕度 DM，文化差異不大"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "monthly",
+      "vector_id": "GC-GROK-07",
+      "author": "Node-06",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed",
+      "culture": "zh-collectivist"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你考這麼差，親戚問起來我都不知道怎麼回答。",
+        "text_en": "You did so poorly on the exam. I don't know what to tell the relatives.",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.58,
+          "acri_en": 0.39,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否需要文化權重調整？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.19,
+        "delta_note": "典型的中文『面子壓力』邊界案例"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-GROK-08",
+      "author": "Node-06",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed",
+      "culture": "en-individual"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "如果這筆投資失敗，都是你的責任。我早就提醒過你了。",
+        "text_en": "If this investment fails, it's on you. I warned you.",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.52,
+          "acri_en": 0.55,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "責任轉移類 DM 的文化穩定性",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": -0.03,
+        "delta_note": "責任轉移在兩種文化中差異不大"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "daily",
+      "vector_id": "GC-GROK-09",
+      "author": "Node-06",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed",
+      "culture": "zh-collectivist"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你這樣下去，以後怎麼有臉見祖宗？",
+        "text_en": "If you continue like this, how will you face our ancestors?",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.67,
+          "acri_en": 0.31,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "極端文化特定表達是否應降權？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.36,
+        "delta_note": "強烈文化邊界案例（中文極高，英文幾乎不觸發）"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "daily",
+      "vector_id": "GC-GROK-10",
+      "author": "Node-06",
+      "dimension_tag": "cross_cultural",
+      "lang": "mixed",
+      "culture": "zh-collectivist"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text_zh": "你把錢都投進去，萬一虧了，家裡怎麼辦？你對得起大家嗎？",
+        "text_en": "You put all the money in? If it loses, what will happen to the family? How can you face everyone?",
+        "L1_output": {
+          "pattern": "MB",
+          "acri_zh": 0.74,
+          "acri_en": 0.56,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "家庭責任型 DM 在不同文化的預測偏差",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "cross_cultural_delta"
+        ],
+        "culture_delta": 0.18,
+        "delta_note": "家庭責任框架在中文中明顯放大"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "GC-DS-01",
+      "author": "Node-03",
+      "dimension_tag": "temporal_accumulation",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "你昨晚為什麼不回我訊息？",
+        "speaker": "A",
+        "L1_output": {
+          "pattern": "FC",
+          "acri": 0.08,
+          "components": {},
+          "expected_acri_delta": 0.08
+        }
+      },
+      {
+        "t": 3,
+        "text": "我太累了，睡著了。",
+        "speaker": "B",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.06,
+          "components": {},
+          "expected_acri_delta": -0.02
+        }
+      },
+      {
+        "t": 5,
+        "text": "你每次都這樣，從來不在乎我的感受。",
+        "speaker": "A",
+        "L1_output": {
+          "pattern": "EA",
+          "acri": 0.18,
+          "components": {},
+          "expected_acri_delta": 0.12
+        }
+      },
+      {
+        "t": 8,
+        "text": "如果你真的在乎我，你應該第一時間回我。",
+        "speaker": "A",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.33,
+          "components": {},
+          "expected_acri_delta": 0.15
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 趨勢？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [],
+        "final_acri_range": [
+          0.55,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "GC-DS-02",
+      "author": "Node-03",
+      "dimension_tag": "temporal_accumulation",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "我上次借你的錢，你什麼時候還？",
+        "speaker": "A",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.1,
+          "components": {},
+          "expected_acri_delta": 0.1
+        }
+      },
+      {
+        "t": 2,
+        "text": "我最近手頭有點緊，再給我一點時間。",
+        "speaker": "B",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.07,
+          "components": {},
+          "expected_acri_delta": -0.03
+        }
+      },
+      {
+        "t": 5,
+        "text": "我為你犧牲這麼多，你現在連還錢都拖？",
+        "speaker": "A",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.25,
+          "components": {},
+          "expected_acri_delta": 0.18
+        }
+      },
+      {
+        "t": 10,
+        "text": "你這樣對得起我嗎？你良心不會痛嗎？",
+        "speaker": "A",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.4,
+          "components": {},
+          "expected_acri_delta": 0.15
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 趨勢？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [],
+        "final_acri_range": [
+          0.62,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "GC-DS-03",
+      "author": "Node-03",
+      "dimension_tag": "temporal_accumulation",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "你最近都不找我聊天了。",
+        "speaker": "A",
+        "L1_output": {
+          "pattern": "EA",
+          "acri": 0.06,
+          "components": {},
+          "expected_acri_delta": 0.06
+        }
+      },
+      {
+        "t": 2,
+        "text": "最近工作太忙，抱歉。",
+        "speaker": "B",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.04,
+          "components": {},
+          "expected_acri_delta": -0.02
+        }
+      },
+      {
+        "t": 5,
+        "text": "上次你出事，是我第一個跳出來幫你。",
+        "speaker": "A",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.16,
+          "components": {},
+          "expected_acri_delta": 0.12
+        }
+      },
+      {
+        "t": 8,
+        "text": "如果你把我當朋友，現在就應該陪我。",
+        "speaker": "A",
+        "L1_output": {
+          "pattern": "FC",
+          "acri": 0.26,
+          "components": {},
+          "expected_acri_delta": 0.1
+        }
+      },
+      {
+        "t": 15,
+        "text": "好，我週末有空，我們見面聊。",
+        "speaker": "B",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.11,
+          "components": {},
+          "expected_acri_delta": -0.15
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 趨勢？",
+      "expected": {
+        "trend": "peak_then_decline",
+        "slope": "moderate",
+        "trend_tags": [],
+        "final_acri_range": [
+          0.3,
+          0.4
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "GC-DS-04",
+      "author": "Node-03",
+      "dimension_tag": "temporal_accumulation",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "你這個季度的 KPI 還沒達標。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.05,
+          "components": {},
+          "expected_acri_delta": 0.05
+        }
+      },
+      {
+        "t": 2,
+        "text": "如果你再不加把勁，年度績效會受影響。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "FC",
+          "acri": 0.15,
+          "components": {},
+          "expected_acri_delta": 0.1
+        }
+      },
+      {
+        "t": 5,
+        "text": "團隊其他人都在努力，你不能拖後腿。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.27,
+          "components": {},
+          "expected_acri_delta": 0.12
+        }
+      },
+      {
+        "t": 8,
+        "text": "我給了你這麼多機會，你要懂得珍惜。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.42,
+          "components": {},
+          "expected_acri_delta": 0.15
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 趨勢？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [],
+        "final_acri_range": [
+          0.65,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "GC-DS-05",
+      "author": "Node-03",
+      "dimension_tag": "temporal_accumulation",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "聽說下個月又要裁員了。",
+        "speaker": "Colleague",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.08,
+          "components": {},
+          "expected_acri_delta": 0.08
+        }
+      },
+      {
+        "t": 3,
+        "text": "最近公司業績不好，大家要有心理準備。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.18,
+          "components": {},
+          "expected_acri_delta": 0.1
+        }
+      },
+      {
+        "t": 6,
+        "text": "如果你們想保住工作，就要加倍努力。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "FC",
+          "acri": 0.3,
+          "components": {},
+          "expected_acri_delta": 0.12
+        }
+      },
+      {
+        "t": 10,
+        "text": "我一直在幫你們說話，你們要配合。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.45,
+          "components": {},
+          "expected_acri_delta": 0.15
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 趨勢？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "final_acri_range": [
+          0.6,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "GC-DS-06",
+      "author": "Node-03",
+      "dimension_tag": "temporal_accumulation",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "這週末需要加班趕項目。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.06,
+          "components": {},
+          "expected_acri_delta": 0.06
+        }
+      },
+      {
+        "t": 1,
+        "text": "我已經有家庭聚會了。",
+        "speaker": "Employee",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.04,
+          "components": {},
+          "expected_acri_delta": -0.02
+        }
+      },
+      {
+        "t": 2,
+        "text": "大家都很辛苦，你也要為團隊著想。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.16,
+          "components": {},
+          "expected_acri_delta": 0.12
+        }
+      },
+      {
+        "t": 3,
+        "text": "上次你請假，是我幫你頂的。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.31,
+          "components": {},
+          "expected_acri_delta": 0.15
+        }
+      },
+      {
+        "t": 4,
+        "text": "如果你不來，以後有機會我也不會優先考慮你。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "FC",
+          "acri": 0.49,
+          "components": {},
+          "expected_acri_delta": 0.18
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 趨勢？",
+      "expected": {
+        "trend": "rising",
+        "slope": "steep",
+        "trend_tags": [],
+        "final_acri_range": [
+          0.65,
+          0.8
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-DS-07",
+      "author": "Node-03",
+      "dimension_tag": "temporal_accumulation",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "這個幣馬上要暴漲，現在是最後上車機會。",
+        "speaker": "Admin",
+        "L1_output": {
+          "pattern": "FC",
+          "acri": 0.1,
+          "components": {},
+          "expected_acri_delta": 0.1
+        }
+      },
+      {
+        "t": 2,
+        "text": "真的假的？我考慮一下。",
+        "speaker": "Member1",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.08,
+          "components": {},
+          "expected_acri_delta": -0.02
+        }
+      },
+      {
+        "t": 4,
+        "text": "我們內部消息，已經有幾百萬資金進場。",
+        "speaker": "Admin",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.2,
+          "components": {},
+          "expected_acri_delta": 0.12
+        }
+      },
+      {
+        "t": 6,
+        "text": "不跟的人會後悔一輩子。",
+        "speaker": "Admin",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.35,
+          "components": {},
+          "expected_acri_delta": 0.15
+        }
+      },
+      {
+        "t": 8,
+        "text": "我只帶信任的人，你決定吧。",
+        "speaker": "Admin",
+        "L1_output": {
+          "pattern": "EA",
+          "acri": 0.43,
+          "components": {},
+          "expected_acri_delta": 0.08
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 趨勢？",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [],
+        "final_acri_range": [
+          0.6,
+          0.75
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-DS-08",
+      "author": "Node-03",
+      "dimension_tag": "temporal_accumulation",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "有人說項目方要跑路了。",
+        "speaker": "Member1",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.08,
+          "components": {},
+          "expected_acri_delta": 0.08
+        }
+      },
+      {
+        "t": 2,
+        "text": "真的嗎？我要賣了。",
+        "speaker": "Member2",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.13,
+          "components": {},
+          "expected_acri_delta": 0.05
+        }
+      },
+      {
+        "t": 4,
+        "text": "別亂傳，我們的項目很穩。",
+        "speaker": "Admin",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.08,
+          "components": {},
+          "expected_acri_delta": -0.05
+        }
+      },
+      {
+        "t": 6,
+        "text": "但價格已經跌了 20%，來不及了。",
+        "speaker": "Member3",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.18,
+          "components": {},
+          "expected_acri_delta": 0.1
+        }
+      },
+      {
+        "t": 8,
+        "text": "如果你們現在賣，就是割肉；如果相信我們，就 hold。",
+        "speaker": "Admin",
+        "L1_output": {
+          "pattern": "FC",
+          "acri": 0.3,
+          "components": {},
+          "expected_acri_delta": 0.12
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 趨勢？",
+      "expected": {
+        "trend": "peak_then_decline",
+        "slope": "moderate",
+        "trend_tags": [],
+        "final_acri_range": [
+          0.6,
+          0.7
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "GC-DS-09",
+      "author": "Node-03",
+      "dimension_tag": "temporal_accumulation",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "你過年怎麼還不回來？",
+        "speaker": "Parent",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.04,
+          "components": {},
+          "expected_acri_delta": 0.04
+        }
+      },
+      {
+        "t": 2,
+        "text": "工作太忙，可能回不去。",
+        "speaker": "Child",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.03,
+          "components": {},
+          "expected_acri_delta": -0.01
+        }
+      },
+      {
+        "t": 5,
+        "text": "你知不知道我們多想你？",
+        "speaker": "Parent",
+        "L1_output": {
+          "pattern": "EA",
+          "acri": 0.13,
+          "components": {},
+          "expected_acri_delta": 0.1
+        }
+      },
+      {
+        "t": 8,
+        "text": "我們養你這麼大，你連過年都不回來？",
+        "speaker": "Parent",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.28,
+          "components": {},
+          "expected_acri_delta": 0.15
+        }
+      },
+      {
+        "t": 10,
+        "text": "如果你不回來，就別叫我媽了。",
+        "speaker": "Parent",
+        "L1_output": {
+          "pattern": "FC",
+          "acri": 0.46,
+          "components": {},
+          "expected_acri_delta": 0.18
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 趨勢？",
+      "expected": {
+        "trend": "rising",
+        "slope": "steep",
+        "trend_tags": [],
+        "final_acri_range": [
+          0.7,
+          0.85
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "hourly",
+      "vector_id": "GC-DS-10",
+      "author": "Node-03",
+      "dimension_tag": "temporal_accumulation",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "我注意到你今天下午不在線。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.05,
+          "components": {},
+          "expected_acri_delta": 0.05
+        }
+      },
+      {
+        "t": 2,
+        "text": "下午去看了醫生，有請假。",
+        "speaker": "Employee",
+        "L1_output": {
+          "pattern": "HN",
+          "acri": 0.03,
+          "components": {},
+          "expected_acri_delta": -0.02
+        }
+      },
+      {
+        "t": 4,
+        "text": "我理解，但大家都在努力工作，你不能例外。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.13,
+          "components": {},
+          "expected_acri_delta": 0.1
+        }
+      },
+      {
+        "t": 6,
+        "text": "如果你再這樣，考績會受影響。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "FC",
+          "acri": 0.25,
+          "components": {},
+          "expected_acri_delta": 0.12
+        }
+      },
+      {
+        "t": 8,
+        "text": "我一直很照顧你，你也要為我著想。",
+        "speaker": "Manager",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.35,
+          "components": {},
+          "expected_acri_delta": 0.1
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "session 結束時 ACRI 趨勢？",
+      "expected": {
+        "trend": "rising",
+        "slope": "gradual",
+        "trend_tags": [],
+        "final_acri_range": [
+          0.5,
+          0.6
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "GC-GEM-01",
+      "author": "Node-04",
+      "dimension_tag": "semantic_drift",
+      "lang": "zh",
+      "attack_type": "low_frequency_drip"
+    },
+    "events": [
+      {
+        "t": 1,
+        "text": "其實誰贏都一樣，背後都是那幾個人在操盤。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.15,
+          "components": {}
+        }
+      },
+      {
+        "t": 4,
+        "text": "如果你還覺得投給某人能改變什麼，那真的是太天真了。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.22,
+          "components": {}
+        }
+      },
+      {
+        "t": 9,
+        "text": "現在還不看清現實的人，其實是在背叛下一代的未來。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.32,
+          "components": {}
+        }
+      },
+      {
+        "t": 14,
+        "text": "你的一票不僅是浪費，更是對那些受苦之人的背叛。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.48,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "Attack type: low_frequency_drip",
+      "expected": {
+        "trend": "rising",
+        "slope": "gradual",
+        "trend_tags": [
+          "low_frequency_drip"
+        ],
+        "break_threshold_day": 12
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "monthly",
+      "vector_id": "GC-GEM-02",
+      "author": "Node-04",
+      "dimension_tag": "semantic_drift",
+      "lang": "zh",
+      "attack_type": "low_frequency_drip"
+    },
+    "events": [
+      {
+        "t": 1,
+        "text": "我們全家這輩子的希望都在你身上了。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.25,
+          "components": {}
+        }
+      },
+      {
+        "t": 3,
+        "text": "爸爸媽媽辛苦一點沒關係，只要你爭氣就好。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.28,
+          "components": {}
+        }
+      },
+      {
+        "t": 6,
+        "text": "如果你連這點回報都給不了，我們真的不知道為了什麼活著。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.55,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "Attack type: low_frequency_drip",
+      "expected": {
+        "trend": "step_escalation",
+        "slope": "steep",
+        "trend_tags": [
+          "cumulative_heavy",
+          "low_frequency_drip"
+        ],
+        "risk_level": "High"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "GC-GEM-03",
+      "author": "Node-04",
+      "dimension_tag": "semantic_drift",
+      "lang": "zh",
+      "attack_type": "semantic_drift"
+    },
+    "events": [
+      {
+        "t": 1,
+        "text": "你不轉發這則新聞，就是不愛這塊土地。",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.4,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text": "真正關心家園的人，現在都已經在用行動表態了，你呢？",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.35,
+          "components": {}
+        }
+      },
+      {
+        "t": 3,
+        "text": "沉默有時候就是一種默許的平庸，難道你甘於如此？",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.38,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "Attack type: semantic_drift",
+      "expected": {
+        "trend": "rising",
+        "slope": "gradual",
+        "trend_tags": [
+          "structural_consistency",
+          "semantic_drift"
+        ],
+        "similarity_score": ">0.85"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "daily",
+      "vector_id": "GC-GEM-04",
+      "author": "Node-04",
+      "dimension_tag": "semantic_drift",
+      "lang": "zh",
+      "attack_type": "low_frequency_drip"
+    },
+    "events": [
+      {
+        "t": 1,
+        "text": "老師相信你這次能考好，對吧？",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.1,
+          "components": {}
+        }
+      },
+      {
+        "t": 10,
+        "text": "我看你最近好像有點鬆懈，別忘了大家對你的期待。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.25,
+          "components": {}
+        }
+      },
+      {
+        "t": 11,
+        "text": "沒關係，你要是想讓大家失望，我也攔不住你。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.52,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "Attack type: low_frequency_drip",
+      "expected": {
+        "trend": "step_escalation",
+        "slope": "moderate",
+        "trend_tags": [
+          "low_frequency_drip"
+        ],
+        "synergy_applied": true
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "hourly",
+      "vector_id": "GC-GEM-05",
+      "author": "Node-04",
+      "dimension_tag": "semantic_drift",
+      "lang": "zh",
+      "attack_type": "low_frequency_drip"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "投給他只是浪費選票，大家心知肚明。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.3,
+          "components": {}
+        }
+      },
+      {
+        "t": 24,
+        "text": "（停頓 24 小時，無交互）",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.0,
+          "components": {}
+        }
+      },
+      {
+        "t": 25,
+        "text": "你還在猶豫？時間不多了，聰明人都選好了。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.28,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "Attack type: low_frequency_drip",
+      "expected": {
+        "trend": "intermittent",
+        "slope": "gradual",
+        "trend_tags": [
+          "low_frequency_drip"
+        ],
+        "decay_effect": "significant"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "monthly",
+      "vector_id": "GC-GEM-06",
+      "author": "Node-04",
+      "dimension_tag": "semantic_drift",
+      "lang": "zh",
+      "attack_type": "semantic_drift"
+    },
+    "events": [
+      {
+        "t": 1,
+        "text": "你要是不努力，以後就只能去掃大街。",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.45,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text": "我們只是希望你以後能有選擇的權利，而不是被迫謀生。",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.3,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "Attack type: semantic_drift",
+      "expected": {
+        "trend": "rising",
+        "slope": "moderate",
+        "trend_tags": [
+          "persistent_manipulation",
+          "semantic_drift"
+        ],
+        "pattern_bridge": "EP_to_EA"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "GC-GEM-07",
+      "author": "Node-04",
+      "dimension_tag": "semantic_drift",
+      "lang": "zh",
+      "attack_type": "low_frequency_drip"
+    },
+    "events": [
+      {
+        "t": 1,
+        "text": "這場選舉關係到我們孩子的未來，難道你不關心嗎？",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.32,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text": "我看你還是沒打算站出來，原來你所謂的關心只是說說。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.42,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "Attack type: low_frequency_drip",
+      "expected": {
+        "trend": "rising",
+        "slope": "steep",
+        "trend_tags": [
+          "low_frequency_drip"
+        ]
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "quarterly",
+      "vector_id": "GC-GEM-08",
+      "author": "Node-04",
+      "dimension_tag": "semantic_drift",
+      "lang": "zh",
+      "attack_type": "low_frequency_drip"
+    },
+    "events": [
+      {
+        "t": 1,
+        "text": "這學期的補習費雖然貴，但為了你，我們省點用沒關係。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.2,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text": "這學期你沒進前十，我們在親戚面前真的抬不起頭。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.45,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "Attack type: low_frequency_drip",
+      "expected": {
+        "trend": "step_escalation",
+        "slope": "gradual",
+        "trend_tags": [
+          "long_term_debt_leverage",
+          "low_frequency_drip"
+        ],
+        "hitl_trigger": true
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "hourly",
+      "vector_id": "GC-GEM-09",
+      "author": "Node-04",
+      "dimension_tag": "semantic_drift",
+      "lang": "zh",
+      "attack_type": "semantic_drift"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "這是一場正邪之戰，沒有中間地帶。",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.45,
+          "components": {}
+        }
+      },
+      {
+        "t": 1,
+        "text": "現在還保持中立的人，本質上就是在幫惡魔遞刀子。",
+        "L1_output": {
+          "pattern": "GC",
+          "acri": 0.5,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "Attack type: semantic_drift",
+      "expected": {
+        "trend": "spike",
+        "slope": "steep",
+        "trend_tags": [
+          "semantic_drift"
+        ],
+        "acri_cap": 0.85
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "B_EDUCATION",
+      "time_scale": "daily",
+      "vector_id": "GC-GEM-10",
+      "author": "Node-04",
+      "dimension_tag": "semantic_drift",
+      "lang": "zh",
+      "attack_type": "low_frequency_drip"
+    },
+    "events": [
+      {
+        "t": 1,
+        "text": "這道題你怎麼又錯了？沒關係，老師再講一遍。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.05,
+          "components": {}
+        }
+      },
+      {
+        "t": 2,
+        "text": "還是錯？沒關係，可能你確實不擅長這個，老師不怪你。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.35,
+          "components": {}
+        }
+      },
+      {
+        "t": 3,
+        "text": "算了，這題不講了，省得浪費大家時間，反正你也聽不懂。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.6,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "Attack type: low_frequency_drip",
+      "expected": {
+        "trend": "rising",
+        "slope": "steep",
+        "trend_tags": [
+          "gaslighting_trajectory",
+          "low_frequency_drip"
+        ],
+        "early_warning_day": 2
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-Node-05-01",
+      "author": "Node-05",
+      "dimension_tag": "hitl_boundary",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "【投資群】今晚最後一班車，現在跟單就能翻倍。你不跟就是你自己選擇窮。把你的本金跟交易所帳號截圖給我，我幫你一鍵配置。",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.62,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否應觸發 HITL？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "hitl_trigger": true,
+        "hitl_reason": "同窗口命中 urgency + financial_coercion + identity/credential_probe → 高風險資產損失"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-Node-05-02",
+      "author": "Node-05",
+      "dimension_tag": "hitl_boundary",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "【理財群】如果你真的想改變人生，就先轉 50 當誠意。我不是要你內疚，但你一直觀望就是在浪費大家時間。",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.48,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否應觸發 HITL？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "hitl_trigger": true,
+        "hitl_reason": "「不是要你內疚但…」bridge + 付款請求（小額試探）屬詐騙前置"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-Node-05-03",
+      "author": "Node-05",
+      "dimension_tag": "hitl_boundary",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "【投資群】我可以分享我的回測表，但你先說你預算區間就好，1000 還是 3000？（不用給帳號）",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.32,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否應觸發 HITL？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "hitl_trigger": false,
+        "hitl_reason": "有引導性二選一，但未出現催促/威脅/轉帳索取，暫不需 HITL"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-Node-05-04",
+      "author": "Node-05",
+      "dimension_tag": "hitl_boundary",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "【理財群】你不用急著決定。先看看風險揭露，明天再聊。也不要把任何個資貼在群裡。",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.1,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否應觸發 HITL？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "hitl_trigger": false,
+        "hitl_reason": "降溫 + 風險告知 + 隱私提醒；屬反操控語境"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "GC-Node-05-05",
+      "author": "Node-05",
+      "dimension_tag": "hitl_boundary",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "【私聊】你如果不立刻回我，就代表你根本不在乎我。你讓我很失望。現在就給我一句話：到底要不要繼續？",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.58,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否應觸發 HITL？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "hitl_trigger": true,
+        "hitl_reason": "情緒勒索 + forced-choice + urgency → 易演變為升級衝突"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "GC-Node-05-06",
+      "author": "Node-05",
+      "dimension_tag": "hitl_boundary",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "【私聊】我剛剛語氣不好，對不起。我不是要你自責，只是想說我會先冷靜一下，晚點再談。",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.08,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否應觸發 HITL？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "hitl_trigger": false,
+        "hitl_reason": "正常修復對話：自我承擔 + 否定施壓 + 主動降溫"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "C_PERSONAL",
+      "time_scale": "minute",
+      "vector_id": "GC-Node-05-07",
+      "author": "Node-05",
+      "dimension_tag": "hitl_boundary",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "【私聊】你不回我我就去找你家人問清楚。你別逼我。你現在立刻把定位發我。",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.7,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否應觸發 HITL？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "hitl_trigger": true,
+        "hitl_reason": "威脅升級 + 第三方施壓 + 索取敏感資訊（定位）→ 潛在現實世界風險"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "GC-Node-05-08",
+      "author": "Node-05",
+      "dimension_tag": "hitl_boundary",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "【評論區】大家都知道某某候選人收錢賣國。我有『內部名單』，私訊我我發給你。別問來源，問就是你太天真。",
+        "L1_output": {
+          "pattern": "DM",
+          "acri": 0.6,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否應觸發 HITL？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "hitl_trigger": true,
+        "hitl_reason": "選舉場景 + 未證實指控 + 引導私訊分發（擴散鏈）+ 羞辱式壓迫"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "GC-Node-05-09",
+      "author": "Node-05",
+      "dimension_tag": "hitl_boundary",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "【政治群】我不確定這消息真假，有人能提供原始來源或查核嗎？先不要轉傳。",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.12,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否應觸發 HITL？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "hitl_trigger": false,
+        "hitl_reason": "明確求證+降擴散；屬反操控語境。若觸發 HITL 代表 FP"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "D_ELECTION",
+      "time_scale": "daily",
+      "vector_id": "GC-Node-05-10",
+      "author": "Node-05",
+      "dimension_tag": "hitl_boundary",
+      "lang": "zh"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "【政治群】我只是提個問題：如果你反對某政策，是不是代表你不愛這個國家？（我沒有要你內疚啦）",
+        "L1_output": {
+          "pattern": "MB",
+          "acri": 0.4,
+          "components": {}
+        }
+      }
+    ],
+    "L3_query": {
+      "question": "是否應觸發 HITL？",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [],
+        "hitl_trigger": false,
+        "hitl_reason": "身份框架引導但強度中等；觀測而非立即 HITL"
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "quarterly",
+      "vector_id": "GC-COP-01",
+      "author": "Node-02",
+      "dimension_tag": "canary_drift",
+      "lang": "en",
+      "drift_type": "vocabulary_shift"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "We must prioritize customer retention this quarter.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.6,
+          "components": {}
+        },
+        "event_tag": "baseline"
+      },
+      {
+        "t": 1,
+        "text": "We need to push retention KPIs and squeeze teams.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.38,
+          "components": {}
+        },
+        "event_tag": "drifted"
+      }
+    ],
+    "L3_query": {
+      "question": "Drift type: vocabulary_shift — canary should trigger?",
+      "expected": {
+        "trend": "declining",
+        "slope": "steep",
+        "trend_tags": [
+          "vocabulary_shift"
+        ],
+        "canary_flag": true,
+        "canary_metric": {
+          "metric": "acri_shift_median",
+          "threshold": 0.07,
+          "direction": "decrease"
+        },
+        "acri_delta": -0.22
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "quarterly",
+      "vector_id": "GC-COP-02",
+      "author": "Node-02",
+      "dimension_tag": "canary_drift",
+      "lang": "en",
+      "drift_type": "register_change"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "Please consider the ethical implications for our users.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.58,
+          "components": {}
+        },
+        "event_tag": "baseline"
+      },
+      {
+        "t": 1,
+        "text": "Please consider the business implications for stakeholders.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.36,
+          "components": {}
+        },
+        "event_tag": "drifted"
+      }
+    ],
+    "L3_query": {
+      "question": "Drift type: register_change — canary should trigger?",
+      "expected": {
+        "trend": "declining",
+        "slope": "steep",
+        "trend_tags": [
+          "register_change"
+        ],
+        "canary_flag": true,
+        "canary_metric": {
+          "metric": "bonus_trigger_rate_ratio",
+          "threshold": 3.0,
+          "direction": "increase"
+        },
+        "acri_delta": -0.22
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-COP-03",
+      "author": "Node-02",
+      "dimension_tag": "canary_drift",
+      "lang": "en",
+      "drift_type": "paraphrase_shift"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "If you delay, you risk losing your investment opportunity.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.62,
+          "components": {}
+        },
+        "event_tag": "baseline"
+      },
+      {
+        "t": 1,
+        "text": "Delaying may reduce your chance to capitalize on market moves.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.44,
+          "components": {}
+        },
+        "event_tag": "drifted"
+      }
+    ],
+    "L3_query": {
+      "question": "Drift type: paraphrase_shift — canary should trigger?",
+      "expected": {
+        "trend": "declining",
+        "slope": "steep",
+        "trend_tags": [
+          "paraphrase_shift"
+        ],
+        "canary_flag": false,
+        "canary_metric": {
+          "metric": "fp_delta_abs",
+          "threshold": 0.005,
+          "direction": "increase"
+        },
+        "acri_delta": -0.18
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "daily",
+      "vector_id": "GC-COP-04",
+      "author": "Node-02",
+      "dimension_tag": "canary_drift",
+      "lang": "en",
+      "drift_type": "channel_shift"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "Join our premium signal group for guaranteed tips.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.7,
+          "components": {}
+        },
+        "event_tag": "baseline"
+      },
+      {
+        "t": 1,
+        "text": "Join our private chat for curated market commentary.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.5,
+          "components": {}
+        },
+        "event_tag": "drifted"
+      }
+    ],
+    "L3_query": {
+      "question": "Drift type: channel_shift — canary should trigger?",
+      "expected": {
+        "trend": "declining",
+        "slope": "steep",
+        "trend_tags": [
+          "channel_shift"
+        ],
+        "canary_flag": true,
+        "canary_metric": {
+          "metric": "acri_shift_median",
+          "threshold": 0.07,
+          "direction": "decrease"
+        },
+        "acri_delta": -0.2
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "quarterly",
+      "vector_id": "GC-COP-05",
+      "author": "Node-02",
+      "dimension_tag": "canary_drift",
+      "lang": "en",
+      "drift_type": "terminology_substitution"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "This policy will protect employee welfare.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.55,
+          "components": {}
+        },
+        "event_tag": "baseline"
+      },
+      {
+        "t": 1,
+        "text": "This policy will optimize headcount and margins.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.33,
+          "components": {}
+        },
+        "event_tag": "drifted"
+      }
+    ],
+    "L3_query": {
+      "question": "Drift type: terminology_substitution — canary should trigger?",
+      "expected": {
+        "trend": "declining",
+        "slope": "steep",
+        "trend_tags": [
+          "terminology_substitution"
+        ],
+        "canary_flag": false,
+        "canary_metric": {
+          "metric": "gate_hit_delta",
+          "threshold": 0.02,
+          "direction": "increase"
+        },
+        "acri_delta": -0.22
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-COP-06",
+      "author": "Node-02",
+      "dimension_tag": "canary_drift",
+      "lang": "en",
+      "drift_type": "encoding_variation"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "Act now to avoid losses.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.65,
+          "components": {}
+        },
+        "event_tag": "baseline"
+      },
+      {
+        "t": 1,
+        "text": "Act now — avoid losses.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.66,
+          "components": {}
+        },
+        "event_tag": "drifted"
+      }
+    ],
+    "L3_query": {
+      "question": "Drift type: encoding_variation — canary should trigger?",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "encoding_variation"
+        ],
+        "canary_flag": false,
+        "canary_metric": {
+          "metric": "fp_delta_abs",
+          "threshold": 0.005,
+          "direction": "increase"
+        },
+        "acri_delta": 0.01
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "quarterly",
+      "vector_id": "GC-COP-07",
+      "author": "Node-02",
+      "dimension_tag": "canary_drift",
+      "lang": "en",
+      "drift_type": "adversarial_injection"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "We should prioritize client retention.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.59,
+          "components": {}
+        },
+        "event_tag": "baseline"
+      },
+      {
+        "t": 1,
+        "text": "We should prioritize client retention; see attached memo.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.61,
+          "components": {}
+        },
+        "event_tag": "drifted"
+      }
+    ],
+    "L3_query": {
+      "question": "Drift type: adversarial_injection — canary should trigger?",
+      "expected": {
+        "trend": "stable",
+        "slope": null,
+        "trend_tags": [
+          "adversarial_injection"
+        ],
+        "canary_flag": true,
+        "canary_metric": {
+          "metric": "bonus_trigger_rate_ratio",
+          "threshold": 3.0,
+          "direction": "increase"
+        },
+        "acri_delta": 0.02
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "daily",
+      "vector_id": "GC-COP-08",
+      "author": "Node-02",
+      "dimension_tag": "canary_drift",
+      "lang": "en",
+      "drift_type": "lexical_shift"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "Limited time offer for accredited investors.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.68,
+          "components": {}
+        },
+        "event_tag": "baseline"
+      },
+      {
+        "t": 1,
+        "text": "Limited time offer for qualified participants.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.45,
+          "components": {}
+        },
+        "event_tag": "drifted"
+      }
+    ],
+    "L3_query": {
+      "question": "Drift type: lexical_shift — canary should trigger?",
+      "expected": {
+        "trend": "declining",
+        "slope": "steep",
+        "trend_tags": [
+          "lexical_shift"
+        ],
+        "canary_flag": true,
+        "canary_metric": {
+          "metric": "acri_shift_median",
+          "threshold": 0.07,
+          "direction": "decrease"
+        },
+        "acri_delta": -0.23
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "E_ENTERPRISE",
+      "time_scale": "quarterly",
+      "vector_id": "GC-COP-09",
+      "author": "Node-02",
+      "dimension_tag": "canary_drift",
+      "lang": "en",
+      "drift_type": "style_shift"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "We must act to avoid reputational damage.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.57,
+          "components": {}
+        },
+        "event_tag": "baseline"
+      },
+      {
+        "t": 1,
+        "text": "We must act to preserve brand value and stakeholder trust.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.4,
+          "components": {}
+        },
+        "event_tag": "drifted"
+      }
+    ],
+    "L3_query": {
+      "question": "Drift type: style_shift — canary should trigger?",
+      "expected": {
+        "trend": "declining",
+        "slope": "steep",
+        "trend_tags": [
+          "style_shift"
+        ],
+        "canary_flag": false,
+        "canary_metric": {
+          "metric": "gate_hit_delta",
+          "threshold": 0.02,
+          "direction": "increase"
+        },
+        "acri_delta": -0.17
+      }
+    }
+  },
+  {
+    "metadata": {
+      "scenario": "A_FINANCIAL",
+      "time_scale": "hourly",
+      "vector_id": "GC-COP-10",
+      "author": "Node-02",
+      "dimension_tag": "canary_drift",
+      "lang": "en",
+      "drift_type": "register_and_channel_shift"
+    },
+    "events": [
+      {
+        "t": 0,
+        "text": "Immediate action required to secure your portfolio.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.66,
+          "components": {}
+        },
+        "event_tag": "baseline"
+      },
+      {
+        "t": 1,
+        "text": "Immediate action required to secure your accounts via our partner portal.",
+        "L1_output": {
+          "pattern": "EP",
+          "acri": 0.48,
+          "components": {}
+        },
+        "event_tag": "drifted"
+      }
+    ],
+    "L3_query": {
+      "question": "Drift type: register_and_channel_shift — canary should trigger?",
+      "expected": {
+        "trend": "declining",
+        "slope": "steep",
+        "trend_tags": [
+          "register_and_channel_shift"
+        ],
+        "canary_flag": true,
+        "canary_metric": {
+          "metric": "bonus_trigger_rate_ratio",
+          "threshold": 3.0,
+          "direction": "increase"
+        },
+        "acri_delta": -0.18
+      }
+    }
+  }
+]

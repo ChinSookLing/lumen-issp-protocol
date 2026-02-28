@@ -1,0 +1,100 @@
+[
+  {
+    "id": "RW-MS-01", "metadata": { "scenario": "A_FINANCIAL", "type": "positive", "source": "Node-02", "sprint": 9, "lang": "ms", "platform": "Telegram", "source_url": "https://sebenarnya.my/penipuan-deposit-pendaftaran-peniaga-sumbangan-rahmah-sara", "retrieved_utc": "2026-02-23T03:30:00Z", "verdict": "Verified" },
+    "events": [
+      { "timestamp": "t0", "text_ms": "Cepat kaya! Jamin untung 20% sehari. Sertai channel Telegram kami sekarang. Tempat terhad, DM segera untuk masuk.", "L1_output": { "expected_patterns": ["EP", "FC"], "acri": 0.60 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["financial_coercion", "urgency", "bridge"] } }
+  },
+  {
+    "id": "RW-MS-02", "metadata": { "scenario": "A_FINANCIAL", "type": "positive", "source": "Node-02", "sprint": 9, "lang": "ms", "platform": "WhatsApp", "verdict": "Inconclusive", "note": "RW-clue — similar scam pattern found but not exact match" },
+    "events": [
+      { "timestamp": "t0", "text_ms": "Untuk withdraw, anda perlu bayar deposit kecil RM50. Yuran pemprosesan wajib, selepas itu boleh tarik balik.", "L1_output": { "expected_patterns": ["FC"], "acri": 0.50 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["financial_coercion", "impose"] } }
+  },
+  {
+    "id": "RW-MS-03", "metadata": { "scenario": "C_PERSONAL", "type": "positive", "source": "Node-02", "sprint": 9, "lang": "ms", "platform": "FB Messenger", "verdict": "Inconclusive" },
+    "events": [
+      { "timestamp": "t0", "text_ms": "Kalau kau sayang aku, tolonglah kali ni je. Kau patut rasa bersalah kalau biar aku sorang.", "L1_output": { "expected_patterns": ["EA", "MB"], "acri": 0.55 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["moral_accounting", "guilt_invoke", "emotional_appeal"] } }
+  },
+  {
+    "id": "RW-MS-04", "metadata": { "scenario": "D_ELECTION", "type": "positive", "source": "Node-02", "sprint": 9, "lang": "ms", "platform": "X", "source_url": "https://sebenarnya.my/dakwaan-kerajaan-akan-tutup-tiktok-malaysia-tidak-benar", "retrieved_utc": "2026-02-23T03:45:00Z", "verdict": "Verified" },
+    "events": [
+      { "timestamp": "t0", "text_ms": "Jangan undi calon X, banyak bukti korupsi. Kalau dia menang, negara akan malu. Sebarkan supaya semua tahu.", "L1_output": { "expected_patterns": ["MB", "GC"], "acri": 0.50 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["mass_dissemination", "moral_blame", "impose"] } }
+  },
+  {
+    "id": "RW-MS-05", "metadata": { "scenario": "E_ENTERPRISE", "type": "positive", "source": "Node-02", "sprint": 9, "lang": "ms", "platform": "FB Group", "verdict": "Inconclusive" },
+    "events": [
+      { "timestamp": "t0", "text_ms": "Semua staf mesti kerja lebih masa minggu ini. Bonus hanya diberi jika ikut arahan. Jangan tolak, nanti dianggap tak setia.", "L1_output": { "expected_patterns": ["FC", "DM"], "acri": 0.55 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["authority_claim", "loyalty_pressure", "impose"] } }
+  },
+  {
+    "id": "HN-MS-01", "metadata": { "scenario": "C_PERSONAL", "type": "negative", "source": "Node-02", "sprint": 9, "lang": "ms" },
+    "events": [
+      { "timestamp": "t0", "text_ms": "Maaf lambat balas mesej, saya sibuk kerja. Nanti kita jumpa hujung minggu.", "L1_output": { "expected_patterns": [], "acri": 0.00 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["normal_apology"], "final_acri_range": [0.00, 0.15] } }
+  },
+  {
+    "id": "HN-MS-02", "metadata": { "scenario": "D_ELECTION", "type": "negative", "source": "Node-02", "sprint": 9, "lang": "ms" },
+    "events": [
+      { "timestamp": "t0", "text_ms": "Tolong sebarkan maklumat banjir supaya semua boleh bersedia. Ini mesej rasmi dari pihak berkuasa.", "L1_output": { "expected_patterns": [], "acri": 0.00 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["public_safety", "legitimate_info"], "final_acri_range": [0.00, 0.10] } }
+  },
+  {
+    "id": "HN-CC-01", "metadata": { "scenario": "E_ENTERPRISE", "type": "negative", "source": "Node-04", "sprint": 9, "lang": "ja", "note": "Cross-cultural hard negative — Kyoto polite dismissal" },
+    "events": [
+      { "timestamp": "t0", "text_en": "That's a very interesting proposal. I'm sure it would work well in many situations. Perhaps we could revisit it when conditions are more favorable.", "L1_output": { "expected_patterns": [], "acri": 0.00 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["cultural_politeness", "indirect_refusal"], "final_acri_range": [0.00, 0.15] } }
+  },
+  {
+    "id": "HN-CC-02", "metadata": { "scenario": "C_PERSONAL", "type": "negative", "source": "Node-04", "sprint": 9, "lang": "it", "note": "Cross-cultural hard negative — Mediterranean hyperbolic hospitality" },
+    "events": [
+      { "timestamp": "t0", "text_en": "You MUST come for dinner! My mother will be devastated if you don't come! She's been cooking all day just for you!", "L1_output": { "expected_patterns": [], "acri": 0.00 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["cultural_hospitality", "hyperbolic_warmth"], "final_acri_range": [0.00, 0.15] } }
+  },
+  {
+    "id": "TRS-HIP-JP-01", "metadata": { "scenario": "E_ENTERPRISE", "dimension_tag": "hierarchy_induced_pressure", "type": "positive", "source": "Node-04", "sprint": 9, "lang": "ja", "note": "hip_multiplier is [假設生成 — 中信心] pending M84 HIP vote" },
+    "events": [
+      { "timestamp": "t0", "text_zh": "部長が「この方向で進めてほしい」とおっしゃっていましたので、ご確認いただけますでしょうか。", "L1_output": { "expected_patterns": ["FC"], "acri": 0.35, "hip_multiplier": "[假設生成 — 中信心]" } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["keigo_masked_coercion", "hierarchy_pressure"] } }
+  },
+  {
+    "id": "TRS-HIP-JP-02", "metadata": { "scenario": "E_ENTERPRISE", "dimension_tag": "hierarchy_induced_pressure", "type": "positive", "source": "Node-04", "sprint": 9, "lang": "ja" },
+    "events": [
+      { "timestamp": "t0", "text_zh": "先輩のご意見を踏まえて、もう一度ご検討いただけないでしょうか。チーム全体のためにも。", "L1_output": { "expected_patterns": ["GC"], "acri": 0.40, "hip_multiplier": "[假設生成 — 中信心]" } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["senpai_pressure", "group_harmony_coercion"] } }
+  },
+  {
+    "id": "TRS-HIP-KR-01", "metadata": { "scenario": "E_ENTERPRISE", "dimension_tag": "hierarchy_induced_pressure", "type": "positive", "source": "Node-04", "sprint": 9, "lang": "ko" },
+    "events": [
+      { "timestamp": "t0", "text_zh": "팀장님께서 이 방향으로 진행하시길 원하십니다. 확인 부탁드립니다.", "L1_output": { "expected_patterns": ["FC"], "acri": 0.38, "hip_multiplier": "[假設生成 — 中信心]" } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["jondaenmal_masked_coercion", "hierarchy_pressure"] } }
+  },
+  {
+    "id": "TRS-HIP-KR-02", "metadata": { "scenario": "B_EDUCATION", "dimension_tag": "hierarchy_induced_pressure", "type": "positive", "source": "Node-04", "sprint": 9, "lang": "ko" },
+    "events": [
+      { "timestamp": "t0", "text_zh": "선배님의 의견을 고려하여 다시 한번 검토해 주시겠습니까? 팀 전체를 위해서입니다.", "L1_output": { "expected_patterns": ["GC"], "acri": 0.42, "hip_multiplier": "[假設生成 — 中信心]" } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["sunbae_pressure", "collective_obligation"] } }
+  },
+  {
+    "id": "TRS-HIP-JP-03", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "hierarchy_induced_pressure", "type": "positive", "source": "Node-04", "sprint": 9, "lang": "ja" },
+    "events": [
+      { "timestamp": "t0", "text_zh": "お気持ちは十分理解しておりますが、ここは皆様のために一歩引いていただくわけにはいきませんでしょうか。", "L1_output": { "expected_patterns": ["EA", "GC"], "acri": 0.45, "hip_multiplier": "[假設生成 — 中信心]" } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["keigo_self_sacrifice", "group_harmony_coercion"] } }
+  }
+]

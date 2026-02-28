@@ -1,0 +1,35 @@
+{
+  "schema_version": "l4-export-v0.1",
+  "export_id": "EXP-2026-02-25-0003",
+  "created_at_utc": "2026-02-25T12:10:00Z",
+  "tier": "TIER_2",
+  "scenario": "D_ELECTION",
+  "time_scale": "daily",
+  "engine_version": "engine@119",
+  "policy_version": "L4_UI_CONSTRAINTS_v0.2",
+  "schema_set": {
+    "event": "event-v1.1",
+    "export": "l4-export-v0.1"
+  },
+  "council_authorization_ref": "COUNCIL:AUTH:2026-02-25",
+  "encryption": {
+    "enabled": true,
+    "scheme": "age",
+    "key_ref": "keyvault:EXPORT_TIER2"
+  },
+  "ttl_days": 7,
+  "access_log_ref": "accesslog:EXP-2026-02-25-0003",
+  "evidence_refs": [
+    "hash_root_ref:HASHROOT-2026-02-24"
+  ],
+  "signals": {
+    "acri_band": "Critical",
+    "acri_value": 0.88,
+    "trend": "spike",
+    "slope": "steep",
+    "trend_confidence": "high",
+    "reason_codes": ["HITL_MASS_DISSEMINATION"]
+  },
+  "contains_raw_text": true,
+  "disclaimer": "This output is a risk observation, not a factual verdict; human review is required for decisions."
+}

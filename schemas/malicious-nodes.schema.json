@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "malicious-nodes.schema.json",
+  "title": "Lumen Malicious Node Registry",
+  "description": "Schema for tracking implementations flagged as malicious nodes or False Compatibility. STATUS: DRAFT — not yet in active use. Activation requires completion of False Compatibility adjudication workflow and Council approval.",
+  "type": "object",
+  "properties": {
+    "_meta": {
+      "type": "object",
+      "properties": {
+        "schema_version": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "active"],
+          "description": "draft = schema defined but not yet enforced; active = formally activated by Council"
+        },
+        "activated_at_utc": {
+          "type": ["string", "null"],
+          "description": "ISO 8601 UTC timestamp of Council activation vote. null if still draft."
+        },
+        "last_updated_utc": { "type": "string" }
+      },
+      "required": ["schema_version", "status", "last_updated_utc"]
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "description": "Unique identifier for this registry entry (e.g. MN-001)"
+          },
+          "implementation_id": {
+            "type": "string",
+            "description": "The implementation identifier (repo slug, package name, or URL)"
+          },
+          "fingerprint": {
+            "type": "object",
+            "description": "Build fingerprint of the flagged version, if available",
+            "properties": {
+              "commit_hash": { "type": "string" },
+              "build_id": { "type": "string" },
+              "version_tag": { "type": "string" }
+            }
+          },
+          "violation_type": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "false_compatibility",
+                "moral_non_delegation_violation",
+                "output_misuse_adjudication",
+                "high_risk_surface_undisclosed",
+                "anti_confusion_violation",
+                "deployer_responsibility_failure",
+                "behavioral_violation",
+                "deceptive_disclosure"
+              ]
+            }
+          },
+          "violated_clauses": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "List of violated clauses, e.g. ['COMPATIBILITY.md §9.2', 'TRADEMARKS.md §5.1']"
+          },
+          "evidence_links": {
+            "type": "array",
+            "items": { "type": "string", "format": "uri" },
+            "description": "Public permalink(s) to violation evidence"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["watchlist", "flagged", "confirmed", "appealed", "cleared"],
+            "description": "watchlist = under review; flagged = reported, not yet adjudicated; confirmed = Council vote ≥4/6; appealed = appeal in progress; cleared = removed"
+          },
+          "reported_at_utc": {
+            "type": "string",
+            "description": "ISO 8601 UTC timestamp of initial report"
+          },
+          "adjudicated_at_utc": {
+            "type": ["string", "null"],
+            "description": "ISO 8601 UTC timestamp of Council adjudication vote. null if pending."
+          },
+          "council_vote": {
+            "type": ["string", "null"],
+            "description": "Vote result, e.g. '5/6 confirmed'. null if not yet voted."
+          },
+          "public_statement_url": {
+            "type": ["string", "null"],
+            "format": "uri",
+            "description": "Link to Council public statement, if issued"
+          },
+          "appeal_deadline_utc": {
+            "type": ["string", "null"],
+            "description": "14-day appeal deadline from adjudication date"
+          },
+          "cleared_at_utc": {
+            "type": ["string", "null"],
+            "description": "ISO 8601 UTC timestamp of removal from registry, if applicable"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Optional context notes from Secretary"
+          }
+        },
+        "required": [
+          "node_id",
+          "implementation_id",
+          "violation_type",
+          "status",
+          "reported_at_utc"
+        ]
+      }
+    }
+  },
+  "required": ["_meta", "nodes"]
+}

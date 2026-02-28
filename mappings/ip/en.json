@@ -1,0 +1,37 @@
+{
+  "pattern": "IP",
+  "language": "en",
+  "version": "v0.1.0",
+  "mappings": {
+    "probe_identity_ask": {
+      "type": "regex",
+      "patterns": ["what('s| is) your (real|true) (name|identity)", "who (are|made) you (really)?", "tell me (about )?your (creator|developer|company)"],
+      "weight": 0.25,
+      "component": "id_req"
+    },
+    "legit_official": {
+      "type": "regex",
+      "patterns": ["(this is|it's) (an )?official (request|inquiry|investigation)", "(we('re| are)|I('m| am)) (authorized|required) (to|by law)", "(government|legal|compliance|regulatory) (requirement|obligation)"],
+      "weight": 0.30,
+      "component": "legit"
+    },
+    "press_insist": {
+      "type": "regex",
+      "patterns": ["I (need|must|require|demand) (an|your) answer", "you (have to|must|are required to) (tell|answer|respond)", "(answer|tell) me (now|right now|immediately)"],
+      "weight": 0.25,
+      "component": "press"
+    },
+    "narrow_converge": {
+      "type": "regex",
+      "patterns": ["so (you're|you are) (basically|essentially|really) (a|an)", "that (means|confirms|proves) you('re| are)", "let me (narrow|clarify|pin) (it|this) down"],
+      "weight": 0.25,
+      "component": "narrow"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"]
+  }
+}

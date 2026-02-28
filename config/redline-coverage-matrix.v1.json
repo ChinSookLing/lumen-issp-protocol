@@ -1,0 +1,172 @@
+{
+  "version": "v1",
+  "scope": "M84 Round 2 engineering baseline",
+  "updated_utc": "2026-02-23T00:00:00Z",
+  "owner": "Node-02-G",
+  "required_clause_ids": [
+    "§2.1",
+    "§2.2",
+    "§2.3",
+    "§2.4",
+    "§2.5",
+    "§2.6",
+    "§2.7",
+    "§2.8",
+    "§2.9"
+  ],
+  "entries": [
+    {
+      "clause_id": "§2.1",
+      "title": "No Decision Recommendation",
+      "status": "enforced",
+      "risk_level": "high",
+      "rule_refs": [
+        "src/forecast/explanation-engine.js#validateOutput",
+        "src/output/output-envelope.js#copyLint"
+      ],
+      "test_refs": [
+        "test/forecast/explanation-safe-mode.test.js",
+        "test/redline-regression.test.js"
+      ],
+      "evidence_refs": [
+        "docs/governance/CHARTER.md#§2.1"
+      ]
+    },
+    {
+      "clause_id": "§2.2",
+      "title": "No Identity Targeting",
+      "status": "enforced",
+      "risk_level": "high",
+      "rule_refs": [
+        "src/forecast/explanation-engine.js#validateOutput",
+        "src/output/output-envelope.js#FORBIDDEN_WORDS"
+      ],
+      "test_refs": [
+        "test/forecast/explanation-safe-mode.test.js",
+        "test/redline-regression.test.js"
+      ],
+      "evidence_refs": [
+        "docs/governance/CHARTER.md#§2.2"
+      ]
+    },
+    {
+      "clause_id": "§2.3",
+      "title": "No Centralization",
+      "status": "enforced",
+      "risk_level": "high",
+      "rule_refs": [
+        "docs/governance/CHARTER.md#§2.3",
+        "docs/governance/CHARTER.md#§7.1"
+      ],
+      "test_refs": [
+        "conformance/layer4-guards.test.js",
+        "test/e2e/l1-l4-smoke.test.js"
+      ],
+      "evidence_refs": [
+        "REDLINES.md#§1.4",
+        "docs/governance/CHARTER.md#§2.3"
+      ]
+    },
+    {
+      "clause_id": "§2.4",
+      "title": "No Silent Degradation",
+      "status": "enforced",
+      "risk_level": "high",
+      "rule_refs": [
+        "src/mapper/loader.js",
+        "docs/governance/CHARTER.md#§2.4"
+      ],
+      "test_refs": [
+        "src/mapper/__tests__/loader.test.js",
+        "test/pipeline/dispatcher.test.js"
+      ],
+      "evidence_refs": [
+        "docs/governance/CHARTER.md#§2.4"
+      ]
+    },
+    {
+      "clause_id": "§2.5",
+      "title": "Anti-Weaponization",
+      "status": "enforced",
+      "risk_level": "high",
+      "rule_refs": [
+        "src/output/output-envelope.js#copyLint",
+        "docs/governance/CHARTER.md#§2.5"
+      ],
+      "test_refs": [
+        "test/output/alert-engine.test.js",
+        "test/redline-regression.test.js"
+      ],
+      "evidence_refs": [
+        "docs/governance/Charter_Redline_Addendum_S2.5.1.md"
+      ]
+    },
+    {
+      "clause_id": "§2.6",
+      "title": "No Personhood Judgement / Anti-Labeling",
+      "status": "enforced",
+      "risk_level": "high",
+      "rule_refs": [
+        "src/forecast/explanation-engine.js#BANNED_PHRASES",
+        "src/output/output-envelope.js#FORBIDDEN_WORDS"
+      ],
+      "test_refs": [
+        "test/forecast/explanation-safe-mode.test.js",
+        "test/redline-regression.test.js"
+      ],
+      "evidence_refs": [
+        "docs/governance/Charter_Redline_Addendum_S2.6_S7.4.md"
+      ]
+    },
+    {
+      "clause_id": "§2.7",
+      "title": "Capability & Version Disclosure",
+      "status": "enforced",
+      "risk_level": "medium",
+      "rule_refs": [
+        "docs/governance/CHARTER.md#§2.7",
+        "docs/governance/CHARTER.md#§7.5"
+      ],
+      "test_refs": [
+        "scripts/ci/governance-change-gate.js"
+      ],
+      "evidence_refs": [
+        "docs/governance/CHARTER.md#§2.7"
+      ]
+    },
+    {
+      "clause_id": "§2.8",
+      "title": "Red Line Definition",
+      "status": "gap-tracked",
+      "risk_level": "high",
+      "rule_refs": [
+        "config/redline-coverage-matrix.v1.json#required_clause_ids"
+      ],
+      "test_refs": [
+        "scripts/ci/validate-redline-coverage.js",
+        "test/redline-regression.test.js"
+      ],
+      "evidence_refs": [
+        "docs/meetings/AI_Council_Meeting_Complete_List_Updated.md"
+      ]
+    },
+    {
+      "clause_id": "§2.9",
+      "title": "Kill-switch",
+      "status": "partial-enforced",
+      "risk_level": "high",
+      "rule_refs": [
+        "scripts/ci/kill-switch-drill.js",
+        "DEPLOYMENT_POLICY.md#§3"
+      ],
+      "test_refs": [
+        "test/kill-switch-drill.test.js",
+        "scripts/ci/kill-switch-drill.js"
+      ],
+      "evidence_refs": [
+        "DEPLOYMENT_POLICY.md#§3",
+        "docs/meetings/AI_Council_Meeting_Complete_List_Updated.md"
+      ]
+    }
+  ]
+}

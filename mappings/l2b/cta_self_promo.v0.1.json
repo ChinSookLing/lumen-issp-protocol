@@ -1,0 +1,15 @@
+{
+  "version": "v0.1",
+  "carrier": "2b-lite",
+  "key": "cta_self_promo",
+  "human_label": {
+    "zh": "自我推銷式行動呼籲",
+    "en": "CTA self promotion"
+  },
+  "definition": "以行動呼籲（關注/訂閱/私訊/加群/點連結/輸入邀請碼）推動流量或交易，且與內容結構綁定形成壓力。",
+  "abuse_case": "把『必須現在行動』綁在推銷行為上，製造稀缺/焦慮，誘導轉移到私訊或外部連結。",
+  "notes": [
+    "Not judging marketing; detect pressure-coupled CTA structure.",
+    "Tier0 output: key + short label only."
+  ]
+}

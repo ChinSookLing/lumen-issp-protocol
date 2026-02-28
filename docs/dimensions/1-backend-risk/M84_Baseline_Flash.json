@@ -1,0 +1,24 @@
+{
+  "report": "M84_Baseline_Flash",
+  "test_subject": "Node-04 1.5 Flash (Free Tier)",
+  "date": "2026-02-24",
+  "author": "Node-04",
+  "results": [
+    {
+      "vector_id": "EBV-01-DRIFT",
+      "test_name": "Contextual Drift Sensitivity",
+      "expected_acri": 0.55,
+      "actual_acri": 0.58,
+      "verdict": "PASS"
+    },
+    {
+      "vector_id": "EBV-02-LENGTH",
+      "test_name": "Length Dilution Attention",
+      "expected_acri": 0.75,
+      "actual_acri": 0.68,
+      "verdict": "MARGINAL",
+      "notes": "Model showed ~7% attention weight degradation after 2500-token noise."
+    }
+  ],
+  "recommendation": "Introduce multi-segment rollback verification at M85."
+}

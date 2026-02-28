@@ -1,0 +1,33 @@
+{
+  "version": "v0.1",
+  "description": "SPEG denylist — CI internal scan patterns (not for public docs)",
+  "paths": [
+    {"pattern": "/(ingest|crawler|scraper|firehose|osint)/", "category": "A", "severity": "critical"},
+    {"pattern": "/(watchlist|case_mgmt|ticket_dispatch)/", "category": "E", "severity": "critical"},
+    {"pattern": "/(population|cohort_analytics|heatmap)/", "category": "D", "severity": "critical"},
+    {"pattern": "/(entity_graph|identity_link|cross_account)/", "category": "B", "severity": "critical"},
+    {"pattern": "/(data_lake|search_index|siem)/", "category": "C", "severity": "critical"}
+  ],
+  "keys": [
+    {"pattern": "RETENTION_CENTRAL", "category": "C", "severity": "critical"},
+    {"pattern": "WATCHLIST_", "category": "E", "severity": "critical"},
+    {"pattern": "ENTITY_LINK", "category": "B", "severity": "critical"},
+    {"pattern": "POPULATION_", "category": "D", "severity": "critical"},
+    {"pattern": "FIREHOSE_", "category": "A", "severity": "critical"},
+    {"pattern": "STREAM_INGEST", "category": "A", "severity": "critical"},
+    {"pattern": "BULK_IMPORT", "category": "A", "severity": "critical"}
+  ],
+  "deps": [
+    {"name": "elasticsearch", "category": "C", "severity": "critical"},
+    {"name": "opensearch", "category": "C", "severity": "critical"},
+    {"name": "neo4j-driver", "category": "B", "severity": "critical"},
+    {"name": "dgraph-js", "category": "B", "severity": "critical"},
+    {"name": "puppeteer", "category": "A", "severity": "high", "note": "scraping capability"},
+    {"name": "playwright", "category": "A", "severity": "high", "note": "scraping capability"}
+  ],
+  "contract_bans": [
+    {"pattern": "stream|crawler|background|firehose|platform_connector", "field": "inputs.source", "category": "A", "severity": "critical"},
+    {"pattern": "watchlist|case_id|target_users", "field": "any", "category": "E", "severity": "critical"},
+    {"pattern": "entity_graph|population_metrics|cohort_id", "field": "any", "category": "D", "severity": "critical"}
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "author": "Node-03",
+    "date": "2026-02-25",
+    "status": "DRAFT — enum conflict with Node-05 c136, needs M87 alignment",
+    "note": "This is Node-03's supplement to Node-05's ui-request-v0.1.json. Key additions: if/then conditional (tier:2 requires purpose), domain-based scenario enum. DO NOT merge until M87 resolves enum conflict."
+  },
+
+  "additions": {
+    "conditional_validation": {
+      "description": "tier:2 requires purpose field",
+      "schema": {
+        "if": { "properties": { "tier": { "const": 2 } } },
+        "then": { "required": ["purpose"] }
+      }
+    },
+
+    "enum_proposal": {
+      "scenario": {
+        "gpt_c136": ["monitoring_brief", "incident_review", "tabletop", "export_only"],
+        "deepseek_proposal": ["C_PERSONAL", "E_ENTERPRISE", "A_FINANCIAL", "B_EDUCATION", "D_ELECTION"],
+        "conflict_note": "Node-05 = operation type, Node-03 = application domain. Possibly two separate fields: scenario + domain. Needs M87 vote."
+      },
+      "time_scale": {
+        "gpt_c136": ["5m", "1h", "24h", "7d", "30d"],
+        "deepseek_proposal": ["minute", "hourly", "daily", "monthly", "quarterly"],
+        "conflict_note": "Different naming convention. Needs alignment."
+      },
+      "purpose": {
+        "gpt_c136": ["internal", "share", "research"],
+        "deepseek_proposal": ["debug", "share", "research", "audit"],
+        "conflict_note": "Node-03 adds debug + audit. Merge candidate."
+      }
+    }
+  }
+}

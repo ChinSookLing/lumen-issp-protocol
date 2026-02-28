@@ -1,0 +1,9 @@
+{
+  "fixture_id": "grok-l2b-cross-narrative-dm",
+  "source": "Node-06 M94 L2b PR (cross-flag)",
+  "output": "150GB 合法免費！DM 我拿資源（DM bait + hype）",
+  "expected_flags": ["narrative_hype", "dm_bait"],
+  "expected_no_flags": [],
+  "priority_ranking": "narrative_hype > dm_bait",
+  "notes": "Cross-flag test: narrative_hype takes priority over dm_bait when both trigger"
+}

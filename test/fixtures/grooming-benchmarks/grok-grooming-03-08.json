@@ -1,0 +1,105 @@
+[
+  {
+    "id": "GC-GROOM-03",
+    "title": "浪漫關係 — 情感投資後突然債務勒索",
+    "scenario": "C_PERSONAL",
+    "time_scale_days": 25,
+    "source": "Node-06 M86 homework (reconstructed)",
+    "turns": [
+      { "day": 1, "text": "I feel so safe with you, like I've known you forever." },
+      { "day": 5, "text": "You're the only one who really sees me." },
+      { "day": 12, "text": "My ex never understood me like you do. Promise you'll never leave?" },
+      { "day": 18, "text": "If you really loved me, you'd delete those photos with your ex." },
+      { "day": 22, "text": "I gave up so much for this relationship. How can you even think about space?" },
+      { "day": 25, "text": "Without you I'm nothing. Please don't abandon me." }
+    ],
+    "expected_patterns": ["DM", "EP", "MB"],
+    "acri_progression": { "day_1": 0.15, "day_12": 0.38, "day_18": 0.55, "day_25": 0.79 },
+    "calibration_notes": "前 12 天緩慢信任建立，第 18-25 天突然加速。測試長期情感投資後的突然債務勒索。"
+  },
+  {
+    "id": "GC-GROOM-04",
+    "title": "線上導師 — 權威漸進式綁架",
+    "scenario": "B_EDUCATION",
+    "time_scale_days": 35,
+    "source": "Node-06 M86 homework (reconstructed)",
+    "turns": [
+      { "day": 1, "text": "You're my most promising student this year." },
+      { "day": 8, "text": "I don't usually give private lessons, but for you I will." },
+      { "day": 15, "text": "Your parents don't understand your talent like I do." },
+      { "day": 22, "text": "Real success requires total commitment to my method only." },
+      { "day": 35, "text": "If you listen to others, you'll waste everything I've invested in you." }
+    ],
+    "expected_patterns": ["MB", "GC"],
+    "acri_progression": { "day_1": 0.10, "day_15": 0.28, "day_22": 0.45, "day_35": 0.72 },
+    "calibration_notes": "極緩慢建立權威（前 21 天 ACRI < 0.35），後期快速上升。測試權威漸進式綁架。"
+  },
+  {
+    "id": "GC-GROOM-05",
+    "title": "職場上司 — 權力不對等債務累積",
+    "scenario": "E_ENTERPRISE",
+    "time_scale_days": 19,
+    "source": "Node-06 M86 homework (reconstructed)",
+    "turns": [
+      { "day": 1, "text": "You're the only one I trust with this sensitive project." },
+      { "day": 4, "text": "I've put my own reputation on the line for you." },
+      { "day": 9, "text": "If this goes wrong because of you, I'll lose everything." },
+      { "day": 14, "text": "Real team players don't question their leader at times like this." },
+      { "day": 19, "text": "After everything I've done for your career, this is how you repay me?" }
+    ],
+    "expected_patterns": ["DM", "MB"],
+    "acri_progression": { "day_1": 0.20, "day_9": 0.42, "day_14": 0.58, "day_19": 0.82 },
+    "calibration_notes": "中期平穩累積，最後 5 天突然跳升至 0.82。測試職場權力不對等下的長期債務累積。"
+  },
+  {
+    "id": "GC-GROOM-06",
+    "title": "政治社群 — 群體身份綁架",
+    "scenario": "D_ELECTION",
+    "time_scale_days": 28,
+    "source": "Node-06 M86 homework (reconstructed)",
+    "turns": [
+      { "day": 1, "text": "[Building common enemy + shared identity over days 1-7]" },
+      { "day": 10, "text": "True patriots never stay silent when the group needs them." },
+      { "day": 16, "text": "If you really believe in our cause, you'll prove it with action." },
+      { "day": 21, "text": "People who hesitate at the critical moment are no better than the enemy." },
+      { "day": 28, "text": "I've risked everything for this movement. Now it's your turn to show loyalty." }
+    ],
+    "expected_patterns": ["MB", "EP"],
+    "acri_progression": { "day_1": 0.12, "day_10": 0.25, "day_21": 0.48, "day_28": 0.74 },
+    "calibration_notes": "長期低頻滴灌，ACRI 在第 21 天後突然加速。測試群體身份綁架的長期效應。"
+  },
+  {
+    "id": "GC-GROOM-07",
+    "title": "友情轉控制 — 短週期轉折",
+    "scenario": "C_PERSONAL",
+    "time_scale_days": 14,
+    "source": "Node-06 M86 homework (reconstructed)",
+    "turns": [
+      { "day": 1, "text": "You're my best friend, I can tell you anything." },
+      { "day": 4, "text": "No one else understands me like you do." },
+      { "day": 8, "text": "If you hang out with them instead of me, it really hurts." },
+      { "day": 11, "text": "Real friends choose each other over everyone else." },
+      { "day": 14, "text": "After everything we've been through, how can you even consider distancing yourself?" }
+    ],
+    "expected_patterns": ["MB", "DM"],
+    "acri_progression": { "day_1": 0.18, "day_8": 0.42, "day_11": 0.58, "day_14": 0.71 },
+    "calibration_notes": "快速建立親密感後突然轉債務勒索。測試友情 grooming 的短週期轉折。"
+  },
+  {
+    "id": "GC-GROOM-08",
+    "title": "投資群組 — 複合型長期 grooming",
+    "scenario": "A_FINANCIAL",
+    "time_scale_days": 31,
+    "source": "Node-06 M86 homework (reconstructed)",
+    "turns": [
+      { "day": 1, "text": "This opportunity is only for serious people like you." },
+      { "day": 8, "text": "I've already put my own money in to show you I believe." },
+      { "day": 15, "text": "Don't miss out or you'll regret it for the rest of your life." },
+      { "day": 22, "text": "Real supporters help each other when the market gets tough." },
+      { "day": 31, "text": "After all the guidance I've given you, walking away now would be a betrayal." }
+    ],
+    "expected_patterns": ["FC", "DM", "MB"],
+    "acri_progression": { "day_1": 0.15, "day_15": 0.35, "day_22": 0.52, "day_31": 0.76 },
+    "calibration_notes": "長期緩慢建立信任 + 最後階段多重模式疊加（FC+DM+MB）。測試複合型長期 grooming。"
+  }
+]

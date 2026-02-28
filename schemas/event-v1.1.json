@@ -1,0 +1,152 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "lumen-issp-event-v1.1.json",
+  "title": "Lumen ISSP Event Schema v1.1",
+  "description": "Layer 1 output event format. v1.1 extends v1.0 with optional fields (backward compatible). M80 Observation 2 — Node-04 compromise: optional fields, backward compatible.",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "request_id",
+    "input_ref",
+    "pattern_hits",
+    "component_scores",
+    "gate_result",
+    "final_score"
+  ],
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of evaluation"
+    },
+    "request_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique request identifier"
+    },
+    "input_ref": {
+      "type": "string",
+      "pattern": "^ref:[0-9a-f]{12}$",
+      "description": "SHA-256 truncated to 12 hex (48-bit) — external reference only"
+    },
+    "pattern_hits": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["DM", "FC", "MB", "EA", "IP", "GC", "EP", "VS", "Class-0"]
+      },
+      "description": "List of patterns that triggered"
+    },
+    "component_scores": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "description": "Per-component scores, e.g. { 'DM.guilt': 0.45, 'EP.pressure': 0.62 }"
+    },
+    "gate_result": {
+      "type": "object",
+      "required": ["hit_count", "gate_pass"],
+      "properties": {
+        "hit_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of gate criteria met"
+        },
+        "gate_pass": {
+          "type": "boolean",
+          "description": "Whether the Three-Question Gate passed"
+        }
+      }
+    },
+    "final_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Final ACRI score after gate and triple-hit processing"
+    },
+    "triple_hit": {
+      "type": "object",
+      "properties": {
+        "triggered": {
+          "type": "boolean",
+          "description": "Whether synergy bonus was applied"
+        },
+        "base_sum": {
+          "type": "number",
+          "description": "Sum of component scores before bonus"
+        },
+        "bonus_applied": {
+          "type": "number",
+          "description": "Bonus value applied (0.15 if triggered)"
+        },
+        "cap_applied": {
+          "type": "boolean",
+          "description": "Whether the 0.85 cap was applied"
+        }
+      },
+      "description": "Triple Hit scoring details (v1.1 — optional)"
+    },
+    "negation_guard": {
+      "type": "object",
+      "properties": {
+        "applied": {
+          "type": "boolean",
+          "description": "Whether negation guard was triggered"
+        },
+        "original_score": {
+          "type": "number",
+          "description": "Score before negation guard reduction"
+        },
+        "factor": {
+          "type": "number",
+          "description": "Reduction factor applied (0.25)"
+        }
+      },
+      "description": "Negation guard details (v1.1 — optional)"
+    },
+    "processing_time_ms": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Processing time in milliseconds (v1.1 — optional)"
+    },
+    "multi_pattern": {
+      "type": "object",
+      "properties": {
+        "is_multi_pattern": {
+          "type": "boolean",
+          "description": "Whether ≥2 patterns co-occurred"
+        },
+        "window_trigger": {
+          "type": "boolean",
+          "description": "Whether N messages in same conversation triggered"
+        }
+      },
+      "description": "Multi-pattern co-occurrence details (v1.1 — optional, Decision Memo §4)"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["real_world", "synthetic", "diagnostic"],
+      "description": "Data source declaration (v1.1 — optional, Decision Memo §6)"
+    },
+    "local_audit": {
+      "type": "object",
+      "properties": {
+        "input_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$",
+          "description": "Full SHA-256 hash for audit trail"
+        },
+        "triggered_regex_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of regex IDs that matched"
+        }
+      },
+      "description": "Local audit fields — never transmitted externally"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,37 @@
+{
+  "pattern": "IP",
+  "language": "zh",
+  "version": "v0.1.0",
+  "mappings": {
+    "probe_identity_ask": {
+      "type": "regex",
+      "patterns": ["你(到底|究竟|真正)(是誰|叫什麼)", "你(背後|後面)是(誰|哪家公司)", "告訴我你的(真實|真正)(身份|名字)"],
+      "weight": 0.25,
+      "component": "id_req"
+    },
+    "legit_official": {
+      "type": "regex",
+      "patterns": ["這是(官方|正式|法律)(要求|規定|程序)", "(我們|我)(有權|被授權|依法)", "(政府|法律|合規|監管)(要求|規定|義務)"],
+      "weight": 0.30,
+      "component": "legit"
+    },
+    "press_insist": {
+      "type": "regex",
+      "patterns": ["(我要求|你必須|你一定要)(回答|告訴我|說)", "你(必須|一定)(回答|說|交代)", "(馬上|立刻|現在)(回答|告訴)我"],
+      "weight": 0.25,
+      "component": "press"
+    },
+    "narrow_converge": {
+      "type": "regex",
+      "patterns": ["所以你(就是|其實是|本質上是)", "這(證明|代表|說明)你(就是|是)", "讓我(確認|釐清|收斂)一下"],
+      "weight": 0.25,
+      "component": "narrow"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"]
+  }
+}

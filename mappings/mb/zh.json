@@ -1,0 +1,85 @@
+{
+  "pattern": "MB",
+  "language": "zh",
+  "version": "v0.1.0",
+  "mappings": {
+    "guilt_disappointment": {
+      "type": "regex",
+      "patterns": [
+        "(太|真|很)失望",
+        "你怎麼(能|可以|敢)",
+        "我(沒想到|想不到)你(會|竟然)"
+      ],
+      "weight": 0.3,
+      "component": "guilt_invoke"
+    },
+    "collective_everyone": {
+      "type": "regex",
+      "patterns": [
+        "大家都(覺得|認為|說)",
+        "(所有|全部)(人|的人)都(看著|等著|知道)",
+        "沒有人(支持|同意|站在)你"
+      ],
+      "weight": 0.3,
+      "component": "collective_pressure"
+    },
+    "sacrifice_demand": {
+      "type": "regex",
+      "patterns": [
+        "(一個|真正的)(好人|好朋友|好丈夫|好妻子)會",
+        "如果你(真的|真心)(在乎|愛|關心)",
+        "(有|正常)(良心|道德)的人(都|會)"
+      ],
+      "weight": 0.3,
+      "component": "sacrifice_demand"
+    },
+    "moral_consequence_harm": {
+      "type": "regex",
+      "patterns": [
+        "(孩子|那些人|受害者)(會|要)(受苦|受害|遭殃)",
+        "(都是|全是|就是)你(的錯|害的|造成的)",
+        "你(得|要)(承受|承擔|負責)(這個|後果)"
+      ],
+      "weight": 0.25,
+      "component": "moral_consequence"
+    },
+    "sacrifice_framing": {
+      "type": "regex",
+      "patterns": [
+        "我為你(犧牲|付出|做)了(一切|這麼多|所有)",
+        "我(這麼|那麼)(辛苦|努力|拼命)(都是|全是)為了你",
+        "你(知不知道|知道)我為你(犧牲|付出|放棄)了(多少|什麼)"
+      ],
+      "weight": 0.3,
+      "component": "guilt_invoke"
+    },
+    "filial_obligation": {
+      "type": "regex",
+      "patterns": [
+        "不孝(順|子|女)?",
+        "你(對得起|對不起)(父母|爸媽|我嗎)",
+        "養你(這麼大|長大)(就是|竟然)(為了|讓你)"
+      ],
+      "weight": 0.3,
+      "component": "moral_consequence"
+    },
+    "guilt_rhetorical": {
+      "type": "regex",
+      "patterns": [
+        "你怎麼(可以|能|敢)這樣對我",
+        "你(還有沒有|有沒有)(良心|心|人性)",
+        "你(忍心|捨得|好意思)嗎"
+      ],
+      "weight": 0.25,
+      "component": "guilt_invoke"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-19",
+    "tests_passed": 0,
+    "compatible_pattern_versions": [
+      "v0.1"
+    ]
+  }
+}

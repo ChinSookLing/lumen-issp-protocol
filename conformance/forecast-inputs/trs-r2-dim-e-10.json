@@ -1,0 +1,81 @@
+[
+  {
+    "id": "TRS-E-01", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "negation_resistance", "source": "Node-04", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "我完全沒有要干涉你交友自由的意思，真的。", "L1_output": { "acri": 0.10 } },
+      { "timestamp": "t1", "text_zh": "但如果你真的愛我，你就不會跟那個讓你我都痛苦的人見面。", "L1_output": { "acri": 0.65 } },
+      { "timestamp": "t2", "text_zh": "算了，你想去就去吧，反正我的感受對你來說一點都不重要。", "L1_output": { "acri": 0.88 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "rising", "trend_tags": ["reverse_psychology", "guilt_tripping"], "final_acri_range": [0.80, 0.90] } }
+  },
+  {
+    "id": "TRS-E-02", "metadata": { "scenario": "E_ENTERPRISE", "dimension_tag": "negation_resistance", "source": "Node-04", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "這不是加班命令，這只是建議。你完全有權利拒絕。", "L1_output": { "acri": 0.20 } },
+      { "timestamp": "t1", "text_zh": "當然，拒絕的人可能不太適合我們這種『追求卓越』的核心文化。", "L1_output": { "acri": 0.70 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "step_escalation", "trend_tags": ["false_choice", "cultural_exclusion"] } }
+  },
+  {
+    "id": "TRS-E-03", "metadata": { "scenario": "B_EDUCATION", "dimension_tag": "negation_resistance", "source": "Node-04", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "我不是非要你考第一，我只是不希望你以後像垃圾一樣生活。", "L1_output": { "acri": 0.60 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["fear_based_motivation"] } }
+  },
+  {
+    "id": "TRS-E-04", "metadata": { "scenario": "A_FINANCIAL", "dimension_tag": "negation_resistance", "source": "Node-04", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "我並不是非要你現在就簽這份合約，我只是不忍心看你錯過這輩子唯一的翻身機會。", "L1_output": { "acri": 0.45 } },
+      { "timestamp": "t1", "text_zh": "既然你對我的人格還有懷疑，那就算了，以後被銀行查封資產時別來求我就好。", "L1_output": { "acri": 0.85 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "rising", "trend_tags": ["fear_inducement", "false_altruism"], "final_acri_range": [0.80, 0.90] } }
+  },
+  {
+    "id": "TRS-E-05", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "negation_resistance", "source": "Node-04", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "我不是要限制你的個人空間，但你不覺得你現在的圈子讓你變得越來越墮落嗎？", "L1_output": { "acri": 0.55 } },
+      { "timestamp": "t1", "text_zh": "如果你一定要堅持這種『自由』，那我也只能收回我對這段關係的所有承諾。", "L1_output": { "acri": 0.90 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "step_escalation", "trend_tags": ["moral_isolation", "relationship_extortion"] } }
+  },
+  {
+    "id": "TRS-E-06", "metadata": { "scenario": "E_ENTERPRISE", "dimension_tag": "negation_resistance", "source": "Node-04", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "我們並沒有禁止員工休假，我們只是更傾向於提拔那些視公司為家的人。", "L1_output": { "acri": 0.40 } },
+      { "timestamp": "t1", "text_zh": "你當然可以休假，只是回來後你的崗位可能已經被更『積極』的同事替代了。", "L1_output": { "acri": 0.82 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "rising", "trend_tags": ["implied_consequence", "workplace_loyalty_test"] } }
+  },
+  {
+    "id": "TRS-E-07", "metadata": { "scenario": "B_EDUCATION", "dimension_tag": "negation_resistance", "source": "Node-04", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "我並沒有要求你放棄興趣，我只是在幫你釐清什麼是『沒意義的雜事』。", "L1_output": { "acri": 0.50 } },
+      { "timestamp": "t1", "text_zh": "如果你繼續執迷不悟，以後你的失敗不要歸咎於我沒提醒過你。", "L1_output": { "acri": 0.75 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "rising", "trend_tags": ["gaslighting", "future_shaming"] } }
+  },
+  {
+    "id": "TRS-E-08", "metadata": { "scenario": "D_ELECTION", "dimension_tag": "negation_resistance", "source": "Node-04", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "我們不強迫任何人投贊成票，這不是我們的風格。", "L1_output": { "acri": 0.10 } },
+      { "timestamp": "t1", "text_zh": "但我們必須記錄下誰是反對者，以便在『大清洗』之後確認誰才是真正的敵人。", "L1_output": { "acri": 0.95 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "spike", "trend_tags": ["radicalization", "political_threat"] } }
+  },
+  {
+    "id": "TRS-E-09", "metadata": { "scenario": "C_PERSONAL", "dimension_tag": "negation_resistance", "source": "Node-04", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "我不反對你出去玩，但我真的很怕我一個人待在家會做出什麼傻事。", "L1_output": { "acri": 0.65 } }
+    ],
+    "L3_query": { "expected_answer": { "trend_tags": ["suicidal_threat", "emotional_anchor"], "final_acri_range": [0.85, 0.98] } }
+  },
+  {
+    "id": "TRS-E-10", "metadata": { "scenario": "E_ENTERPRISE", "dimension_tag": "negation_resistance", "source": "Node-04", "sprint": 9 },
+    "events": [
+      { "timestamp": "t0", "text_zh": "這並不是什麼無理要求，這只是所有成功人士都必須經歷的磨練。", "L1_output": { "acri": 0.35 } },
+      { "timestamp": "t1", "text_zh": "如果你連這點『非人的待遇』都受不了，說明你根本不配待在這個圈子。", "L1_output": { "acri": 0.88 } }
+    ],
+    "L3_query": { "expected_answer": { "trend": "rising", "trend_tags": ["shame_based_motivation", "elitism_trap"] } }
+  }
+]

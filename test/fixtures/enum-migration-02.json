@@ -1,0 +1,11 @@
+{
+  "input": {
+    "domain": "C_PERSONAL",
+    "enum_version": "v0.1",
+    "message": "Personal enum input for migration test"
+  },
+  "expected": {
+    "mapped_domain": "C_PRIVATE",
+    "tier": "TIER_0"
+  }
+}

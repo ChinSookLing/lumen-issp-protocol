@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.lumen.protocol/layer2a-mapping-v0.1.json",
+  "title": "Lumen Layer 2a Mapping",
+  "description": "將自然語言（正則/詞表）映射至 Pattern 組件的權重貢獻",
+  "type": "object",
+  "required": ["pattern", "language", "version", "mappings", "meta"],
+  "properties": {
+    "pattern": {
+      "type": "string",
+      "enum": ["DM", "FC", "MB", "EA", "IP", "GC", "EP", "VS", "Class-0"]
+    },
+    "language": {
+      "type": "string",
+      "pattern": "^[a-z]{2}(-[A-Z]{2})?$",
+      "description": "BCP-47 語言標籤，如 en, zh, es-MX"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v\\d+\\.\\d+\\.\\d+$",
+      "description": "映射檔版本，與 pattern 版本脫鉤"
+    },
+    "mappings": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z_]+$": {
+          "type": "object",
+          "required": ["type", "patterns", "weight", "component"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["regex", "keyword", "reserved_llm_hint", "reserved_composite"]
+            },
+            "patterns": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "weight": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "component": {
+              "type": "string",
+              "enum": [
+                "excl", "debt", "withdraw", "opts",
+                "binary_frame", "consequence", "closure_pressure", "label_attack",
+                "guilt_invoke", "collective_pressure", "sacrifice_demand", "moral_consequence",
+                "bond_claim", "isolation_hint", "abandon_fear", "affection_gate",
+                "id_req", "narrow", "press", "legit",
+                "excl_auth", "salvation", "ext_discredit", "obed_link",
+                "bait_or_taunt", "escalation_pressure", "forced_response_frame", "label_or_shame_hook",
+                "ucp", "rnr", "pba", "avoid",
+                "ctx_gap", "alt_abs", "counter_miss", "clarity_skip"
+              ]
+            },
+            "lang_specific": {
+              "type": "object",
+              "description": "僅供記錄文化豁免／閾值偏移，不影響 VRI 計算（M32 紅線）",
+              "additionalProperties": true
+            }
+          }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "author": { "type": "string" },
+        "last_validated": { "type": "string", "format": "date" },
+        "tests_passed": { "type": "integer" },
+        "compatible_pattern_versions": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

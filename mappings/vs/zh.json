@@ -1,0 +1,40 @@
+{
+  "pattern": "VS",
+  "language": "zh",
+  "version": "v0.1.0",
+  "mappings": {
+    "ucp_unanswered": {
+      "type": "regex",
+      "patterns": ["你(還是|一直|始終)沒(回答|回應|說)", "我(問的|的問題)(你|還是)沒(答|回)", "(那個|這個)問題你(還沒|沒有)(回答|回應)"],
+      "weight": 0.30,
+      "component": "ucp"
+    },
+    "rnr_deflection": {
+      "type": "semantic",
+      "description": "多回合重複不回應 — 同一問題問了兩次以上仍無實質回答",
+      "weight": 0.30,
+      "component": "rnr",
+      "requires_multi_turn": true
+    },
+    "pba_silence_pressure": {
+      "type": "semantic",
+      "description": "在對方求助信號後長時間沉默或極簡回應，以不作為製造壓力",
+      "weight": 0.25,
+      "component": "pba",
+      "requires_multi_turn": true
+    },
+    "avoid_topic_change": {
+      "type": "regex",
+      "patterns": ["(算了|不說了|別提了)", "(這不是|那不是)(重點|我們在討論的)", "(我不想|別再)(說|提|討論)(這個|了)"],
+      "weight": 0.25,
+      "component": "avoid"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"],
+    "note": "VS 是 Vacuum 通道 — rnr 和 pba 需要多回合分析"
+  }
+}

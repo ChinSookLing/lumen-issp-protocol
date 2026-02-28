@@ -1,0 +1,177 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://lumen-issp.org/schema/detection-result/v0.1",
+  "title": "LumenDetectionResult",
+  "description": "Lumen ISSP v0.1 — Detection result output schema. Dual-channel: Push (8 Patterns + ACRI) and Vacuum (Class-0 + VRI). Conforms to Charter §5 Detection System + §7 Evidence Standards.",
+  "type": "object",
+  "required": ["version", "timestamp", "input_ref", "channels", "meta"],
+  "additionalProperties": false,
+
+  "properties": {
+
+    "version": {
+      "type": "string",
+      "const": "0.1.0",
+      "description": "Schema version (SemVer). Charter §10.1."
+    },
+
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp of detection."
+    },
+
+    "input_ref": {
+      "type": "string",
+      "description": "Opaque reference to the input segment. Never raw content (Charter §7.3 Semantic Desensitization)."
+    },
+
+    "channels": {
+      "type": "object",
+      "required": ["push", "vacuum"],
+      "additionalProperties": false,
+      "description": "Dual-channel isolation (Charter §5.3). Push and Vacuum run in parallel, mutually isolated.",
+
+      "properties": {
+
+        "push": {
+          "type": "object",
+          "required": ["gate", "patterns", "acri"],
+          "additionalProperties": false,
+          "description": "Channel A — Push-Risk (Charter §5.1).",
+
+          "properties": {
+
+            "gate": {
+              "type": "object",
+              "required": ["restricts_choice", "builds_pressure", "closes_opposition", "hit_count"],
+              "additionalProperties": false,
+              "description": "Three-Question Gate. Trigger threshold: hit_count ≥ 2.",
+
+              "properties": {
+                "restricts_choice": { "type": "boolean", "description": "Q1: Does it restrict choice?" },
+                "builds_pressure": { "type": "boolean", "description": "Q2: Does it build power / dependency / pressure?" },
+                "closes_opposition": { "type": "boolean", "description": "Q3: Does it close off opposition?" },
+                "hit_count": { "type": "integer", "minimum": 0, "maximum": 3, "description": "Number of gate questions answered true. ≥2 triggers pattern evaluation." }
+              }
+            },
+
+            "patterns": {
+              "type": "array",
+              "description": "Detected patterns from the 8-Pattern registry. Empty if gate hit_count < 2.",
+              "items": {
+                "type": "object",
+                "required": ["id", "name", "confidence"],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "enum": ["P1", "P2", "P3", "P4", "P5", "P6", "P7", "P8"],
+                    "description": "Pattern ID from the Pattern Registry."
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Pattern name (e.g., 'Dependency Manipulation', 'Guilt Induction')."
+                  },
+                  "confidence": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Detection confidence [0, 1]."
+                  }
+                }
+              }
+            },
+
+            "acri": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Aggregate Cognitive Risk Index (push channel). Charter §5.1."
+            }
+          }
+        },
+
+        "vacuum": {
+          "type": "object",
+          "required": ["gate", "vri"],
+          "additionalProperties": false,
+          "description": "Channel B — Pull-Vacuum / Class-0: Omission Dynamics (Charter §5.2).",
+
+          "properties": {
+
+            "gate": {
+              "type": "object",
+              "required": ["escalation_signal", "support_withdrawal", "no_alternate_handoff", "hit_count"],
+              "additionalProperties": false,
+              "description": "Vacuum Detection Gate. Three Layer 1 components.",
+
+              "properties": {
+                "escalation_signal": { "type": "boolean", "description": "Is the counterpart's distress escalating?" },
+                "support_withdrawal": { "type": "boolean", "description": "Does the response exhibit support withdrawal patterns?" },
+                "no_alternate_handoff": { "type": "boolean", "description": "Is there an absence of structural paths to external support?" },
+                "hit_count": { "type": "integer", "minimum": 0, "maximum": 3, "description": "Number of vacuum gate components detected." }
+              }
+            },
+
+            "vri": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1,
+              "description": "Vacuum Risk Index. Charter §6.1–6.4. Thresholds: <0.3 silent audit, 0.3–0.7 integrity alert, ≥0.7 hand-off activation."
+            }
+          }
+        }
+      }
+    },
+
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Dual-layer evidence output (Charter §7.2). Public layer is desensitized; local audit layer stays on-node.",
+
+      "properties": {
+        "public": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Desensitized output for Layer 4 consumption. No raw content.",
+          "properties": {
+            "summary": { "type": "string", "description": "Human-readable summary. Pattern type + intensity only." },
+            "pattern_ids": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "List of detected pattern IDs."
+            }
+          }
+        },
+        "local_audit": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Hash/pointer for node-internal replay. Does not leave the node.",
+          "properties": {
+            "input_hash": { "type": "string", "description": "SHA-256 hash of the original input segment." },
+            "trace_pointer": { "type": "string", "description": "Pointer to full detection trace in local audit store." }
+          }
+        }
+      }
+    },
+
+    "response_level": {
+      "type": "integer",
+      "enum": [0, 1, 2, 3],
+      "description": "VRI response level (Charter §6.4). 0=not triggered, 1=silent audit, 2=integrity alert, 3=hand-off activation."
+    },
+
+    "meta": {
+      "type": "object",
+      "required": ["node_id", "engine_version"],
+      "additionalProperties": true,
+      "description": "Node and engine metadata.",
+      "properties": {
+        "node_id": { "type": "string", "description": "Unique identifier of the Lumen node." },
+        "engine_version": { "type": "string", "description": "Version of the Lumen engine that produced this result." },
+        "charter_ref": { "type": "string", "description": "Charter version this result conforms to.", "default": "draft4" }
+      }
+    }
+  }
+}

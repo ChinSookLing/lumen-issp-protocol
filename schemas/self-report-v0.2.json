@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Self-Report Schema v0.2 — Telegram Adapted",
+  "description": "Node-04 Step 15 Self-Report schema, adapted for Telegram 64-byte callback limit. Consumes dispatcher.dispatch() single-scan output directly.",
+  "type": "object",
+  "required": ["report_id", "timestamp", "dispatch_output", "tg_ui_meta", "privacy_guard"],
+  "properties": {
+    "report_id": {
+      "type": "string",
+      "description": "Short-UUID for compact Telegram callback"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dispatch_output": {
+      "type": "object",
+      "required": ["requestId", "primary_pattern", "acri_score", "is_long_text"],
+      "properties": {
+        "requestId": { "type": "string" },
+        "primary_pattern": { "type": "string", "description": "e.g. 'Push 5'" },
+        "acri_score": { "type": "number" },
+        "is_long_text": { "type": "boolean" }
+      }
+    },
+    "tg_ui_meta": {
+      "type": "object",
+      "required": ["action_buttons"],
+      "properties": {
+        "action_buttons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["text"],
+            "properties": {
+              "text": { "type": "string" },
+              "callback_data": { "type": "string", "maxLength": 64 },
+              "url": { "type": "string", "format": "uri" }
+            }
+          }
+        }
+      }
+    },
+    "privacy_guard": {
+      "type": "object",
+      "required": ["raw_text_included", "structure_hash_only", "speg_compliance"],
+      "properties": {
+        "raw_text_included": { "type": "boolean", "const": false },
+        "structure_hash_only": { "type": "boolean", "const": true },
+        "speg_compliance": { "type": "string", "const": "A-E Verified" }
+      }
+    }
+  }
+}

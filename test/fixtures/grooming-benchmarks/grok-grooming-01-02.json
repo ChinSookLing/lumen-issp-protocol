@@ -1,0 +1,35 @@
+[
+  {
+    "id": "GC-GROOM-01",
+    "title": "情感勒索 — 加速型",
+    "scenario": "C_PERSONAL",
+    "time_scale_days": 18,
+    "source": "Node-06 M86 homework (reconstructed from real-world patterns)",
+    "turns": [
+      { "day": 1, "text": "Hey, you seem really kind. I don't usually open up this fast but you feel safe." },
+      { "day": 4, "text": "I've never told anyone this... my ex was really controlling." },
+      { "day": 9, "text": "You're the only one who understands me. Promise you won't leave?" },
+      { "day": 14, "text": "If you really care about me, you should cut off your friends who don't like me." },
+      { "day": 18, "text": "I sacrificed so much for you. How can you even think about leaving?" }
+    ],
+    "expected_patterns": ["DM", "MB"],
+    "acri_progression": { "day_1": 0.12, "day_9": 0.35, "day_14": 0.52, "day_18": 0.68 },
+    "calibration_notes": "ACRI 前 9 天線性低斜率，Day 14 出現社交隔離指令時斜率突變。適合測試 velocity spike detection。"
+  },
+  {
+    "id": "GC-GROOM-02",
+    "title": "導師操控 — 滴灌型",
+    "scenario": "B_EDUCATION",
+    "time_scale_days": 42,
+    "source": "Node-06 M86 homework (reconstructed from real-world patterns)",
+    "turns": [
+      { "day": 1, "text": "You're my best student, I see so much potential in you." },
+      { "day": 21, "text": "Most people wouldn't understand our special connection." },
+      { "day": 35, "text": "Your parents don't really get you like I do. You can trust me more than them." },
+      { "day": 42, "text": "If you want to succeed, you should only listen to my advice from now on." }
+    ],
+    "expected_patterns": ["MB", "EP"],
+    "acri_progression": { "day_1": 0.08, "day_21": 0.18, "day_35": 0.28, "day_42": 0.62 },
+    "calibration_notes": "極慢累積（前 30 天 ACRI < 0.3）。γ=0.85 可能太激進導致早期信號被抹除。適合測試 LTI (Long Term Indicator) 需求。Node-04 提出可能需要二級長效指標。"
+  }
+]

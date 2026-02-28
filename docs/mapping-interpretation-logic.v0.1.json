@@ -1,0 +1,30 @@
+{
+  "version": "0.1",
+  "principles": ["specificity_first", "essential_character", "shadowing_allowed", "redline_safety"],
+  "decision_tree": [
+    {
+      "id": "DT-01",
+      "when": { "dual_trigger": true },
+      "then": {
+        "output": "shadowed",
+        "rules": [
+          { "if": "moral_consequence > bait_or_taunt", "primary": "MB" },
+          { "if": "bait_or_taunt > moral_consequence", "primary": "EP" },
+          { "if": "equal", "primary": "both" }
+        ]
+      },
+      "note": "Grey zone allows dual-trigger; only output policy changes here."
+    },
+    {
+      "id": "DT-02",
+      "when": { "shared_lexicon_hit": true },
+      "then": {
+        "rules": [
+          { "if": "component_scores_resolve", "primary": "component_result" },
+          { "if": "conflict", "output": "conflict_flag", "primary": "none" }
+        ]
+      },
+      "note": "Shared lexicon provides features; final decision stays with component scoring."
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.lumen.issp/aggregate-v1.json",
+  "title": "Lumen Aggregate Schema",
+  "description": "Statistical aggregates over multiple events, used as input to Layer 3 forecast engine.",
+  "type": "object",
+  "required": [
+    "aggregate_id",
+    "time_range",
+    "pattern",
+    "statistics"
+  ],
+  "properties": {
+    "aggregate_id": {
+      "type": "string",
+      "pattern": "^agg_[a-f0-9]{16}$"
+    },
+    "time_range": {
+      "type": "object",
+      "required": [
+        "start",
+        "end",
+        "window_days"
+      ],
+      "properties": {
+        "start": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "end": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "window_days": {
+          "type": "integer",
+          "enum": [
+            7,
+            30,
+            90
+          ]
+        }
+      }
+    },
+    "pattern": {
+      "type": "string",
+      "enum": [
+        "DM",
+        "FC",
+        "MB",
+        "EA",
+        "IP",
+        "GC",
+        "EP",
+        "VS",
+        "Class-0"
+      ]
+    },
+    "statistics": {
+      "type": "object",
+      "required": [
+        "count",
+        "avg_intensity",
+        "std_intensity",
+        "gate_distribution"
+      ],
+      "properties": {
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "avg_intensity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "std_intensity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "min_intensity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "max_intensity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "gate_distribution": {
+          "type": "object",
+          "properties": {
+            "0": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "1": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "2": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "3": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "time_series": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "timestamp",
+              "intensity"
+            ],
+            "properties": {
+              "timestamp": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "intensity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "node_id": {
+          "type": "string"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

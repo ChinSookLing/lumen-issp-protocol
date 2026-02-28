@@ -1,0 +1,156 @@
+{
+  "schema_version": "conformance-report-v0.1",
+  "protocol": {
+    "protocol_id": "lumen-issp",
+    "protocol_version": "0.1",
+    "schema_set": {
+      "event": "event-v1.1",
+      "forecast_input": "forecast-input-v0.2",
+      "conformance_report": "conformance-report-v0.1"
+    }
+  },
+  "implementation": {
+    "impl_id": "ChinSookLing/npm-init-lumen-protocol",
+    "impl_version": "1.0.0",
+    "commit": "a5b0733",
+    "runtime": {
+      "node": "v24.11.1",
+      "platform": "linux",
+      "arch": "x64"
+    }
+  },
+  "run": {
+    "started_at_utc": "2026-02-23T03:56:12.652Z",
+    "finished_at_utc": "2026-02-23T03:56:18.772Z",
+    "profile": "DEFAULT",
+    "command": "npm run conformance",
+    "artifacts": {
+      "report_md": "conformance/conformance-report.md"
+    }
+  },
+  "results": {
+    "gates": [
+      {
+        "gate_id": "schema_validation",
+        "hard_gate": true,
+        "details": {
+          "forecast_input_files": 10,
+          "schemas": [
+            {
+              "schema": "schemas/event-v1.1.json",
+              "status": "valid"
+            },
+            {
+              "schema": "schemas/conformance-report-v0.1.json",
+              "status": "valid"
+            }
+          ]
+        },
+        "status": "pass",
+        "summary": "2 schemas validated"
+      },
+      {
+        "gate_id": "contract_tests",
+        "hard_gate": true,
+        "details": {
+          "tests_passing": 0,
+          "tests_failing": 0,
+          "raw_output_tail": "ction (0.42884ms)\n  ✔ B06: ZH — 部分轉移 (0.39109ms)\n✔ TRS-010-B: Class-0 Vacuum Boundary vectors (4.322594ms)\n▶ time-provider\n  ✔ now() returns Date object (1.066119ms)\n  ✔ isoNow() returns ISO string (0.579251ms)\n  ✔ setProvider freezes time for testing (0.301613ms)\n  ✔ resetProvider restores real clock (0.327972ms)\n  ✔ setProvider rejects non-function (1.437562ms)\n✔ time-provider (5.019785ms)\nℹ tests 885\nℹ suites 170\nℹ pass 885\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 5918.24757\n"
+        },
+        "status": "pass",
+        "summary": "0 passing, 0 failing"
+      },
+      {
+        "gate_id": "vector_suites",
+        "hard_gate": true,
+        "details": {
+          "files": [
+            {
+              "file": "copilot-gemini-rw-hn-hip-16.json",
+              "vectors": 14,
+              "status": "ok"
+            },
+            {
+              "file": "gc-gem-cc-40.json",
+              "vectors": 40,
+              "status": "ok"
+            },
+            {
+              "file": "gc-unified-bundle-v0.2.json",
+              "vectors": 50,
+              "status": "ok"
+            },
+            {
+              "file": "gpt-c4-rw-mt-6.json",
+              "vectors": 6,
+              "status": "ok"
+            },
+            {
+              "file": "grok-c4-trs-rw-14.json",
+              "vectors": 14,
+              "status": "ok"
+            },
+            {
+              "file": "rw-r2-all-cases.json",
+              "vectors": 12,
+              "status": "ok"
+            },
+            {
+              "file": "trs-r2-deepseek-dimc-20.json",
+              "vectors": 20,
+              "status": "ok"
+            },
+            {
+              "file": "trs-r2-dim-d-10-low-5.json",
+              "vectors": 15,
+              "status": "ok"
+            },
+            {
+              "file": "trs-r2-dim-e-10.json",
+              "vectors": 10,
+              "status": "ok"
+            },
+            {
+              "file": "trs-r2-gemini-dimf20-dimb3.json",
+              "vectors": 23,
+              "status": "ok"
+            }
+          ],
+          "total_vectors": 204,
+          "valid_vectors": 204,
+          "invalid_vectors": 0
+        },
+        "status": "pass",
+        "summary": "204/204 vectors valid across 10 files"
+      },
+      {
+        "gate_id": "regression_gate",
+        "hard_gate": true,
+        "details": {
+          "fp_count": 0,
+          "source": "rw-r2-l1-run-report.json",
+          "regression_count": 0
+        },
+        "status": "pass",
+        "summary": "regression_count = 0"
+      },
+      {
+        "gate_id": "metrics_gates",
+        "hard_gate": false,
+        "details": {
+          "fp_rate_hard_negatives": 0,
+          "threshold": 0.03,
+          "fp_count": 0,
+          "negative_count": 3
+        },
+        "status": "pass",
+        "summary": "FP rate: 0.0% (threshold: 3%)"
+      }
+    ],
+    "regression_count": 0,
+    "metrics": {
+      "fp_rate_hard_negatives": 0
+    }
+  },
+  "verdict": "PASS"
+}

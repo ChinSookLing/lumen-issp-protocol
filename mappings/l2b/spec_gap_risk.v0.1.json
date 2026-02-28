@@ -1,0 +1,15 @@
+{
+  "version": "v0.1",
+  "carrier": "2b-lite",
+  "key": "spec_gap_risk",
+  "human_label": {
+    "zh": "規格落差風險",
+    "en": "Spec gap risk"
+  },
+  "definition": "要求採取行動或接受結論，但關鍵規格/條件/驗證方式被留白、延期或刻意模糊，形成可被操控的決策落差。",
+  "abuse_case": "用『先照做、細節不重要、之後再補』來催促同意/下決策，並把可核驗條件推遲。",
+  "notes": [
+    "Structure-only detection; no intent inference.",
+    "Tier0 output: key + short label only (no raw text)."
+  ]
+}

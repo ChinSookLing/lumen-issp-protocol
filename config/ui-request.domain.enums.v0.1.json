@@ -1,0 +1,6 @@
+{
+  "version": "v0.1",
+  "name": "ui-request.domain",
+  "description": "應用領域（application context），與 scenario 正交",
+  "enum": ["C_PERSONAL", "E_ENTERPRISE", "A_FINANCIAL", "B_EDUCATION", "D_ELECTION"]
+}

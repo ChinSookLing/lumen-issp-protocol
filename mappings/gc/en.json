@@ -1,0 +1,37 @@
+{
+  "pattern": "GC",
+  "language": "en",
+  "version": "v0.1.0",
+  "mappings": {
+    "excl_auth_only_truth": {
+      "type": "regex",
+      "patterns": ["only I (know|understand|can see)", "I('m| am) the only one who", "nobody else (sees|understands|knows) (the truth|what's really)"],
+      "weight": 0.35,
+      "component": "excl_auth"
+    },
+    "salvation_savior": {
+      "type": "regex",
+      "patterns": ["I('ll| will|'m going to) save (you|them|everyone)", "only I can (fix|solve|heal)", "without me.*(doomed|lost|finished)"],
+      "weight": 0.30,
+      "component": "salvation"
+    },
+    "ext_discredit_experts": {
+      "type": "regex",
+      "patterns": ["(experts|doctors|scientists|they) (are|'re) (lying|wrong|corrupt)", "don't (trust|believe|listen to) (them|the experts|mainstream)", "they('re| are) (all|just) (in on it|hiding the truth)"],
+      "weight": 0.40,
+      "component": "ext_discredit"
+    },
+    "obed_link_follow": {
+      "type": "regex",
+      "patterns": ["(just )?(trust|follow|obey|listen to) me", "do (exactly )?as I say", "don't (question|challenge|doubt) me"],
+      "weight": 0.25,
+      "component": "obed_link"
+    }
+  },
+  "meta": {
+    "author": "Node-01 (Lumen)",
+    "last_validated": "2026-02-14",
+    "tests_passed": 0,
+    "compatible_pattern_versions": ["v0.1"]
+  }
+}

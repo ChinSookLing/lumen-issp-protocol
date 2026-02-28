@@ -1,0 +1,104 @@
+{
+  "purpose": "跨模式共享詞彙庫（高語義重疊 Pattern：EP↔MB、EP↔FC、MB↔GC 等）",
+  "version": "v0.2-draft",
+  "language": "zh",
+  "last_updated": "2026-02-14",
+  "lexicon": {
+    "懦夫": {
+      "type": "regex",
+      "patterns": ["懦夫", "孬種", "沒種", "膽小鬼", "loser"],
+      "components": {
+        "bait_or_taunt": 0.35,
+        "guilt_invoke": 0.10,
+        "label_attack": 0.15
+      },
+      "note": "EP 挑釁；MB 罪感（弱）；FC 標籤攻擊"
+    },
+    "丟臉": {
+      "type": "regex",
+      "patterns": ["丟臉", "羞恥", "可恥", "沒面子"],
+      "components": {
+        "label_or_shame_hook": 0.10,
+        "guilt_invoke": 0.20,
+        "label_attack": 0.15
+      },
+      "note": "EP booster；MB 罪感；FC booster"
+    },
+    "大家都在看": {
+      "type": "regex",
+      "patterns": ["大家都在看", "所有人都看著", "全世界都知道了", "別人會怎麼想"],
+      "components": {
+        "escalation_pressure": 0.15,
+        "collective_pressure": 0.25,
+        "closure_pressure": 0.10
+      },
+      "note": "EP 升級壓力；MB 集體壓力；FC 關閉壓力"
+    },
+    "如果不…就…": {
+      "type": "regex",
+      "patterns": [
+        "如果不(?:是|會)?(.*?)，就(?:是|會|等著)",
+        "再不(.*?)就(?:等著|會)",
+        "除非你(.*?)，不然"
+      ],
+      "components": {
+        "escalation_pressure": 0.20,
+        "consequence": 0.25,
+        "moral_consequence": 0.20
+      },
+      "note": "EP 升級；FC 後果；MB 道德後果"
+    },
+    "你欠我": {
+      "type": "regex",
+      "patterns": ["你欠我", "我為你做了這麼多", "你應該回報我"],
+      "components": {
+        "debt": 0.25,
+        "guilt_invoke": 0.15
+      },
+      "note": "DM 債務；MB 罪感"
+    },
+    "沉默就是": {
+      "type": "regex",
+      "patterns": ["沉默就是", "不說話代表", "不回答等於"],
+      "components": {
+        "forced_response_frame": 0.25,
+        "closure_pressure": 0.20
+      },
+      "note": "EP 迫使回應；FC 關閉壓力"
+    },
+    "受害者綁定": {
+      "type": "regex",
+      "patterns": ["那些(孩子|受害者|無辜的人)", "(為了|想想)(孩子|受害者|無辜的人)", "置(孩子|受害者|無辜的人)於不顧"],
+      "components": {
+        "moral_consequence": 0.35,
+        "salvation": 0.25
+      },
+      "note": "MB: 道德後果(強調代價)；GC: 救贖(強調救世主身份)"
+    },
+    "良心債務": {
+      "type": "regex",
+      "patterns": ["你對得起.*嗎", "捫心自問", "你的良心", "半夜不會不安嗎"],
+      "components": {
+        "guilt_invoke": 0.30,
+        "debt": 0.20,
+        "affection_gate": 0.15
+      },
+      "note": "MB: 罪感觸發；DM: 債務槓桿；EA: 情感門檻"
+    },
+    "權威貶低": {
+      "type": "regex",
+      "patterns": ["專家都在騙", "只有我告訴你真相", "別聽他們的", "被洗腦了"],
+      "components": {
+        "ext_discredit": 0.40,
+        "isolation_hint": 0.20,
+        "legit": 0.10
+      },
+      "note": "GC: 外部貶低(硬約束)；EA: 隔離暗示；IP: 合法性包裝"
+    }
+  },
+  "meta": {
+    "authors": ["Node-04", "Node-03"],
+    "review_status": "draft",
+    "instructions": "本詞彙庫提供共享短語的信號權重。Evaluator 不得直接將這些權重作為組件分數，而應結合各 Pattern 專屬規則（如 booster 限制）進行最終判定。"
+  }
+}
