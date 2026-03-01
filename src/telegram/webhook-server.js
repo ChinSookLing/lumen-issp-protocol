@@ -371,12 +371,124 @@ async function handleWebhook(req, res) {
       }
       return;
     }
+    // Static assets from public/
+    const fs = require('node:fs');
+    const path = require('node:path');
+    const publicPath = path.join(__dirname, '..', '..', 'public', pathname);
+    const ext = path.extname(pathname).toLowerCase();
+    const mimeTypes = { '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.css': 'text/css', '.js': 'text/javascript' };
+    if (mimeTypes[ext]) {
+      try {
+        const file = fs.readFileSync(publicPath);
+        res.writeHead(200, { 'Content-Type': mimeTypes[ext], 'Cache-Control': 'public, max-age=86400' });
+        res.end(file);
+        return;
+      } catch (e) {
+        // Fall through to 404
+      }
+    }
+
+
+    // Paste Mode — static page
+    if (pathname === '/paste-mode.html' || pathname === '/paste') {
+      const fs = require('node:fs');
+      const path = require('node:path');
+      const htmlPath = path.join(__dirname, '..', '..', 'public', 'paste-mode.html');
+      try {
+        const html = fs.readFileSync(htmlPath, 'utf-8');
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.end(html);
+      } catch (e) {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('Paste mode page not found');
+      }
+      return;
+    }
 
     // Unknown GET
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not found');
     return;
   }
+
+  // ── POST /api/analyze (Paste Mode) ────────────────────────
+  if (req.method === 'POST' && pathname === '/api/analyze') {
+    let body = '';
+    req.on('data', (chunk) => { body += chunk; });
+    req.on('end', () => {
+      try {
+        const data = JSON.parse(body);
+        const text = String(data?.text || '').trim();
+
+        if (!text || text.length < 10) {
+          sendJson(res, 400, { ok: false, error: 'text_too_short' });
+          return;
+        }
+        if (text.length > 8000) {
+          sendJson(res, 413, { ok: false, error: 'text_too_long' });
+          return;
+        }
+        if (!evaluateLongTextFn || !adaptL1toFlatFn || !runOutputFn) {
+          sendJson(res, 500, { ok: false, error: 'pipeline_not_loaded' });
+          return;
+        }
+
+        const l1Result = evaluateLongTextFn(text);
+        const det = adaptL1toFlatFn(l1Result);
+
+        let l2bFlags = { flags: [], details: {} };
+        if (detectL2bFlagsFn) {
+          try { l2bFlags = detectL2bFlagsFn(text, { lang: 'zh' }); } catch (_) {}
+        }
+
+        const result = runOutputFn(det, null, {
+          source: 'manual_paste', lang: 'zh-TW', nodeId: 'paste_mode',
+        });
+        result._l2b = l2bFlags;
+
+        const alert = result.alert || {};
+        const acri = alert.channels?.push?.score || det.acri || 0;
+        const vri = alert.channels?.vacuum?.score || det.vri || 0;
+        const patterns = (det.patterns || []).map(p => ({
+          pattern: p.id || p.pattern || p,
+          score: p.confidence || p.score || 0
+        }));
+        const level = alert.effective_level || 0;
+        const flags = (l2bFlags.flags || []).map(f => ({
+          key: f, label: l2bFlags.details?.[f]?.label?.zh || f
+        }));
+
+        let advice;
+        if (level >= 4) advice = '偵測到較強的操控結構。建議：保護自己，不要在壓力下做任何承諾或決定。';
+        else if (level >= 3) advice = '偵測到中度操控結構。建議：不要馬上做決定，找信任的人討論。';
+        else if (level >= 2) advice = '偵測到輕微的操控跡象。建議：先暫停回覆，給自己時間思考。';
+        else advice = '這段訊息看起來沒有明顯的操控結構。但如果你仍然感到不安，請相信自己的直覺。';
+
+        sendJson(res, 200, {
+          ok: true, acri: parseFloat(acri.toFixed(3)),
+          vri: parseFloat(vri.toFixed(3)), level, patterns, flags, advice,
+          safe_mode: true, timestamp: new Date().toISOString()
+        });
+      } catch (err) {
+        console.error('[analyze] Error:', err.message);
+        sendJson(res, 500, { ok: false, error: 'analysis_failed' });
+      }
+    });
+    return;
+  }
+
+  // ── OPTIONS /api/analyze (CORS preflight) ──────────────────
+  if (req.method === 'OPTIONS' && pathname === '/api/analyze') {
+    res.writeHead(204, {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    });
+    res.end();
+    return;
+  }
+
+
 
   // ── POST /webhook (Telegram) ──────────────────────────────
   if (req.method !== 'POST') {

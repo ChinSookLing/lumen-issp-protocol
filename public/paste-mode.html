@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Lumen ISSP">
+<title>Lumen ISSP — 訊息結構檢測</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #242836;
+    --border: #2e3345;
+    --text: #e8eaf0;
+    --text-dim: #8b90a5;
+    --accent: #6c9bff;
+    --blue: #4a90d9;
+    --green: #34d399;
+    --yellow: #fbbf24;
+    --orange: #f97316;
+    --red: #ef4444;
+    --radius: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header {
+    padding: 16px 20px 12px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+  .header-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  .logo-text {
+    font-size: 15px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .tagline {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  .main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .instruction {
+    font-size: 14px;
+    color: var(--text-dim);
+    text-align: center;
+    line-height: 1.6;
+    padding: 0 12px;
+  }
+  .instruction strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .microcaps {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+    color: var(--text-dim);
+    opacity: 0.7;
+  }
+
+  .input-wrap {
+    position: relative;
+    flex: 1;
+    min-height: 180px;
+  }
+  .input-wrap textarea {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    padding-bottom: 32px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    resize: none;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .input-wrap textarea:focus { border-color: var(--accent); }
+  .input-wrap textarea::placeholder { color: var(--text-dim); font-size: 14px; }
+  .char-count {
+    position: absolute;
+    bottom: 10px;
+    right: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    pointer-events: none;
+  }
+  .char-count.warn { color: var(--orange); }
+  .char-count.over { color: var(--red); }
+
+  .btn-analyze {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: var(--radius);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: linear-gradient(135deg, var(--accent), var(--blue));
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-analyze:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(108, 155, 255, 0.25); }
+  .btn-analyze:active:not(:disabled) { transform: translateY(0); }
+  .btn-analyze:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-analyze.loading { color: transparent; }
+  .btn-analyze.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 22px; height: 22px;
+    margin: -11px 0 0 -11px;
+    border: 2.5px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .lang-note {
+    text-align: center;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-dim);
+    opacity: 0.6;
+  }
+
+  .result {
+    display: none;
+    border-radius: var(--radius);
+    overflow: hidden;
+    animation: slideUp 0.4s ease-out;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .result.show { display: block; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+  .result-header { padding: 20px; display: flex; align-items: center; gap: 14px; }
+  .result-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+  .result-title { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+  .result-subtitle { font-size: 13px; opacity: 0.8; }
+
+  .result-body { padding: 0 20px 20px; }
+  .result-advice { font-size: 15px; line-height: 1.8; padding: 14px 16px; border-radius: 12px; background: rgba(255,255,255,0.06); }
+  .result-meta { margin-top: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); line-height: 1.8; }
+
+  .level-safe .result-header { background: rgba(52, 211, 153, 0.1); }
+  .level-safe .result-icon { background: rgba(52, 211, 153, 0.2); }
+  .level-safe .result-title { color: var(--green); }
+  .level-safe .risk-fill { background: var(--green); }
+
+  .level-mild .result-header { background: rgba(251, 191, 36, 0.1); }
+  .level-mild .result-icon { background: rgba(251, 191, 36, 0.2); }
+  .level-mild .result-title { color: var(--yellow); }
+  .level-mild .risk-fill { background: var(--yellow); }
+
+  .level-moderate .result-header { background: rgba(249, 115, 22, 0.1); }
+  .level-moderate .result-icon { background: rgba(249, 115, 22, 0.2); }
+  .level-moderate .result-title { color: var(--orange); }
+  .level-moderate .risk-fill { background: var(--orange); }
+
+  .level-high .result-header { background: rgba(239, 68, 68, 0.1); }
+  .level-high .result-icon { background: rgba(239, 68, 68, 0.2); }
+  .level-high .result-title { color: var(--red); }
+  .level-high .risk-fill { background: var(--red); }
+
+  .section-title { font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-top: 14px; margin-bottom: 6px; }
+  .patterns-found { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pattern-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 3px 10px; border-radius: 20px; background: rgba(255,255,255,0.08); color: var(--text-dim); }
+
+  .risk { margin-top: 14px; }
+  .risk-row { display: flex; justify-content: space-between; align-items: baseline; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); margin-bottom: 6px; }
+  .risk-row strong { color: var(--text); font-size: 13px; }
+  .risk-bar { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.08); overflow: hidden; }
+  .risk-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease-out; }
+
+  .error-msg { display: none; text-align: center; padding: 14px; border-radius: 12px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); color: var(--red); font-size: 13px; }
+  .error-msg.show { display: block; }
+
+  .footer { padding: 16px 20px; text-align: center; font-size: 11px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; border-top: 1px solid var(--border); line-height: 1.6; }
+  .footer a { color: var(--accent); text-decoration: none; }
+
+  .btn-clear { display: none; width: 100%; padding: 12px; border: 1.5px solid var(--border); border-radius: var(--radius); background: transparent; color: var(--text-dim); font-family: 'Noto Sans TC', sans-serif; font-size: 14px; cursor: pointer; transition: all 0.3s; }
+  .btn-clear.show { display: block; }
+  .btn-clear:hover { border-color: var(--text-dim); color: var(--text); }
+
+  .result-actions { margin-top: 12px; display: flex; gap: 10px; }
+  .btn-copy { flex: 1; padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04); color: var(--text); font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.25s; }
+  .btn-copy:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.18); }
+  .btn-copy:active { transform: translateY(0); }
+
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: rgba(15,17,23,0.92); border: 1px solid rgba(255,255,255,0.10); color: var(--text); padding: 10px 12px; border-radius: 999px; font-size: 12px; font-family: 'JetBrains Mono', monospace; display: none; z-index: 50; backdrop-filter: blur(8px); }
+  .toast.show { display: block; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="display:flex;align-items:center;justify-content:center;gap:8px">
+    <img src="lumen-logo.png" alt="Lumen ISSP" class="header-logo" onerror="this.style.display='none'">
+    <div class="logo-text">LUMEN ISSP</div>
+  </div>
+  <div class="tagline">Information Sovereignty Shield Protocol</div>
+</div>
+
+<div class="main">
+  <div class="instruction">
+    <strong>貼上一段你想確認的訊息</strong><br>
+    Lumen 會標示其中可能影響判斷的語氣與結構<br>
+    <span class="microcaps">免登入 · 免 Telegram · 隱私優先（原文零留存）</span>
+  </div>
+
+  <div class="input-wrap">
+    <textarea id="inputText" maxlength="8000" placeholder="例如：群組對話、收到的簡訊、電郵，&#10;或任何你想更清楚理解的文字"></textarea>
+    <div class="char-count" id="charCount">0 / 8,000 字</div>
+  </div>
+
+  <button class="btn-analyze" id="btnAnalyze" onclick="analyze()">查看提示</button>
+
+  <div class="lang-note">支援：English · 简体中文 · 繁體中文</div>
+
+  <div class="error-msg" id="errorMsg"></div>
+  <div class="result" id="resultCard"></div>
+  <button class="btn-clear" id="btnClear" onclick="clearAll()">清除，再試一次</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="footer">
+  Lumen ISSP v1.0.1 · 原文零留存<br>
+  <a href="https://github.com/ChinSookLing/lumen-issp-protocol" target="_blank">GitHub</a> · 由 AI Council 開發
+</div>
+
+<script>
+const API_BASE = 'https://lumen-issp-node-server.onrender.com';
+const MAX_CHARS = 8000;
+const textarea = document.getElementById('inputText');
+const charCount = document.getElementById('charCount');
+const btnAnalyze = document.getElementById('btnAnalyze');
+const btnClear = document.getElementById('btnClear');
+const resultCard = document.getElementById('resultCard');
+const errorMsg = document.getElementById('errorMsg');
+const toast = document.getElementById('toast');
+
+function updateCharCount() {
+  const len = textarea.value.length;
+  const formatted = len.toLocaleString() + ' / ' + MAX_CHARS.toLocaleString() + ' 字';
+  charCount.textContent = formatted;
+  charCount.className = 'char-count' + (len > MAX_CHARS ? ' over' : len > MAX_CHARS * 0.9 ? ' warn' : '');
+}
+textarea.addEventListener('input', updateCharCount);
+
+function clearAll() {
+  textarea.value = '';
+  updateCharCount();
+  resultCard.className = 'result';
+  resultCard.innerHTML = '';
+  btnClear.className = 'btn-clear';
+  errorMsg.className = 'error-msg';
+  textarea.focus();
+}
+
+async function analyze() {
+  const text = textarea.value.trim();
+  if (!text) { textarea.focus(); return; }
+  if (text.length < 10) { showError('訊息太短，請貼上完整的內容（至少 10 個字）'); return; }
+  if (text.length > MAX_CHARS) { showError('訊息超過 ' + MAX_CHARS.toLocaleString() + ' 字上限'); return; }
+
+  btnAnalyze.disabled = true;
+  btnAnalyze.classList.add('loading');
+  errorMsg.className = 'error-msg';
+  resultCard.className = 'result';
+
+  try {
+    const res = await fetch(API_BASE + '/api/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text })
+    });
+    if (!res.ok) throw new Error('Server 無回應 (' + res.status + ')');
+    const data = await res.json();
+    showResult(data);
+  } catch (err) {
+    showError('連線失敗 — ' + (err.message || '請稍後再試'));
+  } finally {
+    btnAnalyze.disabled = false;
+    btnAnalyze.classList.remove('loading');
+  }
+}
+
+function showError(msg) { errorMsg.textContent = msg; errorMsg.className = 'error-msg show'; }
+
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.className = 'toast show';
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(() => { toast.className = 'toast'; }, 1600);
+}
+
+let lastResult = {};
+
+function showResult(data) {
+  const acri = data.acri || 0;
+  const level = classifyLevel(acri);
+  const patterns = data.patterns || [];
+  const advice = getDefaultAdvice(level);
+  lastResult = { level, acri, patterns, advice };
+  renderResult(level, acri, patterns, advice);
+}
+
+function classifyLevel(acri) {
+  if (acri >= 0.6) return 'high';
+  if (acri >= 0.35) return 'moderate';
+  if (acri >= 0.15) return 'mild';
+  return 'safe';
+}
+
+function getDefaultAdvice(level) {
+  return {
+    safe: '這段訊息未見明顯的施壓或引導結構。如果你仍然感到不安，請相信自己的直覺。',
+    mild: '看見輕微的施壓特徵。建議：先暫停回覆，給自己時間思考。',
+    moderate: '看見中度的引導結構。建議：不要馬上做決定，找信任的人討論。',
+    high: '看見較強的施壓與引導特徵。建議：保護自己，不要在壓力下做任何承諾或決定。'
+  }[level];
+}
+
+function copySummaryFromButton() {
+  const { level, acri, patterns, advice } = lastResult;
+  const levelMap = { safe: '未見異常', mild: '低度提示', moderate: '中度提示', high: '高度提示' };
+  const pat = (patterns || []).map(p => (p.pattern || p)).join(', ') || '—';
+  const text = `Lumen ISSP 結構檢測摘要\n等級：${levelMap[level] || level}\nACRI：${acri.toFixed(3)}\n特徵：${pat}\n建議：${advice}`;
+  navigator.clipboard.writeText(text)
+    .then(() => showToast('已複製摘要'))
+    .catch(() => showToast('無法複製（請長按自行複製）'));
+}
+
+function renderResult(level, acri, patterns, advice) {
+  const config = {
+    safe:     { icon: '🔵', title: '未見異常',   sub: '未偵測到明顯施壓或引導結構' },
+    mild:     { icon: '🟡', title: '低度提示',   sub: '偵測到輕微施壓特徵' },
+    moderate: { icon: '🟠', title: '中度提示',   sub: '偵測到引導性結構' },
+    high:     { icon: '🔴', title: '高度提示',   sub: '偵測到較強施壓與引導特徵' }
+  };
+  const c = config[level];
+
+  const patternNames = {
+    EP: '情緒施壓', FC: '虛假選擇', MB: '心理綁定',
+    GC: '群體壓力', DM: '決策引導', EA: '情緒利用',
+    IP: '信息引導', VS: '角色轉換', SA: '結構遺棄'
+  };
+
+  let patternsHTML = '';
+  if (patterns.length > 0) {
+    patternsHTML = '<div class="section-title">結構特徵</div><div class="patterns-found">' +
+      patterns.map(p => {
+        const code = p.pattern || p;
+        return `<span class="pattern-tag">${code} ${patternNames[code] || code}</span>`;
+      }).join('') + '</div>';
+  }
+
+  const pct = Math.max(0, Math.min(100, Math.round(acri * 100)));
+
+  resultCard.innerHTML = `
+    <div class="result-header">
+      <div class="result-icon">${c.icon}</div>
+      <div>
+        <div class="result-title">${c.title}</div>
+        <div class="result-subtitle">${c.sub}</div>
+      </div>
+    </div>
+    <div class="result-body">
+      <div class="result-advice">${advice}</div>
+      ${patternsHTML}
+      <div class="risk">
+        <div class="risk-row">
+          <span>結構指標 ACRI</span>
+          <strong>${acri.toFixed(3)}</strong>
+        </div>
+        <div class="risk-bar"><div class="risk-fill" style="width:${pct}%"></div></div>
+        <div class="result-meta">隱私模式 Privacy Mode · 原文零留存</div>
+      </div>
+      <div class="result-actions">
+        <button class="btn-copy" onclick="copySummaryFromButton()">複製摘要</button>
+      </div>
+    </div>
+  `;
+  resultCard.className = `result show level-${level}`;
+  btnClear.className = 'btn-clear show';
+  setTimeout(() => resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+}
+</script>
+</body>
+</html>

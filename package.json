@@ -27,7 +27,11 @@
   },
   "homepage": "https://github.com/ChinSookLing/npm-init-lumen-protocol#readme",
   "devDependencies": {
+    "acorn": "^8.16.0",
     "ajv": "^8.18.0",
     "ajv-formats": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }
