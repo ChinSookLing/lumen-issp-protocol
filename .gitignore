@@ -3,3 +3,7 @@ node_modules/
 data/feedback.json
 data/metrics.json
 data/fixture-candidates.json
+_audit/
+_audit_final/
+*.tgz
+public-repo-audit-bundle*
