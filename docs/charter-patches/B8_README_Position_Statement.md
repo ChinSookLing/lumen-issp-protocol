@@ -20,7 +20,7 @@
 ## ⚖️ What Lumen Is — and Is Not
 
 **Lumen 做什麼 | What Lumen Does**
-Lumen 偵測訊息中的操控力學結構，以 🔵🟡🟠 三級信號呈現觀測結果，並附帶克制的安全建議。
+Lumen 偵測語言中可能形成壓力的結構模式，以 🔵🟡🟠 三級信號呈現觀測結果，並附帶克制的安全建議。訊號不是定罪。
 _Lumen detects structural pressure patterns in language, presents observations as 🔵🟡🟠 signals, and provides restrained safety advice. A signal is not a verdict._
 
 **Lumen 不做什麼 | What Lumen Does NOT Do**
@@ -32,7 +32,7 @@ _Lumen does not identify manipulators, make decisions for you, conduct surveilla
 _You decide whether and how to respond. Lumen's output is not legal, psychological, medical, or professional advice._
 
 **協議立場 | Protocol Position**
-Lumen 是開源協議（Apache-2.0），不是產品、不是平台、不是中央系統。任何人可以驗證、任何人可以部署、沒有人可以單方面關閉它。
+Lumen 不是天使、不是法官，而是一面律鏡（lens and mirror）——聚焦語言結構，不替你下判斷。Lumen ISSP 正在準備以 source-available 方式公開發布。
 _Lumen ISSP is being prepared for a public source-available release under a defined release channel. It is not a product, platform, or centralized system. Sensitive detection internals may be withheld to prevent misuse._
 
 > 聊天式 AI 給答案，Lumen 給觸發；沒有觸發，你不會問。

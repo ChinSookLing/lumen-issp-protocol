@@ -1,0 +1,8 @@
+./CHANGELOG.md:42:- Apache-2.0 License
+./docs/deployment/QUICKSTART.md:96:**License:** Apache-2.0
+./docs/positioning/LUMEN_PUBLIC_POSITIONING_v1.0.md:27:A beta Telegram access node is live for controlled testing. It is an access node for structural pattern analysis, not a production-grade judgment system or surveillance service.
+./docs/releases/v1.0.1-release-notes.md:7:**License:** Apache-2.0
+./docs/releases/v1.0.1-release-notes.md:139:**Apache-2.0 · github.com/ChinSookLing/lumen-issp-protocol**
+./docs/charter-patches/B2_Responsibility_Boundary.md:19:> Lumen 偵測訊息中的操控力學結構（manipulation mechanics），並以 🔵/🟡/🟠 三級觀測信號呈現，附帶克制的安全建議（simple_advice）。
+./docs/charter-patches/B8_README_Position_Statement.md:35:Lumen 是開源協議（Apache-2.0），不是產品、不是平台、不是中央系統。任何人可以驗證、任何人可以部署、沒有人可以單方面關閉它。
+./docs/reports/Sprint5_Closure_Report.md:99:Sprint 6 基線：0% medium detection rate

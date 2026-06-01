@@ -16,7 +16,7 @@
 ### §2.10.1 三句框架 | Three-Sentence Framework
 
 > **Lumen 做什麼（What Lumen Does）：**
-> Lumen 偵測訊息中的操控力學結構（manipulation mechanics），並以 🔵/🟡/🟠 三級觀測信號呈現，附帶克制的安全建議（simple_advice）。
+> Lumen 偵測語言中可能形成壓力的結構模式，並以 🔵/🟡/🟠 三級觀測信號呈現，附帶克制的安全建議。訊號不是定罪。
 >
 > _Lumen detects structural pressure patterns in language and presents observations as 🔵/🟡/🟠 signals with restrained safety advice. A signal is not a verdict._
 
