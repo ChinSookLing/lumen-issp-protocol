@@ -15,10 +15,10 @@
 
 ## 2. 核心訊息（Core Messages）
 
-M1. **Lumen is a protocol**: a traceable risk-observation protocol, not a judge, not a detective.
+M1. **Lumen is a protocol**: a traceable risk-observation protocol — not an angel, not a judge, but a lens and mirror. It focuses on language structure without rendering verdicts.
 M2. **Don't speak, just proof**: compatibility claims require a PASS conformance report.
 M3. **No identity targeting**: outputs are signals + reason codes, not labels about people.
-M4. **No central database by default**: default retention is fingerprint-only (hash + metrics).
+M4. **No central raw-text database**: Lumen is designed to minimize data retention and avoid raw-text storage. In supported deployments, message content is processed only for the immediate detection session and is not retained as a central raw-text database.
 M5. **Human responsibility stays**: Lumen informs; humans decide.
 
 ---
@@ -26,6 +26,8 @@ M5. **Human responsibility stays**: Lumen informs; humans decide.
 ## 3. 一句話定位（選一條用）
 
 - Lumen 是可審計的風險觀測協議（protocol），不提供裁決。
+- A signal is not a verdict. 訊號不是定罪，觀察結果不等於判決。
+- Lumen is not an angel, not a judge, but a lens and mirror.
 - Lumen 不說服，只舉證：看 PASS report 說話。
 - Lumen 只輸出信號與理由碼（reason codes），不替人做判斷。
 
@@ -75,3 +77,16 @@ T3: require_pass_report_for_compat_claim (docs/branding)
 
 **Node-05 — AI Council / IT Specialist**
 **2026-02-25**
+
+---
+
+## 4. Four Anchor Sentences (GPT-ratified · 2026-05-31)
+
+All public-facing writing must anchor to:
+
+1. Lumen detects structural pressure patterns, not people.
+2. A signal is not a verdict.
+3. Lumen is not an angel, not a judge, but a lens and mirror.
+4. FP=0 refers to the current tested pattern set, not a universal guarantee.
+
+> See `docs/positioning/LUMEN_PUBLIC_POSITIONING_v1.0.md` for full approved wording.
