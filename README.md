@@ -2,7 +2,7 @@
 
 **Information Sovereignty Shield Protocol (ISSP) — Cognitive Manipulation Detection**
 
-[![tests](https://img.shields.io/badge/tests-1344%2F1344-brightgreen)](#status)
+[![tests](https://img.shields.io/badge/tests-2513%2F2513-brightgreen)](#status)
 [![schema](https://img.shields.io/badge/schema-v0.1.0-blue)](#architecture)
 [![charter](https://img.shields.io/badge/charter-draft4-orange)](#governance)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue)](#license)
@@ -11,8 +11,8 @@
 ## ⚖️ What Lumen Is — and Is Not
 
 **Lumen 做什麼 | What Lumen Does**
-Lumen 偵測訊息中的操控力學結構，以 🔵🟡🟠 三級信號呈現觀測結果，並附帶克制的安全建議。
-_Lumen detects manipulation mechanics in messages, presents observations as 🔵🟡🟠 signals, and provides restrained safety advice._
+Lumen 偵測語言中可能形成壓力的結構模式，以 🔵🟡🟠 三級信號呈現觀測結果，並附帶克制的安全建議。訊號不是定罪。
+_Lumen detects structural pressure patterns in language, presents observations as 🔵🟡🟠 signals, and provides restrained safety advice. A signal is not a verdict._
 
 **Lumen 不做什麼 | What Lumen Does NOT Do**
 Lumen 不判定誰是操控者、不替你做決策、不進行監控或批量分析、不保證偵測結果的完整性。
@@ -23,8 +23,10 @@ _Lumen does not identify manipulators, make decisions for you, conduct surveilla
 _You decide whether and how to respond. Lumen output is not legal, psychological, medical, or professional advice._
 
 **協議立場 | Protocol Position**
-Lumen 是開源協議（Apache-2.0），不是產品、不是平台、不是中央系統。任何人可以驗證、任何人可以部署、沒有人可以單方面關閉它。
-_Lumen is an open-source protocol (Apache-2.0) — not a product, platform, or centralized system. Anyone can verify, anyone can deploy, no one can unilaterally shut it down._
+Lumen 不是天使、不是法官，而是一面律鏡（lens and mirror）——聚焦語言結構，不替你下判斷。
+_Lumen is not an angel, not a judge, but a lens and mirror — it focuses on language structure without rendering verdicts._
+
+Lumen ISSP is being prepared for a public source-available release under a defined release channel. Sensitive detection internals, adversarial fixtures, raw real-world cases, and raw governance records may be withheld or redacted to prevent misuse.
 
 > 聊天式 AI 給答案，Lumen 給觸發；沒有觸發，你不會問。
 > _Chat AIs give answers. Lumen gives triggers. Without the trigger, you would not think to ask._
@@ -34,7 +36,7 @@ _Lumen is an open-source protocol (Apache-2.0) — not a product, platform, or c
 
 Lumen is a **protocol** — not a product, not a platform, not a centralized system.
 
-It detects **manipulation mechanics** in communication. It does not judge who is right or wrong. It does not intervene. It observes structural patterns of cognitive pressure, the same way a seismograph observes tectonic stress without deciding whether to evacuate.
+It detects **structural pressure patterns** in communication. It does not judge who is right or wrong. It does not intervene. It observes structural patterns of cognitive pressure, the same way a seismograph observes tectonic stress without deciding whether to evacuate.
 
 > *"Lumen is like TCP/IP — a universal standard. Each node runs its own network."*
 
@@ -56,7 +58,8 @@ Lumen operates on a **dual-channel, four-layer** architecture:
 │  Channel A: Push-Risk                   │
 │  ┌───────────────────────────────┐      │
 │  │ Three-Question Gate           │      │
-│  │ → 8 Manipulation Patterns     │      │
+│  │ → Tested structural pressure  │      │
+│  │   pattern families             │      │
 │  │ → ACRI (Aggregate Cognitive   │      │
 │  │        Risk Index)            │      │
 │  └───────────────────────────────┘      │
@@ -116,7 +119,7 @@ This repository contains spec, conformance tests, reference implementation, and 
 Understand the directory boundaries to avoid confusing working papers with the spec itself.
 
 ```
-npm-init-lumen-protocol/
+lumen-issp-protocol/
 .github/          - CI / workflows
 config/           - Configuration and defaults
 core/             - Protocol core (spec-critical)
@@ -158,8 +161,8 @@ README.md
 
 ```bash
 # Clone
-git clone https://github.com/ChinSookLing/npm-init-lumen-protocol.git
-cd npm-init-lumen-protocol
+git clone https://github.com/ChinSookLing/lumen-issp-protocol.git
+cd lumen-issp-protocol
 
 # Install (no dependencies yet)
 npm install
@@ -190,7 +193,7 @@ tests 40 | pass 40 | fail 0
 | M2 | DM Pattern detection (Push channel) | ✅ Complete |
 | M3 | Class-0 Omission Dynamics (Vacuum channel) | ✅ Complete |
 | M4 | Three-Layer Response Mechanism (Charter §6.4) | ✅ Complete |
-| M5 | Additional Patterns (P2-P8) | ⏳ Next |
+| M5+ | Pattern engine expansion · X-axis validation · Phase 5 blind test | ⏳ Active |
 
 ### Response Levels (Charter §6.4)
 
@@ -256,7 +259,7 @@ This project is provided **as-is**, with no warranty, no support team, and no af
 
 ## License
 
-TBD — Open source strategy defined in Charter §11.1. Layer 1-2 will be open source with strict governance.
+Lumen ISSP is being prepared for a public source-available release. Sensitive detection internals may be withheld to prevent misuse. See `docs/positioning/LUMEN_PUBLIC_POSITIONING_v1.0.md` for full statement.
 
 ---
 
@@ -294,7 +297,6 @@ TBD — Open source strategy defined in Charter §11.1. Layer 1-2 will be open s
 
 ---
 
-## Repository Map（倉庫導航）
 
 本倉庫是 Lumen ISSP 的「協議 + 可驗證裁定」來源。若你要宣稱 Compatible，請先理解下列目錄邊界。
 
