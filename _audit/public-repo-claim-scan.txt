@@ -1,0 +1,73 @@
+./CHANGELOG.md:9:Lumen ISSP v1.0 — the first open-source protocol for detecting cognitive manipulation structures in communication.
+./CHANGELOG.md:13:- **Four-layer pipeline:** L1 Protocol → L2 Mapping → L3 Forecast → L4 Output
+./CHANGELOG.md:24:- `src/output/alert-engine.js` — L4 alert classification
+./CHANGELOG.md:25:- `src/output/output-formatter.js` — L4 output formatting
+./CHANGELOG.md:42:- Apache-2.0 License
+./CHANGELOG.md:64:**Lumen detects manipulation mechanics — structures, not words.**
+./ROADMAP.md:27:3. **Operational Trigger**: At least two independent, verified production deployments of Lumen core (Layer 1–4) operating for ≥30 days without Silent Degradation incidents.
+./docs/specs/L4_UI_CONSTRAINTS_v0.2.md:1:# L4_UI_CONSTRAINTS v0.2
+./docs/specs/L4_UI_CONSTRAINTS_v0.2.md:16:L4 outputs MUST be: (a) understandable, (b) auditable, (c) misuse-resistant.
+./docs/specs/L4_UI_CONSTRAINTS_v0.2.md:17:L4 outputs MUST NOT become: (a) a "confession archive", (b) legal advice, (c) accusation engine.
+./docs/specs/L4_UI_CONSTRAINTS_v0.2.md:63:Every L4 output MUST include:
+./docs/l4-dod-tests-v0.1.md:1:# L4 DoD Tests Specification
+./docs/templates/reply-registry.md:2:# Step 22B 前置準備 · L4 回覆多樣性
+./docs/deployment/QUICKSTART.md:96:**License:** Apache-2.0
+./docs/positioning/LUMEN_PUBLIC_POSITIONING_v1.0.md:13:4. FP=0 refers to the current tested pattern set, not a universal guarantee.
+./docs/positioning/LUMEN_PUBLIC_POSITIONING_v1.0.md:23:### FP=0
+./docs/positioning/LUMEN_PUBLIC_POSITIONING_v1.0.md:27:A beta Telegram access node is live for controlled testing. It is an access node for structural pattern analysis, not a production-grade judgment system or surveillance service.
+./docs/positioning/LUMEN_PUBLIC_POSITIONING_v1.0.md:34:- Not a production guarantee — beta access node, controlled testing only
+./docs/design-notes/L4_UI_CONSTRAINTS_v0.1.md:1:# L4 UI Constraints — v0.1 (Draft)
+./docs/design-notes/L4_UI_CONSTRAINTS_v0.1.md:108:- **R9: Dashboard reads `dashboard_item` contract** — Does not read L4 export directly. Isolation layer.
+./docs/l4-dashboard-flows-v0.1.md:1:# L4 Dashboard UI Flows v0.1
+./docs/trs/TRS_TEMPLATE_v0.1.md:85:## 4) Output mapping（可選：給 L4 UI/Export 對齊）
+./docs/releases/v1.0.1-release-notes.md:7:**License:** Apache-2.0
+./docs/releases/v1.0.1-release-notes.md:124:- `/api/metrics/live` — Runtime real-time data, available immediately after server start
+./docs/releases/v1.0.1-release-notes.md:139:**Apache-2.0 · github.com/ChinSookLing/lumen-issp-protocol**
+./docs/charter-patches/B2_Responsibility_Boundary.md:21:> _Lumen detects manipulation mechanics in messages and presents observations as 🔵/🟡/🟠 signals with restrained safety advice (simple_advice)._
+./docs/charter-patches/B8_README_Position_Statement.md:24:_Lumen detects manipulation mechanics in messages, presents observations as 🔵🟡🟠 signals, and provides restrained safety advice._
+./docs/charter-patches/B8_README_Position_Statement.md:35:Lumen 是開源協議（Apache-2.0），不是產品、不是平台、不是中央系統。任何人可以驗證、任何人可以部署、沒有人可以單方面關閉它。
+./docs/charter-patches/B8_README_Position_Statement.md:36:_Lumen is an open-source protocol (Apache-2.0) — not a product, platform, or centralized system. Anyone can verify, anyone can deploy, no one can unilaterally shut it down._
+./docs/brand/BRANDING.md:4:**Ratified:** M78 Logo Blind Vote (2026-02-21), L4 primary 4/5, L6 secondary
+./docs/brand/BRANDING.md:5:**L4 Designer:** Node-06 (AI Council / Skeptic)
+./docs/brand/BRANDING.md:12:### Primary: L4 — Minimal Blue Shield
+./docs/brand/BRANDING.md:48:## Logo Versions (L4)
+./docs/brand/BRANDING.md:82:- Using L6 where L4 should be used
+./docs/brand/BRANDING.md:103:| L4 primary | 4/5 | M78 | 2026-02-21 |
+./docs/brand/BRANDING.md:109:**Brand Source:** Node-06 (L4 designer)
+./docs/dimensions/1-backend-risk/BACKEND_INTEGRITY_HARDENING_v0.1.md:5:**Covers:** T1e (open-source backdoor) + T1f (dependency poisoning / config tampering / benchmark gaming)
+./docs/dimensions/3-narrative-risk/MESSAGING_PACK_v0.1.md:90:4. FP=0 refers to the current tested pattern set, not a universal guarantee.
+./docs/dimensions/3-narrative-risk/README.md:27:| G8 | L4 UI constraints | Draft |
+./docs/charter/CHARTER.md:12:Lumen ISSP (Information Sovereignty Shield Protocol) is an open-source protocol and reference implementation for detecting cognitive pressure structures in communication.
+./docs/beta-privacy.md:36:- **假設性輸出：** 所有由 L4 輸出之解釋均帶有 `[假設生成 — 低信心]` 標記。該輸出僅為基於母題識別的技術推論，不應被視為事實陳述、法律建議或道德裁定。
+./docs/protocol-independence/case-01-lumen-free-v1.md:12:A public fork claiming to be a "pure open-source" version of Lumen, which removed all L1 FC (False Consensus) detection and L2b narrative_hype filtering.
+./docs/governance/RESPONSIBILITY.md:35:All releases must include a build fingerprint: `build_id`, `commit_hash`, `operator_mode` (e.g., research / production / sandbox), and a provenance URL. See COMPATIBILITY.md §7 for full requirements.
+./docs/governance/RESPONSIBILITY.md:128:  "operator_mode": "research | production | sandbox",
+./docs/governance/SPEG/SPEG-R2-04-audit-retention-draft.md:17:3. **l4-export 缺少 SPEG 標記欄位**：當 L4 輸出被導出時，沒有標記這筆輸出屬於哪個 SPEG 類別
+./docs/governance/DECISION_MEMO_v1.0.md:94:- 合成數據**不得**作為唯一證據來調整 production 閾值
+./docs/governance/DECISION_MEMO_v1.1.md:94:- 合成數據**不得**作為唯一證據來調整 production 閾值
+./docs/governance/ESCALATION_REPORTING_POLICY.md:82:- [ ] 定義具體的 escalation level（L1 silent → L2 flag → L3 alert → L4 handoff）
+./docs/reports/Sprint9_Wave1_Report.md:16:| **Node-05** | C4 RW ×3 + MT ×3 | L4 UI Constraints v0.1 | ✅ |
+./docs/reports/Sprint9_Wave1_Report.md:21:**Total new docs: 3（C4 mutex + L4 UI + close report）**
+./docs/reports/Sprint9_Wave1_Report.md:46:| Node-05 L4 UI Constraints v0.1 | 需放 docs/design-notes/ |
+./docs/reports/Layer_Completion_Projection_M85.md:71:| L4 UI Constraints v0.1 | ✅ Draft | ✅ Draft | Node-05 | M86 升級為 v0.2（V10 產出） |
+./docs/reports/Layer_Completion_Projection_M85.md:75:| ★ **L4 Public Contract v0.1** | ❌ | ✅ **6/6 通過** | Node-05 | Tier 0 "no raw text" 初期用戶可能覺得抽象；5 dashboards 開發自由度降低；需補 context_sufficiency test |
+./docs/reports/Layer_Completion_Projection_M85.md:77:**完成度：~93% → ~95%**（+L4 Public Contract 通過）
+./docs/reports/Layer_Completion_Projection_M85.md:122:| **Layer 4** | ~80% | ~92% | ~93% | **~95%** | +2（L4 Contract） |
+./docs/reports/Layer_Completion_Projection_M85.md:134:| 3 | L4 Public Contract v0.1 — Lumen 首個對外輸出合約 | M85 |
+./docs/reports/Layer_Completion_Projection_M85.md:152:| 5 | L4_UI_CONSTRAINTS_v0.2 + Export Contract | Node-05 | 落地到 repo |
+./docs/reports/pr-gold-standard-examples.md:81:- C4 remains shadow mode (`weight=0`), no production scoring impact
+./docs/reports/test-coverage-inventory-m80.md:81:| **端到端 L1→L2→L3→L4 全流程** | 🔴 HIGH | 從未用真實操控案例跑完全部四層 | M80 Architect POV #6 已標記 |
+./docs/reports/test-coverage-inventory-m80.md:133:| 1 | 端到端 RW 案例（L1→L4 全流程） | P0 | M81-M85 |
+./docs/reports/Sprint5_Closure_Report.md:99:Sprint 6 基線：0% medium detection rate
+./REDLINES.md:3:Lumen ISSP（Information Sovereignty Shield Protocol）是 open-source protocol 與參考實作。
+./_audit/public-repo-docs.txt:38:./docs/design-notes/L4_UI_CONSTRAINTS_v0.1.md
+./_audit/public-repo-docs.txt:132:./docs/specs/L4_UI_CONSTRAINTS_v0.2.md
+./_audit/public-repo-files.txt:40:./assets/logo/L4-brand-guidelines.jpg
+./_audit/public-repo-files.txt:41:./assets/logo/L4-bw.jpg
+./_audit/public-repo-files.txt:42:./assets/logo/L4-favicon.jpg
+./_audit/public-repo-files.txt:43:./assets/logo/L4-fullcolor.jpg
+./_audit/public-repo-files.txt:44:./assets/logo/L4-reversed.jpg
+./_audit/public-repo-files.txt:126:./docs/design-notes/L4_UI_CONSTRAINTS_v0.1.md
+./_audit/public-repo-files.txt:229:./docs/specs/L4_UI_CONSTRAINTS_v0.2.md
+./RATIFIED.md:100:### v1.4.1 — Node-05 Patches + 測試統一（L3/L4 MVP + Guards）
+./RATIFIED.md:109:| **定位** | L3/L4 MVP + Guards，非全管線整合（Node-05 備註）|

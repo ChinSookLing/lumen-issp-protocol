@@ -6,7 +6,7 @@ All notable changes to Lumen ISSP will be documented in this file.
 
 ### Protocol Launch 🛡️
 
-Lumen ISSP v1.0 — the first open-source protocol for detecting cognitive manipulation structures in communication.
+Lumen ISSP v1.0 — a protocol for detecting structural pressure patterns in language — designed for public source-available release.
 
 ### Architecture
 - **Dual-channel detection:** Push (ACRI) + Vacuum (VRI)
@@ -61,7 +61,7 @@ Lumen ISSP v1.0 — the first open-source protocol for detecting cognitive manip
 
 ---
 
-**Lumen detects manipulation mechanics — structures, not words.**
+**Lumen detects structural pressure patterns — not people, not verdicts, not words. A signal is not a verdict.**
 **Anyone can verify. Anyone can deploy. No one can unilaterally shut it down.**
 
 🌙

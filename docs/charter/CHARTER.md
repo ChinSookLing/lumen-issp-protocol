@@ -9,7 +9,7 @@
 
 ## §1 Purpose & Scope（前言與範圍）
 
-Lumen ISSP (Information Sovereignty Shield Protocol) is an open-source protocol and reference implementation for detecting cognitive pressure structures in communication.
+Lumen ISSP (Information Sovereignty Shield Protocol) is a protocol and reference implementation for detecting structural pressure patterns in language. It is being prepared for a public source-available release under a defined release channel.
 
 This Charter is the single authoritative governance document. It consolidates all ratified clauses, red lines, operating procedures, and compatibility rules into one auditable, versionable reference.
 

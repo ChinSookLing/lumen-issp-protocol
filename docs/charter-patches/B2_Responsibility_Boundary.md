@@ -18,7 +18,7 @@
 > **Lumen 做什麼（What Lumen Does）：**
 > Lumen 偵測訊息中的操控力學結構（manipulation mechanics），並以 🔵/🟡/🟠 三級觀測信號呈現，附帶克制的安全建議（simple_advice）。
 >
-> _Lumen detects manipulation mechanics in messages and presents observations as 🔵/🟡/🟠 signals with restrained safety advice (simple_advice)._
+> _Lumen detects structural pressure patterns in language and presents observations as 🔵/🟡/🟠 signals with restrained safety advice. A signal is not a verdict._
 
 > **Lumen 不做什麼（What Lumen Does NOT Do）：**
 > Lumen 不判定誰是操控者（§2.2）、不替使用者做決策（§2.1）、不進行監控或批量分析（SPEG）、不保證偵測結果的完整性或最終性。

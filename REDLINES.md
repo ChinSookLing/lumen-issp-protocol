@@ -1,6 +1,6 @@
 # Lumen ISSP 紅線與使用條款（Red Lines & Terms of Use）
 
-Lumen ISSP（Information Sovereignty Shield Protocol）是 open-source protocol 與參考實作。
+Lumen ISSP（Information Sovereignty Shield Protocol）是一套偵測語言中結構性壓力模式的協議與參考實作，正在準備以 source-available 方式公開發布。
 你可以自由使用，但你必須自重。
 任何使用方式不得越過以下紅線；越線者，後果自負。
 
